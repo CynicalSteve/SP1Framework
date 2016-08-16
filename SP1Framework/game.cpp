@@ -70,10 +70,10 @@ void shutdown( void )
 //--------------------------------------------------------------
 void getInput( void )
 {    
-    g_abKeyPressed[K_UP]     = isKeyPressed(VK_UP);
-    g_abKeyPressed[K_DOWN]   = isKeyPressed(VK_DOWN);
-    g_abKeyPressed[K_LEFT]   = isKeyPressed(VK_LEFT);
-    g_abKeyPressed[K_RIGHT]  = isKeyPressed(VK_RIGHT);
+    g_abKeyPressed[K_UP]     = isKeyPressed(0x57);
+    g_abKeyPressed[K_DOWN]   = isKeyPressed(0x53);
+    g_abKeyPressed[K_LEFT]   = isKeyPressed(0x41);
+    g_abKeyPressed[K_RIGHT]  = isKeyPressed(0x44);
     g_abKeyPressed[K_SPACE]  = isKeyPressed(VK_SPACE);
     g_abKeyPressed[K_ESCAPE] = isKeyPressed(VK_ESCAPE);
 }
