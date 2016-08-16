@@ -74,6 +74,8 @@ void getInput( void )
     g_abKeyPressed[K_DOWN]   = isKeyPressed(0x53);
     g_abKeyPressed[K_LEFT]   = isKeyPressed(0x41);
     g_abKeyPressed[K_RIGHT]  = isKeyPressed(0x44);
+	g_abKeyPressed[K_INTERACT] = isKeyPressed(0x46);
+	g_abKeyPressed[K_INVENTORY] = isKeyPressed(0x49);
     g_abKeyPressed[K_SPACE]  = isKeyPressed(VK_SPACE);
     g_abKeyPressed[K_ESCAPE] = isKeyPressed(VK_ESCAPE);
 }
@@ -102,6 +104,8 @@ void update(double dt)
     {
         case S_SPLASHSCREEN : splashScreenWait(); // game logic for the splash screen
             break;
+		case S_INVENTORY: gameplay();
+			break;
         case S_GAME: gameplay(); // gameplay logic when we are in the game
             break;
     }
@@ -121,6 +125,8 @@ void render()
     {
         case S_SPLASHSCREEN: renderSplashScreen();
             break;
+		case S_INVENTORY: renderUI(); // is Inventory open?
+			break;
         case S_GAME: renderGame();
             break;
     }
@@ -187,9 +193,42 @@ void moveCharacter()
 }
 void processUserInput()
 {
+	bool bSomethingHappened = false;
+	if (g_dBounceTime > g_dElapsedTime)
+		return;
+
     // quits the game if player hits the escape key
-    if (g_abKeyPressed[K_ESCAPE])
-        g_bQuitGame = true;    
+	if (g_abKeyPressed[K_ESCAPE])
+	{
+		g_bQuitGame = true;
+	}
+
+	if (g_abKeyPressed[K_INTERACT])
+	{
+		
+	}
+
+	if (g_abKeyPressed[K_INVENTORY])
+	{
+		bSomethingHappened = true;
+
+		if (g_eGameState != 2)
+		{
+			g_eGameState = S_INVENTORY;
+		}
+		else if (g_eGameState == 2)
+		{
+			clearScreen();
+
+			g_eGameState = S_GAME;
+		}
+	}
+
+	if (bSomethingHappened)
+	{
+		// set the bounce time to some time in the future to prevent accidental triggers
+		g_dBounceTime = g_dElapsedTime + 0.125; // 125ms should be enough
+	}
 }
 
 void clearScreen()
@@ -269,4 +308,12 @@ void renderToScreen()
 {
     // Writes the buffer to the console, hence you will see what you have written
     g_Console.flushBufferToConsole();
+}
+
+void renderUI()
+{
+	COORD c = g_Console.getConsoleSize();
+	c.Y /= 3;
+	c.X = c.X / 2 - 9;
+	g_Console.writeToBuffer(c, "-Inventory Opened-", 0x03); // at the moment this does jack shit aside from show a new screen saying inventory is open
 }
