@@ -4,20 +4,24 @@
 #include "game.h"
 #include "Framework\console.h"
 #include <iostream>
+#include <fstream>
+#include <string>
 #include <iomanip>
 #include <sstream>
 
 double  g_dElapsedTime;
 double  g_dDeltaTime;
 bool    g_abKeyPressed[K_COUNT];
+bool    area1 = true;
 
 // Game specific variables here
 SGameChar   g_sChar;
 EGAMESTATES g_eGameState = S_SPLASHSCREEN;
+
 double  g_dBounceTime; // this is to prevent key bouncing, so we won't trigger keypresses more than once
 
 // Console object
-Console g_Console(80, 25, "SP1 Framework");
+Console g_Console(109, 50, "SP1 Framework");
 
 //--------------------------------------------------------------
 // Purpose  : Initialisation function
@@ -35,8 +39,10 @@ void init( void )
     // sets the initial state for the game
     g_eGameState = S_SPLASHSCREEN;
 
-    g_sChar.m_cLocation.X = g_Console.getConsoleSize().X / 2;
-    g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y / 2;
+	// sets where the character spawns when game starts
+	g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 86;
+	g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 39;
+
     g_sChar.m_bActive = true;
     // sets the width, height and the font name to use in the console
     g_Console.setConsoleFont(0, 16, L"Consolas");
@@ -107,7 +113,7 @@ void update(double dt)
 		case S_INVENTORY: gameplay();
 			break;
         case S_GAME: gameplay(); // gameplay logic when we are in the game
-            break;
+			break;
     }
 }
 //--------------------------------------------------------------
@@ -234,7 +240,7 @@ void processUserInput()
 void clearScreen()
 {
     // Clears the buffer with this colour attribute
-    g_Console.clearBuffer(0x1F);
+    g_Console.clearBuffer(0x00);
 }
 
 void renderSplashScreen()  // renders the splash screen
@@ -258,8 +264,8 @@ void renderSplashScreen()  // renders the splash screen
 	c.Y += 1;
 
 	c.Y += 2;
-	c.X = g_Console.getConsoleSize().X / 2 - 5;
-	g_Console.writeToBuffer(c, "Start Game", 0x03);
+	c.X = g_Console.getConsoleSize().X / 2 - 10;
+	g_Console.writeToBuffer(c, "Welcome to Fragments", 0x03);
 	c.Y += 1;
 	c.X = g_Console.getConsoleSize().X / 2 - 20;
 	g_Console.writeToBuffer(c, "Press <Space> to change character colour", 0x09);
@@ -276,21 +282,30 @@ void renderGame()
 
 void renderMap()
 {
-    // Set up sample colours, and output shadings
-    const WORD colors[] = {
-        0x1A, 0x2B, 0x3C, 0x4D, 0x5E, 0x6F,
-        0xA1, 0xB2, 0xC3, 0xD4, 0xE5, 0xF6
-    };
+	// Sets map of first area
+	COORD c = g_Console.getConsoleSize();
+	c.Y = 0;
+	c.X = 0;
+	std::string line;
+	std::ifstream myfile("Text files/Area 1.txt");
+	
+	if (area1)
+	{
+		if (myfile.is_open())
+		{
+			while (getline(myfile, line))
+			{
+				g_Console.writeToBuffer(c, line, 0x07);
+				c.Y++;
+			}
+			myfile.close();
+		}
+	}
 
-    COORD c;
-    for (int i = 0; i < 12; ++i)
-    {
-        c.X = 5 * i;
-        c.Y = i + 1;
-        colour(colors[i]);
-        g_Console.writeToBuffer(c, " °±²Û", colors[i]);
-    }
+	c.Y++;
+	g_Console.writeToBuffer(c, "=====================================================", 0x09);
 }
+
 
 void renderCharacter()
 {
