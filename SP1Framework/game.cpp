@@ -104,7 +104,7 @@ void update(double dt)
     {
         case S_SPLASHSCREEN : splashScreenWait(); // game logic for the splash screen
             break;
-		case S_INVENTORY: gameplay();
+		case S_INVENTORY: gameplay(); // Enables input checking for turning off inventory
 			break;
         case S_GAME: gameplay(); // gameplay logic when we are in the game
             break;
@@ -313,7 +313,7 @@ void renderToScreen()
 void renderUI()
 {
 	COORD c = g_Console.getConsoleSize();
-	c.Y /= 3;
+	c.Y /= 4;
 	c.X = c.X / 2 - 9;
 	g_Console.writeToBuffer(c, "-Inventory Opened-", 0x03); // at the moment this does jack shit aside from show a new screen saying inventory is open
 }
