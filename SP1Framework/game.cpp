@@ -239,16 +239,33 @@ void clearScreen()
 
 void renderSplashScreen()  // renders the splash screen
 {
-    COORD c = g_Console.getConsoleSize();
-    c.Y /= 3;
-    c.X = c.X / 2 - 9;
-    g_Console.writeToBuffer(c, "A game in 3 seconds", 0x03);
-    c.Y += 1;
-    c.X = g_Console.getConsoleSize().X / 2 - 20;
-    g_Console.writeToBuffer(c, "Press <Space> to change character colour", 0x09);
-    c.Y += 1;
-    c.X = g_Console.getConsoleSize().X / 2 - 9;
-    g_Console.writeToBuffer(c, "Press 'Esc' to quit", 0x09);
+	COORD c = g_Console.getConsoleSize();
+	c.Y /= 3;
+	c.X = g_Console.getConsoleSize().X / 2 - 30;
+	g_Console.writeToBuffer(c, " _______", 0x03);
+	c.Y += 1;
+	g_Console.writeToBuffer(c, "(_______)                                         _", 0x03);
+	c.Y += 1;
+	g_Console.writeToBuffer(c, " _____  ____  _____   ____  ____   _____  ____  _| |_   ___", 0x03);
+	c.Y += 1;
+	g_Console.writeToBuffer(c, "|  ___)/ ___)(____ | / _  ||    \\ | ___ ||  _ \\(_   _) / __)", 0x03);
+	c.Y += 1;
+	g_Console.writeToBuffer(c, "| |   | |    / ___ |( (_| || | | || ____|| | | | | |_ |___ |", 0x03);
+	c.Y += 1;
+	g_Console.writeToBuffer(c, "|_|   |_|    \\_____| \\___ ||_|_|_||_____)|_| |_|  \\__)(___/", 0x03);
+	c.Y += 1;
+	g_Console.writeToBuffer(c, "                    (_____|  ", 0x03);
+	c.Y += 1;
+
+	c.Y += 2;
+	c.X = g_Console.getConsoleSize().X / 2 - 5;
+	g_Console.writeToBuffer(c, "Start Game", 0x03);
+	c.Y += 1;
+	c.X = g_Console.getConsoleSize().X / 2 - 20;
+	g_Console.writeToBuffer(c, "Press <Space> to change character colour", 0x09);
+	c.Y += 1;
+	c.X = g_Console.getConsoleSize().X / 2 - 9;
+	g_Console.writeToBuffer(c, "Press 'Esc' to quit", 0x09);
 }
 
 void renderGame()
