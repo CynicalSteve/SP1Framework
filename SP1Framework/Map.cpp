@@ -2,12 +2,38 @@
 
 extern Console g_Console;
 
+extern int Areanum;
+
 char** mapstore(char** printmap)
 {
+	std::ifstream area;
 
-	std::ifstream area1("Text files/Area 1.txt");
+	if (Areanum == 1)
+	{
+		area.open("Text files/Area 1.txt");
+	}
+	else if (Areanum == 2)
+	{
+	    area.open("Text files/Area 2 & 3.txt");
+	}
+	else if (Areanum == 3)
+	{
+	   area.open("Text files/Area 4 & 5.txt");
+	}
+	else if (Areanum == 4)
+	{
+	   area.open("Text files/Area 6 & 7.txt");
+	}
+	else if (Areanum == 5)
+	{
+    	area.open("Text files/Area 8 & 9 & 10.txt");
+	}
+	else if (Areanum == 6)
+	{
+    	area.open("Text files/Area 11.txt");
+	}
 
-	if (area1.is_open())
+	if (area.is_open())
 	{
 		for (int AreaY = 0; AreaY < 16; AreaY++)
 		{
@@ -15,10 +41,10 @@ char** mapstore(char** printmap)
 
 			for (int AreaX = 0; AreaX < 109; AreaX++)
 			{
-				area1 >> printmap[AreaY][AreaX];
+				area >> printmap[AreaY][AreaX];
 			}
 		}
-		area1.close();
+		area.close();
 	}
 
 	return printmap;

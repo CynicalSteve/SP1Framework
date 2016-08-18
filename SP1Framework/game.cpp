@@ -15,13 +15,16 @@ double  g_dElapsedTime;
 double  g_dDeltaTime;
 bool    g_abKeyPressed[K_COUNT];
 
+int Areanum = 1;
+int EssentialFragment = 6;
+
 // Game specific variables here
 SGameChar   g_sChar;
 EGAMESTATES g_eGameState = S_SPLASHSCREEN;
 double  g_dBounceTime; // this is to prevent key bouncing, so we won't trigger keypresses more than once
 
 // Console object
-Console g_Console(80, 25, "SP1 Framework");
+Console g_Console(110, 55, "SP1 Framework");
 
 //--------------------------------------------------------------
 // Purpose  : Initialisation function
@@ -40,8 +43,8 @@ void init( void )
     g_eGameState = S_SPLASHSCREEN;
 
 	// sets where the character spawns when game starts
-	g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 60;
-	g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 15;
+	g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 87;
+	g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 43;
 	g_sChar.m_bActive = true;
     // sets the width, height and the font name to use in the console
     g_Console.setConsoleFont(0, 16, L"Consolas");
