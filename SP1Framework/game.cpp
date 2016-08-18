@@ -21,7 +21,7 @@ EGAMESTATES g_eGameState = S_SPLASHSCREEN;
 double  g_dBounceTime; // this is to prevent key bouncing, so we won't trigger keypresses more than once
 
 // Console object
-Console g_Console(80, 25, "SP1 Framework");
+Console g_Console(110, 55, "SP1 Framework");
 
 //--------------------------------------------------------------
 // Purpose  : Initialisation function
@@ -40,8 +40,8 @@ void init( void )
     g_eGameState = S_SPLASHSCREEN;
 
 	// sets where the character spawns when game starts
-	g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 60;
-	g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 15;
+	g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 87;
+	g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 43;
 	g_sChar.m_bActive = true;
     // sets the width, height and the font name to use in the console
     g_Console.setConsoleFont(0, 16, L"Consolas");
@@ -301,6 +301,7 @@ void renderSplashScreen()  // renders the splash screen
 void renderGame()
 {
     renderMap();        // renders the map to the buffer first
+	renderFeed();		// renders the activity feed to the buffer
     renderCharacter();  // renders the character into the buffer
 }
 
@@ -327,6 +328,81 @@ void renderCharacter()
     }
     g_Console.writeToBuffer(g_sChar.m_cLocation, (char)1, charColor);
 }
+
+void renderFeed()
+{
+	COORD c = g_Console.getConsoleSize();
+	c.X = 0;
+	c.Y = 23;
+	g_Console.writeToBuffer(c, "==============================================================", 0x07);
+	c.Y++;
+	g_Console.writeToBuffer(c, "\"Wha-What is this place?\"", 0x02);
+	c.Y++;
+	if (g_dElapsedTime > 5.0) // wait for 5 seconds to display next message
+		g_Console.writeToBuffer(c, "I looked about confused and wide-eyed.", 0x02);
+	c.Y++;
+	if (g_dElapsedTime > 7.0) // wait for 7 seconds to display next message
+		g_Console.writeToBuffer(c, "A verdant grassy plain laid out before me while the sea behind me rolled and crashed into the shores of the", 0x02);
+	c.Y++;
+	if (g_dElapsedTime > 7.0) // wait for 7 seconds to display next message
+		g_Console.writeToBuffer(c, "beach I was standing in.", 0x02);
+	c.Y++;
+	if (g_dElapsedTime > 9.0) // wait for 9 seconds to display next message
+		g_Console.writeToBuffer(c, "Trees which bordered the plains crackled as a cold breeze blew across the island. Seagulls overhead screamed", 0x02);
+	c.Y++;
+	if (g_dElapsedTime > 9.0) // wait for 5 seconds to display next message
+		g_Console.writeToBuffer(c, "in response.", 0x02);
+	c.Y++;
+	if (g_dElapsedTime > 11.0) // wait for 11 seconds to display next message
+		g_Console.writeToBuffer(c, "", 0x02);
+	c.Y++;
+	if (g_dElapsedTime > 11.0) // wait for 11 seconds to display next message
+		g_Console.writeToBuffer(c, "Despite so much looking around, my surroundings didn't provide a single clue as to where I am or how I got", 0x02);
+	c.Y++;
+	if (g_dElapsedTime > 11.0) // wait for 11 seconds to display next message
+		g_Console.writeToBuffer(c, "here... or who I was.", 0x02);
+	c.Y++;
+	if (g_dElapsedTime > 13.0) // wait for 13 seconds to display next message
+		g_Console.writeToBuffer(c, "Wait a minute, I think I got something...", 0x02);
+	c.Y++;
+	if (g_dElapsedTime > 15.0) // wait for 15 seconds to display next message
+		g_Console.writeToBuffer(c, "A...Av...Ava? Ava...Laurens?", 0x02);
+	c.Y++;
+	if (g_dElapsedTime > 17.0) // wait for 17 seconds to display next message
+		g_Console.writeToBuffer(c, "Is that my name?", 0x02);
+	c.Y++;
+	if (g_dElapsedTime > 19.0) // wait for 19 seconds to display next message
+		g_Console.writeToBuffer(c, "\"Ava Laurens.\" The name sounds much clearer now, it has to be mine.", 0x02);
+	c.Y++;
+	if (g_dElapsedTime > 21.0) // wait for 21 seconds to display next message
+		g_Console.writeToBuffer(c, "I should take a look around, since being a sitting duck here would do me no good.", 0x02);
+	c.Y++;
+	//if Player interacts with sea,
+	//g_Console.writeToBuffer(c, "There's a wooden boat in the distance leaning against a couple rocks. There's a giant hole in its hull so I", 0x02);
+	//c.Y++;
+	//g_Console.writeToBuffer(c, "doubt its usability.", 0x02);
+	//c.Y++;
+
+	//if Player interacts with trees,
+	//g_Console.writeToBuffer(c, "The trees are swaying in harmony with the wind. Their leaves seem to have a weird shade of dark green.", 0x02);
+	//c.Y++;
+
+	//if Player interacts with portal
+	//g_Console.writeToBuffer(c, "It looks and feels like some sort of portal. It pulsates with a strange light-blue energy but oddly enough".0x02);
+	//c.Y++;
+	//g_Console.writeToBuffer(c, "I don't feel intimidated by it at all. Instead, it feels like it's drawing me in. Should I enter it?",0x02);
+	//c.Y++;
+	//g_Console.writeToBuffer(c, "(Press Y for Yes or N for No)",0x02);
+	//c.Y++;
+	//Idk how to code this press y or n thing guys halp
+
+	//if Player enters portal
+	//g_Console.writeToBuffer(c, "LAKE", 0x04);
+	//c.Y++;
+	//g_Console.writeToBuffer(c, "That felt...weird. It looks like the place had changed to a lakeside. I should take a look around.", 0x02);
+	//c.Y++;
+}
+
 
 void renderFramerate()
 {
