@@ -8,6 +8,7 @@
 #include <string>
 #include <iomanip>
 #include <sstream>
+#include <windows.h>
 #include "Map.h"
 #include "CheckColi.h"
 

@@ -35,7 +35,7 @@ char** mapstore(char** printmap)
 
 	if (area.is_open())
 	{
-		for (int AreaY = 0; AreaY < 16; AreaY++)
+		for (int AreaY = 0; AreaY < 23; AreaY++)
 		{
 			printmap[AreaY] = new char[150];
 
@@ -58,7 +58,7 @@ void map(char** printmap)
 
 	if (area1.is_open())
 	{
-		for (int AreaY = 0; AreaY < 16; ++AreaY)
+		for (int AreaY = 0; AreaY < 23; ++AreaY)
 		{
 			c.Y = AreaY + 1;
 

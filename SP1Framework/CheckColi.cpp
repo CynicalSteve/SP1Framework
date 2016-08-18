@@ -45,7 +45,7 @@ int Collision(int check)
 
 	if (file.is_open())
 	{
-		while (height < 16)
+		while (height < 23)
 		{
 			while (width < 109)
 			{
@@ -75,8 +75,34 @@ int Collision(int check)
 		}
 		else if ((whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '#') && (EssentialFragment >= Areanum))
 		{
+			if (Areanum == 1)
+			{
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 87;
+				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 41;
+			}
+			else if (Areanum == 2)
+			{
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 103;
+				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 36;
+			}
+			else if (Areanum == 3)
+			{
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 87;
+				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 90;
+			}
+			else if (Areanum == 4)
+			{
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 90;
+				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 43;
+			}
+			else if (Areanum == 5)
+			{
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 87;
+				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 43;
+			}
+
 			Areanum++;
-			return 1;
+			return 0;
 		}
 		else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '%')
 		{
@@ -104,8 +130,34 @@ int Collision(int check)
 		}
 		else if ((whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == '#') && (EssentialFragment >= Areanum))
 		{
+			if (Areanum == 1)
+			{
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 87;
+				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 41;
+			}
+			else if (Areanum == 2)
+			{
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 103;
+				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 36;
+			}
+			else if (Areanum == 3)
+			{
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 93; // this one
+				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 53;
+			}
+			else if (Areanum == 4)
+			{
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 90; // this one
+				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 53;
+			}
+			else if (Areanum == 5)
+			{
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 87;
+				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 43;
+			}
+
 			Areanum++;
-			return 1;
+			return 0;
 		}
 		else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == '%')
 		{
@@ -133,8 +185,34 @@ int Collision(int check)
 		}
 		else if ((whatever[g_sChar.m_cLocation.X - 1][g_sChar.m_cLocation.Y] == '#') && (EssentialFragment >= Areanum))
 		{
+			if (Areanum == 1)
+			{
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 87;
+				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 41;
+			}
+			else if (Areanum == 2)
+			{
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 103;
+				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 36;
+			}
+			else if (Areanum == 3)
+			{
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 87;
+				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 90;
+			}
+			else if (Areanum == 4)
+			{
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 90;
+				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 43;
+			}
+			else if (Areanum == 5)
+			{
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 73; // this one
+				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 47;
+			}
+
 			Areanum++;
-			return 1;
+			return 0;
 		}
 		else if (whatever[g_sChar.m_cLocation.X - 1][g_sChar.m_cLocation.Y] == '%')
 		{
@@ -162,8 +240,34 @@ int Collision(int check)
 		}
 		else if ((whatever[g_sChar.m_cLocation.X + 1][g_sChar.m_cLocation.Y] == '#') && (EssentialFragment >= Areanum))
 		{
+			if (Areanum == 1)
+			{
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 87;
+				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 41;
+			}
+			else if (Areanum == 2)
+			{
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 103;
+				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 36;
+			}
+			else if (Areanum == 3)
+			{
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 87;
+				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 90;
+			}
+			else if (Areanum == 4)
+			{
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 90;
+				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 43;
+			}
+			else if (Areanum == 5)
+			{
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 87;
+				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 43;
+			}
+
 			Areanum++;
-			return 1;
+			return 0;
 		}
 		else if (whatever[g_sChar.m_cLocation.X + 1][g_sChar.m_cLocation.Y] == '%')
 		{
