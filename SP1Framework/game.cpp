@@ -434,10 +434,18 @@ void renderToScreen()
     g_Console.flushBufferToConsole();
 }
 
-void renderUI()
+void renderUI() // items - Flat Stone, History Book
 {
 	COORD c = g_Console.getConsoleSize();
-	c.Y /= 4;
+	c.Y /= 3;
 	c.X = c.X / 2 - 9;
 	g_Console.writeToBuffer(c, "-Inventory Opened-", 0x03); // at the moment this does jack shit aside from show a new screen saying inventory is open
+
+	c.Y += 2;
+	c.X = g_Console.getConsoleSize().X / 2 - 5;
+	g_Console.writeToBuffer(c, "Flat Stone", 0x09);
+
+	c.Y += 2;
+	c.X = g_Console.getConsoleSize().X / 2 - 5;
+	g_Console.writeToBuffer(c, "History Book", 0x09);
 }
