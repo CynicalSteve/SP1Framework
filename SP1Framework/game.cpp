@@ -155,25 +155,25 @@ void moveCharacter()
 
     // Updating the location of the character based on the key press
     // providing a beep sound whenver we shift the character
-    if (g_abKeyPressed[K_UP] && g_sChar.m_cLocation.Y > 0)
+    if (g_abKeyPressed[K_UP] && g_sChar.m_cLocation.Y > 0 && Collision(1, g_sChar.m_cLocation.X, g_sChar.m_cLocation.Y))
     {
         //Beep(1440, 30);
         g_sChar.m_cLocation.Y--;
         bSomethingHappened = true;
     }
-    if (g_abKeyPressed[K_LEFT] && g_sChar.m_cLocation.X > 0)
+	if (g_abKeyPressed[K_DOWN] && (g_sChar.m_cLocation.Y < (g_Console.getConsoleSize().Y - 1)) && Collision(2, g_sChar.m_cLocation.X, g_sChar.m_cLocation.Y))
+	{
+		//Beep(1440, 30);
+		g_sChar.m_cLocation.Y++;
+		bSomethingHappened = true;
+	}
+    if (g_abKeyPressed[K_LEFT] && g_sChar.m_cLocation.X > 0 && Collision(3, g_sChar.m_cLocation.X, g_sChar.m_cLocation.Y))
     {
         //Beep(1440, 30);
         g_sChar.m_cLocation.X--;
         bSomethingHappened = true;
     }
-    if (g_abKeyPressed[K_DOWN] && g_sChar.m_cLocation.Y < g_Console.getConsoleSize().Y - 1)
-    {
-        //Beep(1440, 30);
-        g_sChar.m_cLocation.Y++;
-        bSomethingHappened = true;
-    }
-    if (g_abKeyPressed[K_RIGHT] && g_sChar.m_cLocation.X < g_Console.getConsoleSize().X - 1)
+	if (g_abKeyPressed[K_RIGHT] && (g_sChar.m_cLocation.X < (g_Console.getConsoleSize().X - 1)) && Collision(4, g_sChar.m_cLocation.X, g_sChar.m_cLocation.Y))
     {
         //Beep(1440, 30);
         g_sChar.m_cLocation.X++;
@@ -190,6 +190,7 @@ void moveCharacter()
         // set the bounce time to some time in the future to prevent accidental triggers
         g_dBounceTime = g_dElapsedTime + 0.125; // 125ms should be enough
     }
+
 }
 void processUserInput()
 {
@@ -205,7 +206,7 @@ void processUserInput()
 
 	if (g_abKeyPressed[K_INTERACT])
 	{
-		
+		// something
 	}
 
 	if (g_abKeyPressed[K_INVENTORY])
@@ -234,7 +235,7 @@ void processUserInput()
 void clearScreen()
 {
     // Clears the buffer with this colour attribute
-    g_Console.clearBuffer(0x1F);
+    g_Console.clearBuffer(0x00);
 }
 
 void renderSplashScreen()  // renders the splash screen
@@ -274,23 +275,6 @@ void renderGame()
     renderCharacter();  // renders the character into the buffer
 }
 
-void renderMap()
-{
-    // Set up sample colours, and output shadings
-    const WORD colors[] = {
-        0x1A, 0x2B, 0x3C, 0x4D, 0x5E, 0x6F,
-        0xA1, 0xB2, 0xC3, 0xD4, 0xE5, 0xF6
-    };
-
-    COORD c;
-    for (int i = 0; i < 12; ++i)
-    {
-        c.X = 5 * i;
-        c.Y = i + 1;
-        colour(colors[i]);
-        g_Console.writeToBuffer(c, " °±²Û", colors[i]);
-    }
-}
 
 void renderCharacter()
 {
