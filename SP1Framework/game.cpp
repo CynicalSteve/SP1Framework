@@ -377,6 +377,9 @@ void renderFeed()
 	if (g_dElapsedTime > 21.0) // wait for 21 seconds to display next message
 		g_Console.writeToBuffer(c, "I should take a look around, since being a sitting duck here would do me no good.", 0x02);
 	c.Y++;
+	if (g_dElapsedTime > 21.0) //wait for 21 seconds to display next message
+		g_Console.writeToBuffer(c, "Use WASD keys to move around and F key to interact", 0x05);
+	c.Y++;
 	//if Player interacts with sea,
 	//g_Console.writeToBuffer(c, "There's a wooden boat in the distance leaning against a couple rocks. There's a giant hole in its hull so I", 0x02);
 	//c.Y++;
