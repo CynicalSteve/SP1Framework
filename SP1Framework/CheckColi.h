@@ -2,9 +2,14 @@
 #define _CHECKCOLI_H
 
 #include "Framework\console.h"
+#include "game.h"
 #include <iostream>
+#include <fstream>
+#include <string>
+#include <iomanip>
+#include <sstream>
+#include <Windows.h>
 
-bool Collision(int check, int CordX, int CordY);
-char arrmap[][];
+int Collision(int check);
 
 #endif // _CHECKCOLI_H

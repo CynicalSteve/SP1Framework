@@ -3,7 +3,11 @@
 
 #include "Framework\console.h"
 #include <iostream>
+#include <fstream>
 
-void renderMap();
+char** mapstore(char** printmap);
+
+void map(char** printmap);
+
 
 #endif // _MAP_H

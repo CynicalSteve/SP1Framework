@@ -4,8 +4,12 @@
 #include "game.h"
 #include "Framework\console.h"
 #include <iostream>
+#include <fstream>
+#include <string>
 #include <iomanip>
 #include <sstream>
+#include "Map.h"
+#include "CheckColi.h"
 
 double  g_dElapsedTime;
 double  g_dDeltaTime;
@@ -35,9 +39,10 @@ void init( void )
     // sets the initial state for the game
     g_eGameState = S_SPLASHSCREEN;
 
-    g_sChar.m_cLocation.X = g_Console.getConsoleSize().X / 2;
-    g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y / 2;
-    g_sChar.m_bActive = true;
+	// sets where the character spawns when game starts
+	g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 60;
+	g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 15;
+	g_sChar.m_bActive = true;
     // sets the width, height and the font name to use in the console
     g_Console.setConsoleFont(0, 16, L"Consolas");
 }
@@ -107,7 +112,7 @@ void update(double dt)
 		case S_INVENTORY: gameplay(); // Enables input checking for turning off inventory
 			break;
         case S_GAME: gameplay(); // gameplay logic when we are in the game
-            break;
+			break;
     }
 }
 //--------------------------------------------------------------
@@ -155,29 +160,53 @@ void moveCharacter()
 
     // Updating the location of the character based on the key press
     // providing a beep sound whenver we shift the character
-    if (g_abKeyPressed[K_UP] && g_sChar.m_cLocation.Y > 0 && Collision(1, g_sChar.m_cLocation.X, g_sChar.m_cLocation.Y))
+    if (g_abKeyPressed[K_UP] && g_sChar.m_cLocation.Y > 0)
     {
-        //Beep(1440, 30);
-        g_sChar.m_cLocation.Y--;
-        bSomethingHappened = true;
+		if (Collision(1) == 1)
+		{
+			g_sChar.m_cLocation.Y--;
+			bSomethingHappened = true;
+		}
+		else
+		{
+			bSomethingHappened = true;
+		}
     }
-	if (g_abKeyPressed[K_DOWN] && (g_sChar.m_cLocation.Y < (g_Console.getConsoleSize().Y - 1)) && Collision(2, g_sChar.m_cLocation.X, g_sChar.m_cLocation.Y))
+	if (g_abKeyPressed[K_DOWN] && (g_sChar.m_cLocation.Y < (g_Console.getConsoleSize().Y - 1)))
 	{
-		//Beep(1440, 30);
-		g_sChar.m_cLocation.Y++;
-		bSomethingHappened = true;
+		if (Collision(2) == 1)
+		{
+			g_sChar.m_cLocation.Y++;
+			bSomethingHappened = true;
+		}
+		else
+		{
+			bSomethingHappened = true;
+		}
 	}
-    if (g_abKeyPressed[K_LEFT] && g_sChar.m_cLocation.X > 0 && Collision(3, g_sChar.m_cLocation.X, g_sChar.m_cLocation.Y))
+    if (g_abKeyPressed[K_LEFT] && g_sChar.m_cLocation.X > 0)
     {
-        //Beep(1440, 30);
-        g_sChar.m_cLocation.X--;
-        bSomethingHappened = true;
+		if (Collision(3) == 1)
+		{
+			g_sChar.m_cLocation.X--;
+			bSomethingHappened = true;
+		}
+		else
+		{
+			bSomethingHappened = true;
+		}
     }
-	if (g_abKeyPressed[K_RIGHT] && (g_sChar.m_cLocation.X < (g_Console.getConsoleSize().X - 1)) && Collision(4, g_sChar.m_cLocation.X, g_sChar.m_cLocation.Y))
+	if (g_abKeyPressed[K_RIGHT] && (g_sChar.m_cLocation.X < (g_Console.getConsoleSize().X - 1)))
     {
-        //Beep(1440, 30);
-        g_sChar.m_cLocation.X++;
-        bSomethingHappened = true;
+		if (Collision(4) == 1)
+		{
+			g_sChar.m_cLocation.X++;
+			bSomethingHappened = true;
+		}
+		else
+		{
+			bSomethingHappened = true;
+		}
     }
     if (g_abKeyPressed[K_SPACE])
     {
@@ -259,8 +288,8 @@ void renderSplashScreen()  // renders the splash screen
 	c.Y += 1;
 
 	c.Y += 2;
-	c.X = g_Console.getConsoleSize().X / 2 - 5;
-	g_Console.writeToBuffer(c, "Start Game", 0x03);
+	c.X = g_Console.getConsoleSize().X / 2 - 10;
+	g_Console.writeToBuffer(c, "Welcome to Fragments", 0x03);
 	c.Y += 1;
 	c.X = g_Console.getConsoleSize().X / 2 - 20;
 	g_Console.writeToBuffer(c, "Press <Space> to change character colour", 0x09);
@@ -275,6 +304,18 @@ void renderGame()
     renderCharacter();  // renders the character into the buffer
 }
 
+void renderMap()
+{
+	const WORD colors[] = {
+		0x1A, 0x2B, 0x3C, 0x4D, 0x5E, 0x6F,
+		0xA1, 0xB2, 0xC3, 0xD4, 0xE5, 0xF6
+	};
+	
+	char** printmap = new char*[109];
+	printmap = mapstore(printmap);
+
+	map(printmap);
+}
 
 void renderCharacter()
 {
