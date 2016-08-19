@@ -20,6 +20,10 @@ bool    g_abKeyPressed[K_COUNT];
 int Areanum = 1;
 int EssentialFragment = 6; // It should be 0, this is just so i can access everything
 int Levelnum = 0;          // Odd numbers = EF, Even numbers = OF. In code later for last 2 "IF OF = 5, then take player to the 2nd ending instead"
+int checkF;                // Checking what the player is interacting with
+int tempcoords;                  // Used to hold the value of c.Y in activity feed
+
+extern int Factfeed;
 
 // Game specific variables here
 SGameChar   g_sChar;
@@ -241,7 +245,9 @@ void processUserInput()
 
 	if (g_abKeyPressed[K_INTERACT])
 	{
-		FstandsforFrustrating(1);
+		checkF = checkinteract();
+
+		FstandsforFrustrating(checkF);
 	}
 
 	if (g_abKeyPressed[K_INVENTORY])
@@ -340,8 +346,8 @@ void renderFeed()
 {
 	COORD c = g_Console.getConsoleSize();
 	c.X = 0;
-	c.Y = 23;
-	g_Console.writeToBuffer(c, "==============================================================", 0x07);
+	c.Y = 28;
+	g_Console.writeToBuffer(c, "================================================================================================================", 0x07);
 	c.Y++;
 	g_Console.writeToBuffer(c, "\"Wha-What is this place?\"", 0x02);
 	c.Y++;
@@ -411,6 +417,18 @@ void renderFeed()
 	//c.Y++;
 	//g_Console.writeToBuffer(c, "That felt...weird. It looks like the place had changed to a lakeside. I should take a look around.", 0x02);
 	//c.Y++;
+
+	if (Factfeed == 1)
+	{
+		tempcoords = c.Y;
+
+		c.Y = 24;
+		g_Console.writeToBuffer(c, "Theres a wooden boat in the distance leaning against a couple rocks.", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "Theres a giant hole in its hull so I doubt its usability.", 0x02);
+
+		c.Y = tempcoords;
+	}
 }
 
 

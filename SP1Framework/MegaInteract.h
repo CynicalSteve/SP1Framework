@@ -10,6 +10,8 @@
 #include <sstream>
 #include <Windows.h>
 
-int FstandsforFrustrating(int checkinteract);
+int checkinteract(void);
 
-#endif // _MEGAINTERACT_H0
+int FstandsforFrustrating(int checkF);
+
+#endif // _MEGAINTERACT_H

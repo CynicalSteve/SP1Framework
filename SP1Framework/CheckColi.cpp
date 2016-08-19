@@ -3,7 +3,6 @@
 
 extern Console g_Console;
 extern SGameChar g_sChar;
-extern bool g_abKeyPressed[K_COUNT];
 
 extern int Areanum;
 extern int EssentialFragment;
