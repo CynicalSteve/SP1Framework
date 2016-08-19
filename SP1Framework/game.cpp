@@ -9,14 +9,11 @@
 #include <iomanip>
 #include <sstream>
 #include <windows.h>
-<<<<<<< HEAD
-=======
 #include "Map.h"
 #include "CheckColi.h"
 #include "MegaInteract.h"
 #include "Windows.h"
 #include "MMSystem.h"
->>>>>>> 101f1a088c0177abb7806f3d015f9ef5d7d26331
 
 double  g_dElapsedTime;
 double  g_dDeltaTime;
@@ -94,15 +91,25 @@ void shutdown( void )
 //--------------------------------------------------------------
 void getInput( void )
 {    
-    g_abKeyPressed[K_UP]     = isKeyPressed(0x57);
-    g_abKeyPressed[K_DOWN]   = isKeyPressed(0x53);
-    g_abKeyPressed[K_LEFT]   = isKeyPressed(0x41);
-    g_abKeyPressed[K_RIGHT]  = isKeyPressed(0x44);
-	g_abKeyPressed[K_INTERACT] = isKeyPressed(0x46);
+    g_abKeyPressed[K_UP]        = isKeyPressed(0x57);
+    g_abKeyPressed[K_DOWN]      = isKeyPressed(0x53);
+    g_abKeyPressed[K_LEFT]      = isKeyPressed(0x41);
+    g_abKeyPressed[K_RIGHT]     = isKeyPressed(0x44);
+	g_abKeyPressed[K_INTERACT]  = isKeyPressed(0x46);
 	g_abKeyPressed[K_INVENTORY] = isKeyPressed(0x49);
-    g_abKeyPressed[K_SPACE]  = isKeyPressed(VK_SPACE);
-    g_abKeyPressed[K_ESCAPE] = isKeyPressed(VK_ESCAPE);
-	g_abKeyPressed[K_ENTER] = isKeyPressed(0x45);
+    g_abKeyPressed[K_SPACE]     = isKeyPressed(VK_SPACE);
+    g_abKeyPressed[K_ESCAPE]    = isKeyPressed(VK_ESCAPE);
+	g_abKeyPressed[K_ENTER]     = isKeyPressed(0x45);
+	g_abKeyPressed[K_INVONE]    = isKeyPressed(0x30);
+	g_abKeyPressed[K_INVTWO]    = isKeyPressed(0x31);
+	g_abKeyPressed[K_INVTHREE]  = isKeyPressed(0x32);
+	g_abKeyPressed[K_INVFOUR]   = isKeyPressed(0x33);
+	g_abKeyPressed[K_INVFIVE]   = isKeyPressed(0x34);
+	g_abKeyPressed[K_INVSIX]    = isKeyPressed(0x35);
+	g_abKeyPressed[K_INVSEVEN]  = isKeyPressed(0x36);
+	g_abKeyPressed[K_INVEIGHT]  = isKeyPressed(0x37);
+	g_abKeyPressed[K_INVNINE]   = isKeyPressed(0x38);
+	g_abKeyPressed[K_INVZERO]   = isKeyPressed(0x39);
 }
 
 //--------------------------------------------------------------
