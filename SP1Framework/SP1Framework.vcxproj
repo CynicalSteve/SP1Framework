@@ -83,6 +83,8 @@
     <ClCompile Include="game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="MegaInteract.cpp" />
+    <ClCompile Include="PuzzleLevels.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CheckColi.h" />
@@ -90,6 +92,8 @@
     <ClInclude Include="Framework\timer.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="MegaInteract.h" />
+    <ClInclude Include="PuzzleLevels.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

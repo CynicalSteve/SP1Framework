@@ -17,7 +17,8 @@ double  g_dDeltaTime;
 bool    g_abKeyPressed[K_COUNT];
 
 int Areanum = 1;
-int EssentialFragment = 6;
+int EssentialFragment = 6; // It should be 0, this is just so i can access everything
+int Levelnum = 0;          // Odd numbers = EF, Even numbers = OF. In code later for last 2 "IF OF = 5, then take player to the 2nd ending instead"
 
 // Game specific variables here
 SGameChar   g_sChar;
@@ -239,7 +240,7 @@ void processUserInput()
 
 	if (g_abKeyPressed[K_INTERACT])
 	{
-		// something
+		
 	}
 
 	if (g_abKeyPressed[K_INVENTORY])
@@ -316,10 +317,11 @@ void renderMap()
 		0xA1, 0xB2, 0xC3, 0xD4, 0xE5, 0xF6
 	};
 	
-	char** printmap = new char*[109];
-	printmap = mapstore(printmap);
+	char** printmap = new char*[150];  // CODE SOMETHING THAT SWAPS BETWEEN MAPS AND LEVELS. If player is at (x), set interactportal = 1? If interactportal = 1 and player press f, enter puzzle.
+	printmap = mapstore(printmap);     // else interact portal = 0. if EF/OF = 1, then the if statement is invalid and portal no longer works.
+	map(printmap);                     // Something like: If (g_scharthingamajiglocation.X == (1 below portal) && EF != 1), {interactportal = 1}, then extern it over here and put the function into game.cpp.
 
-	map(printmap);
+
 }
 
 void renderCharacter()
