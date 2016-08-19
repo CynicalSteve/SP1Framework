@@ -1,4 +1,4 @@
-#include "Map.h"
+#include "PuzzleLevels.h"
 
 extern Console g_Console;
 

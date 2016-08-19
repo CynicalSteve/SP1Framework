@@ -11,6 +11,7 @@
 #include <windows.h>
 #include "Map.h"
 #include "CheckColi.h"
+#include "MegaInteract.h"
 
 double  g_dElapsedTime;
 double  g_dDeltaTime;
@@ -240,7 +241,7 @@ void processUserInput()
 
 	if (g_abKeyPressed[K_INTERACT])
 	{
-		
+		FstandsforFrustrating(1);
 	}
 
 	if (g_abKeyPressed[K_INVENTORY])
