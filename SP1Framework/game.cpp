@@ -347,52 +347,87 @@ void renderFeed()
 	COORD c = g_Console.getConsoleSize();
 	c.X = 0;
 	c.Y = 28;
-	g_Console.writeToBuffer(c, "================================================================================================================", 0x07);
-	c.Y++;
+	g_Console.writeToBuffer(c, "=============================================================================================================", 0x07);
+	c.Y += 1;
+	g_Console.writeToBuffer(c, "Essential Fragments Obtained: 0     Optional Fragments Obtained: 0      Item in Hand: None", 0x07); // Portal entered: set X coordinates for number (30 - 67)
+	c.Y += 1;                                                                                                                        // Item in hand: set X coordinates for item name (88)
+	g_Console.writeToBuffer(c, "=============================================================================================================", 0x07);
+	c.Y += 1;
 	g_Console.writeToBuffer(c, "\"Wha-What is this place?\"", 0x02);
-	c.Y++;
+	c.Y += 1;
 	if (g_dElapsedTime > 5.0) // wait for 5 seconds to display next message
+	{
 		g_Console.writeToBuffer(c, "I looked about confused and wide-eyed.", 0x02);
-	c.Y++;
-	if (g_dElapsedTime > 7.0) // wait for 7 seconds to display next message
+		c.Y += 1;
+	}
+	if (g_dElapsedTime > 5.0) // wait for 7 seconds to display next message
+	{
 		g_Console.writeToBuffer(c, "A verdant grassy plain laid out before me while the sea behind me rolled and crashed into the shores of the", 0x02);
-	c.Y++;
-	if (g_dElapsedTime > 7.0) // wait for 7 seconds to display next message
+		c.Y += 1;
+	}
+	if (g_dElapsedTime > 5.0) // wait for 7 seconds to display next message
+	{
 		g_Console.writeToBuffer(c, "beach I was standing in.", 0x02);
-	c.Y++;
-	if (g_dElapsedTime > 9.0) // wait for 9 seconds to display next message
+		c.Y += 1;
+	}
+	if (g_dElapsedTime > 5.0) // wait for 11 seconds to display next message
+	{
 		g_Console.writeToBuffer(c, "Trees which bordered the plains crackled as a cold breeze blew across the island. Seagulls overhead screamed", 0x02);
-	c.Y++;
-	if (g_dElapsedTime > 9.0) // wait for 5 seconds to display next message
+		c.Y += 1;
+	}
+	if (g_dElapsedTime > 5.0) // wait for 11 seconds to display next message
+	{
 		g_Console.writeToBuffer(c, "in response.", 0x02);
-	c.Y++;
-	if (g_dElapsedTime > 11.0) // wait for 11 seconds to display next message
+		c.Y += 1;
+	}
+	if (g_dElapsedTime > 5.0) // wait for 15 seconds to display next message
+	{
 		g_Console.writeToBuffer(c, "", 0x02);
-	c.Y++;
-	if (g_dElapsedTime > 11.0) // wait for 11 seconds to display next message
+		c.Y += 1;
+	}
+	if (g_dElapsedTime > 5.0) // wait for 15 seconds to display next message
+	{
 		g_Console.writeToBuffer(c, "Despite so much looking around, my surroundings didn't provide a single clue as to where I am or how I got", 0x02);
-	c.Y++;
-	if (g_dElapsedTime > 11.0) // wait for 11 seconds to display next message
+		c.Y += 1;
+	}
+	if (g_dElapsedTime > 5.0) // wait for 15 seconds to display next message
 		g_Console.writeToBuffer(c, "here... or who I was.", 0x02);
-	c.Y++;
-	if (g_dElapsedTime > 13.0) // wait for 13 seconds to display next message
+	c.Y += 1;
+	if (g_dElapsedTime > 5.0) // wait for 19 seconds to display next message
+	{
 		g_Console.writeToBuffer(c, "Wait a minute, I think I got something...", 0x02);
-	c.Y++;
-	if (g_dElapsedTime > 15.0) // wait for 15 seconds to display next message
+		c.Y += 1;
+	}
+	if (g_dElapsedTime > 5.0) // wait for 21 seconds to display next message
+	{
 		g_Console.writeToBuffer(c, "A...Av...Ava? Ava...Laurens?", 0x02);
-	c.Y++;
-	if (g_dElapsedTime > 17.0) // wait for 17 seconds to display next message
+		c.Y += 1;
+	}
+	if (g_dElapsedTime > 5.0) // wait for 23 seconds to display next message
+	{
 		g_Console.writeToBuffer(c, "Is that my name?", 0x02);
-	c.Y++;
-	if (g_dElapsedTime > 19.0) // wait for 19 seconds to display next message
+		c.Y += 1;
+	}
+	if (g_dElapsedTime > 5.0) // wait for 25 seconds to display next message
+	{
 		g_Console.writeToBuffer(c, "\"Ava Laurens.\" The name sounds much clearer now, it has to be mine.", 0x02);
-	c.Y++;
-	if (g_dElapsedTime > 21.0) // wait for 21 seconds to display next message
+		c.Y += 1;
+	}
+	if (g_dElapsedTime > 5.0) // wait for 28 seconds to display next message
+	{
 		g_Console.writeToBuffer(c, "I should take a look around, since being a sitting duck here would do me no good.", 0x02);
-	c.Y++;
-	if (g_dElapsedTime > 21.0) //wait for 21 seconds to display next message
+		c.Y += 1;
+	}
+	if (g_dElapsedTime > 5.0) // wait for 30 seconds to display next message
+	{
 		g_Console.writeToBuffer(c, "Use WASD keys to move around and F key to interact", 0x05);
-	c.Y++;
+		c.Y += 1;
+	}
+	if (g_dElapsedTime > 5.0) // wait for 30 seconds to display next message
+	{
+		g_Console.writeToBuffer(c, "", 0x02);
+		c.Y += 1;
+	}
 	//if Player interacts with sea,
 	//g_Console.writeToBuffer(c, "There's a wooden boat in the distance leaning against a couple rocks. There's a giant hole in its hull so I", 0x02);
 	//c.Y++;
