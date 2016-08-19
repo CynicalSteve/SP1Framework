@@ -9,9 +9,6 @@
 #include <iomanip>
 #include <sstream>
 #include <windows.h>
-#include "Map.h"
-#include "CheckColi.h"
-#include "MegaInteract.h"
 
 double  g_dElapsedTime;
 double  g_dDeltaTime;
@@ -21,9 +18,10 @@ int Areanum = 1;
 int EssentialFragment = 6; // It should be 0, this is just so i can access everything
 int Levelnum = 0;          // Odd numbers = EF, Even numbers = OF. In code later for last 2 "IF OF = 5, then take player to the 2nd ending instead"
 int checkF;                // Checking what the player is interacting with
-int tempcoords;                  // Used to hold the value of c.Y in activity feed
+int tempcoords;            // Used to hold the value of c.Y in activity feed
 
 extern int Factfeed;
+extern int InPortal;
 
 // Game specific variables here
 SGameChar   g_sChar;
@@ -93,6 +91,7 @@ void getInput( void )
 	g_abKeyPressed[K_INVENTORY] = isKeyPressed(0x49);
     g_abKeyPressed[K_SPACE]  = isKeyPressed(VK_SPACE);
     g_abKeyPressed[K_ESCAPE] = isKeyPressed(VK_ESCAPE);
+	g_abKeyPressed[K_ENTER] = isKeyPressed(0x45);
 }
 
 //--------------------------------------------------------------
@@ -172,50 +171,110 @@ void moveCharacter()
     // providing a beep sound whenver we shift the character
     if (g_abKeyPressed[K_UP] && g_sChar.m_cLocation.Y > 0)
     {
-		if (Collision(1) == 1)
+		if (Areanum > 0)
 		{
-			g_sChar.m_cLocation.Y--;
-			bSomethingHappened = true;
+			if (Collision(1) == 1)
+			{
+				g_sChar.m_cLocation.Y--;
+				bSomethingHappened = true;
+			}
+			else
+			{
+				bSomethingHappened = true;
+			}
 		}
-		else
+		else if (Areanum == 0)
 		{
-			bSomethingHappened = true;
+			if (CollisionPuzzle(1) == 1)
+			{
+				g_sChar.m_cLocation.Y--;
+				bSomethingHappened = true;
+			}
+			else
+			{
+				bSomethingHappened = true;
+			}
 		}
     }
 	if (g_abKeyPressed[K_DOWN] && (g_sChar.m_cLocation.Y < (g_Console.getConsoleSize().Y - 1)))
 	{
-		if (Collision(2) == 1)
+		if (Areanum > 0)
 		{
-			g_sChar.m_cLocation.Y++;
-			bSomethingHappened = true;
+			if (Collision(2) == 1)
+			{
+				g_sChar.m_cLocation.Y++;
+				bSomethingHappened = true;
+			}
+			else
+			{
+				bSomethingHappened = true;
+			}
 		}
-		else
+		else if (Areanum == 0)
 		{
-			bSomethingHappened = true;
+			if (CollisionPuzzle(2) == 1)
+			{
+				g_sChar.m_cLocation.Y++;
+				bSomethingHappened = true;
+			}
+			else
+			{
+				bSomethingHappened = true;
+			}
 		}
 	}
     if (g_abKeyPressed[K_LEFT] && g_sChar.m_cLocation.X > 0)
     {
-		if (Collision(3) == 1)
+		if (Areanum > 0)
 		{
-			g_sChar.m_cLocation.X--;
-			bSomethingHappened = true;
+			if (Collision(3) == 1)
+			{
+				g_sChar.m_cLocation.X--;
+				bSomethingHappened = true;
+			}
+			else
+			{
+				bSomethingHappened = true;
+			}
 		}
-		else
+		else if (Areanum == 0)
 		{
-			bSomethingHappened = true;
+			if (CollisionPuzzle(3) == 1)
+			{
+				g_sChar.m_cLocation.X--;
+				bSomethingHappened = true;
+			}
+			else
+			{
+				bSomethingHappened = true;
+			}
 		}
     }
 	if (g_abKeyPressed[K_RIGHT] && (g_sChar.m_cLocation.X < (g_Console.getConsoleSize().X - 1)))
     {
-		if (Collision(4) == 1)
+		if (Areanum > 0)
 		{
-			g_sChar.m_cLocation.X++;
-			bSomethingHappened = true;
+			if (Collision(4) == 1)
+			{
+				g_sChar.m_cLocation.X++;
+				bSomethingHappened = true;
+			}
+			else
+			{
+				bSomethingHappened = true;
+			}
 		}
-		else
+		else if (Areanum == 0)
 		{
-			bSomethingHappened = true;
+			if (CollisionPuzzle(4) == 1)
+			{
+				g_sChar.m_cLocation.X++;
+				bSomethingHappened = true;
+			}
+			else
+			{
+				bSomethingHappened = true;
+			}
 		}
     }
     if (g_abKeyPressed[K_SPACE])
@@ -264,6 +323,11 @@ void processUserInput()
 
 			g_eGameState = S_GAME;
 		}
+	}
+
+	if (g_abKeyPressed[K_ENTER])
+	{
+		FstandsforFrustrating(9);
 	}
 
 	if (bSomethingHappened)
@@ -324,11 +388,18 @@ void renderMap()
 		0xA1, 0xB2, 0xC3, 0xD4, 0xE5, 0xF6
 	};
 	
-	char** printmap = new char*[150];  // CODE SOMETHING THAT SWAPS BETWEEN MAPS AND LEVELS. If player is at (x), set interactportal = 1? If interactportal = 1 and player press f, enter puzzle.
-	printmap = mapstore(printmap);     // else interact portal = 0. if EF/OF = 1, then the if statement is invalid and portal no longer works.
-	map(printmap);                     // Something like: If (g_scharthingamajiglocation.X == (1 below portal) && EF != 1), {interactportal = 1}, then extern it over here and put the function into game.cpp.
-
-
+	if (Areanum > 0)
+	{
+		char** printmap = new char*[150];
+		printmap = mapstore(printmap);
+		map(printmap);
+	}
+	else if (Areanum == 0)
+	{
+		char** printlevel = new char*[150];
+		printlevel = puzzlestore(printlevel);
+		puzzlemap(printlevel);
+	}
 }
 
 void renderCharacter()
@@ -461,6 +532,34 @@ void renderFeed()
 		g_Console.writeToBuffer(c, "Theres a wooden boat in the distance leaning against a couple rocks.", 0x02);
 		c.Y++;
 		g_Console.writeToBuffer(c, "Theres a giant hole in its hull so I doubt its usability.", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "", 0x02);
+
+		c.Y = tempcoords;
+	}
+	else if (Factfeed == 2)
+	{
+		tempcoords = c.Y;
+
+		c.Y = 24;
+		g_Console.writeToBuffer(c, "The trees are swaying in harmony with the wind.", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "Their leaves seem to have a weird shade of dark green.", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "", 0x02);
+
+		c.Y = tempcoords;
+	}
+	else if (Factfeed == 3)
+	{
+		tempcoords = c.Y;
+
+		c.Y = 24;
+		g_Console.writeToBuffer(c, "It looks and feels like some sort of portal. It pulsates with a strange light-blue energy but oddly enough", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "I don't feel intimidated by it at all. Instead, it feels like it's drawing me in. Should I enter it?", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "Press the E key to enter the portal.", 0x05);
 
 		c.Y = tempcoords;
 	}

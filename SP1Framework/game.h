@@ -2,6 +2,11 @@
 #define _GAME_H
 
 #include "Framework\timer.h"
+#include "Map.h"
+#include "CheckColi.h"
+#include "MegaInteract.h"
+#include "PuzzleLevels.h"
+#include "CheckColiPuzzle.h"
 
 extern CStopWatch g_swTimer;
 extern bool g_bQuitGame;
@@ -17,6 +22,7 @@ enum EKEYS
 	K_INVENTORY,
 	K_ESCAPE,
 	K_SPACE,
+	K_ENTER,
 	K_COUNT
 };
 

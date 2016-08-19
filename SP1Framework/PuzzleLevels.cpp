@@ -3,52 +3,82 @@
 extern Console g_Console;
 
 extern int Areanum;
+extern int InPortal;
 
 char** puzzlestore(char** printlevel)
 {
-	std::ifstream area;
+	std::ifstream puzzle;
 	
+	if (InPortal == 1)
+	{
+		puzzle.open("Text files/1_Lake.txt");
+	}
+	else if (InPortal == 2)
+	{
+		puzzle.open("Text files/1_LakeOF.txt");
+	}
+	else if (InPortal == 3)
+	{
+		puzzle.open("Text files/2_Chappel.txt");
+	}
+	else if (InPortal == 4)
+	{
+		puzzle.open("Text files/2_ChappelOF.txt");
+	}
+	else if (InPortal == 5)
+	{
+		puzzle.open("Text files/3_ComputerRoom.txt");
+	}
+	else if (InPortal == 6)
+	{
+		puzzle.open("Text files/3_ComputerRoomOF.txt");
+	}
+	else if (InPortal == 7)
+	{
+		puzzle.open("Text files/4_Street.txt");
+	}
+	else if (InPortal == 8)
+	{
+		puzzle.open("Text files/4_StreetOF.txt");
+	}
+	else if (InPortal == 9)
+	{
+		puzzle.open("Text files/5_LivingRoom.txt");
+	}
+	else if (InPortal == 10)
+	{
+		puzzle.open("Text files/5_LivingRoomOF.txt");
+	}
+	else if (InPortal == 11)
+	{
+		puzzle.open("Text files/6_Funeral.txt");
+	}
 	/*
 
-	if (Areanum == 1)
+	else if (InPortal == 11 && OptionalFragment < 5)
 	{
-		area.open("Text files/Area 1.txt");
+	    puzzle.open("Text files/6_Funeral.txt");
 	}
-	else if (Areanum == 2)
+	else if (InPortal == 11 && OptionalFragment == 5)
 	{
-		area.open("Text files/Area 2 & 3.txt");
-	}
-	else if (Areanum == 3)
-	{
-		area.open("Text files/Area 4 & 5.txt");
-	}
-	else if (Areanum == 4)
-	{
-		area.open("Text files/Area 6 & 7.txt");
-	}
-	else if (Areanum == 5)
-	{
-		area.open("Text files/Area 8 & 9 & 10.txt");
-	}
-	else if (Areanum == 6)
-	{
-		area.open("Text files/Area 11.txt");
+		puzzle.open("Text files/6_FuneralTrueEnd.txt");
 	}
 
 	*/
 
-	if (area.is_open())
+
+	if (puzzle.is_open())
 	{
-		for (int AreaY = 0; AreaY < 31; AreaY++)
+		for (int AreaY = 0; AreaY < 23; AreaY++)
 		{
 			printlevel[AreaY] = new char[150];
 
-			for (int AreaX = 0; AreaX < 69; AreaX++)
+			for (int AreaX = 0; AreaX < 109; AreaX++)
 			{
-				area >> printlevel[AreaY][AreaX];
+				puzzle >> printlevel[AreaY][AreaX];
 			}
 		}
-		area.close();
+		puzzle.close();
 	}
 
 	return printlevel;
@@ -58,30 +88,24 @@ void puzzlemap(char** printlevel)
 {
 	COORD c;
 
-	std::ifstream area1("Text files/Area 1.txt");
-
-	if (area1.is_open())
+	for (int AreaY = 0; AreaY < 23; ++AreaY)
 	{
-		for (int AreaY = 0; AreaY < 23; ++AreaY)
+		c.Y = AreaY + 1;
+
+		for (int AreaX = 0; AreaX < 109; ++AreaX)
 		{
-			c.Y = AreaY + 1;
-
-			for (int AreaX = 0; AreaX < 109; ++AreaX)
+			if (printlevel[AreaY][AreaX] == 'F')
 			{
-				if (printlevel[AreaY][AreaX] == 'F')
-				{
-					printlevel[AreaY][AreaX] = ' ';
-				}
-				if (printlevel[AreaY][AreaX] == '\n')
-				{
-					printlevel[AreaY][AreaX] = ' ';
-				}
-
-				c.X = AreaX;
-
-				g_Console.writeToBuffer(c, printlevel[AreaY][AreaX], 0x07);
+				printlevel[AreaY][AreaX] = ' ';
 			}
+			if (printlevel[AreaY][AreaX] == '\n')
+			{
+				printlevel[AreaY][AreaX] = ' ';
+			}
+
+			c.X = AreaX;
+
+			g_Console.writeToBuffer(c, printlevel[AreaY][AreaX], 0x07);
 		}
-		area1.close();
 	}
 }
