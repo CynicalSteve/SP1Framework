@@ -9,6 +9,14 @@
 #include <iomanip>
 #include <sstream>
 #include <windows.h>
+<<<<<<< HEAD
+=======
+#include "Map.h"
+#include "CheckColi.h"
+#include "MegaInteract.h"
+#include "Windows.h"
+#include "MMSystem.h"
+>>>>>>> 101f1a088c0177abb7806f3d015f9ef5d7d26331
 
 double  g_dElapsedTime;
 double  g_dDeltaTime;
@@ -46,6 +54,9 @@ void init( void )
 
     // sets the initial state for the game
     g_eGameState = S_SPLASHSCREEN;
+
+	// sets the music for the game
+	PlaySound(TEXT("HappyMusic.wav"), NULL, SND_SYNC | SND_LOOP | SND_ASYNC);
 
 	// sets where the character spawns when game starts
 	g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 87;
