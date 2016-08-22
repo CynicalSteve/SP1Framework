@@ -9,13 +9,9 @@ char** puzzlestore(char** printlevel)
 {
 	std::ifstream puzzle;
 	
-	if (InPortal == 1)
+	if (InPortal == 1 || InPortal == 2)
 	{
 		puzzle.open("Text files/1_Lake.txt");
-	}
-	else if (InPortal == 2)
-	{
-		puzzle.open("Text files/1_LakeOF.txt");
 	}
 	else if (InPortal == 3)
 	{

@@ -648,6 +648,18 @@ void renderFeed()
 
 		c.Y = tempcoords;
 	}
+	else if (InPortal == 2)
+	{
+		tempcoords = c.Y;
+
+		g_Console.writeToBuffer(c, "No matter how strong one is, with too heavy a burden they will sink.", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "", 0x05);
+
+		c.Y = tempcoords;
+	}
 	else if (Factfeed == 999)
 	{
 		tempcoords = c.Y;
