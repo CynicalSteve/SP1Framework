@@ -28,6 +28,7 @@ extern int Factfeed;
 extern int InPortal;
 extern int EssentialFragment;
 extern int OptionalFragment;
+extern std::string inventory;
 
 // Game specific variables here
 SGameChar   g_sChar;
@@ -449,7 +450,7 @@ void renderFeed()
 	c.X += 5;
 	g_Console.writeToBuffer(c, "Item in Hand:", 0x07);
 	c.X += 15;
-	g_Console.writeToBuffer(c, "Stones (hard code)", 0x06);
+	g_Console.writeToBuffer(c, inventory, 0x06);
 	c.X = 0; // Reset X to 0 so printing is normal again.
 	c.Y += 1;                                                                                                                        // Item in hand: set X coordinates for item name (88)
 	g_Console.writeToBuffer(c, "=============================================================================================================", 0x07);
@@ -602,7 +603,7 @@ void renderFeed()
 		c.Y = 24;
 		g_Console.writeToBuffer(c, "A stack of stones. Having one of them may come in handy.", 0x02);
 		c.Y++;
-		g_Console.writeToBuffer(c, "", 0x02);
+		g_Console.writeToBuffer(c, "Press the E key to pick a rock up.", 0x05);
 		c.Y++;
 		g_Console.writeToBuffer(c, "", 0x05);
 
@@ -626,7 +627,7 @@ void renderFeed()
 		tempcoords = c.Y;
 
 		c.Y = 24;
-		g_Console.writeToBuffer(c, "If I’m not wrong, that fish looks like a red herring.", 0x02);
+		g_Console.writeToBuffer(c, "If I'm not wrong, that fish looks like a red herring.", 0x02);
 		c.Y++;
 		g_Console.writeToBuffer(c, "", 0x02);
 		c.Y++;
