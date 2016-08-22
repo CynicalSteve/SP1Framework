@@ -599,9 +599,9 @@ void renderFeed()
 		tempcoords = c.Y;
 
 		c.Y = 24;
-		g_Console.writeToBuffer(c, "", 0x02);
+		g_Console.writeToBuffer(c, "Unlike the sea, the water here is calm and clear.", 0x02);
 		c.Y++;
-		g_Console.writeToBuffer(c, "", 0x02);
+		g_Console.writeToBuffer(c, "I can see something metallic barely breaking the surface.", 0x02);
 		c.Y++;
 		g_Console.writeToBuffer(c, "", 0x05);
 
@@ -612,7 +612,7 @@ void renderFeed()
 		tempcoords = c.Y;
 
 		c.Y = 24;
-		g_Console.writeToBuffer(c, "", 0x02);
+		g_Console.writeToBuffer(c, "If I’m not wrong, that fish looks like a red herring.", 0x02);
 		c.Y++;
 		g_Console.writeToBuffer(c, "", 0x02);
 		c.Y++;
@@ -625,11 +625,11 @@ void renderFeed()
 		tempcoords = c.Y;
 
 		c.Y = 24;
-		g_Console.writeToBuffer(c, "", 0x02);
+		g_Console.writeToBuffer(c, "There is a red chest here locked with a padlock.", 0x02);
 		c.Y++;
-		g_Console.writeToBuffer(c, "", 0x02);
+		g_Console.writeToBuffer(c, "A note atop of it reads 'AXJPODBCOPWBVU'.", 0x02);
 		c.Y++;
-		g_Console.writeToBuffer(c, "", 0x05);
+		g_Console.writeToBuffer(c, "I can't seem to make any sense of it.", 0x05);
 
 		c.Y = tempcoords;
 	}

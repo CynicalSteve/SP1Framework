@@ -34,29 +34,75 @@ int checkinteract(void)
 
 	std::ifstream file;
 
-	if (Areanum == 1)
+	if (Areanum > 0)
 	{
-		file.open("Text files/Area 1.txt");
+		if (Areanum == 1)
+		{
+			file.open("Text files/Area 1.txt");
+		}
+		else if (Areanum == 2)
+		{
+			file.open("Text files/Area 2 & 3.txt");
+		}
+		else if (Areanum == 3)
+		{
+			file.open("Text files/Area 4 & 5.txt");
+		}
+		else if (Areanum == 4)
+		{
+			file.open("Text files/Area 6 & 7.txt");
+		}
+		else if (Areanum == 5)
+		{
+			file.open("Text files/Area 8 & 9 & 10.txt");
+		}
+		else if (Areanum == 6)
+		{
+			file.open("Text files/Area 11.txt");
+		}
 	}
-	else if (Areanum == 2)
+	else if (Areanum == 0)
 	{
-		file.open("Text files/Area 2 & 3.txt");
-	}
-	else if (Areanum == 3)
-	{
-		file.open("Text files/Area 4 & 5.txt");
-	}
-	else if (Areanum == 4)
-	{
-		file.open("Text files/Area 6 & 7.txt");
-	}
-	else if (Areanum == 5)
-	{
-		file.open("Text files/Area 8 & 9 & 10.txt");
-	}
-	else if (Areanum == 6)
-	{
-		file.open("Text files/Area 11.txt");
+		if (InPortal == 1 || InPortal == 2)
+		{
+			file.open("Text files/1_Lake.txt");
+		}
+		else if (InPortal == 3)
+		{
+			file.open("Text files/2_Chappel.txt");
+		}
+		else if (InPortal == 4)
+		{
+			file.open("Text files/2_ChappelOF.txt");
+		}
+		else if (InPortal == 5)
+		{
+			file.open("Text files/3_ComputerRoom.txt");
+		}
+		else if (InPortal == 6)
+		{
+			file.open("Text files/3_ComputerRoomOF.txt");
+		}
+		else if (InPortal == 7)
+		{
+			file.open("Text files/4_Street.txt");
+		}
+		else if (InPortal == 8)
+		{
+			file.open("Text files/4_StreetOF.txt");
+		}
+		else if (InPortal == 9)
+		{
+			file.open("Text files/5_LivingRoom.txt");
+		}
+		else if (InPortal == 10)
+		{
+			file.open("Text files/5_LivingRoomOF.txt");
+		}
+		else if (InPortal == 11)
+		{
+			file.open("Text files/6_Funeral.txt");
+		}
 	}
 
 	if (file.is_open())
@@ -277,7 +323,7 @@ int checkinteract(void)
 		{
 			return 101;
 		}
-		else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '.') // Delete or change to O
+		else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == 'O')
 		{
 			return 101;
 		}
@@ -296,6 +342,15 @@ int checkinteract(void)
 		else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '|')
 		{
 			return 104;
+		}
+		else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '_')
+		{
+			return 104;
+		}
+
+		else
+		{
+			return 0;
 		}
 	}
 	else if (InPortal == 2)
