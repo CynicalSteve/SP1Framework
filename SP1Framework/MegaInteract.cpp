@@ -11,7 +11,20 @@ int InPortal = 0;
 int TutorialMode = 1; // Instead of doing "Y/N" for the first portal, I'm implementing this.
 int tempF;
 
-// 1 = Sea, 2 = Trees, 3 = Portal, 9 = Enter Portal
+/*
+Sea = 1
+Trees = 2
+Essential Fragment = 30
+Optional Fragment = 31
+EF 1 = 10x
+    10x -> 101 Rocks
+	   -> 102 Fish
+	   -> 103 Box
+EF 2 = 20x
+    20x -> ??
+EF 3 = 30x
+    30x -> ??
+*/
 
 int checkinteract(void)
 {
@@ -250,11 +263,86 @@ int checkinteract(void)
 			return 0;
 		}
 	}
+	else if (InPortal == 1)
+	{
+		if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '0')
+		{
+			return 101;
+		}
+		else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '.')
+		{
+			return 101;
+		}
+		else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == 'o')
+		{
+			return 101;
+		}
+		else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '.') // Delete or change to O
+		{
+			return 101;
+		}
+		else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '-')
+		{
+			return 102;
+		}
+		else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '<')
+		{
+			return 103;
+		}
+		else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '>')
+		{
+			return 103;
+		}
+		else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '|')
+		{
+			return 104;
+		}
+	}
+	else if (InPortal == 2)
+	{
+		return 0;
+	}
+	else if (InPortal == 3)
+	{
+		return 0;
+	}
+	else if (InPortal == 4)
+	{
+		return 0;
+	}
+	else if (InPortal == 5)
+	{
+		return 0;
+	}
+	else if (InPortal == 6)
+	{
+		return 0;
+	}
+	else if (InPortal == 7)
+	{
+		return 0;
+	}
+	else if (InPortal == 8)
+	{
+		return 0;
+	}
+	else if (InPortal == 9)
+	{
+		return 0;
+	}
+	else if (InPortal == 10)
+	{
+		return 0;
+	}
+	else if (InPortal == 11)
+	{
+		return 0;
+	}
 }
 
 int FstandsforFrustrating(int checkF)
 {
-	if (Factfeed == 3 && checkF == 9)
+	if (Factfeed == 3 && checkF == 9) // Check if user is pressing "F" and then "E" afterwards to enter it.
 	{
 		if (Areanum == 1)
 		{
@@ -347,6 +435,22 @@ int FstandsforFrustrating(int checkF)
 	else if (checkF == 30 || checkF == 31)
 	{
 		Factfeed = 3;
+	}
+	else if (checkF == 101)
+	{
+		Factfeed = 11;
+	}
+	else if (checkF == 102)
+	{
+		Factfeed = 12;
+	}
+	else if (checkF == 103)
+	{
+		Factfeed = 13;
+	}
+	else if (checkF == 104)
+	{
+		Factfeed = 14;
 	}
 	else if (checkF == 0)
 	{
