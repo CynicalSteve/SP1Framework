@@ -440,10 +440,6 @@ void renderFeed()
 	COORD c = g_Console.getConsoleSize();
 	c.X = 0;
 	c.Y = 28;
-	if (c.Y == 55)
-	{
-		c.Y = 31;
-	}
 	g_Console.writeToBuffer(c, "=============================================================================================================", 0x07);
 	c.Y += 1;
 	g_Console.writeToBuffer(c, "Essential Fragments Obtained:", 0x07);
@@ -538,7 +534,7 @@ void renderFeed()
 		g_Console.writeToBuffer(c, "", 0x02);
 		c.Y += 1;
 	}
-	if (g_dElapsedTime > 5.0) // wait for 30 seconds to display next message
+	if (g_dElapsedTime > 5.0) // wait for 30 seconds to display next message                               ***********************************T E S T*****************************************
 	{
 		g_Console.writeToBuffer(c, "Wake", 0x02);
 		c.Y += 1;
@@ -613,15 +609,8 @@ void renderFeed()
 		
 	}
 
-	//Codes for activity feed
-	if (c.Y == 55)
-	{
-		c.Y = 31;
-	}
-	g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);  //INPUT LINES HERE
+	g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 	c.Y += 1;
-	g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);  //LEAVE THIS EMPTY IF YOU WANT AN EMPTY LINE
-	//                              THESE SPACES IN THE PREVIOUS LINES (BOTH LINES) MUST BE PRESENT AND IS EXACTLY 109 CHARACTERS IN LENGTH
 
 	
 
