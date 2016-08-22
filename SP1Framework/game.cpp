@@ -581,6 +581,77 @@ void renderFeed()
 
 		c.Y = tempcoords;
 	}
+	else if (Factfeed == 11) // Rocks
+	{
+		tempcoords = c.Y;
+
+		c.Y = 24;
+		g_Console.writeToBuffer(c, "A stack of stones. Having one of them may come in handy.", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "", 0x05);
+
+		c.Y = tempcoords;
+	}
+	else if (Factfeed == 12) // Lake
+	{
+		tempcoords = c.Y;
+
+		c.Y = 24;
+		g_Console.writeToBuffer(c, "", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "", 0x05);
+
+		c.Y = tempcoords;
+	}
+	else if (Factfeed == 13) // Fish
+	{
+		tempcoords = c.Y;
+
+		c.Y = 24;
+		g_Console.writeToBuffer(c, "", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "", 0x05);
+			
+		c.Y = tempcoords;
+	}
+	else if (Factfeed == 14) // Box
+	{
+		tempcoords = c.Y;
+
+		c.Y = 24;
+		g_Console.writeToBuffer(c, "", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "", 0x05);
+
+		c.Y = tempcoords;
+	}
+
+
+	/*
+	TEMPLATE FOR ME TO COPY AND PASTE CAUSE IM LAZY
+
+		else if (Factfeed == 11)
+	{
+		tempcoords = c.Y;
+
+		c.Y = 24;
+		g_Console.writeToBuffer(c, "", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "", 0x05);
+
+		c.Y = tempcoords;
+	}
+	*/
 }
 
 
