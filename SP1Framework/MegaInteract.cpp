@@ -416,96 +416,96 @@ int checkinteract(void)
 
 			if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '0')
 			{
-				return 101;
+				return 111;
 			}
 			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '.')
 			{
-				return 101;
+				return 111;
 			}
 			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == 'o')
 			{
-				return 101;
+				return 111;
 			}
 			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == 'O')
 			{
-				return 101;
+				return 111;
 			}
 			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '-')
 			{
-				return 102;
+				return 112;
 			}
 			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '<')
 			{
-				return 103;
+				return 113;
 			}
 			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '>')
 			{
-				return 103;
+				return 113;
 			}
 			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '|')
 			{
-				return 104;
+				return 114;
 			}
 			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '_')
 			{
-				return 104;
+				return 114;
 			}
 
 			// DOWN DOWN DOWN DOWN DOWN
 
 			if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == '<')
 			{
-				return 103;
+				return 113;
 			}
 			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == '>')
 			{
-				return 103;
+				return 113;
 			}
 			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == '|')
 			{
-				return 104;
+				return 114;
 			}
 			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == '_')
 			{
-				return 104;
+				return 114;
 			}
 
 			// LEFT LEFT LEFT LEFT LEFT
 
 			if (whatever[g_sChar.m_cLocation.X - 1][g_sChar.m_cLocation.Y] == '<')
 			{
-				return 103;
+				return 113;
 			}
 			else if (whatever[g_sChar.m_cLocation.X - 1][g_sChar.m_cLocation.Y] == '>')
 			{
-				return 103;
+				return 113;
 			}
 			else if (whatever[g_sChar.m_cLocation.X - 1][g_sChar.m_cLocation.Y] == '|')
 			{
-				return 104;
+				return 114;
 			}
 			else if (whatever[g_sChar.m_cLocation.X - 1][g_sChar.m_cLocation.Y] == '_')
 			{
-				return 104;
+				return 114;
 			}
 
 			// RIGHT RIGHT RIGHT RIGHT RIGHT
 
 			if (whatever[g_sChar.m_cLocation.X + 1][g_sChar.m_cLocation.Y] == '<')
 			{
-				return 103;
+				return 113;
 			}
 			else if (whatever[g_sChar.m_cLocation.X + 1][g_sChar.m_cLocation.Y] == '>')
 			{
-				return 103;
+				return 113;
 			}
 			else if (whatever[g_sChar.m_cLocation.X + 1][g_sChar.m_cLocation.Y] == '|')
 			{
-				return 104;
+				return 114;
 			}
 			else if (whatever[g_sChar.m_cLocation.X + 1][g_sChar.m_cLocation.Y] == '_')
 			{
-				return 104;
+				return 114;
 			}
 		}
 		else if (InPortal == 3)
@@ -671,6 +671,22 @@ int FstandsforFrustrating(int checkF)
 	else if (checkF == 104)
 	{
 		Factfeed = 14;
+	}
+	else if (checkF == 111)
+	{
+		Factfeed = 15;
+	}
+	else if (checkF == 112)
+	{
+		Factfeed = 16;
+	}
+	else if (checkF == 113)
+	{
+		Factfeed = 17;
+	}
+	else if (checkF == 114)
+	{
+		Factfeed = 18;
 	}
 	else if (checkF == 0)
 	{
