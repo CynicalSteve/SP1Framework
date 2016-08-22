@@ -755,7 +755,7 @@ void renderFeed()
 		c.Y = 24;
 		g_Console.writeToBuffer(c, "They feel like stones yet they are as black as coal. I'll take one just in case.", 0x02);
 		c.Y++;
-		g_Console.writeToBuffer(c, "", 0x02);
+		g_Console.writeToBuffer(c, "Press E to pick up a rock", 0x05);
 		c.Y++;
 		g_Console.writeToBuffer(c, "", 0x05);
 
