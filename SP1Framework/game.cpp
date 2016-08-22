@@ -440,10 +440,6 @@ void renderFeed()
 	COORD c = g_Console.getConsoleSize();
 	c.X = 0;
 	c.Y = 28;
-	if (c.Y == 55)
-	{
-		c.Y = 31;
-	}
 	g_Console.writeToBuffer(c, "=============================================================================================================", 0x07);
 	c.Y += 1;
 	g_Console.writeToBuffer(c, "Essential Fragments Obtained:", 0x07);
@@ -458,12 +454,11 @@ void renderFeed()
 	c.X += 15;
 	g_Console.writeToBuffer(c, inventory, 0x06);
 	c.X = 0; // Reset X to 0 so printing is normal again.
-	c.Y += 1;                                                                                                                        // Item in hand: set X coordinates for item name (88)
+	c.Y += 1;                                                                                                                       
 	g_Console.writeToBuffer(c, "=============================================================================================================", 0x07);
 	c.Y += 1;
 	g_Console.writeToBuffer(c, "\"Wha-What is this place?\"", 0x02);
 	c.Y += 1;
-	// g_Console.writeToBuffer(c, "Essential Fragments Obtained: 0     Optional Fragments Obtained: 0      Item in Hand: None", 0x07); // Portal entered: set X coordinates for number (30 - 67)
 
 	if (g_dElapsedTime > 5.0) // wait for 5 seconds to display next message
 	{
@@ -538,117 +533,87 @@ void renderFeed()
 		g_Console.writeToBuffer(c, "", 0x02);
 		c.Y += 1;
 	}
-	if (g_dElapsedTime > 5.0) // wait for 30 seconds to display next message
+	if (g_dElapsedTime > 6.0) 
 	{
-		g_Console.writeToBuffer(c, "Wake", 0x02);
+		g_Console.writeToBuffer(c, "Wake", 0x04);
 		c.Y += 1;
 	}
-	if (g_dElapsedTime > 5.0) // wait for 30 seconds to display next message
+	if (g_dElapsedTime > 6.0) 
 	{
-		g_Console.writeToBuffer(c, "Me", 0x02);
+		g_Console.writeToBuffer(c, "Me", 0x04);
 		c.Y += 1;
 	}
-	if (g_dElapsedTime > 5.0) // wait for 30 seconds to display next message
+	if (g_dElapsedTime > 6.0) 
 	{
-		g_Console.writeToBuffer(c, "Up", 0x02);
+		g_Console.writeToBuffer(c, "Up", 0x04);
 		c.Y += 1;
 	}
-	if (g_dElapsedTime > 5.0) // wait for 30 seconds to display next message
+	if (g_dElapsedTime > 7.0) 
 	{
-		g_Console.writeToBuffer(c, "Wake", 0x02);
+		g_Console.writeToBuffer(c, "Wake", 0x04);
 		c.Y += 1;
 	}
-	if (g_dElapsedTime > 5.0) // wait for 30 seconds to display next message
+	if (g_dElapsedTime > 7.0) 
 	{
-		g_Console.writeToBuffer(c, "Me", 0x02);
+		g_Console.writeToBuffer(c, "Me", 0x04);
 		c.Y += 1;
 	}
-	if (g_dElapsedTime > 5.0) // wait for 30 seconds to display next message
+	if (g_dElapsedTime > 7.0)
 	{
-		g_Console.writeToBuffer(c, "Up", 0x02);
+		g_Console.writeToBuffer(c, "Up", 0x04);
 		c.Y += 1;
 	}
-	if (g_dElapsedTime > 5.0) // wait for 30 seconds to display next message
+	if (g_dElapsedTime > 7.0) 
 	{
-		g_Console.writeToBuffer(c, "Inside", 0x02);
-		c.Y += 1;
-	}
-	if (g_dElapsedTime > 5.0) // wait for 30 seconds to display next message
-	{
-		g_Console.writeToBuffer(c, "Save", 0x02);
+		g_Console.writeToBuffer(c, "Inside", 0x04);
 		c.Y += 1;
 	}
 
-	if (c.Y == 55)
+	if (c.Y == 54)
 	{
 		c.Y = 31;
 	}
 
-	if (g_dElapsedTime > 6.0) // wait for 30 seconds to display next message
+	if (g_dElapsedTime > 8.0) 
 	{
 		g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
-		g_Console.writeToBuffer(c, "Me", 0x02);
+		g_Console.writeToBuffer(c, "Save", 0x04);
 		c.Y += 1;
-		
+		g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 	}
-	if (g_dElapsedTime > 8.0) // wait for 30 seconds to display next message
+
+	if (g_dElapsedTime > 8.0)
 	{
 		g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
-		g_Console.writeToBuffer(c, "Call", 0x02);
+		g_Console.writeToBuffer(c, "Me", 0x04);
 		c.Y += 1;
+		g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 		
 	}
-	if (g_dElapsedTime > 10.0) // wait for 30 seconds to display next message
+	if (g_dElapsedTime > 9.0) 
 	{
 		g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
-		g_Console.writeToBuffer(c, "My", 0x02);
+		g_Console.writeToBuffer(c, "Call", 0x04);
 		c.Y += 1;
+		g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 		
 	}
-	if (g_dElapsedTime > 12.0) // wait for 30 seconds to display next message
+	if (g_dElapsedTime > 9.0)
 	{
 		g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
-		g_Console.writeToBuffer(c, "Name", 0x02);
+		g_Console.writeToBuffer(c, "My", 0x04);
 		c.Y += 1;
+		g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 		
 	}
-
-	//Codes for activity feed
-	if (c.Y == 55)
+	if (g_dElapsedTime > 9.0) 
 	{
-		c.Y = 31;
+		g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+		g_Console.writeToBuffer(c, "Name", 0x04);
+		c.Y += 1;
+		g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 	}
-	g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);  //INPUT LINES HERE
-	c.Y += 1;
-	g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);  //LEAVE THIS EMPTY IF YOU WANT AN EMPTY LINE
-	//                              THESE SPACES IN THE PREVIOUS LINES (BOTH LINES) MUST BE PRESENT AND IS EXACTLY 109 CHARACTERS IN LENGTH
 
-	
-
-	//if Player interacts with sea,
-	//g_Console.writeToBuffer(c, "There's a wooden boat in the distance leaning against a couple rocks. There's a giant hole in its hull so I", 0x02);
-	//c.Y++;
-	//g_Console.writeToBuffer(c, "doubt its usability.", 0x02);
-	//c.Y++;
-
-	//if Player interacts with trees,
-	//g_Console.writeToBuffer(c, "The trees are swaying in harmony with the wind. Their leaves seem to have a weird shade of dark green.", 0x02);
-	//c.Y++;
-
-	//if Player interacts with portal
-	//g_Console.writeToBuffer(c, "It looks and feels like some sort of portal. It pulsates with a strange light-blue energy but oddly enough".0x02);
-	//c.Y++;
-	//g_Console.writeToBuffer(c, "I don't feel intimidated by it at all. Instead, it feels like it's drawing me in. Should I enter it?",0x02);
-	//c.Y++;
-	//g_Console.writeToBuffer(c, "(Press Y for Yes or N for No)",0x02);
-	//c.Y++;
-	//Idk how to code this press y or n thing guys halp
-
-	//if Player enters portal
-	//g_Console.writeToBuffer(c, "LAKE", 0x04);
-	//c.Y++;
-	//g_Console.writeToBuffer(c, "That felt...weird. It looks like the place had changed to a lakeside. I should take a look around.", 0x02);
-	//c.Y++;
 
 	if (Factfeed == 1)
 	{
