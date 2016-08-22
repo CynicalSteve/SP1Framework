@@ -438,6 +438,10 @@ void renderFeed()
 	COORD c = g_Console.getConsoleSize();
 	c.X = 0;
 	c.Y = 28;
+	if (c.Y == 55)
+	{
+		c.Y = 31;
+	}
 	g_Console.writeToBuffer(c, "=============================================================================================================", 0x07);
 	c.Y += 1;
 	g_Console.writeToBuffer(c, "Essential Fragments Obtained:", 0x07);
@@ -532,77 +536,91 @@ void renderFeed()
 		g_Console.writeToBuffer(c, "", 0x02);
 		c.Y += 1;
 	}
-
-	if (g_dElapsedTime > 6.0) // wait for 30 seconds to display next message
+	if (g_dElapsedTime > 5.0) // wait for 30 seconds to display next message
 	{
 		g_Console.writeToBuffer(c, "Wake", 0x02);
 		c.Y += 1;
 	}
-	if (g_dElapsedTime > 6.0) // wait for 30 seconds to display next message
+	if (g_dElapsedTime > 5.0) // wait for 30 seconds to display next message
 	{
 		g_Console.writeToBuffer(c, "Me", 0x02);
 		c.Y += 1;
 	}
-	if (g_dElapsedTime > 6.0) // wait for 30 seconds to display next message
+	if (g_dElapsedTime > 5.0) // wait for 30 seconds to display next message
 	{
 		g_Console.writeToBuffer(c, "Up", 0x02);
 		c.Y += 1;
 	}
-	if (g_dElapsedTime > 7.0) // wait for 30 seconds to display next message
+	if (g_dElapsedTime > 5.0) // wait for 30 seconds to display next message
 	{
 		g_Console.writeToBuffer(c, "Wake", 0x02);
 		c.Y += 1;
 	}
-	if (g_dElapsedTime > 7.0) // wait for 30 seconds to display next message
+	if (g_dElapsedTime > 5.0) // wait for 30 seconds to display next message
 	{
 		g_Console.writeToBuffer(c, "Me", 0x02);
 		c.Y += 1;
 	}
-	if (g_dElapsedTime > 7.0) // wait for 30 seconds to display next message
+	if (g_dElapsedTime > 5.0) // wait for 30 seconds to display next message
 	{
 		g_Console.writeToBuffer(c, "Up", 0x02);
 		c.Y += 1;
 	}
-	if (g_dElapsedTime > 7.0) // wait for 30 seconds to display next message
+	if (g_dElapsedTime > 5.0) // wait for 30 seconds to display next message
 	{
 		g_Console.writeToBuffer(c, "Inside", 0x02);
 		c.Y += 1;
 	}
-	if (g_dElapsedTime > 8.0) // wait for 30 seconds to display next message
+	if (g_dElapsedTime > 5.0) // wait for 30 seconds to display next message
 	{
 		g_Console.writeToBuffer(c, "Save", 0x02);
 		c.Y += 1;
 	}
+
 	if (c.Y == 55)
+	{
 		c.Y = 31;
-	if (g_dElapsedTime > 8.0) // wait for 30 seconds to display next message
+	}
+
+	if (g_dElapsedTime > 6.0) // wait for 30 seconds to display next message
 	{
-		g_Console.writeToBuffer(c, "Me                                                                                                           ", 0x02);
-		c.Y += 1;
 		g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+		g_Console.writeToBuffer(c, "Me", 0x02);
+		c.Y += 1;
+		
 	}
 	if (g_dElapsedTime > 8.0) // wait for 30 seconds to display next message
 	{
-		g_Console.writeToBuffer(c, "Call                                                                                                         ", 0x02);
-		c.Y += 1;
 		g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+		g_Console.writeToBuffer(c, "Call", 0x02);
+		c.Y += 1;
+		
 	}
-	if (g_dElapsedTime > 8.0) // wait for 30 seconds to display next message
+	if (g_dElapsedTime > 10.0) // wait for 30 seconds to display next message
 	{
-		g_Console.writeToBuffer(c, "My                                                                                                           ", 0x02);
-		c.Y += 1;
 		g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+		g_Console.writeToBuffer(c, "My", 0x02);
+		c.Y += 1;
+		
 	}
-	if (g_dElapsedTime > 8.0) // wait for 30 seconds to display next message
+	if (g_dElapsedTime > 12.0) // wait for 30 seconds to display next message
 	{
-		g_Console.writeToBuffer(c, "Name                                                                                                         ", 0x02);
-		c.Y += 1;
 		g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+		g_Console.writeToBuffer(c, "Name", 0x02);
+		c.Y += 1;
+		
 	}
 
 	//Codes for activity feed
-	//if (c.Y == 55)
-	//	c.Y == 31;
+	if (c.Y == 55)
+	{
+		c.Y = 31;
+	}
+	g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);  //INPUT LINES HERE
+	c.Y += 1;
+	g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);  //LEAVE THIS EMPTY IF YOU WANT AN EMPTY LINE
+	//                              THESE SPACES IN THE PREVIOUS LINES (BOTH LINES) MUST BE PRESENT AND IS EXACTLY 109 CHARACTERS IN LENGTH
+
 	
 
 	//if Player interacts with sea,
