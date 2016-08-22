@@ -29,6 +29,8 @@ extern int InPortal;
 extern int EssentialFragment;
 extern int OptionalFragment;
 extern std::string inventory;
+extern double g_dElapsedTimeTemp;
+extern int levelfinish;
 
 // Game specific variables here
 SGameChar   g_sChar;
@@ -524,7 +526,7 @@ void renderFeed()
 	}
 	if (g_dElapsedTime > 5.0) // wait for 30 seconds to display next message
 	{
-		g_Console.writeToBuffer(c, "Use WASD keys to move around and F key to interact", 0x05);
+		g_Console.writeToBuffer(c, "Use WASD keys to move around, F key to interact and E to enter/use.", 0x05);
 		c.Y += 1;
 	}
 	if (g_dElapsedTime > 5.0) // wait for 30 seconds to display next message
@@ -618,7 +620,14 @@ void renderFeed()
 		c.Y++;
 		g_Console.writeToBuffer(c, "I can see something metallic barely breaking the surface.", 0x02);
 		c.Y++;
-		g_Console.writeToBuffer(c, "", 0x05);
+		if (inventory == "A flat rock")
+		{
+			g_Console.writeToBuffer(c, "I wonder if I can hit it with the rock I picked up.", 0x05);
+		}
+		else
+		{
+			g_Console.writeToBuffer(c, "", 0x05);
+		}
 
 		c.Y = tempcoords;
 	}
@@ -712,7 +721,35 @@ void renderFeed()
 
 		c.Y = tempcoords;
 	}
-	else if (Factfeed == 999)
+	else if (Factfeed == 911)
+	{
+		tempcoords = c.Y;
+
+		c.Y = 24;
+		g_Console.writeToBuffer(c, "The stone hit the metallic object with a pleasant 'ding'.", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "A sound came from the red chest to my right.", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "", 0x05);
+
+		c.Y = tempcoords;
+	}
+	else if (Factfeed == 912)
+	{
+		tempcoords = c.Y;
+
+		c.Y = 24;
+		g_Console.writeToBuffer(c, "As I thought, the chest was unlocked as soon as the stone hit the metal object.", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "I lifted the cover and found a note inside. It reads:", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "'Memories are but a jigsaw, one must have all pieces in hand to see the full picture.'", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "As soon as my eyes landed on the last word, a blinding white light exploded around me.", 0x02);
+
+		c.Y = tempcoords;
+	}
+	else if (Factfeed == 999) // THIS IS JUST TO TEST WHETHER A FUNCTION WORKS LOL
 	{
 		tempcoords = c.Y;
 
@@ -726,6 +763,15 @@ void renderFeed()
 		c.Y = tempcoords;
 	}
 
+	if (g_dElapsedTime >= g_dElapsedTimeTemp && levelfinish == 1)
+	{
+		InPortal = 0;
+		Areanum = 1;
+		levelfinish = 0;
+
+		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 88;
+		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 45;
+	}
 
 	/*
 	TEMPLATE FOR ME TO COPY AND PASTE CAUSE IM LAZY

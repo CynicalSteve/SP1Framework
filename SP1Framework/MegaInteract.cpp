@@ -4,14 +4,18 @@ extern Console g_Console;
 extern SGameChar g_sChar;
 
 extern int Areanum;
+extern double g_dElapsedTime;
 
 int Factfeed = 0;
 int InPortal = 0;
 int TutorialMode = 1; // Instead of doing "Y/N" for the first portal, I'm implementing this.
 int tempF;
-int EssentialFragment = 0;
+int EssentialFragment = 0; // Set to 6 to see all areas
 int OptionalFragment = 0;
 std::string inventory = "none";
+int levelfinish = 0;
+int reqinteraction = 0; // This is so we can force the player to actually read certain thingamajigs otherwise other thingamajigs wont work.
+double g_dElapsedTimeTemp = 999.0;
 
 /*
 Sea = 1
@@ -20,8 +24,9 @@ Essential Fragment = 30
 Optional Fragment = 31
 EF 1 = 10x
     10x -> 101 Rocks
-	   -> 102 Fish
-	   -> 103 Box
+	   -> 102 Lake
+	   -> 103 Fish
+	   -> 104 Box
 EF 2 = 20x
     20x -> ??
 EF 3 = 30x
@@ -289,19 +294,19 @@ int checkinteract(void)
 			return 2;
 		}
 
-		if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == '!')
+		if ((whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == '!') && (EssentialFragment == 0))
 		{
 			return 30;
 		}
-		else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '!')
+		else if ((whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '!') && (EssentialFragment == 0))
 		{
 			return 30;
 		}
-		else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == '?')
+		else if ((whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == '?') && (OptionalFragment == 0))
 		{
 			return 31;
 		}
-		else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '?')
+		else if ((whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '?') && (OptionalFragment == 0))
 		{
 			return 31;
 		}
@@ -637,16 +642,15 @@ int FstandsforFrustrating(int checkF)
 		}
 	}
 
-	if (tempF == 101 && checkF == 9)
+	if (tempF == 101 && checkF == 9 && reqinteraction == 1)
 	{
 		inventory = "A flat rock";
 	}
 
 	if (inventory == "A flat rock" && tempF == 102 && checkF == 9) // Check if user is pressing "F" and then "E" afterwards to do something.
 	{
-		EssentialFragment += 1;
-		Areanum = 1;
-		InPortal = 0;
+		Factfeed = 911;
+		levelfinish = 1;
 	}
 
 	if (checkF == 1)
@@ -661,7 +665,7 @@ int FstandsforFrustrating(int checkF)
 	{
 		Factfeed = 3;
 	}
-	else if (checkF == 101)
+	else if (checkF == 101 && reqinteraction == 1)
 	{
 		Factfeed = 11;
 	}
@@ -672,10 +676,17 @@ int FstandsforFrustrating(int checkF)
 	else if (checkF == 103)
 	{
 		Factfeed = 13;
+		reqinteraction = 1;
 	}
-	else if (checkF == 104)
+	else if (checkF == 104 && levelfinish == 0)
 	{
 		Factfeed = 14;
+	}
+	else if (checkF == 104 && levelfinish == 1)
+	{
+		Factfeed = 912;
+		EssentialFragment = 1;
+		g_dElapsedTimeTemp = (g_dElapsedTime + 10.0);
 	}
 	else if (checkF == 111)
 	{
