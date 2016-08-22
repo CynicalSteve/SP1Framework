@@ -11,6 +11,7 @@ int TutorialMode = 1; // Instead of doing "Y/N" for the first portal, I'm implem
 int tempF;
 int EssentialFragment = 0;
 int OptionalFragment = 0;
+std::string inventory = "none";
 
 /*
 Sea = 1
@@ -636,10 +637,16 @@ int FstandsforFrustrating(int checkF)
 		}
 	}
 
-	if (Factfeed == 11 && checkF == 9) // Check if user is pressing "F" and then "E" afterwards to do something.
+	if (tempF == 101 && checkF == 9)
+	{
+		inventory = "A flat rock";
+	}
+
+	if (inventory == "A flat rock" && tempF == 102 && checkF == 9) // Check if user is pressing "F" and then "E" afterwards to do something.
 	{
 		EssentialFragment += 1;
-		Factfeed = 999; // 999 will be my test number.
+		Areanum = 1;
+		InPortal = 0;
 	}
 
 	if (checkF == 1)
@@ -657,8 +664,6 @@ int FstandsforFrustrating(int checkF)
 	else if (checkF == 101)
 	{
 		Factfeed = 11;
-		// Add rock to inventory.
-		// Change UI -> In hand - to rock.
 	}
 	else if (checkF == 102)
 	{
