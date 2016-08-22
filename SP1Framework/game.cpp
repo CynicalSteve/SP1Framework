@@ -20,13 +20,14 @@ double  g_dDeltaTime;
 bool    g_abKeyPressed[K_COUNT];
 
 int Areanum = 1;
-int EssentialFragment = 6; // It should be 0, this is just so i can access everything
 int Levelnum = 0;          // Odd numbers = EF, Even numbers = OF. In code later for last 2 "IF OF = 5, then take player to the 2nd ending instead"
 int checkF;                // Checking what the player is interacting with
 int tempcoords;            // Used to hold the value of c.Y in activity feed
 
 extern int Factfeed;
 extern int InPortal;
+extern int EssentialFragment;
+extern int OptionalFragment;
 
 // Game specific variables here
 SGameChar   g_sChar;
@@ -438,12 +439,25 @@ void renderFeed()
 	c.Y = 28;
 	g_Console.writeToBuffer(c, "=============================================================================================================", 0x07);
 	c.Y += 1;
-	g_Console.writeToBuffer(c, "Essential Fragments Obtained: 0     Optional Fragments Obtained: 0      Item in Hand: None", 0x07); // Portal entered: set X coordinates for number (30 - 67)
+	g_Console.writeToBuffer(c, "Essential Fragments Obtained:", 0x07);
+	c.X += 30;
+	g_Console.writeToBuffer(c, EssentialFragment + 48, 0x06);
+	c.X += 5;
+	g_Console.writeToBuffer(c, "Optional Fragments Obtained:", 0x07);
+	c.X += 30;
+	g_Console.writeToBuffer(c, OptionalFragment + 48, 0x06);
+	c.X += 5;
+	g_Console.writeToBuffer(c, "Item in Hand:", 0x07);
+	c.X += 15;
+	g_Console.writeToBuffer(c, "Stones (hard code)", 0x06);
+	c.X = 0; // Reset X to 0 so printing is normal again.
 	c.Y += 1;                                                                                                                        // Item in hand: set X coordinates for item name (88)
 	g_Console.writeToBuffer(c, "=============================================================================================================", 0x07);
 	c.Y += 1;
 	g_Console.writeToBuffer(c, "\"Wha-What is this place?\"", 0x02);
 	c.Y += 1;
+	// g_Console.writeToBuffer(c, "Essential Fragments Obtained: 0     Optional Fragments Obtained: 0      Item in Hand: None", 0x07); // Portal entered: set X coordinates for number (30 - 67)
+
 	if (g_dElapsedTime > 5.0) // wait for 5 seconds to display next message
 	{
 		g_Console.writeToBuffer(c, "I looked about confused and wide-eyed.", 0x02);
@@ -630,6 +644,19 @@ void renderFeed()
 		g_Console.writeToBuffer(c, "A note atop of it reads 'AXJPODBCOPWBVU'.", 0x02);
 		c.Y++;
 		g_Console.writeToBuffer(c, "I can't seem to make any sense of it.", 0x05);
+
+		c.Y = tempcoords;
+	}
+	else if (Factfeed == 999)
+	{
+		tempcoords = c.Y;
+
+		c.Y = 24;
+		g_Console.writeToBuffer(c, "Whatever you are doing,", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "it bloody works!", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "", 0x05);
 
 		c.Y = tempcoords;
 	}
