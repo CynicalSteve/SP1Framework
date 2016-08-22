@@ -648,6 +648,58 @@ void renderFeed()
 
 		c.Y = tempcoords;
 	}
+	else if (Factfeed == 15) //Stone (Opt frag)
+	{
+		tempcoords = c.Y;
+
+		c.Y = 24;
+		g_Console.writeToBuffer(c, "They feel like stones yet they are as black as coal. I'll take one just in case.", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "", 0x05);
+
+		c.Y = tempcoords;
+	}
+	else if (Factfeed == 16) //Lake (Opt frag)
+	{
+		tempcoords = c.Y;
+
+		c.Y = 24;
+		g_Console.writeToBuffer(c, "The water is blood-red and muddy.", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "", 0x05);
+
+		c.Y = tempcoords;
+	}
+	else if (Factfeed == 17) //Fish (Opt frag)
+	{
+		tempcoords = c.Y;
+
+		c.Y = 24;
+		g_Console.writeToBuffer(c, "A red herring.", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "", 0x05);
+
+		c.Y = tempcoords;
+	}
+	else if (Factfeed == 18) //Box (Opt frag)
+	{
+		tempcoords = c.Y;
+
+		c.Y = 24;
+		g_Console.writeToBuffer(c, "A locked box.", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "", 0x02);
+		c.Y++;
+		g_Console.writeToBuffer(c, "", 0x05);
+
+		c.Y = tempcoords;
+	}
 	else if (InPortal == 2)
 	{
 		tempcoords = c.Y;
