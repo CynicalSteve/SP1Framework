@@ -379,6 +379,8 @@ void actfeed()
 			c.Y++;
 			g_Console.writeToBuffer(c, "01001000  01000001  01010000  01010000  01011001", 0x08);
 			break;
+		case 30 :
+		
 		case 911:
 			g_Console.writeToBuffer(c, "The stone hit the metallic object with a pleasant 'ding'.", 0x02);
 			c.Y++;
