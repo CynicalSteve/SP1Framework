@@ -825,7 +825,18 @@ void FstandsforFrustrating(int checkF)
 	{
 		Factfeed = 26;
 	}
-
+	else if (checkF == 141)
+	{
+		Factfeed = 27;
+	}
+	else if (checkF == 142)
+	{
+		Factfeed = 28;
+	}
+	else if (checkF == 143)
+	{
+		Factfeed = 29;
+	}
 	else if (checkF == 0)
 	{
 		Factfeed = 0;
