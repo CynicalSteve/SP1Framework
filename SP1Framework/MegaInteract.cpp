@@ -837,9 +837,11 @@ void FstandsforFrustrating(int checkF)
 	case 0:
 		Factfeed = 0;
 		break;
-	case 912:
+	
+	}
+	if (Factfeed == 912 || Factfeed == 914)
+	{
 		g_dTime = (g_dElapsedTime + 2.0);
-		break;	
 	}
 
 	tempF = checkF;
