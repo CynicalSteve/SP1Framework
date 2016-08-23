@@ -337,7 +337,6 @@ void actfeed()
 			g_Console.writeToBuffer(c, "it bloody works!", 0x02);
 			break;
 		}
-
 		c.Y = tempcoords;
 	}
 
