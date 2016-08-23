@@ -482,9 +482,6 @@ char firstItem[] = "A Flat Stone";
 char secondItem[] = "History Book";
 char thirdItem[] = "Stack of Stones";
 
-int tempF;
-extern int reqinteraction;
-
 void renderUI() // inventory
 {
 	COORD c = g_Console.getConsoleSize();
@@ -492,12 +489,10 @@ void renderUI() // inventory
 	c.X = c.X / 2 - 9;
 	g_Console.writeToBuffer(c, "-Inventory Opened-", 0x03); // at the moment this does jack shit aside from show a new screen saying inventory is open
 	
-	if (tempF == 101 && checkF == 9 && reqinteraction == 1)
-	{
-		c.Y += 2;
-		c.X = g_Console.getConsoleSize().X / 2 - 5;
-		g_Console.writeToBuffer(c, firstItem, 0x09);
-	}
+	c.Y += 2;
+	c.X = g_Console.getConsoleSize().X / 2 - 5;
+	g_Console.writeToBuffer(c, firstItem, 0x09);
+
 	c.Y += 2;
 	c.X = g_Console.getConsoleSize().X / 2 - 5;
 	g_Console.writeToBuffer(c, secondItem, 0x09);
