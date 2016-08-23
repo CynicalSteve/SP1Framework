@@ -16,6 +16,7 @@ std::string inventory = "none";
 int levelfinish = 0;
 int reqinteraction = 0; // This is so we can force the player to actually read certain thingamajigs otherwise other thingamajigs wont work.
 double g_dElapsedTimeTemp = 999.0;
+double g_dTime = 999.0;
 
 /*
 *** *** *** CheckF *** *** ***
@@ -331,7 +332,7 @@ int checkinteract(void)
 	}
 	else if (Areanum == 0)
 	{
-		if (InPortal == 1)
+		if (InPortal == 1)    //Lake EF
 		{
 			// UP UP UP UP UP
 
@@ -527,39 +528,69 @@ int checkinteract(void)
 				return 114;
 			}
 		}
-		else if (InPortal == 3)
+		else if (InPortal == 3)    //Chapel EF
+		{
+			if(whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'W')
+			{
+				return 121;
+			}
+			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'Y')
+			{
+				return 122;
+			}
+			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'S')
+			{
+				return 123;
+			}
+			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'P')
+			{
+				return 124;
+			}
+			else
+			{
+				return 0;
+			}
+		}
+		else if (InPortal == 4)    //Chapel OF
 		{
 			return 0;
 		}
-		else if (InPortal == 4)
+		else if (InPortal == 5)    //Computer Room EF
+		{
+			if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'P')
+			{
+				return 131;
+			}
+			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'C')
+			{
+				return 132;
+			}
+			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'S')
+			{
+				return 133;
+			}
+		}
+		else if (InPortal == 6)    //Computer Room OF
 		{
 			return 0;
 		}
-		else if (InPortal == 5)
+		else if (InPortal == 7)    //Street EF
 		{
 			return 0;
 		}
-		else if (InPortal == 6)
+		else if (InPortal == 8)    //Street OF
 		{
 			return 0;
 		}
-		else if (InPortal == 7)
+		else if (InPortal == 9)    //Living Room EF
 		{
 			return 0;
 		}
-		else if (InPortal == 8)
+		else if (InPortal == 10)   //Living Room OF
 		{
 			return 0;
 		}
-		else if (InPortal == 9)
-		{
-			return 0;
-		}
-		else if (InPortal == 10)
-		{
-			return 0;
-		}
-		else if (InPortal == 11)
+		else if (InPortal == 11)   //Funeral
 		{
 			return 0;
 		}
@@ -755,11 +786,44 @@ void FstandsforFrustrating(int checkF)
 		Factfeed = 914;
 		g_dElapsedTimeTemp = (g_dElapsedTime + 10.0);
 	}
+	else if (checkF == 121)
+	{
+		Factfeed = 19;
+	}
+	else if (checkF == 122)
+	{
+		Factfeed = 20;
+	}
+	else if (checkF == 123)
+	{
+		Factfeed = 21;
+	}
+	else if (checkF == 124)
+	{
+		Factfeed = 22;
+	}
+	else if (checkF == 131)
+	{
+		Factfeed = 24;
+	}
+	else if (checkF == 132)
+	{
+		Factfeed = 25;
+	}
+	else if (checkF == 133)
+	{
+		Factfeed = 26;
+	}
 	else if (checkF == 0)
 	{
 		Factfeed = 0;
 
 		// clear everything here
+	}
+
+	if (Factfeed == 912)
+	{
+		g_dTime = (g_dElapsedTime + 2.0);
 	}
 
 	tempF = checkF;
