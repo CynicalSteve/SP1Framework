@@ -220,7 +220,7 @@ void actfeed()
 				c.Y++;
 				g_Console.writeToBuffer(c, "I can see something metallic barely breaking the surface.", 0x02);
 				c.Y++;
-				if (inventory == "A flat rock")
+				if (inventory == "A Flat Stone")
 				{
 					g_Console.writeToBuffer(c, "I wonder if I can hit it with the rock I picked up.", 0x05);
 				}
