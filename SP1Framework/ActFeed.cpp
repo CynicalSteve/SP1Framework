@@ -337,7 +337,6 @@ void actfeed()
 			g_Console.writeToBuffer(c, "it bloody works!", 0x02);
 			break;
 		}
-<<<<<<< HEAD
 
 		c.Y = tempcoords;
 	}
@@ -432,13 +431,8 @@ void actfeed()
 	g_Console.writeToBuffer(c, "Name", 0x04);
 	c.Y += 1;
 	} */
-	
-=======
 
-		c.Y = tempcoords;
-	}
-
-	if (g_dElapsedTime >= g_dElapsedTimeTemp && levelfinish == 1)
+	if (g_dElapsedTime >= g_dElapsedTimeTemp && levelfinish == 1);
 	{
 		InPortal = 0;
 		Areanum = 1;
@@ -447,5 +441,4 @@ void actfeed()
 		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 88;
 		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 45;
 	}
->>>>>>> 542698bb6174e3dd72ac83e5e5ce9f3b285bf027
 }
