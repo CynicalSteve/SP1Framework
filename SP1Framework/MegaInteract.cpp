@@ -558,7 +558,7 @@ int checkinteract(void)
 	}
 }
 
-int FstandsforFrustrating(int checkF)
+void FstandsforFrustrating(int checkF)
 {
 	if (Factfeed == 3 && checkF == 9) // Check if user is pressing "F" and then "E" afterwards to enter it.
 	{
@@ -651,6 +651,7 @@ int FstandsforFrustrating(int checkF)
 	{
 		Factfeed = 911;
 		levelfinish = 1;
+		inventory = "none";
 	}
 
 	if (checkF == 1)
@@ -712,6 +713,4 @@ int FstandsforFrustrating(int checkF)
 	}
 
 	tempF = checkF;
-
-	return 0;
 }

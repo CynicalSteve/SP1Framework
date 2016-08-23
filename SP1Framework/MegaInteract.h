@@ -12,6 +12,6 @@
 
 int checkinteract(void);
 
-int FstandsforFrustrating(int checkF);
+void FstandsforFrustrating(int checkF);
 
 #endif // _MEGAINTERACT_H

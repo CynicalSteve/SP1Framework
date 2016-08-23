@@ -79,6 +79,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ActFeed.cpp" />
     <ClCompile Include="CheckColi.cpp" />
     <ClCompile Include="CheckColiPuzzle.cpp" />
     <ClCompile Include="Framework\console.cpp" />
@@ -90,6 +91,7 @@
     <ClCompile Include="PuzzleLevels.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ActFeed.h" />
     <ClInclude Include="CheckColi.h" />
     <ClInclude Include="CheckColiPuzzle.h" />
     <ClInclude Include="Framework\console.h" />

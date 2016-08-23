@@ -7,6 +7,7 @@
 #include "MegaInteract.h"
 #include "PuzzleLevels.h"
 #include "CheckColiPuzzle.h"
+#include "ActFeed.h"
 
 extern CStopWatch g_swTimer;
 extern bool g_bQuitGame;
