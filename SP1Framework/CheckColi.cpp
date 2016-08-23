@@ -15,29 +15,26 @@ int Collision(int check)
 
 	std::ifstream file;
 
-	if (Areanum == 1)
+	switch (Areanum)
 	{
+	case 1:
 		file.open("Text files/Area 1.txt");
-	}
-	else if (Areanum == 2)
-	{
-    	file.open("Text files/Area 2 & 3.txt");
-	}
-	else if (Areanum == 3)
-	{
-    	file.open("Text files/Area 4 & 5.txt");
-	}
-	else if (Areanum == 4)
-	{
-    	file.open("Text files/Area 6 & 7.txt");
-	}
-	else if (Areanum == 5)
-	{
-    	file.open("Text files/Area 8 & 9 & 10.txt");
-	}
-	else if (Areanum == 6)
-	{
-	    file.open("Text files/Area 11.txt");
+		break;
+	case 2:
+		file.open("Text files/Area 2 & 3.txt");
+		break;
+	case 3:
+		file.open("Text files/Area 4 & 5.txt");
+		break;
+	case 4:
+		file.open("Text files/Area 6 & 7.txt");
+		break;
+	case 5:
+		file.open("Text files/Area 8 & 9 & 10.txt");
+		break;
+	case 6:
+		file.open("Text files/Area 11.txt");
+		break;
 	}
 
 	if (file.is_open())
@@ -72,30 +69,28 @@ int Collision(int check)
 		}
 		else if ((whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '#') && (EssentialFragment >= Areanum))
 		{
-			if (Areanum == 1)
+			switch (Areanum)
 			{
+			case 1:
 				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 87;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 41;
-			}
-			else if (Areanum == 2)
-			{
+				break;
+			case 2:
 				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 103;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 36;
-			}
-			else if (Areanum == 3)
-			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 93; 
+				break;
+			case 3:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 93;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 53;
-			}
-			else if (Areanum == 4)
-			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 90; 
+				break;
+			case 4:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 90;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 53;
-			}
-			else if (Areanum == 5)
-			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 71; 
+				break;
+			case 5:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 71;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 47;
+				break;
 			}
 
 			Areanum++;
@@ -103,30 +98,28 @@ int Collision(int check)
 		}
 		else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '%') 
 		{
-			if (Areanum == 2)
+			switch (Areanum)
 			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 77; 
+			case 2:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 77;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 50;
-			}
-			else if (Areanum == 3)
-			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 45; 
+				break;
+			case 3:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 45;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 50;
-			}
-			else if (Areanum == 4)
-			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 53; 
+				break;
+			case 4:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 53;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 38;
-			}
-			else if (Areanum == 5)
-			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 80; 
+				break;
+			case 5:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 80;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 33;
-			}
-			else if (Areanum == 6)
-			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 105; 
+				break;
+			case 6:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 105;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 41;
+				break;
 			}
 
 			Areanum--;
@@ -153,30 +146,28 @@ int Collision(int check)
 		}
 		else if ((whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == '#') && (EssentialFragment >= Areanum))
 		{
-			if (Areanum == 1)
+			switch (Areanum)
 			{
+			case 1:
 				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 87;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 41;
-			}
-			else if (Areanum == 2)
-			{
+				break;
+			case 2:
 				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 103;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 36;
-			}
-			else if (Areanum == 3)
-			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 93; 
+				break;
+			case 3:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 93;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 53;
-			}
-			else if (Areanum == 4)
-			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 90; 
+				break;
+			case 4:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 90;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 53;
-			}
-			else if (Areanum == 5)
-			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 71; 
+				break;
+			case 5:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 71;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 47;
+				break;
 			}
 
 			Areanum++;
@@ -184,30 +175,28 @@ int Collision(int check)
 		}
 		else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == '%') 
 		{
-			if (Areanum == 2)
+			switch (Areanum)
 			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 77; 
+			case 2:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 77;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 50;
-			}
-			else if (Areanum == 3)
-			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 45; 
+				break;
+			case 3:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 45;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 50;
-			}
-			else if (Areanum == 4)
-			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 53; 
+				break;
+			case 4:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 53;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 38;
-			}
-			else if (Areanum == 5)
-			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 80; 
+				break;
+			case 5:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 80;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 33;
-			}
-			else if (Areanum == 6)
-			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 105; 
+				break;
+			case 6:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 105;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 41;
+				break;
 			}
 
 			Areanum--;
@@ -234,30 +223,28 @@ int Collision(int check)
 		}
 		else if ((whatever[g_sChar.m_cLocation.X - 1][g_sChar.m_cLocation.Y] == '#') && (EssentialFragment >= Areanum))
 		{
-			if (Areanum == 1)
+			switch (Areanum)
 			{
+			case 1:
 				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 87;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 41;
-			}
-			else if (Areanum == 2)
-			{
+				break;
+			case 2:
 				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 103;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 36;
-			}
-			else if (Areanum == 3)
-			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 93; 
+				break;
+			case 3:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 93;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 53;
-			}
-			else if (Areanum == 4)
-			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 90; 
+				break;
+			case 4:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 90;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 53;
-			}
-			else if (Areanum == 5)
-			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 71; 
+				break;
+			case 5:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 71;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 47;
+				break;
 			}
 
 			Areanum++;
@@ -265,30 +252,28 @@ int Collision(int check)
 		}
 		else if (whatever[g_sChar.m_cLocation.X - 1][g_sChar.m_cLocation.Y] == '%') 
 		{
-			if (Areanum == 2)
+			switch (Areanum)
 			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 77; 
+			case 2:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 77;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 50;
-			}
-			else if (Areanum == 3)
-			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 45; 
+				break;
+			case 3:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 45;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 50;
-			}
-			else if (Areanum == 4)
-			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 53; 
+				break;
+			case 4:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 53;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 38;
-			}
-			else if (Areanum == 5)
-			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 80; 
+				break;
+			case 5:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 80;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 33;
-			}
-			else if (Areanum == 6)
-			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 105; 
+				break;
+			case 6:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 105;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 41;
+				break;
 			}
 
 			Areanum--;
@@ -315,30 +300,28 @@ int Collision(int check)
 		}
 		else if ((whatever[g_sChar.m_cLocation.X + 1][g_sChar.m_cLocation.Y] == '#') && (EssentialFragment >= Areanum))
 		{
-			if (Areanum == 1)
+			switch (Areanum)
 			{
+			case 1:
 				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 87;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 41;
-			}
-			else if (Areanum == 2)
-			{
+				break;
+			case 2:
 				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 103;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 36;
-			}
-			else if (Areanum == 3)
-			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 93; 
+				break;
+			case 3:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 93;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 53;
-			}
-			else if (Areanum == 4)
-			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 90; 
+				break;
+			case 4:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 90;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 53;
-			}
-			else if (Areanum == 5)
-			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 71; 
+				break;
+			case 5:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 71;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 47;
+				break;
 			}
 
 			Areanum++;
@@ -346,30 +329,28 @@ int Collision(int check)
 		}
 		else if (whatever[g_sChar.m_cLocation.X + 1][g_sChar.m_cLocation.Y] == '%') 
 		{
-			if (Areanum == 2)
+			switch (Areanum)
 			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 77; 
+			case 2:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 77;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 50;
-			}
-			else if (Areanum == 3)
-			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 45; 
+				break;
+			case 3:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 45;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 50;
-			}
-			else if (Areanum == 4)
-			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 53; 
+				break;
+			case 4:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 53;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 38;
-			}
-			else if (Areanum == 5)
-			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 80; 
+				break;
+			case 5:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 80;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 33;
-			}
-			else if (Areanum == 6)
-			{
-				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 105; 
+				break;
+			case 6:
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 105;
 				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 41;
+				break;
 			}
 
 			Areanum--;

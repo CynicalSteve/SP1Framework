@@ -17,45 +17,41 @@ int CollisionPuzzle(int checkPuzzle)
 
 	std::ifstream file;
 
-	if (InPortal == 1 || InPortal == 2)
+	switch (InPortal)
 	{
+	case 1:
 		file.open("Text files/1_Lake.txt");
-	}
-	else if (InPortal == 3)
-	{
+		break;
+	case 2:
+		file.open("Text files/1_Lake.txt");
+		break;
+	case 3:
 		file.open("Text files/2_Chappel.txt");
-	}
-	else if (InPortal == 4)
-	{
+		break;
+	case 4:
 		file.open("Text files/2_ChappelOF.txt");
-	}
-	else if (InPortal == 5)
-	{
+		break;
+	case 5:
 		file.open("Text files/3_ComputerRoom.txt");
-	}
-	else if (InPortal == 6)
-	{
+		break;
+	case 6:
 		file.open("Text files/3_ComputerRoomOF.txt");
-	}
-	else if (InPortal == 7)
-	{
+		break;
+	case 7:
 		file.open("Text files/4_Street.txt");
-	}
-	else if (InPortal == 8)
-	{
+		break;
+	case 8:
 		file.open("Text files/4_StreetOF.txt");
-	}
-	else if (InPortal == 9)
-	{
+		break;
+	case 9:
 		file.open("Text files/5_LivingRoom.txt");
-	}
-	else if (InPortal == 10)
-	{
+		break;
+	case 10:
 		file.open("Text files/5_LivingRoomOF.txt");
-	}
-	else if (InPortal == 11)
-	{
+		break;
+	case 11:
 		file.open("Text files/6_Funeral.txt");
+		break;
 	}
 
 	if (file.is_open())

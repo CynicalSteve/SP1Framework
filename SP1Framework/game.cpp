@@ -445,7 +445,7 @@ void renderFeed()
 	g_Console.writeToBuffer(c, "Item in Hand:", 0x07);
 	c.X += 15;
 	g_Console.writeToBuffer(c, inventory, 0x06);
-	c.X = 0; // Reset X to 0 so printing is normal again.
+	c.X = 0; // Reset X to 0 so writing to buffer is normal again.
 	c.Y += 1;                                                                                                                       
 	g_Console.writeToBuffer(c, "=============================================================================================================", 0x07);
 	c.Y += 1;
