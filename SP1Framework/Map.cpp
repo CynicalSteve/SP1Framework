@@ -8,29 +8,26 @@ char** mapstore(char** printmap)
 {
 	std::ifstream area;
 
-	if (Areanum == 1)
+	switch (Areanum)
 	{
+	case 1:
 		area.open("Text files/Area 1.txt");
-	}
-	else if (Areanum == 2)
-	{
-	    area.open("Text files/Area 2 & 3.txt");
-	}
-	else if (Areanum == 3)
-	{
-	   area.open("Text files/Area 4 & 5.txt");
-	}
-	else if (Areanum == 4)
-	{
-	   area.open("Text files/Area 6 & 7.txt");
-	}
-	else if (Areanum == 5)
-	{
-    	area.open("Text files/Area 8 & 9 & 10.txt");
-	}
-	else if (Areanum == 6)
-	{
-    	area.open("Text files/Area 11.txt");
+		break;
+	case 2:
+		area.open("Text files/Area 2 & 3.txt");
+		break;
+	case 3:
+		area.open("Text files/Area 4 & 5.txt");
+		break;
+	case 4:
+		area.open("Text files/Area 6 & 7.txt");
+		break;
+	case 5:
+		area.open("Text files/Area 8 & 9 & 10.txt");
+		break;
+	case 6:
+		area.open("Text files/Area 11.txt");
+		break;
 	}
 
 	if (area.is_open())

@@ -28,6 +28,11 @@ EF 1 = 10x
 	   -> 102 Lake
 	   -> 103 Fish
 	   -> 104 Box
+OF 1 = 11x
+    11x -> 111 Rocks
+	    -> 112 Lake
+		-> 113 Fish
+		-> 114 Box
 EF 2 = 20x
     20x -> ??
 EF 3 = 30x
@@ -54,72 +59,69 @@ int checkinteract(void)
 
 	if (Areanum > 0)
 	{
-		if (Areanum == 1)
+		switch (Areanum)
 		{
+		case 1:
 			file.open("Text files/Area 1.txt");
-		}
-		else if (Areanum == 2)
-		{
+			break;
+		case 2:
 			file.open("Text files/Area 2 & 3.txt");
-		}
-		else if (Areanum == 3)
-		{
+			break;
+		case 3:
 			file.open("Text files/Area 4 & 5.txt");
-		}
-		else if (Areanum == 4)
-		{
+			break;
+		case 4:
 			file.open("Text files/Area 6 & 7.txt");
-		}
-		else if (Areanum == 5)
-		{
+			break;
+		case 5:
 			file.open("Text files/Area 8 & 9 & 10.txt");
-		}
-		else if (Areanum == 6)
-		{
+			break;
+		case 6:
 			file.open("Text files/Area 11.txt");
+			break;
 		}
 	}
-	else if (Areanum == 0)
+	
+	if (Areanum == 0)
 	{
-		if (InPortal == 1 || InPortal == 2)
+		switch (InPortal)
 		{
+		case 1:
 			file.open("Text files/1_Lake.txt");
-		}
-		else if (InPortal == 3)
-		{
+			break;
+		case 2:
+			file.open("Text files/1_Lake.txt");
+			break;
+		case 3:
 			file.open("Text files/2_Chappel.txt");
-		}
-		else if (InPortal == 4)
-		{
+			break;
+		case 4:
 			file.open("Text files/2_ChappelOF.txt");
-		}
-		else if (InPortal == 5)
-		{
+			break;
+		case 5:
 			file.open("Text files/3_ComputerRoom.txt");
-		}
-		else if (InPortal == 6)
-		{
+			break;
+		case 6:
 			file.open("Text files/3_ComputerRoomOF.txt");
-		}
-		else if (InPortal == 7)
-		{
+			break;
+		case 7:
 			file.open("Text files/4_Street.txt");
-		}
-		else if (InPortal == 8)
-		{
+			break;
+		case 8:
 			file.open("Text files/4_StreetOF.txt");
-		}
-		else if (InPortal == 9)
-		{
+			break;
+		case 9:
 			file.open("Text files/5_LivingRoom.txt");
-		}
-		else if (InPortal == 10)
-		{
+			break;
+		case 10:
 			file.open("Text files/5_LivingRoomOF.txt");
-		}
-		else if (InPortal == 11)
-		{
+			break;
+		case 11:
 			file.open("Text files/6_Funeral.txt");
+			break;
+		case 12:
+			file.open("Text files/1_LakeXFish.txt");
+			break;
 		}
 	}
 
@@ -427,7 +429,7 @@ int checkinteract(void)
 				return 104;
 			}
 		}
-		else if (InPortal == 2) // **********EDIT THIS LATER************
+		else if (InPortal == 2 || InPortal == 12)
 		{
 			// UP UP UP UP UP
 
@@ -662,10 +664,35 @@ void FstandsforFrustrating(int checkF)
 		inventory = "A flat stone";
 	}
 
+	if (Factfeed == 15 && checkF == 9 && reqinteraction <= 4)
+	{
+		inventory = "A black flat stone";
+	}
+
+	if (tempF == 113 && checkF == 9 && reqinteraction == 3)
+	{
+		InPortal = 12;
+		inventory = "A stone filled fish";
+	}
+
 	if (inventory == "A flat stone" && tempF == 102 && checkF == 9) // Check if user is pressing "F" and then "E" afterwards to do something.
 	{
-		Factfeed = 911;
 		levelfinish = 1;
+		Factfeed = 911;
+		inventory = "none";
+	}
+
+	if (inventory == "A black flat stone" && tempF == 113 && checkF == 9)
+	{
+		reqinteraction++;
+		Factfeed = 17;
+		inventory = "none";
+	}
+
+	if (inventory == "A stone filled fish" && tempF == 112 && checkF == 9)
+	{
+		levelfinish = 2;
+		Factfeed = 913;
 		inventory = "none";
 	}
 
@@ -694,17 +721,18 @@ void FstandsforFrustrating(int checkF)
 		Factfeed = 13;
 		reqinteraction = 1;
 	}
-	else if (checkF == 104 && levelfinish == 0)
+	else if (checkF == 104 && levelfinish != 1)
 	{
 		Factfeed = 14;
 	}
 	else if (checkF == 104 && levelfinish == 1)
 	{
-		Factfeed = 912;
 		EssentialFragment = 1;
+		reqinteraction = 0;
+		Factfeed = 912;
 		g_dElapsedTimeTemp = (g_dElapsedTime + 10.0);
 	}
-	else if (checkF == 111)
+	else if (checkF == 111 && InPortal == 2)
 	{
 		Factfeed = 15;
 	}
@@ -716,9 +744,16 @@ void FstandsforFrustrating(int checkF)
 	{
 		Factfeed = 17;
 	}
-	else if (checkF == 114)
+	else if (checkF == 114 && levelfinish != 2)
 	{
 		Factfeed = 18;
+	}
+	else if (checkF == 114 && levelfinish == 2)
+	{
+		OptionalFragment = 1;
+		reqinteraction = 0;
+		Factfeed = 914;
+		g_dElapsedTimeTemp = (g_dElapsedTime + 10.0);
 	}
 	else if (checkF == 0)
 	{
