@@ -383,7 +383,6 @@ void actfeed()
 			c.Y++;
 			g_Console.writeToBuffer(c, "As soon as my eyes landed on the last word, a blinding white light exploded around me.", 0x02);
 			break;
-<<<<<<< HEAD
 		case 913:
 			g_Console.writeToBuffer(c, "After waiting for a short while, a sound came from the red chest to my right.", 0x02);
 			break;
@@ -395,8 +394,6 @@ void actfeed()
 		case 404:
 			g_Console.writeToBuffer(c, "An unknown force prevents me from proceeding.", 0x03);
 			break;
-=======
->>>>>>> 8c82d1660295892a41fe19ef2b4c813f3cbe78f7
 		case 999:
 			g_Console.writeToBuffer(c, "Whatever you are doing,", 0x02);
 			c.Y++;
@@ -416,92 +413,7 @@ void actfeed()
 		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 45;
 	}
 
-<<<<<<< HEAD
 	if (g_dElapsedTime >= g_dElapsedTimeTemp && levelfinish == 2)
-=======
-	/* if (g_dElapsedTime > 5.0) // wait for 30 seconds to display next message
-	{
-	g_Console.writeToBuffer(c, "", 0x02);
-	c.Y += 1;
-	}
-	if (g_dElapsedTime > 6.0)
-	{
-	g_Console.writeToBuffer(c, "Wake", 0x04);
-	c.Y += 1;
-	}
-	if (g_dElapsedTime > 6.0)
-	{
-	g_Console.writeToBuffer(c, "Me", 0x04);
-	c.Y += 1;
-	}
-	if (g_dElapsedTime > 6.0)
-	{
-	g_Console.writeToBuffer(c, "Up", 0x04);
-	c.Y += 1;
-	}
-	if (g_dElapsedTime > 7.0)
-	{
-	g_Console.writeToBuffer(c, "Wake", 0x04);
-	c.Y += 1;
-	}
-	if (g_dElapsedTime > 7.0)
-	{
-	g_Console.writeToBuffer(c, "Me", 0x04);
-	c.Y += 1;
-	}
-	if (g_dElapsedTime > 7.0)
-	{
-	g_Console.writeToBuffer(c, "Up", 0x04);
-	c.Y += 1;
-	}
-	if (g_dElapsedTime > 7.0)
-	{
-	g_Console.writeToBuffer(c, "Inside", 0x04);
-	c.Y += 1;
-	}
-
-	if (c.Y == 54)
-	{
-	c.Y = 31;
-	}
-
-	if (g_dElapsedTime > 8.0)
-	{
-	g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
-	g_Console.writeToBuffer(c, "Save", 0x04);
-	c.Y += 1;
-	}
-
-	if (g_dElapsedTime > 8.0)
-	{
-	g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
-	g_Console.writeToBuffer(c, "Me", 0x04);
-	c.Y += 1;
-
-	}
-	if (g_dElapsedTime > 9.0)
-	{
-	g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
-	g_Console.writeToBuffer(c, "Call", 0x04);
-	c.Y += 1;
-
-	}
-	if (g_dElapsedTime > 9.0)
-	{
-	g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
-	g_Console.writeToBuffer(c, "My", 0x04);
-	c.Y += 1;
-
-	}
-	if (g_dElapsedTime > 9.0)
-	{
-	g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
-	g_Console.writeToBuffer(c, "Name", 0x04);
-	c.Y += 1;
-	} */
-
-	if (g_dElapsedTime >= g_dElapsedTimeTemp && levelfinish == 1);
->>>>>>> 8c82d1660295892a41fe19ef2b4c813f3cbe78f7
 	{
 		InPortal = 0;
 		Areanum = 1;

@@ -10,6 +10,6 @@
 
 using std::vector;
 
-void inventory();
+void storeinventory();
 
 #endif // _INVENTORY_H
