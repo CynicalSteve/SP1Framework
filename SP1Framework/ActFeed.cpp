@@ -10,6 +10,7 @@ extern double g_dTime;
 extern int InPortal;
 extern int Areanum;
 extern int levelfinish;
+extern int OptionalFragment;
 extern int EssentialFragment;
 extern int reqinteraction;
 
@@ -21,7 +22,7 @@ void actfeed()
 	c.X = 0;
 	c.Y = 31;
 
-	if (Areanum == 1 && EssentialFragment == 0)
+	if (Areanum == 1 && EssentialFragment == 0 && OptionalFragment == 0)
 	{
 		c.Y = 31;
 

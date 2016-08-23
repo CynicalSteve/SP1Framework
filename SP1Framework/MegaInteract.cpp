@@ -738,115 +738,108 @@ void FstandsforFrustrating(int checkF)
 		inventory = "none";
 	}
 
-	if (checkF == 1)
+	
+	switch (checkF)
 	{
+	case 1:
 		Factfeed = 1;
-	}
-	else if (checkF == 2)
-	{
+		break;
+	case 2:
 		Factfeed = 2;
-	}
-	else if (checkF == 30 || checkF == 31)
-	{
+		break;
+	case 30:
 		Factfeed = 3;
-	}
-	else if (checkF == 101 && reqinteraction == 1)
-	{
-		Factfeed = 11;
-	}
-	else if (checkF == 102)
-	{
+		break;
+	case 31:
+		Factfeed = 3;
+		break;
+	case 101:
+		if (reqinteraction == 1)
+		{
+			Factfeed = 11;
+		}
+		break;
+	case 102:
 		Factfeed = 12;
-	}
-	else if (checkF == 103)
-	{
+		break;
+	case 103:
 		Factfeed = 13;
 		reqinteraction = 1;
-	}
-	else if (checkF == 104 && levelfinish != 1)
-	{
-		Factfeed = 14;
-	}
-	else if (checkF == 104 && levelfinish == 1)
-	{
-		EssentialFragment = 1;
-		reqinteraction = 0;
-		Factfeed = 912;
-		g_dElapsedTimeTemp = (g_dElapsedTime + 10.0);
-	}
-	else if (checkF == 111 && InPortal == 2)
-	{
-		Factfeed = 15;
-	}
-	else if (checkF == 112)
-	{
+		break;
+	case 104:
+		if (levelfinish != 1)
+		{
+			Factfeed = 14;
+		}
+		else if (levelfinish == 1)
+		{
+			EssentialFragment = 1;
+			reqinteraction = 0;
+			Factfeed = 912;
+			g_dElapsedTimeTemp = (g_dElapsedTime + 10.0);
+		}
+		break;
+	case 111:
+		if (InPortal == 2)
+		{
+			Factfeed = 15;
+		}
+		break;
+	case 112:
 		Factfeed = 16;
-	}
-	else if (checkF == 113)
-	{
+		break;
+	case 113:
 		Factfeed = 17;
-	}
-	else if (checkF == 114 && levelfinish != 2)
-	{
-		Factfeed = 18;
-	}
-	else if (checkF == 114 && levelfinish == 2)
-	{
-		OptionalFragment = 1;
-		reqinteraction = 0;
-		Factfeed = 914;
-		g_dElapsedTimeTemp = (g_dElapsedTime + 10.0);
-	}
-	else if (checkF == 121)
-	{
+		break;
+	case 114:
+		if (levelfinish != 2)
+		{
+			Factfeed = 18;
+		}
+		else if (levelfinish == 2)
+		{
+			OptionalFragment = 1;
+			reqinteraction = 0;
+			Factfeed = 914;
+			g_dElapsedTimeTemp = (g_dElapsedTime + 10.0);
+		}
+		break;
+	case 121:
 		Factfeed = 19;
-	}
-	else if (checkF == 122)
-	{
+		break;
+	case 122:
 		Factfeed = 20;
-	}
-	else if (checkF == 123)
-	{
+		break;
+	case 123:
 		Factfeed = 21;
-	}
-	else if (checkF == 124)
-	{
+		break;
+	case 124:
 		Factfeed = 22;
-	}
-	else if (checkF == 131)
-	{
+		break;
+	case 131:
 		Factfeed = 24;
-	}
-	else if (checkF == 132)
-	{
+		break;
+	case 132:
 		Factfeed = 25;
-	}
-	else if (checkF == 133)
-	{
+		break;
+	case 133:
 		Factfeed = 26;
-	}
-	else if (checkF == 141)
-	{
+		break;
+	case 141:
 		Factfeed = 27;
-	}
-	else if (checkF == 142)
-	{
+		break;
+	case 142:
 		Factfeed = 28;
-	}
-	else if (checkF == 143)
-	{
+		break;
+	case 143:
 		Factfeed = 29;
-	}
-	else if (checkF == 0)
-	{
+		break;
+	case 0:
 		Factfeed = 0;
-
-		// clear everything here
-	}
-
-	if (Factfeed == 912)
-	{
+		break;
+	case 912:
 		g_dTime = (g_dElapsedTime + 2.0);
+		break;	
 	}
 
 	tempF = checkF;
