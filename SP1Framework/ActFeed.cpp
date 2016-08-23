@@ -227,6 +227,41 @@ void actfeed()
 		}
 	}
 
+	if (Factfeed == 914)
+	{
+		c.Y = 34;
+		if (g_dElapsedTime > g_dTime)
+		{
+			g_Console.writeToBuffer(c, "\"Who was that girl just now? Did you know her?\" Ava asked jealously.", 0x03);
+			c.Y += 2; // 36
+		}
+		if (g_dElapsedTime > (g_dTime + 3.0))
+		{
+			g_Console.writeToBuffer(c, "\"Yeah, she was my friend from high school.\" Terence replied.", 0x03);
+			c.Y += 2; //38
+		}
+		if (g_dElapsedTime > (g_dTime + 5.0))
+		{
+			g_Console.writeToBuffer(c, "\"Oh really?\" Ava said, glaring at the direction the girl went. \"Don't speak to her ever again.\"", 0x03);
+			c.Y += 2; //40
+		}
+		if (g_dElapsedTime > (g_dTime + 8.0))
+		{
+			g_Console.writeToBuffer(c, "\"What? But-\"", 0x03);
+			c.Y += 2; //42
+		}
+		if (g_dElapsedTime > (g_dTime + 9.0))
+		{
+			g_Console.writeToBuffer(c, "\"If you love me, never talk to her again. You do love me, right?\"", 0x03);
+			c.Y += 2; //44
+		}
+		if (g_dElapsedTime > (g_dTime + 11.0))
+		{
+			g_Console.writeToBuffer(c, "\"...Yes, I do.\"", 0x03);
+		}
+	}
+
+
 	/* Template for MX
 	if (c.Y == 54)
 	{
