@@ -6,7 +6,10 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
 
-//void ();
+using std::vector;
+
+void inventory();
 
 #endif // _INVENTORY_H
