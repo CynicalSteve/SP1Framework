@@ -368,13 +368,14 @@ void actfeed()
 			g_Console.writeToBuffer(c, "I believe it’s a map of Singapore. A red circle is drawn at the southern tip of the island.", 0x02);
 			break;
 		case 27 :
-
-		case 911:
+			// ******************************************do what? it was left blank lul***************************************************
+			break;
+		case 911: // Solve EF1 Lake
 			g_Console.writeToBuffer(c, "The stone hit the metallic object with a pleasant 'ding'.", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "A sound came from the red chest to my right.", 0x02);
 			break;
-		case 912:
+		case 912: // Solve EF1 Box
 			g_Console.writeToBuffer(c, "As I thought, the chest was unlocked as soon as the stone hit the metal object.", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "I lifted the cover and found a note inside. It reads:", 0x02);
@@ -383,18 +384,18 @@ void actfeed()
 			c.Y++;
 			g_Console.writeToBuffer(c, "As soon as my eyes landed on the last word, a blinding white light exploded around me.", 0x02);
 			break;
-		case 913:
+		case 913: // Solve OF1 Lake
 			g_Console.writeToBuffer(c, "After waiting for a short while, a sound came from the red chest to my right.", 0x02);
 			break;
-		case 914:
+		case 914: // Solve OF1 Box
 			g_Console.writeToBuffer(c, "The sinister voice that spoke when I had first entered the portal spoke again.", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "A blinding white light exploded around me as it said its last word.", 0x02);
 			break;
-		case 404:
+		case 404: // Error 404. Just kidding.
 			g_Console.writeToBuffer(c, "An unknown force prevents me from proceeding.", 0x03);
 			break;
-		case 999:
+		case 999: // Testing purposes only, pls take out on release build danke.
 			g_Console.writeToBuffer(c, "Whatever you are doing,", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "it bloody works!", 0x02);
@@ -408,6 +409,7 @@ void actfeed()
 		InPortal = 0;
 		Areanum = 1;
 		levelfinish = 0;
+		g_dElapsedTimeTemp = 999.0;
 
 		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 88;
 		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 45;
@@ -418,6 +420,7 @@ void actfeed()
 		InPortal = 0;
 		Areanum = 1;
 		levelfinish = 0;
+		g_dElapsedTimeTemp = 999.0;
 
 		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 74;
 		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 48;
