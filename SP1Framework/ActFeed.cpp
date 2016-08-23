@@ -245,7 +245,7 @@ void actfeed()
 				g_Console.writeToBuffer(c, "A red herring.", 0x02);
 				break;
 			case 18 : // Box (OF)
-				g_Console.writeToBuffer(c, "A locked box.", 0x02);
+				g_Console.writeToBuffer(c, "A locked chest.", 0x02);
 				break;
 			case 911 :
 				g_Console.writeToBuffer(c, "The stone hit the metallic object with a pleasant 'ding'.", 0x02);
