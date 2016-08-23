@@ -16,6 +16,7 @@ std::string inventory = "none";
 int levelfinish = 0;
 int reqinteraction = 0; // This is so we can force the player to actually read certain thingamajigs otherwise other thingamajigs wont work.
 double g_dElapsedTimeTemp = 999.0;
+double g_dTime = 999.0;
 
 /*
 *** *** *** CheckF *** *** ***
@@ -725,6 +726,11 @@ void FstandsforFrustrating(int checkF)
 		Factfeed = 0;
 
 		// clear everything here
+	}
+
+	if (Factfeed == 912)
+	{
+		g_dTime = (g_dElapsedTime + 2.0);
 	}
 
 	tempF = checkF;
