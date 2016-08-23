@@ -3,6 +3,7 @@
 
 #include "Framework\console.h"
 #include "game.h"
+#include "MegaInteract.h"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -10,6 +11,6 @@
 
 using std::vector;
 
-void storeinventory();
+void storeInventory();
 
 #endif // _INVENTORY_H
