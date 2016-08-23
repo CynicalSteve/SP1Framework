@@ -11,6 +11,7 @@ extern int InPortal;
 extern int Areanum;
 extern int levelfinish;
 extern int EssentialFragment;
+extern int reqinteraction;
 
 void actfeed()
 {
@@ -108,12 +109,26 @@ void actfeed()
 		}
 	}
 
-	if (InPortal == 2)
+	if (InPortal == 2 || InPortal == 12)
 	{
 		c.Y = 31;
 
-		g_Console.writeToBuffer(c, "No matter how strong one is, with too heavy a burden they will sink.", 0x02);
+		g_Console.writeToBuffer(c, "No matter how strong one is, with too heavy a burden they will     .", 0x06);
+		c.X += 63;
+		g_Console.writeToBuffer(c, "sink", 0x05);
 		c.Y++;
+
+		c.X = 0;
+
+		if (inventory == "a stone filled fish")
+		{
+			g_Console.writeToBuffer(c, "A stone filled fish has been added to your inventory.", 0x03);
+		}
+
+		if (levelfinish == 2)
+		{
+			g_Console.writeToBuffer(c, "\"Easy, isn't it? After all, you've had a lot of practice...\".", 0x06);
+		}
 	}
 
 	if (Factfeed == 912)
@@ -252,7 +267,7 @@ void actfeed()
 		case 11: // Lake Stones
 			g_Console.writeToBuffer(c, "A stack of stones. Having one of them may come in handy.", 0x02);
 			c.Y++;
-			g_Console.writeToBuffer(c, "Press the E key to pick a rock up.", 0x05);
+			g_Console.writeToBuffer(c, "Press the E key to pick a stone up.", 0x05);
 			break;
 		case 12: // Lake water
 			g_Console.writeToBuffer(c, "Unlike the sea, the water here is calm and clear.", 0x02);
@@ -276,12 +291,47 @@ void actfeed()
 			break;
 		case 15: // Lake Stone (OF)
 			g_Console.writeToBuffer(c, "They feel like stones yet they are as black as coal. I'll take one just in case.", 0x02);
+			c.Y++;
+			if (levelfinish != 2)
+			{
+				g_Console.writeToBuffer(c, "Press the E key to pick a stone up.", 0x05);
+			}
 			break;
 		case 16: // Lake Water (OF)
 			g_Console.writeToBuffer(c, "The water is blood-red and muddy.", 0x02);
+			c.Y++;
+			if (inventory == "A stone filled fish")
+			{
+				g_Console.writeToBuffer(c, "The fish trashes wildly as I bring it toward the lake. Its unsettling, but I don't freak out.", 0x05);
+			}
 			break;
 		case 17: // Lake Fish (OF)
 			g_Console.writeToBuffer(c, "A red herring.", 0x02);
+
+			if (inventory == "A black flat stone")
+			{
+				c.Y++;
+				g_Console.writeToBuffer(c, "The fishes mouth opens by itself as I approach it with the black stone. Creepy.", 0x05);
+			}
+
+			if (reqinteraction == 1)
+			{
+				c.Y++;
+				g_Console.writeToBuffer(c, "I've put 1 stone into the fish.", 0x02);
+			}
+			else if (reqinteraction == 2)
+			{
+				c.Y++;
+				g_Console.writeToBuffer(c, "I've put 2 stones into the fish. It feels noticably heavier.", 0x02);
+			}
+			else if (reqinteraction == 3)
+			{
+				c.Y++;
+				g_Console.writeToBuffer(c, "I've put 3 stones into the fish.                            It is heavy.", 0x02);
+				c.X += 33;
+				g_Console.writeToBuffer(c, "There is no room for more.", 0x05);
+				c.X = 0;
+			}
 			break;
 		case 18: // Lake Box (OF)
 			g_Console.writeToBuffer(c, "A locked chest.", 0x02);
@@ -333,6 +383,20 @@ void actfeed()
 			c.Y++;
 			g_Console.writeToBuffer(c, "As soon as my eyes landed on the last word, a blinding white light exploded around me.", 0x02);
 			break;
+<<<<<<< HEAD
+		case 913:
+			g_Console.writeToBuffer(c, "After waiting for a short while, a sound came from the red chest to my right.", 0x02);
+			break;
+		case 914:
+			g_Console.writeToBuffer(c, "The sinister voice that spoke when I had first entered the portal spoke again.", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "A blinding white light exploded around me as it said its last word.", 0x02);
+			break;
+		case 404:
+			g_Console.writeToBuffer(c, "An unknown force prevents me from proceeding.", 0x03);
+			break;
+=======
+>>>>>>> 8c82d1660295892a41fe19ef2b4c813f3cbe78f7
 		case 999:
 			g_Console.writeToBuffer(c, "Whatever you are doing,", 0x02);
 			c.Y++;
@@ -352,6 +416,9 @@ void actfeed()
 		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 45;
 	}
 
+<<<<<<< HEAD
+	if (g_dElapsedTime >= g_dElapsedTimeTemp && levelfinish == 2)
+=======
 	/* if (g_dElapsedTime > 5.0) // wait for 30 seconds to display next message
 	{
 	g_Console.writeToBuffer(c, "", 0x02);
@@ -432,4 +499,15 @@ void actfeed()
 	g_Console.writeToBuffer(c, "Name", 0x04);
 	c.Y += 1;
 	} */
+
+	if (g_dElapsedTime >= g_dElapsedTimeTemp && levelfinish == 1);
+>>>>>>> 8c82d1660295892a41fe19ef2b4c813f3cbe78f7
+	{
+		InPortal = 0;
+		Areanum = 1;
+		levelfinish = 0;
+
+		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 74;
+		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 48;
+	}
 }

@@ -9,45 +9,44 @@ char** puzzlestore(char** printlevel)
 {
 	std::ifstream puzzle;
 	
-	if (InPortal == 1 || InPortal == 2)
+	switch (InPortal)
 	{
+	case 1:
 		puzzle.open("Text files/1_Lake.txt");
-	}
-	else if (InPortal == 3)
-	{
+		break;
+	case 2:
+		puzzle.open("Text files/1_Lake.txt");
+		break;
+	case 3:
 		puzzle.open("Text files/2_Chappel.txt");
-	}
-	else if (InPortal == 4)
-	{
+		break;
+	case 4:
 		puzzle.open("Text files/2_ChappelOF.txt");
-	}
-	else if (InPortal == 5)
-	{
+		break;
+	case 5:
 		puzzle.open("Text files/3_ComputerRoom.txt");
-	}
-	else if (InPortal == 6)
-	{
+		break;
+	case 6:
 		puzzle.open("Text files/3_ComputerRoomOF.txt");
-	}
-	else if (InPortal == 7)
-	{
+		break;
+	case 7:
 		puzzle.open("Text files/4_Street.txt");
-	}
-	else if (InPortal == 8)
-	{
+		break;
+	case 8:
 		puzzle.open("Text files/4_StreetOF.txt");
-	}
-	else if (InPortal == 9)
-	{
+		break;
+	case 9:
 		puzzle.open("Text files/5_LivingRoom.txt");
-	}
-	else if (InPortal == 10)
-	{
+		break;
+	case 10:
 		puzzle.open("Text files/5_LivingRoomOF.txt");
-	}
-	else if (InPortal == 11)
-	{
+		break;
+	case 11:
 		puzzle.open("Text files/6_Funeral.txt");
+		break;
+	case 12:
+		puzzle.open("Text files/1_LakeXFish.txt");
+		break;
 	}
 	/*
 
