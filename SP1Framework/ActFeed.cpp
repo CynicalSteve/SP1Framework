@@ -367,8 +367,17 @@ void actfeed()
 		case 26 :  //Computer Room Map
 			g_Console.writeToBuffer(c, "I believe it’s a map of Singapore. A red circle is drawn at the southern tip of the island.", 0x02);
 			break;
-		case 27 :
-
+		case 27 :  //Street Buildings
+			g_Console.writeToBuffer(c, "All the buildings look the same.", 0x02);
+			break;
+		case 28 : //Street Lamposts
+			g_Console.writeToBuffer(c, "Just your typical lamppost.", 0x02);
+			break;
+		case 29 : //Street Box
+			g_Console.writeToBuffer(c, "There’s a code scratched above the lock of this red box.", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "01001000  01000001  01010000  01010000  01011001", 0x08);
+			break;
 		case 911:
 			g_Console.writeToBuffer(c, "The stone hit the metallic object with a pleasant 'ding'.", 0x02);
 			c.Y++;
