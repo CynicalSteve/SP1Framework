@@ -316,7 +316,9 @@ void actfeed()
 			break;
 		case 26 :  //Computer Room Map
 			g_Console.writeToBuffer(c, "I believe it’s a map of Singapore. A red circle is drawn at the southern tip of the island.", 0x02);
-			break; 
+			break;
+		case 27 :
+
 		case 911:
 			g_Console.writeToBuffer(c, "The stone hit the metallic object with a pleasant 'ding'.", 0x02);
 			c.Y++;

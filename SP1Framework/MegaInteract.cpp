@@ -574,7 +574,18 @@ int checkinteract(void)
 		}
 		else if (InPortal == 7)    //Street EF
 		{
-			return 0;
+			if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'S')
+			{
+				return 141;
+			}
+			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'P')
+			{
+				return 142;
+			}
+			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'B')
+			{
+				return 143;
+			}
 		}
 		else if (InPortal == 8)    //Street OF
 		{
@@ -779,6 +790,7 @@ void FstandsforFrustrating(int checkF)
 	{
 		Factfeed = 26;
 	}
+
 	else if (checkF == 0)
 	{
 		Factfeed = 0;
