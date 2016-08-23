@@ -478,6 +478,7 @@ void renderToScreen()
     g_Console.flushBufferToConsole();
 }
 
+
 void renderUI() // inventory
 {
 	COORD c = g_Console.getConsoleSize();
@@ -485,6 +486,7 @@ void renderUI() // inventory
 	c.X = c.X / 2 - 9;
 	g_Console.writeToBuffer(c, "-Inventory Opened-", 0x03); // at the moment this does jack shit aside from show a new screen saying inventory is open
 
+	/*
 	if (g_abKeyPressed[K_INVONE] == true)
 	{
 		c.Y += 2;
@@ -498,4 +500,5 @@ void renderUI() // inventory
 	c.Y += 2;
 	c.X = g_Console.getConsoleSize().X / 2 - 5;
 	g_Console.writeToBuffer(c, thirdItem, 0x09);
+	*/
 }

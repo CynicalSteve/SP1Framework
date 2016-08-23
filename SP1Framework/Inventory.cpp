@@ -1,6 +1,6 @@
-#include "Inventory.h";
+#include "Inventory.h"
 
-void inventory()
+/* void storeinventory()
 {
 	char firstItem[] = "A Flat Stone";
 	char secondItem[] = "History Book";
@@ -10,3 +10,4 @@ void inventory()
 	//g_abKeyPressed[K_INVTWO] = isKeyPressed(0x31);
 	//g_abKeyPressed[K_INVTHREE] = isKeyPressed(0x32);
 }
+*/
