@@ -18,6 +18,7 @@ int reqinteraction = 0; // This is so we can force the player to actually read c
 double g_dElapsedTimeTemp = 999.0;
 
 /*
+*** *** *** CheckF *** *** ***
 Sea = 1
 Trees = 2
 Essential Fragment = 30
@@ -31,6 +32,16 @@ EF 2 = 20x
     20x -> ??
 EF 3 = 30x
     30x -> ??
+
+*** *** *** FactFeed *** *** ***
+EF 1 = 1x
+x corresponds with x of checkF.
+
+Level Finish = 9Ax
+A = InPortal Number
+EF 1 = 91x
+    91x -> 911 Lake
+	    -> 912 Box
 */
 
 int checkinteract(void)
@@ -294,19 +305,19 @@ int checkinteract(void)
 			return 2;
 		}
 
-		if ((whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == '!') && (EssentialFragment == 0))
+		if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == '!')
 		{
 			return 30;
 		}
-		else if ((whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '!') && (EssentialFragment == 0))
+		else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '!')
 		{
 			return 30;
 		}
-		else if ((whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == '?') && (OptionalFragment == 0))
+		else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == '?')
 		{
 			return 31;
 		}
-		else if ((whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '?') && (OptionalFragment == 0))
+		else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '?')
 		{
 			return 31;
 		}
@@ -564,12 +575,12 @@ void FstandsforFrustrating(int checkF)
 	{
 		if (Areanum == 1)
 		{
-			if (tempF == 30) // !
+			if (tempF == 30 && EssentialFragment == 0) // !
 			{
 				InPortal = 1;
 				Areanum = 0;
 			}
-			else if (tempF == 31) // ?
+			else if (tempF == 31 && OptionalFragment == 0) // ?
 			{
 				InPortal = 2;
 				Areanum = 0;
@@ -577,12 +588,12 @@ void FstandsforFrustrating(int checkF)
 		}
 		if (Areanum == 2)
 		{
-			if (tempF == 30) // !
+			if (tempF == 30 && EssentialFragment == 1) // !
 			{
 				InPortal = 3;
 				Areanum = 0;
 			}
-			else if (tempF == 31) // ?
+			else if (tempF == 31 && OptionalFragment == 1) // ?
 			{
 				InPortal = 4;
 				Areanum = 0;
@@ -590,12 +601,12 @@ void FstandsforFrustrating(int checkF)
 		}
 		if (Areanum == 3)
 		{
-			if (tempF == 30) // !
+			if (tempF == 30 && EssentialFragment == 2) // !
 			{
 				InPortal = 5;
 				Areanum = 0;
 			}
-			else if (tempF == 31) // ?
+			else if (tempF == 31 && OptionalFragment == 2) // ?
 			{
 				InPortal = 6;
 				Areanum = 0;
@@ -603,12 +614,12 @@ void FstandsforFrustrating(int checkF)
 		}
 		if (Areanum == 4)
 		{
-			if (tempF == 30) // !
+			if (tempF == 30 && EssentialFragment == 3) // !
 			{
 				InPortal = 7;
 				Areanum = 0;
 			}
-			else if (tempF == 31) // ?
+			else if (tempF == 31 && OptionalFragment == 3) // ?
 			{
 				InPortal = 8;
 				Areanum = 0;
@@ -616,21 +627,25 @@ void FstandsforFrustrating(int checkF)
 		}
 		if (Areanum == 5)
 		{
-			if (tempF == 30) // !
+			if (tempF == 30 && EssentialFragment == 4) // !
 			{
 				InPortal = 9;
 				Areanum = 0;
 			}
-			else if (tempF == 31) // ?
+			else if (tempF == 31 && OptionalFragment == 4) // ?
 			{
 				InPortal = 10;
 				Areanum = 0;
 			}
 		}
-		if (Areanum == 6) // !
+		if (Areanum == 6 && EssentialFragment == 5) // !
 		{
 			InPortal = 11;
 			Areanum = 0;
+		}
+		else
+		{
+			Factfeed = 404;
 		}
 
 		if (InPortal > 0)
@@ -644,10 +659,10 @@ void FstandsforFrustrating(int checkF)
 
 	if (tempF == 101 && checkF == 9 && reqinteraction == 1)
 	{
-		inventory = "A flat rock";
+		inventory = "A flat stone";
 	}
 
-	if (inventory == "A flat rock" && tempF == 102 && checkF == 9) // Check if user is pressing "F" and then "E" afterwards to do something.
+	if (inventory == "A flat stone" && tempF == 102 && checkF == 9) // Check if user is pressing "F" and then "E" afterwards to do something.
 	{
 		Factfeed = 911;
 		levelfinish = 1;

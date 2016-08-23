@@ -9,7 +9,7 @@ extern double g_dElapsedTimeTemp;
 extern int InPortal;
 extern int Areanum;
 extern int levelfinish;
-extern int OptionalFragment;
+extern int EssentialFragment;
 
 void actfeed()
 {
@@ -19,7 +19,7 @@ void actfeed()
 	c.X = 0;
 	c.Y = 31;
 
-	if (Areanum == 1)
+	if (Areanum == 1 && EssentialFragment == 0)
 	{
 		c.Y = 31;
 
@@ -96,6 +96,22 @@ void actfeed()
 		}
 	}
 
+	if (InPortal == 1)
+	{
+		c.Y = 31;
+
+		if (inventory == "A flat stone")
+		{
+			g_Console.writeToBuffer(c, "Flat Stone has been added to your inventory.", 0x03);
+			c.Y++;
+		}
+		if (Factfeed == 912)
+		{
+			g_Console.writeToBuffer(c, "You have gained an Essential Fragment! Access it through your Inventory to view a piece of your past.", 0x03);
+			c.Y++;
+		}
+	}
+
 	if (InPortal == 2)
 	{
 		c.Y = 31;
@@ -103,6 +119,105 @@ void actfeed()
 		g_Console.writeToBuffer(c, "No matter how strong one is, with too heavy a burden they will sink.", 0x02);
 		c.Y++;
 	}
+
+	if (Factfeed > 0)
+	{
+		tempcoords = c.Y;
+		c.Y = 24;
+
+		switch (Factfeed)
+		{
+		case 1:
+			g_Console.writeToBuffer(c, "Theres a wooden boat in the distance leaning against a couple rocks.", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "Theres a giant hole in its hull so I doubt its usability.", 0x02);
+			break;
+		case 2:
+			g_Console.writeToBuffer(c, "The trees are swaying in harmony with the wind.", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "Their leaves seem to have a weird shade of dark green.", 0x02);
+			break;
+		case 3:
+			g_Console.writeToBuffer(c, "It looks and feels like some sort of portal. It pulsates with a strange light-blue energy but oddly enough", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "I don't feel intimidated by it at all. Instead, it feels like it's drawing me in. Should I enter it?", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "Press the E key to enter the portal.", 0x05);
+			break;
+		case 11: // Stones
+			g_Console.writeToBuffer(c, "A stack of stones. Having one of them may come in handy.", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "Press the E key to pick a rock up.", 0x05);
+			break;
+		case 12: // Lake
+			g_Console.writeToBuffer(c, "Unlike the sea, the water here is calm and clear.", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "I can see something metallic barely breaking the surface.", 0x02);
+			c.Y++;
+			if (inventory == "A flat stone")
+			{
+				g_Console.writeToBuffer(c, "I wonder if I can hit it with the rock I picked up.", 0x05);
+			}
+			break;
+		case 13: // Fish
+			g_Console.writeToBuffer(c, "If I'm not wrong, that fish looks like a red herring.", 0x02);
+			break;
+		case 14: // Box
+			g_Console.writeToBuffer(c, "There is a red chest here locked with a padlock.", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "A note atop of it reads \"AXJPODBCOPWBVU\".", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "I can't seem to make any sense of it.", 0x05);
+			break;
+		case 15: // Stone (OF)
+			g_Console.writeToBuffer(c, "They feel like stones yet they are as black as coal. I'll take one just in case.", 0x02);
+			break;
+		case 16: // Lake (OF)
+			g_Console.writeToBuffer(c, "The water is blood-red and muddy.", 0x02);
+			break;
+		case 17: // Fish (OF)
+			g_Console.writeToBuffer(c, "A red herring.", 0x02);
+			break;
+		case 18: // Box (OF)
+			g_Console.writeToBuffer(c, "A locked box.", 0x02);
+			break;
+		case 911:
+			g_Console.writeToBuffer(c, "The stone hit the metallic object with a pleasant \"ding\".", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "A sound came from the red chest to my right.", 0x02);
+			break;
+		case 912:
+			g_Console.writeToBuffer(c, "As I thought, the chest was unlocked as soon as the stone hit the metal object.", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "I lifted the cover and found a note inside. It reads:", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "\"Memories are but a jigsaw, one must have all pieces in hand to see the full picture.\"", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "As soon as my eyes landed on the last word, a blinding white light exploded around me.", 0x02);
+			break;
+		case 404:
+			g_Console.writeToBuffer(c, "An unknown force prevents me from proceeding.", 0x03);
+			break;
+		case 999:
+			g_Console.writeToBuffer(c, "Whatever you are doing,", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "it bloody works!", 0x02);
+			break;
+		}
+		
+		c.Y = tempcoords;
+	}
+
+	if (g_dElapsedTime >= g_dElapsedTimeTemp && levelfinish == 1)
+	{
+		InPortal = 0;
+		Areanum = 1;
+		levelfinish = 0;
+
+		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 88;
+		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 45;
+	}
+
 	/* if (g_dElapsedTime > 5.0) // wait for 30 seconds to display next message
 	{
 	g_Console.writeToBuffer(c, "", 0x02);
@@ -183,9 +298,6 @@ void actfeed()
 	g_Console.writeToBuffer(c, "Name", 0x04);
 	c.Y += 1;
 	} */
-
-	g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
-
 	if (Factfeed > 0)
 	{
 		tempcoords = c.Y;
@@ -220,7 +332,7 @@ void actfeed()
 				c.Y++;
 				g_Console.writeToBuffer(c, "I can see something metallic barely breaking the surface.", 0x02);
 				c.Y++;
-				if (inventory == "A flat rock")
+				if (inventory == "A Flat Stone")
 				{
 					g_Console.writeToBuffer(c, "I wonder if I can hit it with the rock I picked up.", 0x05);
 				}

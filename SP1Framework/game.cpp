@@ -442,10 +442,10 @@ void renderFeed()
 	c.X += 30;
 	g_Console.writeToBuffer(c, OptionalFragment + 48, 0x06);
 	c.X += 5;
-	g_Console.writeToBuffer(c, "Item in Hand:", 0x07);
+	g_Console.writeToBuffer(c, "Item in Hand:", 0x07); // for selecting items
 	c.X += 15;
 	g_Console.writeToBuffer(c, inventory, 0x06);
-	c.X = 0; // Reset X to 0 so printing is normal again.
+	c.X = 0; // Reset X to 0 so writing to buffer is normal again.
 	c.Y += 1;                                                                                                                       
 	g_Console.writeToBuffer(c, "=============================================================================================================", 0x07);
 	c.Y += 1;
@@ -478,18 +478,33 @@ void renderToScreen()
     g_Console.flushBufferToConsole();
 }
 
-void renderUI() // items - Flat Stone, History Book
+// intialize items for inventory
+char firstItem[] = "A Flat Stone";
+char secondItem[] = "History Book";
+char thirdItem[] = "Stack of Stones";
+
+//g_abKeyPressed[K_INVONE] = isKeyPressed(0x30);
+//g_abKeyPressed[K_INVTWO] = isKeyPressed(0x31);
+//g_abKeyPressed[K_INVTHREE] = isKeyPressed(0x32);
+
+void renderUI() // inventory
 {
 	COORD c = g_Console.getConsoleSize();
 	c.Y /= 3;
 	c.X = c.X / 2 - 9;
 	g_Console.writeToBuffer(c, "-Inventory Opened-", 0x03); // at the moment this does jack shit aside from show a new screen saying inventory is open
 
+	if (g_abKeyPressed[K_INVONE] == true)
+	{
+		c.Y += 2;
+		c.X = g_Console.getConsoleSize().X / 2 - 5;
+		g_Console.writeToBuffer(c, firstItem, 0x09);
+	}
 	c.Y += 2;
 	c.X = g_Console.getConsoleSize().X / 2 - 5;
-	g_Console.writeToBuffer(c, "Flat Stone", 0x09);
+	g_Console.writeToBuffer(c, secondItem, 0x09);
 
 	c.Y += 2;
 	c.X = g_Console.getConsoleSize().X / 2 - 5;
-	g_Console.writeToBuffer(c, "History Book", 0x09);
+	g_Console.writeToBuffer(c, thirdItem, 0x09);
 }
