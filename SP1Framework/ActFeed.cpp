@@ -144,45 +144,76 @@ void actfeed()
 			c.Y++;
 			g_Console.writeToBuffer(c, "Press the E key to enter the portal.", 0x05);
 			break;
-		case 11: // Stones
+		case 11: // Lake Stones
 			g_Console.writeToBuffer(c, "A stack of stones. Having one of them may come in handy.", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "Press the E key to pick a rock up.", 0x05);
 			break;
-		case 12: // Lake
+		case 12: // Lake water
 			g_Console.writeToBuffer(c, "Unlike the sea, the water here is calm and clear.", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "I can see something metallic barely breaking the surface.", 0x02);
 			c.Y++;
-			if (inventory == "A flat stone")
+			if (inventory == "A Flat Stone")
 			{
 				g_Console.writeToBuffer(c, "I wonder if I can hit it with the rock I picked up.", 0x05);
 			}
 			break;
-		case 13: // Fish
+		case 13: // Lake Fish
 			g_Console.writeToBuffer(c, "If I'm not wrong, that fish looks like a red herring.", 0x02);
 			break;
-		case 14: // Box
+		case 14: // Lake Box
 			g_Console.writeToBuffer(c, "There is a red chest here locked with a padlock.", 0x02);
 			c.Y++;
-			g_Console.writeToBuffer(c, "A note atop of it reads \"AXJPODBCOPWBVU\".", 0x02);
+			g_Console.writeToBuffer(c, "A note atop of it reads 'AXJPODBCOPWBVU'.", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "I can't seem to make any sense of it.", 0x05);
 			break;
-		case 15: // Stone (OF)
+		case 15: // Lake Stone (OF)
 			g_Console.writeToBuffer(c, "They feel like stones yet they are as black as coal. I'll take one just in case.", 0x02);
 			break;
-		case 16: // Lake (OF)
+		case 16: // Lake Water (OF)
 			g_Console.writeToBuffer(c, "The water is blood-red and muddy.", 0x02);
 			break;
-		case 17: // Fish (OF)
+		case 17: // Lake Fish (OF)
 			g_Console.writeToBuffer(c, "A red herring.", 0x02);
 			break;
-		case 18: // Box (OF)
-			g_Console.writeToBuffer(c, "A locked box.", 0x02);
+		case 18: // Lake Box (OF)
+			g_Console.writeToBuffer(c, "A locked chest.", 0x02);
 			break;
+		case 19: //Chapel Window
+			g_Console.writeToBuffer(c, "I can’t see anything through the window. It’s stained glass after all.", 0x02);
+			break;
+		case 20: //Chapel Box
+			g_Console.writeToBuffer(c, "There’s a black box here with no lid or cover.", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "Perhaps I should just grab the black sphere thing instead?", 0x02);
+			break;
+		case 21:  //Chapel Pews
+			g_Console.writeToBuffer(c, "I've got no time for prayers right now.");
+			break;
+		case 22: //Chapel Podium
+			g_Console.writeToBuffer(c, "There's some sort of black orb on the podium. Should I take it?", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "Press E to take black orb.", 0x05);
+			break;
+		case 24 : //Computer Room Bookshelf
+			g_Console.writeToBuffer(c, "Hmmm...this book seems interesting. It’s a biography of Julius Caesar.", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "Wait a minute...that’s strange, a page is torn from the book. I’ll keep it just in case.", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "History Book has been added to your inventory.", 0x05);
+			break;
+		case 25 :  //Computer Room computer
+			g_Console.writeToBuffer(c, "Username: 1.1C4431, 103.552D10", 0x08);  //text is gray in colour
+			c.Y++;
+			g_Console.writeToBuffer(c, "Password:", 0x08);
+			break;
+		case 26 :  //Computer Room Map
+			g_Console.writeToBuffer(c, "I believe it’s a map of Singapore. A red circle is drawn at the southern tip of the island.", 0x02);
+			break; 
 		case 911:
-			g_Console.writeToBuffer(c, "The stone hit the metallic object with a pleasant \"ding\".", 0x02);
+			g_Console.writeToBuffer(c, "The stone hit the metallic object with a pleasant 'ding'.", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "A sound came from the red chest to my right.", 0x02);
 			break;
@@ -191,12 +222,9 @@ void actfeed()
 			c.Y++;
 			g_Console.writeToBuffer(c, "I lifted the cover and found a note inside. It reads:", 0x02);
 			c.Y++;
-			g_Console.writeToBuffer(c, "\"Memories are but a jigsaw, one must have all pieces in hand to see the full picture.\"", 0x02);
+			g_Console.writeToBuffer(c, "'Memories are but a jigsaw, one must have all pieces in hand to see the full picture.'", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "As soon as my eyes landed on the last word, a blinding white light exploded around me.", 0x02);
-			break;
-		case 404:
-			g_Console.writeToBuffer(c, "An unknown force prevents me from proceeding.", 0x03);
 			break;
 		case 999:
 			g_Console.writeToBuffer(c, "Whatever you are doing,", 0x02);
@@ -204,7 +232,7 @@ void actfeed()
 			g_Console.writeToBuffer(c, "it bloody works!", 0x02);
 			break;
 		}
-		
+
 		c.Y = tempcoords;
 	}
 
@@ -298,98 +326,5 @@ void actfeed()
 	g_Console.writeToBuffer(c, "Name", 0x04);
 	c.Y += 1;
 	} */
-	if (Factfeed > 0)
-	{
-		tempcoords = c.Y;
-		c.Y = 24;
-
-		switch (Factfeed)
-		{
-		    case 1 :
-			    g_Console.writeToBuffer(c, "Theres a wooden boat in the distance leaning against a couple rocks.", 0x02);
-			    c.Y++;
-			    g_Console.writeToBuffer(c, "Theres a giant hole in its hull so I doubt its usability.", 0x02);
-			    break;
-		    case 2 :
-			    g_Console.writeToBuffer(c, "The trees are swaying in harmony with the wind.", 0x02);
-			    c.Y++;
-			    g_Console.writeToBuffer(c, "Their leaves seem to have a weird shade of dark green.", 0x02);
-			    break;
-			case 3 :
-				g_Console.writeToBuffer(c, "It looks and feels like some sort of portal. It pulsates with a strange light-blue energy but oddly enough", 0x02);
-				c.Y++;
-				g_Console.writeToBuffer(c, "I don't feel intimidated by it at all. Instead, it feels like it's drawing me in. Should I enter it?", 0x02);
-				c.Y++;
-				g_Console.writeToBuffer(c, "Press the E key to enter the portal.", 0x05);
-				break;
-			case 11 : // Stones
-				g_Console.writeToBuffer(c, "A stack of stones. Having one of them may come in handy.", 0x02);
-				c.Y++;
-				g_Console.writeToBuffer(c, "Press the E key to pick a rock up.", 0x05);
-				break;
-			case 12 : // Lake
-				g_Console.writeToBuffer(c, "Unlike the sea, the water here is calm and clear.", 0x02);
-				c.Y++;
-				g_Console.writeToBuffer(c, "I can see something metallic barely breaking the surface.", 0x02);
-				c.Y++;
-				if (inventory == "A Flat Stone")
-				{
-					g_Console.writeToBuffer(c, "I wonder if I can hit it with the rock I picked up.", 0x05);
-				}
-				break;
-			case 13 : // Fish
-				g_Console.writeToBuffer(c, "If I'm not wrong, that fish looks like a red herring.", 0x02);
-				break;
-			case 14 : // Box
-				g_Console.writeToBuffer(c, "There is a red chest here locked with a padlock.", 0x02);
-				c.Y++;
-				g_Console.writeToBuffer(c, "A note atop of it reads 'AXJPODBCOPWBVU'.", 0x02);
-				c.Y++;
-				g_Console.writeToBuffer(c, "I can't seem to make any sense of it.", 0x05);
-				break;
-			case 15 : // Stone (OF)
-				g_Console.writeToBuffer(c, "They feel like stones yet they are as black as coal. I'll take one just in case.", 0x02);
-				break;
-			case 16 : // Lake (OF)
-				g_Console.writeToBuffer(c, "The water is blood-red and muddy.", 0x02);
-				break;
-			case 17 : // Fish (OF)
-				g_Console.writeToBuffer(c, "A red herring.", 0x02);
-				break;
-			case 18 : // Box (OF)
-				g_Console.writeToBuffer(c, "A locked chest.", 0x02);
-				break;
-			case 911 :
-				g_Console.writeToBuffer(c, "The stone hit the metallic object with a pleasant 'ding'.", 0x02);
-				c.Y++;
-				g_Console.writeToBuffer(c, "A sound came from the red chest to my right.", 0x02);
-				break;
-			case 912 :
-				g_Console.writeToBuffer(c, "As I thought, the chest was unlocked as soon as the stone hit the metal object.", 0x02);
-				c.Y++;
-				g_Console.writeToBuffer(c, "I lifted the cover and found a note inside. It reads:", 0x02);
-				c.Y++;
-				g_Console.writeToBuffer(c, "'Memories are but a jigsaw, one must have all pieces in hand to see the full picture.'", 0x02);
-				c.Y++;
-				g_Console.writeToBuffer(c, "As soon as my eyes landed on the last word, a blinding white light exploded around me.", 0x02);
-				break;
-			case 999 :
-				g_Console.writeToBuffer(c, "Whatever you are doing,", 0x02);
-				c.Y++;
-				g_Console.writeToBuffer(c, "it bloody works!", 0x02);
-				break;
-		}
-		
-		c.Y = tempcoords;
-	}
-
-	if (g_dElapsedTime >= g_dElapsedTimeTemp && levelfinish == 1)
-	{
-		InPortal = 0;
-		Areanum = 1;
-		levelfinish = 0;
-
-		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 88;
-		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 45;
-	}
+	
 }
