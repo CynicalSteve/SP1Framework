@@ -50,6 +50,9 @@ char** puzzlestore(char** printlevel)
 	case 13:
 		puzzle.open("Text files/2_ChappelXSphere.txt");
 		break;
+	case 14:
+		puzzle.open("Text files/3_ComputerRoomXBook.txt");
+		break;
 	}
 	/*
 

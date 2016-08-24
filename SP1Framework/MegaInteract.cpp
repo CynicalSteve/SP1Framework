@@ -126,6 +126,9 @@ int checkinteract(void)
 		case 13:
 			file.open("Text files/2_ChappelXSphere.txt");
 			break;
+		case 14:
+			file.open("Text files/3_ComputerRoomXBook.txt");
+			break;
 		}
 	}
 
@@ -453,7 +456,7 @@ int checkinteract(void)
 
 			return 0;
 		}
-		else if (InPortal == 5)    //Computer Room EF
+		else if (InPortal == 5 || InPortal == 14)    //Computer Room EF
 		{
 			switch (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y])
 			{
@@ -653,6 +656,13 @@ void FstandsforFrustrating(int checkF)
 	{
 		InPortal = 13;
 		inventory = "Odd black sphere";
+		reqinteraction = 1;
+	}
+
+	if (Factfeed == 24 && checkF == 9 && inventory == "none")
+	{
+		InPortal = 14;
+		inventory = "A History Book";
 		reqinteraction = 1;
 	}
 
@@ -864,13 +874,13 @@ void FstandsforFrustrating(int checkF)
 	case 128: // Podium OF
 		Factfeed = 203;  // Unintended jump, but 24+ is already taken.
 		break;
-	case 131:
+	case 131: // Bookshelf
 		Factfeed = 24;
 		break;
-	case 132:
+	case 132: // Computer
 		Factfeed = 25;
 		break;
-	case 133:
+	case 133: // Map
 		Factfeed = 26;
 		break;
 	case 141:
