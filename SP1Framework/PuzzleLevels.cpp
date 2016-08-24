@@ -120,6 +120,10 @@ void puzzlemap(char** printlevel)
 			{
 				printlevel[AreaY][AreaX] = ' ';
 			}
+			if (printlevel[AreaY][AreaX] == 'D')
+			{
+				printlevel[AreaY][AreaX] = ' ';
+			}
 			if (printlevel[AreaY][AreaX] == '\n')
 			{
 				printlevel[AreaY][AreaX] = ' ';

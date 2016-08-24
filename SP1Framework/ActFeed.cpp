@@ -421,10 +421,15 @@ void actfeed()
 				g_Console.writeToBuffer(c, "The revealed section of the box shows a ring-shaped hole.", 0x02);
 			}
 			break;
-		case 24 : //Computer Room Bookshelf
-			g_Console.writeToBuffer(c, "Hmmm...this book seems interesting. It’s a biography of Julius Caesar.", 0x02);
+		case 23: // Chappel Button (OF)
+			g_Console.writeToBuffer(c, "It's a button. I really shouldn't be pressing random buttons, but what other option do I have?", 0x02);
 			c.Y++;
-			g_Console.writeToBuffer(c, "Wait a minute...that’s strange, a page is torn from the book. I’ll keep it just in case.", 0x02);
+			g_Console.writeToBuffer(c, "Press the E key to push the button.", 0x05);
+			break;
+		case 24 : //Computer Room Bookshelf
+			g_Console.writeToBuffer(c, "Hmmm...this book seems interesting. It's a biography of Julius Caesar.", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "Wait a minute...that's strange, a page is torn from the book. I'll keep it just in case.", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "History Book has been added to your inventory.", 0x05);
 			break;
@@ -434,7 +439,7 @@ void actfeed()
 			g_Console.writeToBuffer(c, "Password:", 0x08);
 			break;
 		case 26 :  //Computer Room Map
-			g_Console.writeToBuffer(c, "I believe it’s a map of Singapore. A red circle is drawn at the southern tip of the island.", 0x02);
+			g_Console.writeToBuffer(c, "I believe it's a map of Singapore. A red circle is drawn at the southern tip of the island.", 0x02);
 			break;
 		case 27 :  //Street Buildings
 			g_Console.writeToBuffer(c, "All the buildings look the same.", 0x02);
@@ -443,12 +448,25 @@ void actfeed()
 			g_Console.writeToBuffer(c, "Just your typical lamppost.", 0x02);
 			break;
 		case 29 : //Street Box
-			g_Console.writeToBuffer(c, "There’s a code scratched above the lock of this red box.", 0x02);
+			g_Console.writeToBuffer(c, "There's a code scratched above the lock of this red box.", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "01001000  01000001  01010000  01010000  01011001", 0x08);
 			break;
 		case 30 :
-		
+			break;
+		case 201: // Chappel Window (OF)
+			g_Console.writeToBuffer(c, "I can't see anything through the window.", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "It's pitch black. No light seems to be coming through it.", 0x02);
+			break;
+		case 202: // Chappel Table (OF)
+			g_Console.writeToBuffer(c, "There's a black box sitting on the table. The box has no lid or cover.", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "There's no way it will open just by me staring at it and doing nothing.", 0x02);
+			break;
+		case 203: // Chappel Podium (OF)
+			g_Console.writeToBuffer(c, "The podium top is clear. I can see 3 buttons on the front side of it.", 0x02);
+			break;
 		case 911:
 			g_Console.writeToBuffer(c, "The stone hit the metallic object with a pleasant 'ding'.", 0x02);
 			c.Y++;
@@ -482,6 +500,43 @@ void actfeed()
 			g_Console.writeToBuffer(c, "The ring should fit right here...", 0x02);
 			break;
 		case 923: // Solve EF2 Box
+			g_Console.writeToBuffer(c, "It worked. The box is opened. White light begins to fill my vision again.", 0x02);
+			break;
+		case 924: // Solve/Not OF2 Buttons
+			if (reqinteraction == 1)
+			{
+				g_Console.writeToBuffer(c, "Light suddenly burst through the left window, as if a curtain that was blocking it had fallen.", 0x02);
+			}
+			else if (reqinteraction == 2)
+			{
+				g_Console.writeToBuffer(c, "Light suddenly burst through the middle window, as if a curtain that was blocking it had fallen.", 0x02);
+			}
+			else if (reqinteraction == 3)
+			{
+				g_Console.writeToBuffer(c, "Light suddenly burst through the right window, as if a curtain that was blocking it had fallen.", 0x02);
+			}
+			else if (reqinteraction == 4)
+			{
+				g_Console.writeToBuffer(c, "The light emanating from the left window disappeared once I pressed the button.", 0x02);
+			}
+			else if (reqinteraction == 5)
+			{
+				g_Console.writeToBuffer(c, "The light emanating from the middle window disappeared once I pressed the button.", 0x02);
+			}
+			else if (reqinteraction == 6)
+			{
+				g_Console.writeToBuffer(c, "The light emanating from the right window disappeared once I pressed the button.", 0x02);
+				c.Y++;
+				g_Console.writeToBuffer(c, "I heard a \"thunk\". A section of the box fell off and plopped to the ground.", 0x02);
+			}
+			else if (reqinteraction == 0)
+			{
+				g_Console.writeToBuffer(c, "The lights from all the windows went out, and with it came a short vibration from the ground.", 0x02);
+				c.Y++;
+				g_Console.writeToBuffer(c, "I might have pressed the wrong button.", 0x05);
+			}
+			break;
+		case 926: // Solve OF2 Box
 			g_Console.writeToBuffer(c, "It worked. The box is opened. White light begins to fill my vision again.", 0x02);
 			break;
 		case 404: // Error 404. Just kidding.
@@ -527,5 +582,17 @@ void actfeed()
 
 		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 80;
 		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 43;
+	}
+
+	if (g_dElapsedTime >= g_dElapsedTimeTemp && levelfinish == 4)
+	{
+		InPortal = 0;
+		Areanum = 2;
+		levelfinish = 0;
+		g_dElapsedTimeTemp = 999.0;
+
+		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 84;
+		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 50;
+
 	}
 }

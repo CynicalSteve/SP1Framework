@@ -318,6 +318,8 @@ void processUserInput()
 
 	if (g_abKeyPressed[K_INTERACT])
 	{
+		bSomethingHappened = true;
+
 		checkF = checkinteract();
 
 		FstandsforFrustrating(checkF);
@@ -341,6 +343,8 @@ void processUserInput()
 
 	if (g_abKeyPressed[K_ENTER])
 	{
+		bSomethingHappened = true;
+
 		FstandsforFrustrating(9);
 	}
 

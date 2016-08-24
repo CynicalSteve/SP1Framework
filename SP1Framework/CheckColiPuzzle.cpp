@@ -94,6 +94,8 @@ int CollisionPuzzle(int checkPuzzle)
 			return 1;
 		case 'C':
 			return 1;
+		case 'D':
+			return 1;
 		default:
 			return 0;
 		}
@@ -115,6 +117,8 @@ int CollisionPuzzle(int checkPuzzle)
 		case 'B':
 			return 1;
 		case 'C':
+			return 1;
+		case 'D':
 			return 1;
 		default:
 			return 0;
@@ -138,6 +142,8 @@ int CollisionPuzzle(int checkPuzzle)
 			return 1;
 		case 'C':
 			return 1;
+		case 'D':
+			return 1;
 		default:
 			return 0;
 		}
@@ -159,6 +165,8 @@ int CollisionPuzzle(int checkPuzzle)
 		case 'B':
 			return 1;
 		case 'C':
+			return 1;
+		case 'D':
 			return 1;
 		default:
 			return 0;

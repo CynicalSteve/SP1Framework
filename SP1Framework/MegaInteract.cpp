@@ -10,8 +10,8 @@ int Factfeed = 0;
 int InPortal = 0;
 int TutorialMode = 1; // Instead of doing "Y/N" for the first portal, I'm implementing this.
 int tempF;
-int EssentialFragment = 1; // Set to 6 to see all areas
-int OptionalFragment = 0;
+int EssentialFragment = 0; // Change this to access certain areas.
+int OptionalFragment = 0;  // Change this to access certain areas.
 std::string inventory = "none";
 int levelfinish = 0;
 int reqinteraction = 0; // This is so we can force the player to actually read certain thingamajigs otherwise other thingamajigs wont work.
@@ -346,7 +346,7 @@ int checkinteract(void)
 
 			return 0;
 		}
-		else if (InPortal == 2 || InPortal == 12)
+		else if (InPortal == 2 || InPortal == 12) // Lake OF
 		{
 			// UP UP UP UP UP
 
@@ -433,6 +433,24 @@ int checkinteract(void)
 		}
 		else if (InPortal == 4)    //Chapel OF
 		{
+			switch (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y])
+			{
+			case 'W':
+				return 126;
+			case 'Y':
+				return 127;
+			case 'P':
+				return 123;
+			case 'S':
+				return 128;
+			case 'B':
+				return 1251;
+			case 'C':
+				return 1252;
+			case 'D':
+				return 1253;
+			}
+
 			return 0;
 		}
 		else if (InPortal == 5)    //Computer Room EF
@@ -631,7 +649,65 @@ void FstandsforFrustrating(int checkF)
 		Factfeed = 922;
 		inventory = "none";
 	}
-	
+
+	if (InPortal == 4)
+	{
+		if (tempF == 1251 && checkF == 9)
+		{
+			if (reqinteraction == 0)
+			{
+				reqinteraction = 1;
+			}
+			else if (reqinteraction == 3)
+			{
+				reqinteraction = 4;
+			}
+			else
+			{
+				reqinteraction = 0;
+			}
+
+			Factfeed = 924;
+		}
+
+		if (tempF == 1252 && checkF == 9)
+		{
+			if (reqinteraction == 1)
+			{
+				reqinteraction = 2;
+			}
+			else if (reqinteraction == 4)
+			{
+				reqinteraction = 5;
+			}
+			else
+			{
+				reqinteraction = 0;
+			}
+
+			Factfeed = 924;
+		}
+
+		if (tempF == 1253 && checkF == 9)
+		{
+			if (reqinteraction == 2)
+			{
+				reqinteraction = 3;
+			}
+			else if (reqinteraction == 5)
+			{
+				levelfinish = 4;
+				reqinteraction = 6;
+			}
+			else
+			{
+				reqinteraction = 0;
+			}
+
+			Factfeed = 924;
+		}
+	}
+
 	switch (checkF)
 	{
 	case 1:
@@ -718,6 +794,34 @@ void FstandsforFrustrating(int checkF)
 			Factfeed = 923;
 			g_dElapsedTimeTemp = (g_dElapsedTime + 10.0);
 		}
+		break;
+	case 1251: // Button 1
+		Factfeed = 23;
+		break;
+	case 1252: // Button 2
+		Factfeed = 23;
+		break;
+	case 1253: // Button 3
+		Factfeed = 23;
+		break;
+	case 126: // Window OF
+		Factfeed = 201; // Unintended jump, but 24+ is already taken.
+		break;
+	case 127: // Table OF
+		if (levelfinish != 4)
+		{
+			Factfeed = 202; // Unintended jump, but 24+ is already taken.
+		}
+		else if (levelfinish == 4)
+		{
+			OptionalFragment = 2;
+			reqinteraction = 0;
+			Factfeed = 926;
+			g_dElapsedTimeTemp = (g_dElapsedTime + 10.0);
+		}
+		break;
+	case 128: // Podium OF
+		Factfeed = 203;  // Unintended jump, but 24+ is already taken.
 		break;
 	case 131:
 		Factfeed = 24;
