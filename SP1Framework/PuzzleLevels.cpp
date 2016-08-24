@@ -47,6 +47,9 @@ char** puzzlestore(char** printlevel)
 	case 12:
 		puzzle.open("Text files/1_LakeXFish.txt");
 		break;
+	case 13:
+		puzzle.open("Text files/2_ChappelXSphere.txt");
+		break;
 	}
 	/*
 

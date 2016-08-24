@@ -10,7 +10,7 @@ int Factfeed = 0;
 int InPortal = 0;
 int TutorialMode = 1; // Instead of doing "Y/N" for the first portal, I'm implementing this.
 int tempF;
-int EssentialFragment = 0; // Set to 6 to see all areas
+int EssentialFragment = 1; // Set to 6 to see all areas
 int OptionalFragment = 0;
 std::string inventory = "none";
 int levelfinish = 0;
@@ -122,6 +122,9 @@ int checkinteract(void)
 			break;
 		case 12:
 			file.open("Text files/1_LakeXFish.txt");
+			break;
+		case 13:
+			file.open("Text files/2_ChappelXSphere.txt");
 			break;
 		}
 	}
@@ -412,7 +415,7 @@ int checkinteract(void)
 
 			return 0;
 		}
-		else if (InPortal == 3)    //Chapel EF
+		else if (InPortal == 3 || InPortal == 13)    //Chapel EF
 		{
 			switch (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y])
 			{
@@ -589,6 +592,7 @@ void FstandsforFrustrating(int checkF)
 
 	if (Factfeed == 22 && checkF == 9 && reqinteraction == 0)
 	{
+		InPortal = 13;
 		inventory = "Odd black sphere";
 		reqinteraction = 1;
 	}
@@ -614,6 +618,19 @@ void FstandsforFrustrating(int checkF)
 		inventory = "none";
 	}
 
+	if (inventory == "Odd black sphere" && tempF == 121 && checkF == 9)
+	{
+		reqinteraction = 2;
+		Factfeed = 921;
+		inventory = "A ring";
+	}
+
+	if (inventory == "A ring" && tempF == 124 && checkF == 9)
+	{
+		levelfinish = 3;
+		Factfeed = 922;
+		inventory = "none";
+	}
 	
 	switch (checkF)
 	{
@@ -690,7 +707,17 @@ void FstandsforFrustrating(int checkF)
 		Factfeed = 21;
 		break;
 	case 124: // Podium
-		Factfeed = 22;
+		if (levelfinish != 3)
+		{
+			Factfeed = 22;
+		}
+		else if (levelfinish == 3)
+		{
+			EssentialFragment = 2;
+			reqinteraction = 0;
+			Factfeed = 923;
+			g_dElapsedTimeTemp = (g_dElapsedTime + 10.0);
+		}
 		break;
 	case 131:
 		Factfeed = 24;

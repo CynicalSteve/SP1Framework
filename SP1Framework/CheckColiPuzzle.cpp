@@ -55,6 +55,9 @@ int CollisionPuzzle(int checkPuzzle)
 	case 12:
 		file.open("Text files/1_LakeXFish.txt");
 		break;
+	case 13:
+		file.open("Text files/2_ChappelXSphere.txt");
+		break;
 	}
 
 	if (file.is_open())
