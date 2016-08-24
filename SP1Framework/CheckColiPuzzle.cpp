@@ -99,6 +99,15 @@ int CollisionPuzzle(int checkPuzzle)
 			return 1;
 		case 'D':
 			return 1;
+		case '-':
+			if (InPortal == 4)
+			{
+				return 1;
+			}
+			else
+			{
+				return 0;
+			}
 		default:
 			return 0;
 		}
@@ -123,6 +132,15 @@ int CollisionPuzzle(int checkPuzzle)
 			return 1;
 		case 'D':
 			return 1;
+		case '-':
+			if (InPortal == 4)
+			{
+				return 1;
+			}
+			else
+			{
+				return 0;
+			}
 		default:
 			return 0;
 		}
@@ -147,6 +165,15 @@ int CollisionPuzzle(int checkPuzzle)
 			return 1;
 		case 'D':
 			return 1;
+		case '-':
+			if (InPortal == 4)
+			{
+				return 1;
+			}
+			else
+			{
+				return 0;
+			}
 		default:
 			return 0;
 		}
@@ -171,6 +198,15 @@ int CollisionPuzzle(int checkPuzzle)
 			return 1;
 		case 'D':
 			return 1;
+		case '-':
+			if (InPortal == 4)
+			{
+				return 1;
+			}
+			else
+			{
+				return 0;
+			}
 		default:
 			return 0;
 		}

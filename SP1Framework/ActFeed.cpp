@@ -120,7 +120,7 @@ void actfeed()
 		}
 	}
 
-	if (InPortal == 3)
+	if (InPortal == 3 || InPortal == 13)
 	{
 		c.Y = 31;
 
@@ -133,6 +133,15 @@ void actfeed()
 		{
 			g_Console.writeToBuffer(c, "A ring has been added to your inventory.", 0x03);
 		}
+	}
+
+	if (InPortal == 4)
+	{
+		c.Y = 31;
+
+		g_Console.writeToBuffer(c, "You blame your problems on the past, so why not come back to where it all began and reverse your actions?", 0x06);
+		c.Y++;
+		g_Console.writeToBuffer(c, "Change the negative present, into a positive yesterday.", 0x05);
 	}
 
 	if (Factfeed == 912) // EF 1
@@ -787,8 +796,8 @@ void actfeed()
 		levelfinish = 0;
 		g_dElapsedTimeTemp = 999.0;
 
-		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 84;
-		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 50;
+		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 85;
+		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 51;
 
 	}
 }
