@@ -540,7 +540,7 @@ void actfeed()
 		case 39:  //Living Room Baby's cot
 			g_Console.writeToBuffer(c, "A baby cot with a word burnt into the wood:", 0x05);
 			c.Y++;
-			g_Console.writeToBuffer(c, "LIAR", 0x04);
+			g_Console.writeToBuffer(c, "LIAR", 0x04);   //Text red in colour
 			break;
 		case 911:   //Lake EF Complete
 			g_Console.writeToBuffer(c, "The stone hit the metallic object with a pleasant 'ding'.", 0x02);
