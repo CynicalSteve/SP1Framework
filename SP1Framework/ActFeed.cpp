@@ -286,7 +286,7 @@ void actfeed()
 		}
 		if (g_dElapsedTime > (g_dTime + 10.0))
 		{
-			g_Console.writeToBuffer(c, "\"Ava, do you take Terence as your lawful husband, to have and to hold, from this day forward, for", 0x03);
+			g_Console.writeToBuffer(c, "\"Ava, do you take Terence as your lawfully wedded husband, to have and to hold, from this day forward, for", 0x03);
 			c.Y++;
 		}
 		if (g_dElapsedTime > (g_dTime + 10.0))
