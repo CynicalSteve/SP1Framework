@@ -2,12 +2,11 @@
 
 char firstItem[] = "A Flat Stone";
 char secondItem[] = "History Book";
-char thirdItem[] = "Stack of Stones";
 char storageForItems[] = "";
 char noItem[] = "";
-bool takeFlatStone, takeHistoryBook, takeStones;
+bool takeFlatStone, takeHistoryBook;
 
-void storeInventory(char firstItem, char secondItem, char thirdItem)
+void storeInventory(char firstItem, char secondItem)
 {
 	if (takeFlatStone == 1)
 	{
@@ -17,13 +16,8 @@ void storeInventory(char firstItem, char secondItem, char thirdItem)
 	{
 		secondItem;
 	}
-	if (takeStones == 1)
-	{
-		thirdItem;
-	}
 	else
 	{
 		noItem;
 	}
 }
-

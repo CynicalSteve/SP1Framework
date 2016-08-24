@@ -324,6 +324,54 @@ void actfeed()
 		}
 	}
 
+
+	if (Factfeed == 926) //OF 2
+	{
+		c.Y = 31;
+		if (g_dElapsedTime > g_dTime)
+		{
+			g_Console.writeToBuffer(c, "\"Hey babe,\" Terence whispered, wrapping a warm arm around Ava.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 3.0))
+		{
+			g_Console.writeToBuffer(c, "\"Yeah?\" Ava responded.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 4.0))
+		{
+			g_Console.writeToBuffer(c, "\"So um, I'm thinking of joining a startup tech company. It's set up by a friend and he's reaching out", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "to me for a place there.\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 8.0))
+		{
+			g_Console.writeToBuffer(c, "\"What's wrong with your current job?\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 9.0))
+		{
+			g_Console.writeToBuffer(c, "\"Well, you know I can't say no babe, he's my friend.\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 11.0))
+		{
+			g_Console.writeToBuffer(c, "\"We'll have to move, don't we?\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 12.0))
+		{
+			g_Console.writeToBuffer(c, "\"Yeah, and I've already found a nice place downtown. It's got a nice view and-\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 15.0))
+		{
+			g_Console.writeToBuffer(c, "\"Yeah, yeah whatever. You're such a pansy Terence. Learn to say no, you idiot.\"", 0x03);
+		}
+	}
+
+
 	/* Template for MX
 	if (c.Y == 54)
 	{
@@ -400,7 +448,7 @@ void actfeed()
 			c.Y++;
 			if (inventory == "A stone filled fish")
 			{
-				g_Console.writeToBuffer(c, "The fish trashes wildly as I bring it toward the lake. Its unsettling, but I don't freak out.", 0x05);
+				g_Console.writeToBuffer(c, "The fish trashes wildly as I bring it toward the lake. Its unsettling, but I manage not to freak out.", 0x05);
 			}
 			break;
 		case 17: // Lake Fish (OF)
@@ -578,6 +626,42 @@ void actfeed()
 			g_Console.writeToBuffer(c, "A baby cot with a word burnt into the wood:", 0x05);
 			c.Y++;
 			g_Console.writeToBuffer(c, "LIAR", 0x04);   //Text red in colour
+			break;
+		case 40:   //Funeral Bookshelf (Bad End)
+			g_Console.writeToBuffer(c, "There’s an single empty space in between two books. Should I place the history book I acquired in there?");
+			c.Y++;
+			g_Console.writeToBuffer(c, "Press E to place History Book.", 0x05);
+			break;
+		case 41:  //Funeral Pews   (Bad End)
+			g_Console.writeToBuffer(c, "The pews are all empty, but soft sobbing sounds can be heard from them.", 0x02);
+			break;
+		case 42:  //Funeral Coffin (Bad ENd)
+			g_Console.writeToBuffer(c, "A closed coffin. This looks like a funeral wake.", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "There’s a piece of paper on top of the coffin that reads:");
+			c.Y++;
+			g_Console.writeToBuffer(c, "...to protect messages of military significance, Julius Caesar devised an encryption technique now widely known as the “Caesar Cipher”. This substitution cipher was employed during…", 0x08);
+			c.Y++;
+			g_Console.writeToBuffer(c, "This must be the page torn from the history book.", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "Crudely carved into the coffin’s cover is a code “lpshqlwhqfh”", 0x05);
+			break;
+		case 43:  //Funeral Bookshelf (True End)
+			g_Console.writeToBuffer(c, "There’s an single empty space in between two books. Should I place the history book I acquired in there?");
+			c.Y++;
+			g_Console.writeToBuffer(c, "Press E to place History Book.", 0x05);
+			break;
+		case 44:  //Funeral Pews (True End)
+			g_Console.writeToBuffer(c, "The pews are all empty. A deafening silence hung amongst the air.", 0x02);
+			break;
+		case 45:  //Funeral Coffin (True End)
+			g_Console.writeToBuffer(c, "A closed coffin. This looks like a funeral wake.", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "There’s a piece of paper on top of the coffin that reads:", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "Here lies Ava Laurens, where her body shall ROT FOR eternity.", 0x08);
+			c.Y++;
+			g_Console.writeToBuffer(c, "Crudely carved into the coffin’s cover is a code “vitirxergi”.", 0x05);
 			break;
 		case 911:   //Lake EF Complete
 			g_Console.writeToBuffer(c, "The stone hit the metallic object with a pleasant 'ding'.", 0x02);
