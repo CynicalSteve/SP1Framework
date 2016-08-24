@@ -2,16 +2,16 @@
 
 extern Console g_Console;
 extern SGameChar g_sChar;
+extern EGAMESTATES g_eGameState;
 
 extern int Areanum;
 extern double g_dElapsedTime;
 
 int Factfeed = 0;
 int InPortal = 0;
-int TutorialMode = 1; // Instead of doing "Y/N" for the first portal, I'm implementing this.
 int tempF;
-int EssentialFragment = 0; // Change this to access certain areas.
-int OptionalFragment = 0;  // Change this to access certain areas.
+int EssentialFragment = 1; // Change this to access certain areas.
+int OptionalFragment = 1;  // Change this to access certain areas.
 std::string inventory = "none";
 int levelfinish = 0;
 int reqinteraction = 0; // This is so we can force the player to actually read certain thingamajigs otherwise other thingamajigs wont work.
@@ -125,6 +125,9 @@ int checkinteract(void)
 			break;
 		case 13:
 			file.open("Text files/2_ChappelXSphere.txt");
+			break;
+		case 14:
+			file.open("Text files/3_ComputerRoomXBook.txt");
 			break;
 		}
 	}
@@ -453,7 +456,7 @@ int checkinteract(void)
 
 			return 0;
 		}
-		else if (InPortal == 5)    //Computer Room EF
+		else if (InPortal == 5 || InPortal == 14)    //Computer Room EF
 		{
 			switch (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y])
 			{
@@ -702,6 +705,13 @@ void FstandsforFrustrating(int checkF)
 		reqinteraction = 1;
 	}
 
+	if (Factfeed == 24 && checkF == 9 && inventory == "none")
+	{
+		InPortal = 14;
+		inventory = "A History Book";
+		reqinteraction = 1;
+	}
+
 	if (inventory == "A flat stone" && tempF == 102 && checkF == 9) // Check if user is pressing "F" and then "E" afterwards to do something.
 	{
 		levelfinish = 1;
@@ -910,13 +920,13 @@ void FstandsforFrustrating(int checkF)
 	case 128: // Podium OF
 		Factfeed = 203;  // Unintended jump, but 24+ is already taken.
 		break;
-	case 131:
+	case 131: // Bookshelf
 		Factfeed = 24;
 		break;
-	case 132:
+	case 132: // Computer
 		Factfeed = 25;
 		break;
-	case 133:
+	case 133: // Map
 		Factfeed = 26;
 		break;
 	case 141:
@@ -992,7 +1002,7 @@ void FstandsforFrustrating(int checkF)
 		Factfeed = 0;
 		break;
 	}
-	if (Factfeed == 912 || Factfeed == 914 || Factfeed == 923 || Factfeed == 926)
+	if (g_eGameState == S_GAME || Factfeed == 912 || Factfeed == 914 || Factfeed == 923 || Factfeed == 926)
 	{
 		g_dTime = (g_dElapsedTime + 2.0);
 	}

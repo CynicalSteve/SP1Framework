@@ -58,6 +58,9 @@ int CollisionPuzzle(int checkPuzzle)
 	case 13:
 		file.open("Text files/2_ChappelXSphere.txt");
 		break;
+	case 14:
+		file.open("Text files/3_ComputerRoomXBook.txt");
+		break;
 	}
 
 	if (file.is_open())
@@ -96,6 +99,15 @@ int CollisionPuzzle(int checkPuzzle)
 			return 1;
 		case 'D':
 			return 1;
+		case '-':
+			if (InPortal == 4)
+			{
+				return 1;
+			}
+			else
+			{
+				return 0;
+			}
 		default:
 			return 0;
 		}
@@ -120,6 +132,15 @@ int CollisionPuzzle(int checkPuzzle)
 			return 1;
 		case 'D':
 			return 1;
+		case '-':
+			if (InPortal == 4)
+			{
+				return 1;
+			}
+			else
+			{
+				return 0;
+			}
 		default:
 			return 0;
 		}
@@ -144,6 +165,15 @@ int CollisionPuzzle(int checkPuzzle)
 			return 1;
 		case 'D':
 			return 1;
+		case '-':
+			if (InPortal == 4)
+			{
+				return 1;
+			}
+			else
+			{
+				return 0;
+			}
 		default:
 			return 0;
 		}
@@ -168,6 +198,15 @@ int CollisionPuzzle(int checkPuzzle)
 			return 1;
 		case 'D':
 			return 1;
+		case '-':
+			if (InPortal == 4)
+			{
+				return 1;
+			}
+			else
+			{
+				return 0;
+			}
 		default:
 			return 0;
 		}
