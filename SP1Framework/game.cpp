@@ -478,9 +478,9 @@ void renderToScreen()
     g_Console.flushBufferToConsole();
 }
 
-char firstItem[] = "";
-char secondItem[] = "";
-char thirdItem[] = "";
+char item[] = "";
+char items[] = "";
+char itemss[] = "";
 
 void renderUI() // inventory
 {
@@ -493,14 +493,13 @@ void renderUI() // inventory
 
 	c.Y += 2;
 	c.X = g_Console.getConsoleSize().X / 2 - 5;
-	g_Console.writeToBuffer(c, firstItem, 0x09);
+	g_Console.writeToBuffer(c, item, 0x09);
 
 	c.Y += 2;
 	c.X = g_Console.getConsoleSize().X / 2 - 5;
-	g_Console.writeToBuffer(c, secondItem, 0x09);
+	g_Console.writeToBuffer(c, items, 0x09);
 
 	c.Y += 2;
 	c.X = g_Console.getConsoleSize().X / 2 - 5;
-	g_Console.writeToBuffer(c, thirdItem, 0x09);
-	
+	g_Console.writeToBuffer(c, itemss, 0x09);	
 }

@@ -1,17 +1,25 @@
 #include "Inventory.h"
 
-void storeInventory()
-{
-	char firstItem[] = "A Flat Stone";
-	char secondItem[] = "History Book";
-	char thirdItem[] = "Stack of Stones";
-	char storageForItems[] = "";
-	char noItem[] = "\0";
-	bool takeStone, takeHistoryBook, takeStones;
+char firstItem[] = "A Flat Stone";
+char secondItem[] = "History Book";
+char thirdItem[] = "Stack of Stones";
+char storageForItems[] = "";
+char noItem[] = "";
+bool takeFlatStone, takeHistoryBook, takeStones;
 
-	if (takeStone == 1)
+void storeInventory(char firstItem, char secondItem, char thirdItem)
+{
+	if (takeFlatStone == 1)
 	{
 		firstItem;
+	}
+	if (takeHistoryBook == 1)
+	{
+		secondItem;
+	}
+	if (takeStones == 1)
+	{
+		thirdItem;
 	}
 	else
 	{
