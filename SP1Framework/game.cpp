@@ -478,27 +478,29 @@ void renderToScreen()
     g_Console.flushBufferToConsole();
 }
 
-char firstItem[] = "A Flat Stone \0";
-char secondItem[] = "History Book \0";
-char thirdItem[] = "Stack of Stones \0";
+char firstItem[] = "";
+char secondItem[] = "";
+char thirdItem[] = "";
 
 void renderUI() // inventory
 {
 	COORD c = g_Console.getConsoleSize();
 	c.Y /= 3;
 	c.X = c.X / 2 - 9;
-	g_Console.writeToBuffer(c, "-Inventory/Journal Opened-", 0x03); // at the moment this does jack shit aside from show a new screen saying inventory is open
+	g_Console.writeToBuffer(c, "-Inventory Opened-", 0x03); // at the moment this does jack shit aside from show a new screen saying inventory is open
 	
+	void storeInventory();
+
 	c.Y += 2;
 	c.X = g_Console.getConsoleSize().X / 2 - 5;
 	g_Console.writeToBuffer(c, firstItem, 0x09);
 
-/*	c.Y += 2;
+	c.Y += 2;
 	c.X = g_Console.getConsoleSize().X / 2 - 5;
 	g_Console.writeToBuffer(c, secondItem, 0x09);
 
 	c.Y += 2;
 	c.X = g_Console.getConsoleSize().X / 2 - 5;
-	g_Console.writeToBuffer(c, thirdItem, 0x09);*/
+	g_Console.writeToBuffer(c, thirdItem, 0x09);
 	
 }
