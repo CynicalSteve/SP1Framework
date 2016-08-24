@@ -164,8 +164,8 @@ void render()
 
 void splashScreenWait()    // waits for time to pass in splash screen
 {
-    if (g_dElapsedTime > 3.0) // wait for 3 seconds to switch to game mode, else do nothing
-        g_eGameState = S_GAME;
+	if (isKeyPressed(0x45))		// wait for player to enter E to switch to game mode, else do nothing
+		g_eGameState = S_GAME;
 }
 
 void gameplay()            // gameplay logic
@@ -388,14 +388,16 @@ void renderSplashScreen()  // renders the splash screen
 	c.Y += 1;
 
 	c.Y += 2;
-	c.X = g_Console.getConsoleSize().X / 2 - 10;
-	g_Console.writeToBuffer(c, "Welcome to Fragments", 0x03);
-	c.Y += 1;
-	c.X = g_Console.getConsoleSize().X / 2 - 20;
-	g_Console.writeToBuffer(c, "Press <Space> to change character colour", 0x09);
-	c.Y += 1;
-	c.X = g_Console.getConsoleSize().X / 2 - 9;
-	g_Console.writeToBuffer(c, "Press 'Esc' to quit", 0x09);
+	c.X = 44;
+	g_Console.writeToBuffer(c, "Welcome to Fragments!", 0x03);
+	c.Y++;
+	c.X = 43;
+	g_Console.writeToBuffer(c, "Press 'E' to start game", 0x03);
+	c.Y++;
+	c.X = 45;
+	g_Console.writeToBuffer(c, "Press 'Esc' to quit", 0x03);
+	c.X = 50;
+	c.Y++;
 }
 
 void renderGame()

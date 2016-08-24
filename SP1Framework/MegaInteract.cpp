@@ -2,6 +2,7 @@
 
 extern Console g_Console;
 extern SGameChar g_sChar;
+extern EGAMESTATES g_eGameState;
 
 extern int Areanum;
 extern double g_dElapsedTime;
@@ -471,7 +472,24 @@ int checkinteract(void)
 		}
 		else if (InPortal == 6)    //Computer Room OF
 		{
-			return 0;
+			switch (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y])
+			{
+			case 'P':
+		        return 231;
+				break;
+			case 'C':
+				return 232;
+				break;
+			case 'S':
+				return 233;
+				break;
+			case 'W':
+				return 234;
+				break;
+			case 'B':
+				return 235;
+				break;
+			}
 		}
 		else if (InPortal == 7)    //Street EF
 		{
@@ -958,16 +976,33 @@ void FstandsforFrustrating(int checkF)
 		break;
 	case 271:
 		Factfeed = 43;
+		break;
 	case 272:
 		Factfeed = 44;
+		break;
 	case 273:
 		Factfeed = 45;
+		break;
+	case 231:
+		Factfeed = 46;
+		break;
+	case 232:
+		Factfeed = 47;
+		break;
+	case 233:
+		Factfeed = 48;
+		break;
+	case 234:
+		Factfeed = 49;
+		break;
+	case 235:
+		Factfeed = 50;
+		break;
 	case 0:
 		Factfeed = 0;
 		break;
-	
 	}
-	if (Factfeed == 912 || Factfeed == 914 || Factfeed == 923 || Factfeed == 926)
+	if (g_eGameState == S_GAME || Factfeed == 912 || Factfeed == 914 || Factfeed == 923 || Factfeed == 926)
 	{
 		g_dTime = (g_dElapsedTime + 2.0);
 	}
