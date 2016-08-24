@@ -96,16 +96,17 @@ void getInput( void )
     g_abKeyPressed[K_SPACE]     = isKeyPressed(VK_SPACE);
     g_abKeyPressed[K_ESCAPE]    = isKeyPressed(VK_ESCAPE);
 	g_abKeyPressed[K_ENTER]     = isKeyPressed(0x45);
-	g_abKeyPressed[K_INVONE]    = isKeyPressed(0x30);
-	g_abKeyPressed[K_INVTWO]    = isKeyPressed(0x31);
-	g_abKeyPressed[K_INVTHREE]  = isKeyPressed(0x32);
-	g_abKeyPressed[K_INVFOUR]   = isKeyPressed(0x33);
-	g_abKeyPressed[K_INVFIVE]   = isKeyPressed(0x34);
-	g_abKeyPressed[K_INVSIX]    = isKeyPressed(0x35);
-	g_abKeyPressed[K_INVSEVEN]  = isKeyPressed(0x36);
-	g_abKeyPressed[K_INVEIGHT]  = isKeyPressed(0x37);
-	g_abKeyPressed[K_INVNINE]   = isKeyPressed(0x38);
-	g_abKeyPressed[K_INVZERO]   = isKeyPressed(0x39);
+	g_abKeyPressed[K_INVONE]    = isKeyPressed(0x31);
+	g_abKeyPressed[K_INVTWO]    = isKeyPressed(0x32);
+	g_abKeyPressed[K_INVTHREE]  = isKeyPressed(0x33);
+	g_abKeyPressed[K_INVFOUR]   = isKeyPressed(0x34);
+	g_abKeyPressed[K_INVFIVE]   = isKeyPressed(0x35);
+	g_abKeyPressed[K_INVSIX]    = isKeyPressed(0x36);
+	g_abKeyPressed[K_INVSEVEN]  = isKeyPressed(0x37);
+	g_abKeyPressed[K_INVEIGHT]  = isKeyPressed(0x38);
+	g_abKeyPressed[K_INVNINE]   = isKeyPressed(0x39);
+	g_abKeyPressed[K_INVZERO]   = isKeyPressed(0x30);
+	g_abKeyPressed[K_PAUSE]		= isKeyPressed(0x50);
 }
 
 //--------------------------------------------------------------
@@ -136,6 +137,8 @@ void update(double dt)
 			break;
         case S_GAME: gameplay(); // gameplay logic when we are in the game
 			break;
+		case S_PAUSE: gameplay();
+			break;
     }
 }
 //--------------------------------------------------------------
@@ -157,6 +160,8 @@ void render()
 			break;
         case S_GAME: renderGame();
             break;
+		case S_PAUSE: pause();
+			break;
     }
     renderFramerate();  // renders debug information, frame rate, elapsed time, etc
     renderToScreen();   // dump the contents of the buffer to the screen, one frame worth of game
@@ -307,6 +312,7 @@ void moveCharacter()
 void processUserInput()
 {
 	bool bSomethingHappened = false;
+	bool MusicStop = false;
 	if (g_dBounceTime > g_dElapsedTime)
 		return;
 
@@ -341,6 +347,22 @@ void processUserInput()
 		}
 	}
 
+	if (g_abKeyPressed[K_PAUSE])
+	{
+		bSomethingHappened = true;
+
+		if (g_eGameState != 4)
+		{
+			g_eGameState = S_PAUSE;
+		}
+		else if (g_eGameState == 4)
+		{
+			clearScreen();
+
+			g_eGameState = S_GAME;
+		}
+	}
+
 	if (g_abKeyPressed[K_ENTER])
 	{
 		bSomethingHappened = true;
@@ -348,10 +370,31 @@ void processUserInput()
 		FstandsforFrustrating(9);
 	}
 
+	if (g_abKeyPressed[K_INVONE])
+	{
+		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 75;
+		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 44;
+	}
+
 	if (bSomethingHappened)
 	{
 		// set the bounce time to some time in the future to prevent accidental triggers
 		g_dBounceTime = g_dElapsedTime + 0.125; // 125ms should be enough
+	}
+
+	if (isKeyPressed(0x4D))
+	{
+		bSomethingHappened = true;
+		if (MusicStop == false)
+		{
+			PlaySound(NULL, 0, 0);
+			MusicStop = true;
+		}
+		else if (MusicStop == true)
+		{
+			PlaySound(TEXT("HappyMusic.wav"), NULL, SND_SYNC | SND_LOOP | SND_ASYNC);
+			MusicStop = false;
+		}
 	}
 }
 
@@ -508,4 +551,21 @@ void renderUI() // inventory
 	c.Y += 2;
 	c.X = g_Console.getConsoleSize().X / 2 - 5;
 	g_Console.writeToBuffer(c, itemss, 0x09);	
+}
+
+
+
+void pause()
+{
+	COORD c = g_Console.getConsoleSize();
+	c.Y /= 3;
+	c.X = 52;
+	g_Console.writeToBuffer(c, "PAUSE", 0x03);
+	c.Y++;
+	c.X = 40;
+	g_Console.writeToBuffer(c, "Press 'P' again to resume game", 0x09);
+	c.Y++;
+	c.X = 43;
+	g_Console.writeToBuffer(c, "Press 'M' to mute music", 0x09);
+	
 }
