@@ -93,6 +93,30 @@ void puzzlemap(char** printlevel)
 			{
 				printlevel[AreaY][AreaX] = ' ';
 			}
+			if (printlevel[AreaY][AreaX] == 'W')
+			{
+				printlevel[AreaY][AreaX] = ' ';
+			}
+			if (printlevel[AreaY][AreaX] == 'Y')
+			{
+				printlevel[AreaY][AreaX] = ' ';
+			}
+			if (printlevel[AreaY][AreaX] == 'P')
+			{
+				printlevel[AreaY][AreaX] = ' ';
+			}
+			if (printlevel[AreaY][AreaX] == 'S')
+			{
+				printlevel[AreaY][AreaX] = ' ';
+			}
+			if (printlevel[AreaY][AreaX] == 'B')
+			{
+				printlevel[AreaY][AreaX] = ' ';
+			}
+			if (printlevel[AreaY][AreaX] == 'C')
+			{
+				printlevel[AreaY][AreaX] = ' ';
+			}
 			if (printlevel[AreaY][AreaX] == '\n')
 			{
 				printlevel[AreaY][AreaX] = ' ';

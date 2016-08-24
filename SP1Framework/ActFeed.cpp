@@ -26,6 +26,8 @@ void actfeed()
 	{
 		c.Y = 31;
 
+		g_Console.writeToBuffer(c, "Use WASD keys to move around, F key to interact and E to enter/use.", 0x05);
+		c.Y += 1;
 		g_Console.writeToBuffer(c, "\"Wha-What is this place?\"", 0x02);
 		c.Y += 1;
 
@@ -92,11 +94,6 @@ void actfeed()
 			g_Console.writeToBuffer(c, "I should take a look around, since being a sitting duck here would do me no good.", 0x02);
 			c.Y += 1;
 		}
-		if (g_dElapsedTime > 30.0) // wait for 30 seconds to display next message
-		{
-			g_Console.writeToBuffer(c, "Use WASD keys to move around, F key to interact and E to enter/use.", 0x05);
-			c.Y += 1;
-		}
 	}
 
 	if (InPortal == 1)
@@ -129,6 +126,16 @@ void actfeed()
 		if (levelfinish == 2)
 		{
 			g_Console.writeToBuffer(c, "\"Easy, isn't it? After all, you've had a lot of practice...\".", 0x06);
+		}
+	}
+
+	if (InPortal == 3)
+	{
+		c.Y = 31;
+
+		if (inventory == "Odd black sphere")
+		{
+			g_Console.writeToBuffer(c, "Odd black sphere has been added to your inventory.", 0x03);
 		}
 	}
 
@@ -373,20 +380,20 @@ void actfeed()
 			g_Console.writeToBuffer(c, "A locked chest.", 0x02);
 			break;
 		case 19: //Chapel Window
-			g_Console.writeToBuffer(c, "I can’t see anything through the window. It’s stained glass after all.", 0x02);
+			g_Console.writeToBuffer(c, "I can't see anything through the window. It's stained glass after all.", 0x02);
 			break;
 		case 20: //Chapel Box
-			g_Console.writeToBuffer(c, "There’s a black box here with no lid or cover.", 0x02);
+			g_Console.writeToBuffer(c, "There's a black box here with no lid or cover.", 0x02);
 			c.Y++;
-			g_Console.writeToBuffer(c, "Perhaps I should just grab the black sphere thing instead?", 0x02);
+			g_Console.writeToBuffer(c, "Perhaps I should just grab the black sphere thing instead?", 0x05);
 			break;
 		case 21:  //Chapel Pews
-			g_Console.writeToBuffer(c, "I've got no time for prayers right now.");
+			g_Console.writeToBuffer(c, "I've got no time for prayers right now.", 0x02);
 			break;
 		case 22: //Chapel Podium
 			g_Console.writeToBuffer(c, "There's some sort of black orb on the podium. Should I take it?", 0x02);
 			c.Y++;
-			g_Console.writeToBuffer(c, "Press E to take black orb.", 0x05);
+			g_Console.writeToBuffer(c, "Press the E key to take black orb.", 0x05);
 			break;
 		case 24 : //Computer Room Bookshelf
 			g_Console.writeToBuffer(c, "Hmmm...this book seems interesting. It’s a biography of Julius Caesar.", 0x02);
