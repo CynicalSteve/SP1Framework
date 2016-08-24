@@ -381,12 +381,15 @@ void actfeed()
 			g_Console.writeToBuffer(c, "Perhaps I should just grab the black sphere thing instead?", 0x02);
 			break;
 		case 21:  //Chapel Pews
-			g_Console.writeToBuffer(c, "I've got no time for prayers right now.");
+			g_Console.writeToBuffer(c, "I've got no time for prayers right now.", 0x02);
 			break;
 		case 22: //Chapel Podium
 			g_Console.writeToBuffer(c, "There's some sort of black orb on the podium. Should I take it?", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "Press E to take black orb.", 0x05);
+			break;
+		case 23:  //Chapel Button (OF)
+			g_Console.writeToBuffer(c, "I pressed the button.", 0x02);
 			break;
 		case 24 : //Computer Room Bookshelf
 			g_Console.writeToBuffer(c, "Hmmm...this book seems interesting. It’s a biography of Julius Caesar.", 0x02);
@@ -414,8 +417,17 @@ void actfeed()
 			c.Y++;
 			g_Console.writeToBuffer(c, "01001000  01000001  01010000  01010000  01011001", 0x08);
 			break;
-		case 30 :
-		
+		case 30 :   //Chapel Podium (OF)
+			g_Console.writeToBuffer(c, "The podium is empty", 0x02);
+			break;
+		case 31:   //Street Box (OF)
+			g_Console.writeToBuffer(c, "A red box is lying on the ground in the middle of the street.", 0x02);
+			break;
+		case 32:
+			g_Console.writeToBuffer(c, "A door to one of the buildings is open. Should I enter it?", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "Press E to enter building", 0x05);
+			break;
 		case 911:
 			g_Console.writeToBuffer(c, "The stone hit the metallic object with a pleasant 'ding'.", 0x02);
 			c.Y++;
