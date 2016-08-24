@@ -495,7 +495,7 @@ void renderUI() // inventory
 	c.X = c.X / 2 - 9;
 	g_Console.writeToBuffer(c, "-Inventory Opened-", 0x03); // at the moment this does jack shit aside from show a new screen saying inventory is open
 	
-	void storeInventory();
+	//void storeInventory();
 
 	c.Y += 2;
 	c.X = g_Console.getConsoleSize().X / 2 - 5;
