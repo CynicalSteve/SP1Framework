@@ -646,6 +646,26 @@ void actfeed()
 			c.Y++;
 			g_Console.writeToBuffer(c, "Crudely carved into the coffin’s cover is a code “vitirxergi”.", 0x05);
 			break;
+		case 46:  //Computer Room Bookshelf (OF)
+			g_Console.writeToBuffer(c, "An empty bookshelf caked with dust.", 0x02);
+			break;
+		case 47:  //Computer Room Computer (OF)
+			g_Console.writeToBuffer(c, "The screen of the computer shows:", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "DIE DIE DIE DIE DIE DIE DIE", 0x04);
+			c.Y++;
+			break;
+		case 48:  //Computer Room Map (OF)
+			g_Console.writeToBuffer(c, "A blank piece  of paper hangs sullenly on the wall.", 0x02);
+			break;
+		case 49:  //Computer Room Picture (OF)
+			g_Console.writeToBuffer(c, "It’s a picture of a kid getting bullied by someone. Behind it is another picture, depicting the bully standing next to the same kid. There’s a speech bubble partially torn off.", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "I didn’t mean to do all those things to you in the past. I know that my apologies will not help you heal, but… I feel like there is a need for me to say that I am-", 0x05);
+			break;
+		case 50:  //Computer Room Box (OF)
+			g_Console.writeToBuffer(c, "A flat box bound by leather, resembling an old book.", 0x02);
+			break;
 		case 911:   //Lake EF Complete
 			g_Console.writeToBuffer(c, "The stone hit the metallic object with a pleasant 'ding'.", 0x02);
 			c.Y++;
