@@ -10,7 +10,7 @@ int Factfeed = 0;
 int InPortal = 0;
 int TutorialMode = 1; // Instead of doing "Y/N" for the first portal, I'm implementing this.
 int tempF;
-int EssentialFragment = 1; // Set to 6 to see all areas
+int EssentialFragment = 0; // Set to 6 to see all areas
 int OptionalFragment = 0;
 std::string inventory = "none";
 int levelfinish = 0;
