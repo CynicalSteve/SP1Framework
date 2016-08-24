@@ -475,9 +475,9 @@ void actfeed()
 			g_Console.writeToBuffer(c, "I pressed the button.", 0x02);
 			break;
 		case 24 : //Computer Room Bookshelf
-			g_Console.writeToBuffer(c, "Hmmm...this book seems interesting. It’s a biography of Julius Caesar.", 0x02);
+			g_Console.writeToBuffer(c, "Hmmm...this book seems interesting. It's a biography of Julius Caesar.", 0x02);
 			c.Y++;
-			g_Console.writeToBuffer(c, "Wait a minute...that’s strange, a page is torn from the book. I’ll keep it just in case.", 0x02);
+			g_Console.writeToBuffer(c, "Wait a minute...that's strange, a page is torn from the book. I'll keep it just in case.", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "History Book has been added to your inventory.", 0x05);
 			break;
@@ -487,7 +487,7 @@ void actfeed()
 			g_Console.writeToBuffer(c, "Password:", 0x08);
 			break;
 		case 26 :  //Computer Room Map
-			g_Console.writeToBuffer(c, "I believe it’s a map of Singapore. A red circle is drawn at the southern tip of the island.", 0x02);
+			g_Console.writeToBuffer(c, "I believe it's a map of Singapore. A red circle is drawn at the southern tip of the island.", 0x02);
 			break;
 		case 27 :  //Street Buildings
 			g_Console.writeToBuffer(c, "All the buildings look the same.", 0x02);
@@ -496,7 +496,7 @@ void actfeed()
 			g_Console.writeToBuffer(c, "Just your typical lamppost.", 0x02);
 			break;
 		case 29 : //Street Box
-			g_Console.writeToBuffer(c, "There’s a code scratched above the lock of this red box.", 0x02);
+			g_Console.writeToBuffer(c, "There's a code scratched above the lock of this red box.", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "01001000  01000001  01010000  01010000  01011001", 0x08);
 			break;
@@ -512,12 +512,14 @@ void actfeed()
 			g_Console.writeToBuffer(c, "Press E to enter building", 0x05);
 			break;
 		case 33:   //Living Room Window
-			g_Console.writeToBuffer(c, "As far as I can see, there’s only a void of white outside the window", 0x02);
+			g_Console.writeToBuffer(c, "As far as I can see, there's only a void of white outside the window", 0x02);
 			break;
 		case 34:  //Living Room Phone
 			g_Console.writeToBuffer(c, "A grey typical push-button telephone. A note beside it reads:", 0x02);
 			c.Y++;
-			g_Console.writeToBuffer(c, "This requires a BIT of thinking. Perhaps a clue lies in the word between Caps Lock and LEFT Control.What’s the number that replaces the question mark?", 0x08);
+			g_Console.writeToBuffer(c, "This requires a BIT of thinking. Perhaps a clue lies in the word between Caps Lock and LEFT Control.", 0x08);
+			c.Y++;
+			g_Console.writeToBuffer(c, "What's the number that replaces the question mark?", 0x08);
 			c.Y++;
 			g_Console.writeToBuffer(c, "13 26 52", 0x08);
 			c.Y++;
