@@ -839,7 +839,7 @@ void FstandsforFrustrating(int checkF)
 		break;
 	
 	}
-	if (Factfeed == 912 || Factfeed == 914)
+	if (Factfeed == 912 || Factfeed == 914 || Factfeed == 923)
 	{
 		g_dTime = (g_dElapsedTime + 2.0);
 	}

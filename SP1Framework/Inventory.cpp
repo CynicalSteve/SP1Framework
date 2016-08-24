@@ -5,7 +5,17 @@ void storeInventory()
 	char firstItem[] = "A Flat Stone";
 	char secondItem[] = "History Book";
 	char thirdItem[] = "Stack of Stones";
+	char storageForItems[] = "";
+	char noItem[] = "\0";
+	bool takeStone, takeHistoryBook, takeStones;
 
- 	//for (int i = 0; i < inventory[3]; i++);
-
+	if (takeStone == 1)
+	{
+		firstItem;
+	}
+	else
+	{
+		noItem;
+	}
 }
+
