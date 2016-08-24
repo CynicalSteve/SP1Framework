@@ -433,7 +433,30 @@ int checkinteract(void)
 		}
 		else if (InPortal == 4)    //Chapel OF
 		{
-			return 0;
+			if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'W')
+			{
+				return 121;
+			}
+			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'Y')
+			{
+				return 122;
+			}
+			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'P')
+			{
+				return 126;
+			}
+			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'S')
+			{
+				return 124;
+			}
+			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'B')
+			{
+				return 125;
+			}
+			else
+			{
+				return 0;
+			}
 		}
 		else if (InPortal == 5)    //Computer Room EF
 		{
@@ -469,7 +492,23 @@ int checkinteract(void)
 		}
 		else if (InPortal == 8)    //Street OF
 		{
-			return 0;
+			if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'S')
+			{
+				return 141;
+			}
+			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'P')
+			{
+				return 142;
+			}
+			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'B')
+			{
+				return 151;
+			}
+			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'W')
+			{
+				return 152;
+			}
+
 		}
 		else if (InPortal == 9)    //Living Room EF
 		{
@@ -719,6 +758,12 @@ void FstandsforFrustrating(int checkF)
 			g_dElapsedTimeTemp = (g_dElapsedTime + 10.0);
 		}
 		break;
+	case 125:
+		Factfeed = 23;
+		break;
+	case 126:
+		Factfeed = 30;
+		break;
 	case 131:
 		Factfeed = 24;
 		break;
@@ -737,12 +782,18 @@ void FstandsforFrustrating(int checkF)
 	case 143:
 		Factfeed = 29;
 		break;
+	case 151:
+		Factfeed = 31;
+		break;
+	case 152:
+		Factfeed = 32;
+		break;
 	case 0:
 		Factfeed = 0;
 		break;
 	
 	}
-	if (Factfeed == 912 || Factfeed == 914)
+	if (Factfeed == 912 || Factfeed == 914 || Factfeed == 923)
 	{
 		g_dTime = (g_dElapsedTime + 2.0);
 	}
