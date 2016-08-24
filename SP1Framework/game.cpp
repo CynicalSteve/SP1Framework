@@ -96,16 +96,16 @@ void getInput( void )
     g_abKeyPressed[K_SPACE]     = isKeyPressed(VK_SPACE);
     g_abKeyPressed[K_ESCAPE]    = isKeyPressed(VK_ESCAPE);
 	g_abKeyPressed[K_ENTER]     = isKeyPressed(0x45);
-	g_abKeyPressed[K_INVONE]    = isKeyPressed(0x30);
-	g_abKeyPressed[K_INVTWO]    = isKeyPressed(0x31);
-	g_abKeyPressed[K_INVTHREE]  = isKeyPressed(0x32);
-	g_abKeyPressed[K_INVFOUR]   = isKeyPressed(0x33);
-	g_abKeyPressed[K_INVFIVE]   = isKeyPressed(0x34);
-	g_abKeyPressed[K_INVSIX]    = isKeyPressed(0x35);
-	g_abKeyPressed[K_INVSEVEN]  = isKeyPressed(0x36);
-	g_abKeyPressed[K_INVEIGHT]  = isKeyPressed(0x37);
-	g_abKeyPressed[K_INVNINE]   = isKeyPressed(0x38);
-	g_abKeyPressed[K_INVZERO]   = isKeyPressed(0x39);
+	g_abKeyPressed[K_INVONE]    = isKeyPressed(0x31);
+	g_abKeyPressed[K_INVTWO]    = isKeyPressed(0x32);
+	g_abKeyPressed[K_INVTHREE]  = isKeyPressed(0x33);
+	g_abKeyPressed[K_INVFOUR]   = isKeyPressed(0x34);
+	g_abKeyPressed[K_INVFIVE]   = isKeyPressed(0x35);
+	g_abKeyPressed[K_INVSIX]    = isKeyPressed(0x36);
+	g_abKeyPressed[K_INVSEVEN]  = isKeyPressed(0x37);
+	g_abKeyPressed[K_INVEIGHT]  = isKeyPressed(0x38);
+	g_abKeyPressed[K_INVNINE]   = isKeyPressed(0x39);
+	g_abKeyPressed[K_INVZERO]   = isKeyPressed(0x30);
 }
 
 //--------------------------------------------------------------
@@ -346,6 +346,12 @@ void processUserInput()
 		bSomethingHappened = true;
 
 		FstandsforFrustrating(9);
+	}
+
+	if (g_abKeyPressed[K_INVONE])
+	{
+		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 75;
+		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 44;
 	}
 
 	if (bSomethingHappened)
