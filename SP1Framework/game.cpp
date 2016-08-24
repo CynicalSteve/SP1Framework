@@ -106,6 +106,7 @@ void getInput( void )
 	g_abKeyPressed[K_INVEIGHT]  = isKeyPressed(0x38);
 	g_abKeyPressed[K_INVNINE]   = isKeyPressed(0x39);
 	g_abKeyPressed[K_INVZERO]   = isKeyPressed(0x30);
+	g_abKeyPressed[K_PAUSE]		= isKeyPressed(0x50);
 }
 
 //--------------------------------------------------------------
@@ -136,6 +137,8 @@ void update(double dt)
 			break;
         case S_GAME: gameplay(); // gameplay logic when we are in the game
 			break;
+		case S_PAUSE: gameplay();
+			break;
     }
 }
 //--------------------------------------------------------------
@@ -157,6 +160,8 @@ void render()
 			break;
         case S_GAME: renderGame();
             break;
+		case S_PAUSE: pause();
+			break;
     }
     renderFramerate();  // renders debug information, frame rate, elapsed time, etc
     renderToScreen();   // dump the contents of the buffer to the screen, one frame worth of game
@@ -341,6 +346,22 @@ void processUserInput()
 		}
 	}
 
+	if (g_abKeyPressed[K_PAUSE])
+	{
+		bSomethingHappened = true;
+
+		if (g_eGameState != 4)
+		{
+			g_eGameState = S_PAUSE;
+		}
+		else if (g_eGameState == 4)
+		{
+			clearScreen();
+
+			g_eGameState = S_GAME;
+		}
+	}
+
 	if (g_abKeyPressed[K_ENTER])
 	{
 		bSomethingHappened = true;
@@ -514,4 +535,18 @@ void renderUI() // inventory
 	c.Y += 2;
 	c.X = g_Console.getConsoleSize().X / 2 - 5;
 	g_Console.writeToBuffer(c, itemss, 0x09);	
+}
+
+void pause()
+{
+	COORD c = g_Console.getConsoleSize();
+	c.Y /= 3;
+	c.X = 52;
+	g_Console.writeToBuffer(c, "PAUSE", 0x03);
+	c.Y++;
+	c.X = 40;
+	g_Console.writeToBuffer(c, "Press 'P' again to resume game", 0x09);
+	c.Y++;
+	c.X = 43;
+	g_Console.writeToBuffer(c, "Press 'M' to mute music", 0x09);
 }

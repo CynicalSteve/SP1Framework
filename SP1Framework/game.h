@@ -35,7 +35,8 @@ enum EKEYS
 	K_INVEIGHT,
 	K_INVNINE,
 	K_INVZERO,
-	K_COUNT
+	K_COUNT,
+	K_PAUSE
 };
 
 // Enumeration for the different screen states
@@ -44,7 +45,8 @@ enum EGAMESTATES
 	S_SPLASHSCREEN,
 	S_GAME,
 	S_INVENTORY,
-    S_COUNT
+    S_COUNT,
+	S_PAUSE
 };
 
 // struct for the game character
@@ -73,5 +75,6 @@ void renderFramerate();     // renders debug information, frame rate, elapsed ti
 void renderToScreen();      // dump the contents of the buffer to the screen, one frame worth of game
 void renderUI();            // renders the HUD and other menu items that might be added
 void renderFeed();			// renders the activity feed
+void pause();
 
 #endif // _GAME_H
