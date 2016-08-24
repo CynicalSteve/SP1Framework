@@ -186,7 +186,7 @@ void actfeed()
 		}
 		if (g_dElapsedTime > (g_dTime + 20.0))
 		{
-			g_Console.writeToBuffer(c, "His eyes twinkled mysteriously.", 0x03);
+			g_Console.writeToBuffer(c, "His eyes twinkled mischievously.", 0x03);
 			c.Y++;
 		}
 		if (g_dElapsedTime > (g_dTime + 21.0))
