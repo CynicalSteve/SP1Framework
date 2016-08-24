@@ -312,6 +312,7 @@ void moveCharacter()
 void processUserInput()
 {
 	bool bSomethingHappened = false;
+	bool MusicStop = false;
 	if (g_dBounceTime > g_dElapsedTime)
 		return;
 
@@ -379,6 +380,21 @@ void processUserInput()
 	{
 		// set the bounce time to some time in the future to prevent accidental triggers
 		g_dBounceTime = g_dElapsedTime + 0.125; // 125ms should be enough
+	}
+
+	if (isKeyPressed(0x4D))
+	{
+		bSomethingHappened = true;
+		if (MusicStop == false)
+		{
+			PlaySound(NULL, 0, 0);
+			MusicStop = true;
+		}
+		else if (MusicStop == true)
+		{
+			PlaySound(TEXT("HappyMusic.wav"), NULL, SND_SYNC | SND_LOOP | SND_ASYNC);
+			MusicStop = false;
+		}
 	}
 }
 
@@ -537,6 +553,8 @@ void renderUI() // inventory
 	g_Console.writeToBuffer(c, itemss, 0x09);	
 }
 
+
+
 void pause()
 {
 	COORD c = g_Console.getConsoleSize();
@@ -549,4 +567,5 @@ void pause()
 	c.Y++;
 	c.X = 43;
 	g_Console.writeToBuffer(c, "Press 'M' to mute music", 0x09);
+	
 }
