@@ -540,7 +540,36 @@ int checkinteract(void)
 		}
 		else if (InPortal == 11)   //Funeral
 		{
-			return 0;
+			if (OptionalFragment < 5)   //Funeral Ending 1 (Bad Ending)
+			{
+				switch (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y])
+				{
+				case 'B':
+					return 171;
+					break;
+				case 'P':
+					return 172;
+					break;
+				case 'S':
+					return 173;
+					break;
+				}
+			}
+			else         //Funeral Ending (True ending)
+			{
+				switch (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y])
+				{
+				case 'B':
+					return 271;
+					break;
+				case 'P':
+					return 272;
+					break;
+				case 'S':
+					return 273;
+					break;
+				}
+			}
 		}
 	}
 }
@@ -909,6 +938,21 @@ void FstandsforFrustrating(int checkF)
 	case 264:
 		Factfeed = 39;
 		break;
+	case 171:
+		Factfeed = 40;
+		break;
+	case 172:
+		Factfeed = 41;
+		break;
+	case 173:
+		Factfeed = 42;
+		break;
+	case 271:
+		Factfeed = 43;
+	case 272:
+		Factfeed = 44;
+	case 273:
+		Factfeed = 45;
 	case 0:
 		Factfeed = 0;
 		break;

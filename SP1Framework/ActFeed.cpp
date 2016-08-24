@@ -562,6 +562,42 @@ void actfeed()
 			c.Y++;
 			g_Console.writeToBuffer(c, "LIAR", 0x04);   //Text red in colour
 			break;
+		case 40:   //Funeral Bookshelf (Bad End)
+			g_Console.writeToBuffer(c, "There’s an single empty space in between two books. Should I place the history book I acquired in there?");
+			c.Y++;
+			g_Console.writeToBuffer(c, "Press E to place History Book.", 0x05);
+			break;
+		case 41:  //Funeral Pews   (Bad End)
+			g_Console.writeToBuffer(c, "The pews are all empty, but soft sobbing sounds can be heard from them.", 0x02);
+			break;
+		case 42:  //Funeral Coffin (Bad ENd)
+			g_Console.writeToBuffer(c, "A closed coffin. This looks like a funeral wake.", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "There’s a piece of paper on top of the coffin that reads:");
+			c.Y++;
+			g_Console.writeToBuffer(c, "...to protect messages of military significance, Julius Caesar devised an encryption technique now widely known as the “Caesar Cipher”. This substitution cipher was employed during…", 0x08);
+			c.Y++;
+			g_Console.writeToBuffer(c, "This must be the page torn from the history book.", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "Crudely carved into the coffin’s cover is a code “lpshqlwhqfh”", 0x05);
+			break;
+		case 43:  //Funeral Bookshelf (True End)
+			g_Console.writeToBuffer(c, "There’s an single empty space in between two books. Should I place the history book I acquired in there?");
+			c.Y++;
+			g_Console.writeToBuffer(c, "Press E to place History Book.", 0x05);
+			break;
+		case 44:  //Funeral Pews (True End)
+			g_Console.writeToBuffer(c, "The pews are all empty. A deafening silence hung amongst the air.", 0x02);
+			break;
+		case 45:  //Funeral Coffin (True End)
+			g_Console.writeToBuffer(c, "A closed coffin. This looks like a funeral wake.", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "There’s a piece of paper on top of the coffin that reads:", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "Here lies Ava Laurens, where her body shall ROT FOR eternity.", 0x08);
+			c.Y++;
+			g_Console.writeToBuffer(c, "Crudely carved into the coffin’s cover is a code “vitirxergi”.", 0x05);
+			break;
 		case 911:   //Lake EF Complete
 			g_Console.writeToBuffer(c, "The stone hit the metallic object with a pleasant 'ding'.", 0x02);
 			c.Y++;
