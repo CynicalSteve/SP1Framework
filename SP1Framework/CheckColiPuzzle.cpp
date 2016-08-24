@@ -55,6 +55,9 @@ int CollisionPuzzle(int checkPuzzle)
 	case 12:
 		file.open("Text files/1_LakeXFish.txt");
 		break;
+	case 13:
+		file.open("Text files/2_ChappelXSphere.txt");
+		break;
 	}
 
 	if (file.is_open())
@@ -75,45 +78,89 @@ int CollisionPuzzle(int checkPuzzle)
 
 	if (checkPuzzle == 1)
 	{
-		if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == 'F')
+		switch (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1])
 		{
+		case 'F':
 			return 1;
-		}
-		else
-		{
+		case 'W':
+			return 1;
+		case 'Y':
+			return 1;
+		case 'P':
+			return 1;
+		case 'S':
+			return 1;
+		case 'B':
+			return 1;
+		case 'C':
+			return 1;
+		default:
 			return 0;
 		}
 	}
 	if (checkPuzzle == 2)
 	{
-		if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == 'F')
+		switch (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1])
 		{
+		case 'F':
 			return 1;
-		}
-		else
-		{
+		case 'W':
+			return 1;
+		case 'Y':
+			return 1;
+		case 'P':
+			return 1;
+		case 'S':
+			return 1;
+		case 'B':
+			return 1;
+		case 'C':
+			return 1;
+		default:
 			return 0;
 		}
 	}
 	if (checkPuzzle == 3)
 	{
-		if (whatever[g_sChar.m_cLocation.X - 1][g_sChar.m_cLocation.Y] == 'F')
+		switch (whatever[g_sChar.m_cLocation.X - 1][g_sChar.m_cLocation.Y])
 		{
+		case 'F':
 			return 1;
-		}
-		else
-		{
+		case 'W':
+			return 1;
+		case 'Y':
+			return 1;
+		case 'P':
+			return 1;
+		case 'S':
+			return 1;
+		case 'B':
+			return 1;
+		case 'C':
+			return 1;
+		default:
 			return 0;
 		}
 	}
 	if (checkPuzzle == 4)
 	{
-		if (whatever[g_sChar.m_cLocation.X + 1][g_sChar.m_cLocation.Y] == 'F')
+		switch (whatever[g_sChar.m_cLocation.X + 1][g_sChar.m_cLocation.Y])
 		{
+		case 'F':
 			return 1;
-		}
-		else
-		{
+		case 'W':
+			return 1;
+		case 'Y':
+			return 1;
+		case 'P':
+			return 1;
+		case 'S':
+			return 1;
+		case 'B':
+			return 1;
+		case 'C':
+			return 1;
+		default:
 			return 0;
 		}
 	}

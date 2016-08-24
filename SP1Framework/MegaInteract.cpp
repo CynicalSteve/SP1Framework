@@ -10,7 +10,7 @@ int Factfeed = 0;
 int InPortal = 0;
 int TutorialMode = 1; // Instead of doing "Y/N" for the first portal, I'm implementing this.
 int tempF;
-int EssentialFragment = 0; // Set to 6 to see all areas
+int EssentialFragment = 1; // Set to 6 to see all areas
 int OptionalFragment = 0;
 std::string inventory = "none";
 int levelfinish = 0;
@@ -123,6 +123,9 @@ int checkinteract(void)
 		case 12:
 			file.open("Text files/1_LakeXFish.txt");
 			break;
+		case 13:
+			file.open("Text files/2_ChappelXSphere.txt");
+			break;
 		}
 	}
 
@@ -148,157 +151,97 @@ int checkinteract(void)
 		{
 			// UP UP UP UP UP
 
-			if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '|')
+			switch (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1])
 			{
+			case '|':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == ':')
-			{
+			case ':':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '\\')
-			{
+			case '\\':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '/')
-			{
+			case '/':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == ',')
-			{
+			case ',':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '"')
-			{
+			case '"':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '-')
-			{
+			case '-':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '`')
-			{
+			case '`':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '_')
-			{
+			case '_':
 				return 1;
 			}
 
 			// DOWN DOWN DOWN DOWN DOWN
 
-			if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == '|')
+			switch (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1])
 			{
+			case '|':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == ':')
-			{
+			case ':':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == '\\')
-			{
+			case '\\':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == '/')
-			{
+			case '/':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == ',')
-			{
+			case ',':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == '"')
-			{
+			case '"':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == '-')
-			{
+			case '-':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == '`')
-			{
+			case '`':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == '_')
-			{
+			case '_':
 				return 1;
 			}
 
 			// LEFT LEFT LEFT LEFT LEFT
 
-			if (whatever[g_sChar.m_cLocation.X - 1][g_sChar.m_cLocation.Y] == '|')
+			switch (whatever[g_sChar.m_cLocation.X - 1][g_sChar.m_cLocation.Y])
 			{
+			case '|':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X - 1][g_sChar.m_cLocation.Y] == ':')
-			{
+			case ':':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X - 1][g_sChar.m_cLocation.Y] == '\\')
-			{
+			case '\\':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X - 1][g_sChar.m_cLocation.Y] == '/')
-			{
+			case '/':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X - 1][g_sChar.m_cLocation.Y] == ',')
-			{
+			case ',':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X - 1][g_sChar.m_cLocation.Y] == '"')
-			{
+			case '"':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X - 1][g_sChar.m_cLocation.Y] == '-')
-			{
+			case '-':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X - 1][g_sChar.m_cLocation.Y] == '`')
-			{
+			case '`':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X - 1][g_sChar.m_cLocation.Y] == '_')
-			{
+			case '_':
 				return 1;
 			}
 
 			// RIGHT RIGHT RIGHT RIGHT RIGHT
 
-			if (whatever[g_sChar.m_cLocation.X + 1][g_sChar.m_cLocation.Y] == '|')
+			switch (whatever[g_sChar.m_cLocation.X + 1][g_sChar.m_cLocation.Y])
 			{
+			case '|':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X + 1][g_sChar.m_cLocation.Y] == ':')
-			{
+			case ':':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X + 1][g_sChar.m_cLocation.Y] == '\\')
-			{
+			case '\\':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X + 1][g_sChar.m_cLocation.Y] == '/')
-			{
+			case '/':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X + 1][g_sChar.m_cLocation.Y] == ',')
-			{
+			case ',':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X + 1][g_sChar.m_cLocation.Y] == '"')
-			{
+			case '"':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X + 1][g_sChar.m_cLocation.Y] == '-')
-			{
+			case '-':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X + 1][g_sChar.m_cLocation.Y] == '`')
-			{
+			case '`':
 				return 1;
-			}
-			else if (whatever[g_sChar.m_cLocation.X + 1][g_sChar.m_cLocation.Y] == '_')
-			{
+			case '_':
 				return 1;
 			}
 		}
@@ -336,207 +279,151 @@ int checkinteract(void)
 		{
 			// UP UP UP UP UP
 
-			if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '0')
+			switch (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1])
 			{
+			case '0':
 				return 101;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '.')
-			{
+			case '.':
 				return 101;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == 'o')
-			{
+			case 'o':
 				return 101;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == 'O')
-			{
+			case 'O':
 				return 101;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '-')
-			{
+			case '-':
 				return 102;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '<')
-			{
+			case '<':
 				return 103;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '>')
-			{
+			case '>':
 				return 103;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '|')
-			{
+			case '|':
 				return 104;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '_')
-			{
+			case '_':
 				return 104;
 			}
 
 			// DOWN DOWN DOWN DOWN DOWN
 
-			if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == '<')
+
+			switch (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1])
 			{
+			case '<':
 				return 103;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == '>')
-			{
+			case '>':
 				return 103;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == '|')
-			{
+			case '|':
 				return 104;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == '_')
-			{
+			case '_':
 				return 104;
 			}
 
 			// LEFT LEFT LEFT LEFT LEFT
 
-			if (whatever[g_sChar.m_cLocation.X - 1][g_sChar.m_cLocation.Y] == '<')
+			switch (whatever[g_sChar.m_cLocation.X - 1][g_sChar.m_cLocation.Y])
 			{
+			case '<':
 				return 103;
-			}
-			else if (whatever[g_sChar.m_cLocation.X - 1][g_sChar.m_cLocation.Y] == '>')
-			{
+			case '>':
 				return 103;
-			}
-			else if (whatever[g_sChar.m_cLocation.X - 1][g_sChar.m_cLocation.Y] == '|')
-			{
+			case '|':
 				return 104;
-			}
-			else if (whatever[g_sChar.m_cLocation.X - 1][g_sChar.m_cLocation.Y] == '_')
-			{
+			case '_':
 				return 104;
 			}
 
 			// RIGHT RIGHT RIGHT RIGHT RIGHT
 
-			if (whatever[g_sChar.m_cLocation.X + 1][g_sChar.m_cLocation.Y] == '<')
+			switch (whatever[g_sChar.m_cLocation.X + 1][g_sChar.m_cLocation.Y])
 			{
+			case '<':
 				return 103;
-			}
-			else if (whatever[g_sChar.m_cLocation.X + 1][g_sChar.m_cLocation.Y] == '>')
-			{
+			case '>':
 				return 103;
-			}
-			else if (whatever[g_sChar.m_cLocation.X + 1][g_sChar.m_cLocation.Y] == '|')
-			{
+			case '|':
+				return 104;
+			case '_':
 				return 104;
 			}
-			else if (whatever[g_sChar.m_cLocation.X + 1][g_sChar.m_cLocation.Y] == '_')
-			{
-				return 104;
-			}
+
+			return 0;
 		}
 		else if (InPortal == 2 || InPortal == 12)
 		{
 			// UP UP UP UP UP
 
-			if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '0')
+			switch (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1])
 			{
+			case '0':
 				return 111;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '.')
-			{
+			case '.':
 				return 111;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == 'o')
-			{
+			case 'o':
 				return 111;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == 'O')
-			{
+			case 'O':
 				return 111;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '-')
-			{
+			case '-':
 				return 112;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '<')
-			{
+			case '<':
 				return 113;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '>')
-			{
+			case '>':
 				return 113;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '|')
-			{
+			case '|':
+				return 114;
+			case '_':
 				return 114;
 			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y - 1] == '_')
-			{
-				return 114;
-			}
-
 			// DOWN DOWN DOWN DOWN DOWN
 
-			if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == '<')
+			switch (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1])
 			{
+			case '<':
 				return 113;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == '>')
-			{
+			case '>':
 				return 113;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == '|')
-			{
+			case '|':
 				return 114;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y + 1] == '_')
-			{
+			case '_':
 				return 114;
 			}
 
 			// LEFT LEFT LEFT LEFT LEFT
 
-			if (whatever[g_sChar.m_cLocation.X - 1][g_sChar.m_cLocation.Y] == '<')
+			switch (whatever[g_sChar.m_cLocation.X - 1][g_sChar.m_cLocation.Y])
 			{
+			case '<':
 				return 113;
-			}
-			else if (whatever[g_sChar.m_cLocation.X - 1][g_sChar.m_cLocation.Y] == '>')
-			{
+			case '>':
 				return 113;
-			}
-			else if (whatever[g_sChar.m_cLocation.X - 1][g_sChar.m_cLocation.Y] == '|')
-			{
+			case '|':
 				return 114;
-			}
-			else if (whatever[g_sChar.m_cLocation.X - 1][g_sChar.m_cLocation.Y] == '_')
-			{
+			case '_':
 				return 114;
 			}
 
 			// RIGHT RIGHT RIGHT RIGHT RIGHT
 
-			if (whatever[g_sChar.m_cLocation.X + 1][g_sChar.m_cLocation.Y] == '<')
+			switch (whatever[g_sChar.m_cLocation.X + 1][g_sChar.m_cLocation.Y])
 			{
+			case '<':
 				return 113;
-			}
-			else if (whatever[g_sChar.m_cLocation.X + 1][g_sChar.m_cLocation.Y] == '>')
-			{
+			case '>':
 				return 113;
-			}
-			else if (whatever[g_sChar.m_cLocation.X + 1][g_sChar.m_cLocation.Y] == '|')
-			{
+			case '|':
+				return 114;
+			case '_':
 				return 114;
 			}
-			else if (whatever[g_sChar.m_cLocation.X + 1][g_sChar.m_cLocation.Y] == '_')
-			{
-				return 114;
-			}
+
+			return 0;
 		}
-		else if (InPortal == 3)    //Chapel EF
+		else if (InPortal == 3 || InPortal == 13)    //Chapel EF
 		{
-			if(whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'W')
+			switch (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y])
 			{
+			case 'W':
 				return 121;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'Y')
-			{
+			case 'Y':
 				return 122;
+<<<<<<< HEAD
 			}
 			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'P')
 			{
@@ -544,12 +431,15 @@ int checkinteract(void)
 			}
 			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'S')
 			{
+=======
+			case 'P':
+				return 123;
+			case 'S':
+>>>>>>> ef627a9224496fd224b6b6619d763043ffa8809b
 				return 124;
 			}
-			else
-			{
-				return 0;
-			}
+
+			return 0;
 		}
 		else if (InPortal == 4)    //Chapel OF
 		{
@@ -580,18 +470,17 @@ int checkinteract(void)
 		}
 		else if (InPortal == 5)    //Computer Room EF
 		{
-			if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'P')
+			switch (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y])
 			{
+			case 'P':
 				return 131;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'C')
-			{
+			case 'C':
 				return 132;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'S')
-			{
+			case 'S':
 				return 133;
 			}
+
+			return 0;
 		}
 		else if (InPortal == 6)    //Computer Room OF
 		{
@@ -599,18 +488,17 @@ int checkinteract(void)
 		}
 		else if (InPortal == 7)    //Street EF
 		{
-			if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'S')
+			switch (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y])
 			{
+			case 'S':
 				return 141;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'P')
-			{
+			case 'P':
 				return 142;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'B')
-			{
+			case 'B':
 				return 143;
 			}
+
+			return 0;
 		}
 		else if (InPortal == 8)    //Street OF
 		{
@@ -641,11 +529,6 @@ int checkinteract(void)
 			return 0;
 		}
 		else if (InPortal == 11)   //Funeral
-		{
-			return 0;
-		}
-
-		else
 		{
 			return 0;
 		}
@@ -756,6 +639,13 @@ void FstandsforFrustrating(int checkF)
 		inventory = "A stone filled fish";
 	}
 
+	if (Factfeed == 22 && checkF == 9 && reqinteraction == 0)
+	{
+		InPortal = 13;
+		inventory = "Odd black sphere";
+		reqinteraction = 1;
+	}
+
 	if (inventory == "A flat stone" && tempF == 102 && checkF == 9) // Check if user is pressing "F" and then "E" afterwards to do something.
 	{
 		levelfinish = 1;
@@ -777,6 +667,19 @@ void FstandsforFrustrating(int checkF)
 		inventory = "none";
 	}
 
+	if (inventory == "Odd black sphere" && tempF == 121 && checkF == 9)
+	{
+		reqinteraction = 2;
+		Factfeed = 921;
+		inventory = "A ring";
+	}
+
+	if (inventory == "A ring" && tempF == 124 && checkF == 9)
+	{
+		levelfinish = 3;
+		Factfeed = 922;
+		inventory = "none";
+	}
 	
 	switch (checkF)
 	{
@@ -852,8 +755,18 @@ void FstandsforFrustrating(int checkF)
 	case 123:
 		Factfeed = 21;
 		break;
-	case 124:
-		Factfeed = 22;
+	case 124: // Podium
+		if (levelfinish != 3)
+		{
+			Factfeed = 22;
+		}
+		else if (levelfinish == 3)
+		{
+			EssentialFragment = 2;
+			reqinteraction = 0;
+			Factfeed = 923;
+			g_dElapsedTimeTemp = (g_dElapsedTime + 10.0);
+		}
 		break;
 	case 125:
 		Factfeed = 23;

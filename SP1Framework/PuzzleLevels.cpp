@@ -47,6 +47,9 @@ char** puzzlestore(char** printlevel)
 	case 12:
 		puzzle.open("Text files/1_LakeXFish.txt");
 		break;
+	case 13:
+		puzzle.open("Text files/2_ChappelXSphere.txt");
+		break;
 	}
 	/*
 
@@ -90,6 +93,30 @@ void puzzlemap(char** printlevel)
 		for (int AreaX = 0; AreaX < 109; ++AreaX)
 		{
 			if (printlevel[AreaY][AreaX] == 'F')
+			{
+				printlevel[AreaY][AreaX] = ' ';
+			}
+			if (printlevel[AreaY][AreaX] == 'W')
+			{
+				printlevel[AreaY][AreaX] = ' ';
+			}
+			if (printlevel[AreaY][AreaX] == 'Y')
+			{
+				printlevel[AreaY][AreaX] = ' ';
+			}
+			if (printlevel[AreaY][AreaX] == 'P')
+			{
+				printlevel[AreaY][AreaX] = ' ';
+			}
+			if (printlevel[AreaY][AreaX] == 'S')
+			{
+				printlevel[AreaY][AreaX] = ' ';
+			}
+			if (printlevel[AreaY][AreaX] == 'B')
+			{
+				printlevel[AreaY][AreaX] = ' ';
+			}
+			if (printlevel[AreaY][AreaX] == 'C')
 			{
 				printlevel[AreaY][AreaX] = ' ';
 			}

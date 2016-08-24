@@ -26,6 +26,8 @@ void actfeed()
 	{
 		c.Y = 31;
 
+		g_Console.writeToBuffer(c, "Use WASD keys to move around, F key to interact and E to enter/use.", 0x05);
+		c.Y += 1;
 		g_Console.writeToBuffer(c, "\"Wha-What is this place?\"", 0x02);
 		c.Y += 1;
 
@@ -92,11 +94,6 @@ void actfeed()
 			g_Console.writeToBuffer(c, "I should take a look around, since being a sitting duck here would do me no good.", 0x02);
 			c.Y += 1;
 		}
-		if (g_dElapsedTime > 30.0) // wait for 30 seconds to display next message
-		{
-			g_Console.writeToBuffer(c, "Use WASD keys to move around, F key to interact and E to enter/use.", 0x05);
-			c.Y += 1;
-		}
 	}
 
 	if (InPortal == 1)
@@ -129,6 +126,21 @@ void actfeed()
 		if (levelfinish == 2)
 		{
 			g_Console.writeToBuffer(c, "\"Easy, isn't it? After all, you've had a lot of practice...\".", 0x06);
+		}
+	}
+
+	if (InPortal == 3)
+	{
+		c.Y = 31;
+
+		if (inventory == "Odd black sphere")
+		{
+			g_Console.writeToBuffer(c, "Odd black sphere has been added to your inventory.", 0x03);
+		}
+
+		if (inventory == "A ring")
+		{
+			g_Console.writeToBuffer(c, "A ring has been added to your inventory.", 0x03);
 		}
 	}
 
@@ -373,20 +385,41 @@ void actfeed()
 			g_Console.writeToBuffer(c, "A locked chest.", 0x02);
 			break;
 		case 19: //Chapel Window
-			g_Console.writeToBuffer(c, "I can’t see anything through the window. It’s stained glass after all.", 0x02);
+			g_Console.writeToBuffer(c, "I can't see anything through the window. It's stained glass after all.", 0x02);
+
+			if (inventory == "Odd black sphere")
+			{
+				c.Y++;
+				g_Console.writeToBuffer(c, "The black sphere seems to react to the light from the window. Should I hold it closer?", 0x05);
+			}
 			break;
-		case 20: //Chapel Box
-			g_Console.writeToBuffer(c, "There’s a black box here with no lid or cover.", 0x02);
-			c.Y++;
-			g_Console.writeToBuffer(c, "Perhaps I should just grab the black sphere thing instead?", 0x02);
+		case 20: //Chapel Table
+			g_Console.writeToBuffer(c, "It's a table with nothing on it. This table is useless.", 0x02);
 			break;
 		case 21:  //Chapel Pews
 			g_Console.writeToBuffer(c, "I've got no time for prayers right now.", 0x02);
 			break;
 		case 22: //Chapel Podium
-			g_Console.writeToBuffer(c, "There's some sort of black orb on the podium. Should I take it?", 0x02);
-			c.Y++;
-			g_Console.writeToBuffer(c, "Press E to take black orb.", 0x05);
+			if (reqinteraction == 0)
+			{
+				g_Console.writeToBuffer(c, "There's a black box sitting on the podium beside a black sphere of some sort. The box has no lid or cover.", 0x02);
+				c.Y++;
+				g_Console.writeToBuffer(c, "Maybe I should just take the black sphere thing instead?", 0x05);
+				c.Y++;
+				g_Console.writeToBuffer(c, "Press the E key to take black orb.", 0x05);
+			}
+			else if (reqinteraction == 1)
+			{
+				g_Console.writeToBuffer(c, "There's a black box sitting on the podium. The box has no lid or cover.", 0x02);
+				c.Y++;
+				g_Console.writeToBuffer(c, "There's no way it will open just by me staring at it and doing nothing.", 0x02);
+			}
+			else if (reqinteraction == 2)
+			{
+				g_Console.writeToBuffer(c, "There's a black box sitting on the podium. A part of it lies on the floor.", 0x02);
+				c.Y++;
+				g_Console.writeToBuffer(c, "The revealed section of the box shows a ring-shaped hole.", 0x02);
+			}
 			break;
 		case 23:  //Chapel Button (OF)
 			g_Console.writeToBuffer(c, "I pressed the button.", 0x02);
@@ -450,6 +483,19 @@ void actfeed()
 			c.Y++;
 			g_Console.writeToBuffer(c, "A blinding white light exploded around me as it said its last word.", 0x02);
 			break;
+		case 921: // Solve EF2 Sphere
+			g_Console.writeToBuffer(c, "Once it touched the light emanating from the windows, the sphere melted away.", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "A ring was all that's left from it.", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "I heard a \"thunk\". A section of the box fell off and plopped to the ground.", 0x02);
+			break;
+		case 922: // Solve EF2 Ring
+			g_Console.writeToBuffer(c, "The ring should fit right here...", 0x02);
+			break;
+		case 923: // Solve EF2 Box
+			g_Console.writeToBuffer(c, "It worked. The box is opened. White light begins to fill my vision again.", 0x02);
+			break;
 		case 404: // Error 404. Just kidding.
 			g_Console.writeToBuffer(c, "An unknown force prevents me from proceeding.", 0x03);
 			break;
@@ -482,5 +528,16 @@ void actfeed()
 
 		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 74;
 		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 48;
+	}
+
+	if (g_dElapsedTime >= g_dElapsedTimeTemp && levelfinish == 3)
+	{
+		InPortal = 0;
+		Areanum = 2;
+		levelfinish = 0;
+		g_dElapsedTimeTemp = 999.0;
+
+		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 80;
+		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 43;
 	}
 }
