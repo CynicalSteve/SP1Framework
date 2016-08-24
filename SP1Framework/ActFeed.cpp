@@ -451,7 +451,7 @@ void actfeed()
 			c.Y++;
 			if (inventory == "A stone filled fish")
 			{
-				g_Console.writeToBuffer(c, "The fish trashes wildly as I bring it toward the lake. Its unsettling, but I don't freak out.", 0x05);
+				g_Console.writeToBuffer(c, "The fish trashes wildly as I bring it toward the lake. Its unsettling, but I manage not to freak out.", 0x05);
 			}
 			break;
 		case 17: // Lake Fish (OF)
