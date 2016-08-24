@@ -2,6 +2,7 @@
 
 extern Console g_Console;
 extern SGameChar g_sChar;
+extern EGAMESTATES g_eGameState;
 
 extern int Areanum;
 extern double g_dElapsedTime;
@@ -958,7 +959,7 @@ void FstandsforFrustrating(int checkF)
 		break;
 	
 	}
-	if (Factfeed == 912 || Factfeed == 914 || Factfeed == 923 || Factfeed == 926)
+	if (g_eGameState == S_GAME || Factfeed == 912 || Factfeed == 914 || Factfeed == 923 || Factfeed == 926)
 	{
 		g_dTime = (g_dElapsedTime + 2.0);
 	}

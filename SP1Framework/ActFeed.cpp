@@ -32,26 +32,26 @@ void actfeed()
 		g_Console.writeToBuffer(c, "\"Wha-What is this place?\"", 0x02);
 		c.Y++;
 
-		if (g_dElapsedTime > 5.0) // wait for 5 seconds to display next message
+		if (g_dElapsedTime > g_dTime)
 		{
 			g_Console.writeToBuffer(c, "I looked about confused and wide-eyed.", 0x02);
 			c.Y++;
 		}
-		if (g_dElapsedTime > 7.0) // wait for 7 seconds to display next message
+		if (g_dElapsedTime > (g_dTime + 2.0))
 		{
 			g_Console.writeToBuffer(c, "A verdant grassy plain laid out before me while the sea behind me rolled and crashed into the shores of the", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "beach I was standing in.", 0x02);
 			c.Y++;
 		}
-		if (g_dElapsedTime > 11.0) // wait for 11 seconds to display next message
+		if (g_dElapsedTime > (g_dTime + 6.0))
 		{
 			g_Console.writeToBuffer(c, "Trees which bordered the plains crackled as a cold breeze blew across the island. Seagulls overhead screamed", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "in response.", 0x02);
 			c.Y++;
 		}
-		if (g_dElapsedTime > 15.0) // wait for 15 seconds to display next message
+		if (g_dElapsedTime > (g_dTime + 10.0))
 		{
 			g_Console.writeToBuffer(c, "", 0x02);
 			c.Y++;
@@ -60,27 +60,27 @@ void actfeed()
 			g_Console.writeToBuffer(c, "here... or who I was.", 0x02);
 			c.Y++;
 		}
-		if (g_dElapsedTime > 19.0) // wait for 19 seconds to display next message
+		if (g_dElapsedTime > (g_dTime + 14.0))
 		{
 			g_Console.writeToBuffer(c, "Wait a minute, I think I got something...", 0x02);
 			c.Y++;
 		}
-		if (g_dElapsedTime > 21.0) // wait for 21 seconds to display next message
+		if (g_dElapsedTime > (g_dTime + 16.0))
 		{
 			g_Console.writeToBuffer(c, "A...Av...Ava? Ava...Laurens?", 0x02);
 			c.Y++;
 		}
-		if (g_dElapsedTime > 23.0) // wait for 23 seconds to display next message
+		if (g_dElapsedTime > (g_dTime + 18.0)) 
 		{
 			g_Console.writeToBuffer(c, "Is that my name?", 0x02);
 			c.Y++;
 		}
-		if (g_dElapsedTime > 25.0) // wait for 25 seconds to display next message
+		if (g_dElapsedTime > (g_dTime + 20.0))
 		{
 			g_Console.writeToBuffer(c, "\"Ava Laurens.\" The name sounds much clearer now, it has to be mine.", 0x02);
 			c.Y++;
 		}
-		if (g_dElapsedTime > 28.0) // wait for 28 seconds to display next message
+		if (g_dElapsedTime > (g_dTime + 23.0))
 		{
 			g_Console.writeToBuffer(c, "I should take a look around, since being a sitting duck here would do me no good.", 0x02);
 			c.Y++;
@@ -330,7 +330,7 @@ void actfeed()
 
 	if (Factfeed == 926) //OF 2
 	{
-		c.Y = 31;
+		c.Y = 33;
 		if (g_dElapsedTime > g_dTime)
 		{
 			g_Console.writeToBuffer(c, "\"Hey babe,\" Terence whispered, wrapping a warm arm around Ava.", 0x03);
