@@ -120,7 +120,7 @@ void actfeed()
 		}
 	}
 
-	if (InPortal == 3)
+	if (InPortal == 3 || InPortal == 13)
 	{
 		c.Y = 31;
 
@@ -135,6 +135,15 @@ void actfeed()
 		}
 	}
 
+	if (InPortal == 4)
+	{
+		c.Y = 31;
+
+		g_Console.writeToBuffer(c, "You blame your problems on the past, so why not come back to where it all began and reverse your actions?", 0x06);
+		c.Y++;
+		g_Console.writeToBuffer(c, "Change the negative present, into a positive yesterday.", 0x05);
+	}
+
 	if (Factfeed == 912) // EF 1
 	{
 		c.Y = 31;
@@ -146,10 +155,7 @@ void actfeed()
 		{
 			g_Console.writeToBuffer(c, "\"Next, you aim it at an angle like so...\", he continued, \"while adding a little spin to it, you throw", 0x03);
 			c.Y++;
-			g_Console.writeToBuffer(c, "as hard as you     .\"", 0x03);
-			c.X = 16;
-			g_Console.writeToBuffer(c, "can", 0x09);
-			c.X = 0;
+			g_Console.writeToBuffer(c, "as hard as you can\"", 0x03);
 			c.Y++;
 		}
 		if (g_dElapsedTime > (g_dTime + 3.0))
@@ -528,16 +534,36 @@ void actfeed()
 			g_Console.writeToBuffer(c, "Press the E key to push the button.", 0x05);
 			break;
 		case 24 : //Computer Room Bookshelf
-			g_Console.writeToBuffer(c, "Hmmm...this book seems interesting. It's a biography of Julius Caesar.", 0x02);
-			c.Y++;
-			g_Console.writeToBuffer(c, "Wait a minute...that's strange, a page is torn from the book. I'll keep it just in case.", 0x02);
-			c.Y++;
-			g_Console.writeToBuffer(c, "History Book has been added to your inventory.", 0x05);
+			if (inventory == "none")
+			{
+				g_Console.writeToBuffer(c, "Hmmm...this book seems interesting. It's a biography of Julius Caesar.", 0x02);
+				c.Y++;
+				g_Console.writeToBuffer(c, "It doesn't seem to be useful in deciphering the password on the computer.", 0x05);
+				c.Y++;
+				g_Console.writeToBuffer(c, "Wait a minute...that's strange, a page is torn from the book. I'll keep it just in case.", 0x02);
+				c.Y++;
+				g_Console.writeToBuffer(c, "Press the E key to take the history book.", 0x05);
+			}
+			else if (inventory == "A History Book")
+			{
+				g_Console.writeToBuffer(c, "I've taken the History Book from the bookshelf.", 0x03);
+				c.Y++;
+				g_Console.writeToBuffer(c, "The other books don't interest me.", 0x02);
+			}
 			break;
 		case 25 :  //Computer Room computer
-			g_Console.writeToBuffer(c, "Username: 1.1C4431, 103.552D10", 0x08);  //text is gray in colour
-			c.Y++;
-			g_Console.writeToBuffer(c, "Password:", 0x08);
+			if (reqinteraction == 1)
+			{
+				g_Console.writeToBuffer(c, "Username: 1.1C4431, 103.552D10", 0x08);  //text is gray in colour
+				c.Y++;
+				g_Console.writeToBuffer(c, "Password:", 0x08);
+			}
+			else
+			{
+				g_Console.writeToBuffer(c, "Its a computer that requires authentication to access it.", 0x02);
+				c.Y++;
+				g_Console.writeToBuffer(c, "Perhaps that book I saw on the bookshelf can help?", 0x05);
+			}
 			break;
 		case 26 :  //Computer Room Map
 			g_Console.writeToBuffer(c, "I believe it's a map of Singapore. A red circle is drawn at the southern tip of the island.", 0x02);
@@ -770,8 +796,8 @@ void actfeed()
 		levelfinish = 0;
 		g_dElapsedTimeTemp = 999.0;
 
-		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 84;
-		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 50;
+		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 85;
+		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 51;
 
 	}
 }
