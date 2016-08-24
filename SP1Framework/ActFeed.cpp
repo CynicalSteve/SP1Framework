@@ -146,7 +146,10 @@ void actfeed()
 		{
 			g_Console.writeToBuffer(c, "\"Next, you aim it at an angle like so...\", he continued, \"while adding a little spin to it, you throw", 0x03);
 			c.Y++;
-			g_Console.writeToBuffer(c, "as hard as you can.\"", 0x03);
+			g_Console.writeToBuffer(c, "as hard as you   .\"", 0x03);
+			c.X = 16;
+			g_Console.writeToBuffer(c, "can", 0x09);
+			c.X = 0;
 			c.Y++;
 		}
 		if (g_dElapsedTime > (g_dTime + 3.0))
