@@ -423,19 +423,9 @@ int checkinteract(void)
 				return 121;
 			case 'Y':
 				return 122;
-<<<<<<< HEAD
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'P')
-			{
-				return 123;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'S')
-			{
-=======
 			case 'P':
 				return 123;
 			case 'S':
->>>>>>> ef627a9224496fd224b6b6619d763043ffa8809b
 				return 124;
 			}
 
@@ -522,11 +512,36 @@ int checkinteract(void)
 		}
 		else if (InPortal == 9)    //Living Room EF
 		{
-			return 0;
+			switch (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y])
+			{
+			case 'W':
+				return 161;
+				break;
+			case 'P':
+				return 162;
+				break;
+			case 'S':
+				return 163;
+				break;
+			}
 		}
 		else if (InPortal == 10)   //Living Room OF
 		{
-			return 0;
+			switch (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y])
+			{
+			case 'W':
+				return 261;
+				break;
+			case 'P':
+				return 262;
+				break;
+			case 'S':
+				return 263;
+				break;
+			case 'B':
+				return 264;
+				break;
+			}
 		}
 		else if (InPortal == 11)   //Funeral
 		{
@@ -797,6 +812,27 @@ void FstandsforFrustrating(int checkF)
 		break;
 	case 152:
 		Factfeed = 32;
+		break;
+	case 161:
+		Factfeed = 33;
+		break;
+	case 162:
+		Factfeed = 34;
+		break;
+	case 163:
+		Factfeed = 35;
+		break;
+	case 261:
+		Factfeed = 36;
+		break;
+	case 262:
+		Factfeed = 37;
+		break;
+	case 263:
+		Factfeed = 38;
+		break;
+	case 264:
+		Factfeed = 39;
 		break;
 	case 0:
 		Factfeed = 0;

@@ -456,12 +456,43 @@ void actfeed()
 		case 31:   //Street Box (OF)
 			g_Console.writeToBuffer(c, "A red box is lying on the ground in the middle of the street.", 0x02);
 			break;
-		case 32:
+		case 32:  //Street Door (OF)
 			g_Console.writeToBuffer(c, "A door to one of the buildings is open. Should I enter it?", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "Press E to enter building", 0x05);
 			break;
-		case 911:
+		case 33:   //Living Room Window
+			g_Console.writeToBuffer(c, "As far as I can see, there’s only a void of white outside the window", 0x02);
+			break;
+		case 34:  //Living Room Phone
+			g_Console.writeToBuffer(c, "A grey typical push-button telephone. A note beside it reads:", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "This requires a BIT of thinking. Perhaps a clue lies in the word between Caps Lock and LEFT Control.What’s the number that replaces the question mark?", 0x08);
+			c.Y++;
+			g_Console.writeToBuffer(c, "13 26 52", 0x08);
+			c.Y++;
+			g_Console.writeToBuffer(c, "104 208 161", 0x08);
+			c.Y++;
+			g_Console.writeToBuffer(c, "67 ? 13", 0x08);
+			break;
+		case 35:  //Living Room Sofa
+			g_Console.writeToBuffer(c, "It looks comfortable, but whoever bought it must have horrible taste. The patterns on it look absolutely dreadful.", 0x08);
+			break;
+		case 36:  //Living Room Window (OF)
+			g_Console.writeToBuffer(c, "There is nothing but red fog outside.", 0x02);
+			break;
+		case 37:  //Living Room Phone (OF)
+			g_Console.writeToBuffer(c, "Nothing but a long, monotonous tone comes through the handset speaker", 0x02);
+			break;
+		case 38:   //Living Room sofa
+			g_Console.writeToBuffer(c, "This sofa is so ugly that I do not know if I should laugh at or pity its owner.", 0x02);
+			break;
+		case 39:  //Living Room Baby's cot
+			g_Console.writeToBuffer(c, "A baby cot with a word burnt into the wood:", 0x05);
+			c.Y++;
+			g_Console.writeToBuffer(c, "LIAR", 0x04);
+			break;
+		case 911:   //Lake EF Complete
 			g_Console.writeToBuffer(c, "The stone hit the metallic object with a pleasant 'ding'.", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "A sound came from the red chest to my right.", 0x02);
