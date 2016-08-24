@@ -146,7 +146,7 @@ void actfeed()
 		{
 			g_Console.writeToBuffer(c, "\"Next, you aim it at an angle like so...\", he continued, \"while adding a little spin to it, you throw", 0x03);
 			c.Y++;
-			g_Console.writeToBuffer(c, "as hard as you   .\"", 0x03);
+			g_Console.writeToBuffer(c, "as hard as you     .\"", 0x03);
 			c.X = 16;
 			g_Console.writeToBuffer(c, "can", 0x09);
 			c.X = 0;
@@ -326,6 +326,54 @@ void actfeed()
 			g_Console.writeToBuffer(c, "Finally, my mother would stop nagging me about getting married!", 0x03);
 		}
 	}
+
+
+	if (Factfeed == 926) //OF 2
+	{
+		c.Y = 31;
+		if (g_dElapsedTime > g_dTime)
+		{
+			g_Console.writeToBuffer(c, "\"Hey babe,\" Terence whispered, wrapping a warm arm around Ava.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 3.0))
+		{
+			g_Console.writeToBuffer(c, "\"Yeah?\" Ava responded.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 4.0))
+		{
+			g_Console.writeToBuffer(c, "\"So um, I'm thinking of joining a startup tech company. It's set up by a friend and he's reaching out", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "to me for a place there.\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 8.0))
+		{
+			g_Console.writeToBuffer(c, "\"What's wrong with your current job?\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 9.0))
+		{
+			g_Console.writeToBuffer(c, "\"Well, you know I can't say no babe, he's my friend.\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 11.0))
+		{
+			g_Console.writeToBuffer(c, "\"We'll have to move, don't we?\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 12.0))
+		{
+			g_Console.writeToBuffer(c, "\"Yeah, and I've already found a nice place downtown. It's got a nice view and-\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 15.0))
+		{
+			g_Console.writeToBuffer(c, "\"Yeah, yeah whatever. You're such a pansy Terence. Learn to say no, you idiot.\"", 0x03);
+		}
+	}
+
 
 	/* Template for MX
 	if (c.Y == 54)
