@@ -423,19 +423,9 @@ int checkinteract(void)
 				return 121;
 			case 'Y':
 				return 122;
-<<<<<<< HEAD
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'P')
-			{
-				return 123;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'S')
-			{
-=======
 			case 'P':
 				return 123;
 			case 'S':
->>>>>>> ef627a9224496fd224b6b6619d763043ffa8809b
 				return 124;
 			}
 
@@ -803,7 +793,7 @@ void FstandsforFrustrating(int checkF)
 		break;
 	
 	}
-	if (Factfeed == 912 || Factfeed == 914)
+	if (Factfeed == 912 || Factfeed == 914 || Factfeed == 923)
 	{
 		g_dTime = (g_dElapsedTime + 2.0);
 	}
