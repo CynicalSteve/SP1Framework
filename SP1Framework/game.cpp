@@ -107,6 +107,7 @@ void getInput( void )
 	g_abKeyPressed[K_INVNINE]   = isKeyPressed(0x39);
 	g_abKeyPressed[K_INVZERO]   = isKeyPressed(0x30);
 	g_abKeyPressed[K_PAUSE]		= isKeyPressed(0x50);
+	g_abKeyPressed[K_JOURNAL]   = isKeyPressed(0x4A);
 }
 
 //--------------------------------------------------------------
@@ -139,6 +140,8 @@ void update(double dt)
 			break;
 		case S_PAUSE: gameplay();
 			break;
+		case S_JOURNAL: gameplay();
+			break;
     }
 }
 //--------------------------------------------------------------
@@ -157,7 +160,6 @@ void render()
 	case S_SPLASHSCREEN: renderSplashScreen();
 		break;
 	case S_INVENTORY: //renderUI(); 
-		Journal(); // is Inventory open?
 		break;
 	case S_GAME: renderGame();
 		break;
@@ -281,7 +283,6 @@ void moveCharacter()
 void processUserInput()
 {
 	bool bSomethingHappened = false;
-	bool MusicStop = false;
 	if (g_dBounceTime > g_dElapsedTime)
 		return;
 
@@ -316,7 +317,7 @@ void processUserInput()
 		}
 	}
 
-	/* if (g_abKeyPressed[K_PAUSE])
+	if (g_abKeyPressed[K_PAUSE])
 	{
 
 		if (g_eGameState != 4)
@@ -329,7 +330,23 @@ void processUserInput()
 
 			g_eGameState = S_GAME;
 		}
-	} */
+	}
+
+	if (g_abKeyPressed[K_JOURNAL])
+	{
+		bSomethingHappened = true;
+
+		if (g_eGameState != 5)
+		{
+			g_eGameState = S_JOURNAL;
+		}
+		else if (g_eGameState == 5)
+		{
+			clearScreen();
+
+			g_eGameState = S_GAME;
+		}
+	}
 
 	if (g_abKeyPressed[K_ENTER])	
 	{
@@ -346,17 +363,12 @@ void processUserInput()
 
 	if (isKeyPressed(0x4D))
 	{
-		bSomethingHappened = true;
-		if (MusicStop == false)
-		{
-			PlaySound(NULL, 0, 0);
-			MusicStop = true;
-		}
-		else if (MusicStop == true)
-		{
-			PlaySound(TEXT("HappyMusic.wav"), NULL, SND_SYNC | SND_LOOP | SND_ASYNC);
-			MusicStop = false;
-		}
+		PlaySound(NULL, 0, 0);
+	}
+
+	if (isKeyPressed(0x4E))
+	{
+		PlaySound(TEXT("HappyMusic.wav"), NULL, SND_SYNC | SND_LOOP | SND_ASYNC);
 	}
 }
 
@@ -399,7 +411,7 @@ void renderSplashScreen()  // renders the splash screen
 	c.Y++;
 }
 
-void Journal()
+void renderJournal()
 {
 	COORD c;
 	c.X = 1;
@@ -533,8 +545,6 @@ void renderUI() // inventory
 	g_Console.writeToBuffer(c, itemss, 0x09);	
 }
 
-
-
 void pause()
 {
 	COORD c = g_Console.getConsoleSize();
@@ -547,5 +557,7 @@ void pause()
 	c.Y++;
 	c.X = 43;
 	g_Console.writeToBuffer(c, "Press 'M' to mute music", 0x09);
-	
+	c.Y++;
+	c.X = 42;
+	g_Console.writeToBuffer(c, "Press 'N' to unmute music", 0x09);
 }

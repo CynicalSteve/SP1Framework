@@ -176,7 +176,7 @@ void actfeed()
 		{
 			g_Console.writeToBuffer(c, "\"Next, you aim it at an angle like so...\", he continued, \"while adding a little spin to it, you throw", 0x03);
 			c.Y++;
-			g_Console.writeToBuffer(c, "as hard as you can\"", 0x03);
+			g_Console.writeToBuffer(c, "as hard as you can.\"", 0x03);
 			c.Y++;
 		}
 		if (g_dElapsedTime > (g_dTime + 3.0))
@@ -221,7 +221,7 @@ void actfeed()
 		}
 		if (g_dElapsedTime > (g_dTime + 21.0))
 		{
-			g_Console.writeToBuffer(c, "\"Oh yeah? I'll show you something I'm good at!\"", 0x03);
+			g_Console.writeToBuffer(c, "\"Oh yeah? I'll show you something I'm not bad at!\"", 0x03);
 			c.Y++;
 		}
 		if (g_dElapsedTime > (g_dTime + 23.0))
@@ -357,7 +357,7 @@ void actfeed()
 
 	if (Factfeed == 926) //OF 2
 	{
-		c.Y = 33;
+		c.Y = 34;
 		if (g_dElapsedTime > g_dTime)
 		{
 			g_Console.writeToBuffer(c, "\"Hey babe,\" Terence whispered, wrapping a warm arm around Ava.", 0x03);
@@ -387,7 +387,7 @@ void actfeed()
 		}
 		if (g_dElapsedTime > (g_dTime + 11.0))
 		{
-			g_Console.writeToBuffer(c, "\"We'll have to move, don't we?\"", 0x03);
+			g_Console.writeToBuffer(c, "\"We'll have to move, don't we?\" Ava sighed.", 0x03);
 			c.Y += 2;
 		}
 		if (g_dElapsedTime > (g_dTime + 12.0))
