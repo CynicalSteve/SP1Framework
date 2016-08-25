@@ -1,7 +1,7 @@
 #include "PlayerInput.h"
 extern bool g_abKeyPressed[K_COUNT];
 
-void PlayerInput()
+string PlayerInput()
 {
 	string Sentence;
 
@@ -33,6 +33,7 @@ void PlayerInput()
 	g_abKeyPressed[K_Y] = isKeyPressed(0x79);
 	g_abKeyPressed[K_Z] = isKeyPressed(0x7A);
 	g_abKeyPressed[K_ESC] = isKeyPressed(0x1C);
+	g_abKeyPressed[K_ENTER] = isKeyPressed(0x03);
 	
 	for (;;)
 	{
@@ -156,6 +157,10 @@ void PlayerInput()
 		else if (g_abKeyPressed[K_ESC])
 		{
 			break;
+		}
+		else if (g_abKeyPressed[K_ENTER])
+		{
+			return Sentence;
 		}
 	}
 }
