@@ -32,113 +32,130 @@ void PlayerInput()
 	g_abKeyPressed[K_X] = isKeyPressed(0x78);
 	g_abKeyPressed[K_Y] = isKeyPressed(0x79);
 	g_abKeyPressed[K_Z] = isKeyPressed(0x7A);
+	g_abKeyPressed[K_ESC] = isKeyPressed(0x1C);
+	
+	for (;;)
+	{
+		printf("%s", Sentence);
 
-	if (g_abKeyPressed[K_A])
-	{
-		Sentence.push_back('a');
-	}
-	else if (g_abKeyPressed[K_B])
-	{
-		Sentence.push_back('b');
-	}
-	else if (g_abKeyPressed[K_C])
-	{
-		Sentence.push_back('c');
-	}
-	else if (g_abKeyPressed[K_D])
-	{
-		Sentence.push_back('d');
-	}
-	else if (g_abKeyPressed[K_E])
-	{
-		Sentence.push_back('e');
-	}
-	else if (g_abKeyPressed[K_F])
-	{
-		Sentence.push_back('f');
-	}
-	else if (g_abKeyPressed[K_G])
-	{
-		Sentence.push_back('g');
-	}
-	else if (g_abKeyPressed[K_H])
-	{
-		Sentence.push_back('h');
-	}
-	else if (g_abKeyPressed[K_I])
-	{
-		Sentence.push_back('i');
-	}
-	else if (g_abKeyPressed[K_J])
-	{
-		Sentence.push_back('j');
-	}
-	else if (g_abKeyPressed[K_K])
-	{
-		Sentence.push_back('k');
-	}
-	else if (g_abKeyPressed[K_L])
-	{
-		Sentence.push_back('l');
-	}
-	else if (g_abKeyPressed[K_M])
-	{
-		Sentence.push_back('m');
-	}
-	else if (g_abKeyPressed[K_N])
-	{
-		Sentence.push_back('n');
-	}
-	else if (g_abKeyPressed[K_O])
-	{
-		Sentence.push_back('o');
-	}
-	else if (g_abKeyPressed[K_P])
-	{
-		Sentence.push_back('p');
-	}
-	else if (g_abKeyPressed[K_Q])
-	{
-		Sentence.push_back('q');
-	}
-	else if (g_abKeyPressed[K_R])
-	{
-		Sentence.push_back('r');
-	}
-	else if (g_abKeyPressed[K_S])
-	{
-		Sentence.push_back('s');
-	}
-	else if (g_abKeyPressed[K_T])
-	{
-		Sentence.push_back('t');
-	}
-	else if (g_abKeyPressed[K_U])
-	{
-		Sentence.push_back('u');
-	}
-	else if (g_abKeyPressed[K_V])
-	{
-		Sentence.push_back('v');
-	}
-	else if (g_abKeyPressed[K_W])
-	{
-		Sentence.push_back('w');
-	}
-	else if (g_abKeyPressed[K_X])
-	{
-		Sentence.push_back('x');
-	}
-	else if (g_abKeyPressed[K_Y])
-	{
-		Sentence.push_back('y');
-	}
-	else if (g_abKeyPressed[K_Z])
-	{
-		Sentence.push_back('z');
-	}
-	else if (g_abKeyPressed[K_BACKSPACE])
-	{
-		
+		if (g_abKeyPressed[K_A])
+		{
+			Sentence.push_back('a');
+		}
+		else if (g_abKeyPressed[K_B])
+		{
+			Sentence.push_back('b');
+		}
+		else if (g_abKeyPressed[K_C])
+		{
+			Sentence.push_back('c');
+		}
+		else if (g_abKeyPressed[K_D])
+		{
+			Sentence.push_back('d');
+		}
+		else if (g_abKeyPressed[K_E])
+		{
+			Sentence.push_back('e');
+		}
+		else if (g_abKeyPressed[K_F])
+		{
+			Sentence.push_back('f');
+		}
+		else if (g_abKeyPressed[K_G])
+		{
+			Sentence.push_back('g');
+		}
+		else if (g_abKeyPressed[K_H])
+		{
+			Sentence.push_back('h');
+		}
+		else if (g_abKeyPressed[K_I])
+		{
+			Sentence.push_back('i');
+		}
+		else if (g_abKeyPressed[K_J])
+		{
+			Sentence.push_back('j');
+		}
+		else if (g_abKeyPressed[K_K])
+		{
+			Sentence.push_back('k');
+		}
+		else if (g_abKeyPressed[K_L])
+		{
+			Sentence.push_back('l');
+		}
+		else if (g_abKeyPressed[K_M])
+		{
+			Sentence.push_back('m');
+		}
+		else if (g_abKeyPressed[K_N])
+		{
+			Sentence.push_back('n');
+		}
+		else if (g_abKeyPressed[K_O])
+		{
+			Sentence.push_back('o');
+		}
+		else if (g_abKeyPressed[K_P])
+		{
+			Sentence.push_back('p');
+		}
+		else if (g_abKeyPressed[K_Q])
+		{
+			Sentence.push_back('q');
+		}
+		else if (g_abKeyPressed[K_R])
+		{
+			Sentence.push_back('r');
+		}
+		else if (g_abKeyPressed[K_S])
+		{
+			Sentence.push_back('s');
+		}
+		else if (g_abKeyPressed[K_T])
+		{
+			Sentence.push_back('t');
+		}
+		else if (g_abKeyPressed[K_U])
+		{
+			Sentence.push_back('u');
+		}
+		else if (g_abKeyPressed[K_V])
+		{
+			Sentence.push_back('v');
+		}
+		else if (g_abKeyPressed[K_W])
+		{
+			Sentence.push_back('w');
+		}
+		else if (g_abKeyPressed[K_X])
+		{
+			Sentence.push_back('x');
+		}
+		else if (g_abKeyPressed[K_Y])
+		{
+			Sentence.push_back('y');
+		}
+		else if (g_abKeyPressed[K_Z])
+		{
+			Sentence.push_back('z');
+		}
+		else if (g_abKeyPressed[K_BACKSPACE])
+		{
+			if (Sentence.size() > 0)
+			{
+				Sentence.pop_back();
+			}
+			else
+			{
+				continue;
+			}
+		}
+		else if (g_abKeyPressed[K_ESC])
+		{
+			break;
+		}
 	}
 }
