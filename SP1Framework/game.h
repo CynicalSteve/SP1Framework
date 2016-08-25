@@ -8,7 +8,6 @@
 #include "PuzzleLevels.h"
 #include "CheckColiPuzzle.h"
 #include "ActFeed.h"
-#include "Inventory.h"
 #include "RenderJournal.h"
 #include "PlayerInput.h"
 #include "renderInput.h"
@@ -109,7 +108,6 @@ void renderMap();           // renders the map to the buffer first
 void renderCharacter();     // renders the character into the buffer
 void renderFramerate();     // renders debug information, frame rate, elapsed time, etc
 void renderToScreen();      // dump the contents of the buffer to the screen, one frame worth of game
-void renderUI();            // renders the HUD and other menu items that might be added
 void renderFeed();			// renders the activity feed
 void pause();
 void renderJournal();

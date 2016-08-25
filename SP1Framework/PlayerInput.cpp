@@ -1,9 +1,15 @@
 #include "PlayerInput.h"
 
 extern bool g_abKeyPressed[K_COUNT];
+extern EGAMESTATES g_eGameState;
+extern Console g_Console;
 
 string PlayerInput()
 {
+	COORD c;
+	c.Y = 20;
+	c.X = 20;
+
 	string Sentence;
 
 	g_abKeyPressed[K_BACKSPACE] = isKeyPressed(0x08);
@@ -38,7 +44,7 @@ string PlayerInput()
 	
 	for (;;)
 	{
-		printf("%s", Sentence);
+		g_Console.writeToBuffer(c, Sentence, 0x02);
 
 		if (g_abKeyPressed[K_A])
 		{
@@ -157,7 +163,7 @@ string PlayerInput()
 		}
 		else if (g_abKeyPressed[K_ESC])
 		{
-			break;
+			g_eGameState = S_GAME;
 		}
 		else if (g_abKeyPressed[K_ENTER])
 		{

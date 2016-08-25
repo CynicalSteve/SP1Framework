@@ -578,6 +578,10 @@ void actfeed()
 				g_Console.writeToBuffer(c, "Username: 1.1C4431, 103.552D10", 0x08);  //text is gray in colour
 				c.Y++;
 				g_Console.writeToBuffer(c, "Password:", 0x08);
+				c.Y++;
+				g_Console.writeToBuffer(c, "What an odd username. Perhaps I can figure out the password through it?", 0x02);
+				c.Y++;
+				g_Console.writeToBuffer(c, "Press the E key to type in the password.", 0x05);
 			}
 			else
 			{

@@ -135,8 +135,6 @@ void update(double dt)
     {
         case S_SPLASHSCREEN : splashScreenWait(); // game logic for the splash screen
             break;
-		case S_INVENTORY: gameplay(); // Enables input checking for turning off inventory
-			break;
         case S_GAME: gameplay(); // gameplay logic when we are in the game
 			break;
 		case S_PAUSE: gameplay();
@@ -162,8 +160,6 @@ void render()
 	switch (g_eGameState)
 	{
 	case S_SPLASHSCREEN: renderSplashScreen();
-		break;
-	case S_INVENTORY: renderUI(); 
 		break;
 	case S_GAME: renderGame();
 		break;
@@ -311,22 +307,6 @@ void processUserInput()
 		checkF = checkinteract();
 
 		FstandsforFrustrating(checkF);
-	}
-
-	if (g_abKeyPressed[K_INVENTORY])
-	{
-		bSomethingHappened = true;
-
-		if (g_eGameState != 2)
-		{
-			g_eGameState = S_INVENTORY;
-		}
-		else if (g_eGameState == 2)
-		{
-			clearScreen();
-
-			g_eGameState = S_GAME;
-		}
 	}
 
 	if (g_abKeyPressed[K_PAUSE])
@@ -512,33 +492,6 @@ void renderToScreen()
 {
     // Writes the buffer to the console, hence you will see what you have written
     g_Console.flushBufferToConsole();
-}
-
-//char item[] = "";
-//char items[] = "";
-//char itemss[] = "";
-
-void renderUI() // inventory
-{
-	COORD c = g_Console.getConsoleSize();
-	c.Y /= 3;
-	c.X = c.X / 2 - 9;
-	g_Console.writeToBuffer(c, "-Inventory Opened-", 0x03); // at the moment this does jack shit aside from show a new screen saying inventory is open
-	
-	/* void storeInventory();
-
-	c.Y += 2;
-	c.X = g_Console.getConsoleSize().X / 2 - 5;
-	g_Console.writeToBuffer(c, item, 0x09);
-
-	c.Y += 2;
-	c.X = g_Console.getConsoleSize().X / 2 - 5;
-	g_Console.writeToBuffer(c, items, 0x09);
-
-	c.Y += 2;
-	c.X = g_Console.getConsoleSize().X / 2 - 5;
-	g_Console.writeToBuffer(c, itemss, 0x09);	
-	*/
 }
 
 void pause()
