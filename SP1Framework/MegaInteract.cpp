@@ -10,7 +10,7 @@ extern double g_dElapsedTime;
 int Factfeed = 0;
 int InPortal = 0;
 int tempF;
-int EssentialFragment = 6; // Change this to access certain areas.
+int EssentialFragment = 0; // Change this to access certain areas.
 int OptionalFragment = 0;  // Change this to access certain areas.
 std::string inventory = "none";
 int levelfinish = 0;
