@@ -994,7 +994,7 @@ void FstandsforFrustrating(int checkF)
 		Factfeed = 0;
 		break;
 	}
-	if (g_eGameState == S_GAME || Factfeed == 912 || Factfeed == 914 || Factfeed == 923 || Factfeed == 926)
+	if (Factfeed == 912 || Factfeed == 914 || Factfeed == 923 || Factfeed == 926)
 	{
 		g_dTime = (g_dElapsedTime + 2.0);
 	}

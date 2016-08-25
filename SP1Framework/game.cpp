@@ -23,6 +23,7 @@ int checkF;                // Checking what the player is interacting with
 extern int EssentialFragment;
 extern int OptionalFragment;
 extern std::string inventory;
+extern double g_dTime;
 
 // Game specific variables here
 SGameChar   g_sChar;
@@ -180,7 +181,11 @@ void render()
 void splashScreenWait()    // waits for time to pass in splash screen
 {
 	if (isKeyPressed(0x45))		// wait for player to enter E to switch to game mode, else do nothing
+	{
 		g_eGameState = S_GAME;
+		g_dTime = (g_dElapsedTime + 2.0);
+	}
+		
 }
 
 void gameplay()            // gameplay logic

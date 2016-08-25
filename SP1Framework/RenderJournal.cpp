@@ -1,7 +1,6 @@
 #include "RenderJournal.h"
 
 extern Console g_Console;
-extern SGameChar g_sChar;
 
 void renJournal()
 {
