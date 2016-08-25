@@ -61,6 +61,9 @@ int CollisionPuzzle(int checkPuzzle)
 	case 14:
 		file.open("Text files/3_ComputerRoomXBook.txt");
 		break;
+	case 15:
+		file.open("Text files/Bedroom.txt");
+		break;
 	}
 
 	if (file.is_open())
@@ -100,7 +103,7 @@ int CollisionPuzzle(int checkPuzzle)
 		case 'D':
 			return 1;
 		case '-':
-			if (InPortal == 4)
+			if (InPortal == 7 || InPortal == 8)
 			{
 				return 1;
 			}
@@ -133,7 +136,7 @@ int CollisionPuzzle(int checkPuzzle)
 		case 'D':
 			return 1;
 		case '-':
-			if (InPortal == 4)
+			if (InPortal == 7 || InPortal == 8)
 			{
 				return 1;
 			}
@@ -166,7 +169,7 @@ int CollisionPuzzle(int checkPuzzle)
 		case 'D':
 			return 1;
 		case '-':
-			if (InPortal == 4)
+			if (InPortal == 7 || InPortal == 8)
 			{
 				return 1;
 			}
@@ -199,7 +202,7 @@ int CollisionPuzzle(int checkPuzzle)
 		case 'D':
 			return 1;
 		case '-':
-			if (InPortal == 4)
+			if (InPortal == 7 || InPortal == 8)
 			{
 				return 1;
 			}

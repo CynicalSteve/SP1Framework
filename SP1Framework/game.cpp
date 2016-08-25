@@ -19,6 +19,7 @@ bool    g_abKeyPressed[K_COUNT];
 int Areanum = 1;
 int Levelnum = 0;          // Odd numbers = EF, Even numbers = OF. In code later for last 2 "IF OF = 5, then take player to the 2nd ending instead"
 int checkF;                // Checking what the player is interacting with
+bool g_newupdate = true;
 
 extern int EssentialFragment;
 extern int OptionalFragment;
@@ -151,21 +152,27 @@ void update(double dt)
 //--------------------------------------------------------------
 void render()
 {
-    clearScreen();      // clears the current screen and draw from scratch 
-    switch (g_eGameState)
-    {
-        case S_SPLASHSCREEN: renderSplashScreen();
-            break;
+	renderFramerate();  // renders debug information, frame rate, elapsed time, etc
+
+	if (g_newupdate == true)
+	{
+		clearScreen();      // clears the current screen and draw from scratch 
+		switch (g_eGameState)
+		{
+		case S_SPLASHSCREEN: renderSplashScreen();
+			break;
 		case S_INVENTORY: //renderUI(); 
 			Journal(); // is Inventory open?
 			break;
-        case S_GAME: renderGame();
-            break;
+		case S_GAME: renderGame();
+			break;
 		case S_PAUSE: pause();
 			break;
-    }
-    renderFramerate();  // renders debug information, frame rate, elapsed time, etc
-    renderToScreen();   // dump the contents of the buffer to the screen, one frame worth of game
+		}
+		renderToScreen();   // dump the contents of the buffer to the screen, one frame worth of game
+
+		g_newupdate = false;
+	}
 }
 
 void splashScreenWait()    // waits for time to pass in splash screen
@@ -191,16 +198,13 @@ void moveCharacter()
     // providing a beep sound whenver we shift the character
     if (g_abKeyPressed[K_UP] && g_sChar.m_cLocation.Y > 0)
     {
+		bSomethingHappened = true;
+
 		if (Areanum > 0)
 		{
 			if (Collision(1) == 1)
 			{
 				g_sChar.m_cLocation.Y--;
-				bSomethingHappened = true;
-			}
-			else
-			{
-				bSomethingHappened = true;
 			}
 		}
 		else if (Areanum == 0)
@@ -208,26 +212,18 @@ void moveCharacter()
 			if (CollisionPuzzle(1) == 1)
 			{
 				g_sChar.m_cLocation.Y--;
-				bSomethingHappened = true;
-			}
-			else
-			{
-				bSomethingHappened = true;
 			}
 		}
     }
 	if (g_abKeyPressed[K_DOWN] && (g_sChar.m_cLocation.Y < (g_Console.getConsoleSize().Y - 1)))
 	{
+		bSomethingHappened = true;
+
 		if (Areanum > 0)
 		{
 			if (Collision(2) == 1)
 			{
 				g_sChar.m_cLocation.Y++;
-				bSomethingHappened = true;
-			}
-			else
-			{
-				bSomethingHappened = true;
 			}
 		}
 		else if (Areanum == 0)
@@ -235,26 +231,18 @@ void moveCharacter()
 			if (CollisionPuzzle(2) == 1)
 			{
 				g_sChar.m_cLocation.Y++;
-				bSomethingHappened = true;
-			}
-			else
-			{
-				bSomethingHappened = true;
 			}
 		}
 	}
     if (g_abKeyPressed[K_LEFT] && g_sChar.m_cLocation.X > 0)
     {
+		bSomethingHappened = true;
+
 		if (Areanum > 0)
 		{
 			if (Collision(3) == 1)
 			{
 				g_sChar.m_cLocation.X--;
-				bSomethingHappened = true;
-			}
-			else
-			{
-				bSomethingHappened = true;
 			}
 		}
 		else if (Areanum == 0)
@@ -262,26 +250,18 @@ void moveCharacter()
 			if (CollisionPuzzle(3) == 1)
 			{
 				g_sChar.m_cLocation.X--;
-				bSomethingHappened = true;
-			}
-			else
-			{
-				bSomethingHappened = true;
 			}
 		}
     }
 	if (g_abKeyPressed[K_RIGHT] && (g_sChar.m_cLocation.X < (g_Console.getConsoleSize().X - 1)))
     {
+		bSomethingHappened = true;
+
 		if (Areanum > 0)
 		{
 			if (Collision(4) == 1)
 			{
 				g_sChar.m_cLocation.X++;
-				bSomethingHappened = true;
-			}
-			else
-			{
-				bSomethingHappened = true;
 			}
 		}
 		else if (Areanum == 0)
@@ -289,11 +269,6 @@ void moveCharacter()
 			if (CollisionPuzzle(4) == 1)
 			{
 				g_sChar.m_cLocation.X++;
-				bSomethingHappened = true;
-			}
-			else
-			{
-				bSomethingHappened = true;
 			}
 		}
     }
@@ -307,6 +282,7 @@ void moveCharacter()
     {
         // set the bounce time to some time in the future to prevent accidental triggers
         g_dBounceTime = g_dElapsedTime + 0.125; // 125ms should be enough
+		g_newupdate = true;
     }
 
 }
@@ -348,9 +324,8 @@ void processUserInput()
 		}
 	}
 
-	if (g_abKeyPressed[K_PAUSE])
+	/* if (g_abKeyPressed[K_PAUSE])
 	{
-		bSomethingHappened = true;
 
 		if (g_eGameState != 4)
 		{
@@ -362,7 +337,7 @@ void processUserInput()
 
 			g_eGameState = S_GAME;
 		}
-	}
+	} */
 
 	if (g_abKeyPressed[K_ENTER])	
 	{
@@ -375,6 +350,7 @@ void processUserInput()
 	{
 		// set the bounce time to some time in the future to prevent accidental triggers
 		g_dBounceTime = g_dElapsedTime + 0.125; // 125ms should be enough
+		g_newupdate = true;
 	}
 
 	if (isKeyPressed(0x4D))
@@ -452,9 +428,9 @@ void Journal()
 
 void renderGame()
 {
-    renderMap();        // renders the map to the buffer first
+	renderMap();        // renders the map to the buffer first
 	renderFeed();		// renders the activity feed to the buffer
-    renderCharacter();  // renders the character into the buffer
+	renderCharacter();  // renders the character into the buffer
 }
 
 void renderMap()
@@ -463,7 +439,7 @@ void renderMap()
 		0x1A, 0x2B, 0x3C, 0x4D, 0x5E, 0x6F,
 		0xA1, 0xB2, 0xC3, 0xD4, 0xE5, 0xF6
 	};
-	
+
 	if (Areanum > 0)
 	{
 		char** printmap = new char*[150];

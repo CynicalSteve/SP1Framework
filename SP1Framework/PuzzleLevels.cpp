@@ -53,6 +53,9 @@ char** puzzlestore(char** printlevel)
 	case 14:
 		puzzle.open("Text files/3_ComputerRoomXBook.txt");
 		break;
+	case 15:
+		puzzle.open("Text files/Bedroom.txt");
+		break;
 	}
 	/*
 

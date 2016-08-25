@@ -13,6 +13,7 @@ extern int levelfinish;
 extern int OptionalFragment;
 extern int EssentialFragment;
 extern int reqinteraction;
+extern bool g_newupdate;
 
 void actfeed()
 {
@@ -142,6 +143,27 @@ void actfeed()
 		g_Console.writeToBuffer(c, "You blame your problems on the past, so why not come back to where it all began and reverse your actions?", 0x06);
 		c.Y++;
 		g_Console.writeToBuffer(c, "Change the negative present, into a positive yesterday.", 0x05);
+	}
+
+	if (InPortal == 15) // TBD what we do with this
+	{
+		c.Y = 31;
+
+		g_Console.writeToBuffer(c, "A familiar place. It has been quite a tiring journey, hasn't it?", 0x06);
+		c.Y++;
+		g_Console.writeToBuffer(c, "Oh, sorry Ava, I'm not talking about you. The box, on your bed, is tired.", 0x06);
+		c.Y++;
+		g_Console.writeToBuffer(c, "Why don't you tuck it in? You could even care for this box more than your actual children.", 0x06);
+		c.Y++;
+		g_Console.writeToBuffer(c, "You can even put hearts over it and name it the companion cube.", 0x06);
+		c.Y++;
+		g_Console.writeToBuffer(c, "Oh, your first act of defiance. I guess showing you your old bedroom brought your maturity back too.", 0x06);
+		c.Y++;
+		g_Console.writeToBuffer(c, "Alright then, you don't want to tuck a box in, I'll turn it into a replica of you.", 0x06);
+		c.Y++;
+		g_Console.writeToBuffer(c, "Its a replica of when you were lashing out at Terrence and broke a bottle to cut him.", 0x06);
+		c.Y++;
+		g_Console.writeToBuffer(c, "Oh, and she thinks you're Terrence. Have fun!", 0x06);
 	}
 
 	if (Factfeed == 912) // EF 1
@@ -599,9 +621,12 @@ void actfeed()
 			g_Console.writeToBuffer(c, "A red box is lying on the ground in the middle of the street.", 0x02);
 			break;
 		case 32:  //Street Door (OF)
-			g_Console.writeToBuffer(c, "A door to one of the buildings is open. Should I enter it?", 0x02);
+			g_Console.writeToBuffer(c, "A door to one of the buildings is open. I should get closer if I want to go inside.", 0x02);
+			break;
+		case 401:
+			g_Console.writeToBuffer(c, "Should I enter the building?", 0x02);
 			c.Y++;
-			g_Console.writeToBuffer(c, "Press E to enter building", 0x05);
+			g_Console.writeToBuffer(c, "Press the E key to enter the building.", 0x05);
 			break;
 		case 33:   //Living Room Window
 			g_Console.writeToBuffer(c, "As far as I can see, there's only a void of white outside the window", 0x02);

@@ -10,7 +10,7 @@ extern double g_dElapsedTime;
 int Factfeed = 0;
 int InPortal = 0;
 int tempF;
-int EssentialFragment = 6; // Change this to access certain areas.
+int EssentialFragment = 0; // Change this to access certain areas.
 int OptionalFragment = 0;  // Change this to access certain areas.
 std::string inventory = "none";
 int levelfinish = 0;
@@ -128,6 +128,9 @@ int checkinteract(void)
 			break;
 		case 14:
 			file.open("Text files/3_ComputerRoomXBook.txt");
+			break;
+		case 15:
+			file.open("Text files/Bedroom.txt");
 			break;
 		}
 	}
@@ -476,19 +479,14 @@ int checkinteract(void)
 			{
 			case 'P':
 		        return 231;
-				break;
 			case 'C':
 				return 232;
-				break;
 			case 'S':
 				return 233;
-				break;
 			case 'W':
 				return 234;
-				break;
 			case 'B':
 				return 235;
-				break;
 			}
 		}
 		else if (InPortal == 7)    //Street EF
@@ -507,23 +505,19 @@ int checkinteract(void)
 		}
 		else if (InPortal == 8)    //Street OF
 		{
-			if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'S')
+			switch (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y])
 			{
+			case 'S':
 				return 141;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'P')
-			{
+			case 'P':
 				return 142;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'B')
-			{
+			case 'B':
 				return 151;
-			}
-			else if (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y] == 'W')
-			{
+			case 'W':
 				return 152;
+			case 'D':
+				return 153;
 			}
-
 		}
 		else if (InPortal == 9)    //Living Room EF
 		{
@@ -531,13 +525,10 @@ int checkinteract(void)
 			{
 			case 'W':
 				return 161;
-				break;
 			case 'P':
 				return 162;
-				break;
 			case 'S':
 				return 163;
-				break;
 			}
 		}
 		else if (InPortal == 10)   //Living Room OF
@@ -546,16 +537,12 @@ int checkinteract(void)
 			{
 			case 'W':
 				return 261;
-				break;
 			case 'P':
 				return 262;
-				break;
 			case 'S':
 				return 263;
-				break;
 			case 'B':
 				return 264;
-				break;
 			}
 		}
 		else if (InPortal == 11)   //Funeral
@@ -566,13 +553,10 @@ int checkinteract(void)
 				{
 				case 'B':
 					return 171;
-					break;
 				case 'P':
 					return 172;
-					break;
 				case 'S':
 					return 173;
-					break;
 				}
 			}
 			else         //Funeral Ending (True ending)
@@ -581,13 +565,10 @@ int checkinteract(void)
 				{
 				case 'B':
 					return 271;
-					break;
 				case 'P':
 					return 272;
-					break;
 				case 'S':
 					return 273;
-					break;
 				}
 			}
 		}
@@ -710,6 +691,14 @@ void FstandsforFrustrating(int checkF)
 		InPortal = 14;
 		inventory = "A History Book";
 		reqinteraction = 1;
+	}
+
+	if (Factfeed == 401 && checkF == 9)
+	{
+		InPortal = 15;
+		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 107;
+		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 42;
+		Factfeed = 402;
 	}
 
 	if (inventory == "A flat stone" && tempF == 102 && checkF == 9) // Check if user is pressing "F" and then "E" afterwards to do something.
@@ -943,6 +932,9 @@ void FstandsforFrustrating(int checkF)
 		break;
 	case 152:
 		Factfeed = 32;
+		break;
+	case 153:
+		Factfeed = 401;  // Unintended jump, but 33+ is already taken.
 		break;
 	case 161:
 		Factfeed = 33;
