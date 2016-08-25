@@ -38,6 +38,7 @@ enum EKEYS
 	K_INVZERO,
 	K_COUNT,
 	K_PAUSE,
+
 	K_BACKSPACE,
 	K_A,
 	K_B,
@@ -65,6 +66,7 @@ enum EKEYS
 	K_X,
 	K_Y,
 	K_Z
+
 };
 
 // Enumeration for the different screen states
@@ -73,6 +75,7 @@ enum EGAMESTATES
 	S_SPLASHSCREEN,
 	S_GAME,
 	S_INVENTORY,
+
     S_COUNT,
 	S_PAUSE,
 	S_INPUT
@@ -105,6 +108,6 @@ void renderToScreen();      // dump the contents of the buffer to the screen, on
 void renderUI();            // renders the HUD and other menu items that might be added
 void renderFeed();			// renders the activity feed
 void pause();
-void Journal();
+void renderJournal();
 
 #endif // _GAME_H

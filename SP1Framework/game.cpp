@@ -19,7 +19,6 @@ bool    g_abKeyPressed[K_COUNT];
 int Areanum = 1;
 int Levelnum = 0;          // Odd numbers = EF, Even numbers = OF. In code later for last 2 "IF OF = 5, then take player to the 2nd ending instead"
 int checkF;                // Checking what the player is interacting with
-bool g_newupdate = true;
 
 extern int EssentialFragment;
 extern int OptionalFragment;
@@ -108,6 +107,7 @@ void getInput( void )
 	g_abKeyPressed[K_INVNINE]   = isKeyPressed(0x39);
 	g_abKeyPressed[K_INVZERO]   = isKeyPressed(0x30);
 	g_abKeyPressed[K_PAUSE]		= isKeyPressed(0x50);
+	g_abKeyPressed[K_JOURNAL]   = isKeyPressed(0x4A);
 }
 
 //--------------------------------------------------------------
@@ -142,7 +142,10 @@ void update(double dt)
 			break;
 		case S_INPUT:PlayerInput();
 			break;
-	}
+		case S_JOURNAL: gameplay();
+			break;
+    }
+
 }
 //--------------------------------------------------------------
 // Purpose  : Render function is to update the console screen
@@ -154,27 +157,20 @@ void update(double dt)
 //--------------------------------------------------------------
 void render()
 {
-	renderFramerate();  // renders debug information, frame rate, elapsed time, etc
-
-	if (g_newupdate == true)
+	clearScreen();      // clears the current screen and draw from scratch 
+	switch (g_eGameState)
 	{
-		clearScreen();      // clears the current screen and draw from scratch 
-		switch (g_eGameState)
-		{
-		case S_SPLASHSCREEN: renderSplashScreen();
-			break;
-		case S_INVENTORY: //renderUI(); 
-			Journal(); // is Inventory open?
-			break;
-		case S_GAME: renderGame();
-			break;
-		case S_PAUSE: pause();
-			break;
-		}
-		renderToScreen();   // dump the contents of the buffer to the screen, one frame worth of game
-
-		g_newupdate = false;
+	case S_SPLASHSCREEN: renderSplashScreen();
+		break;
+	case S_INVENTORY: //renderUI(); 
+		break;
+	case S_GAME: renderGame();
+		break;
+	case S_PAUSE: pause();
+		break;
 	}
+	renderFramerate();  // renders debug information, frame rate, elapsed time, etc
+	renderToScreen();   // dump the contents of the buffer to the screen, one frame worth of game
 }
 
 void splashScreenWait()    // waits for time to pass in splash screen
@@ -284,7 +280,6 @@ void moveCharacter()
     {
         // set the bounce time to some time in the future to prevent accidental triggers
         g_dBounceTime = g_dElapsedTime + 0.125; // 125ms should be enough
-		g_newupdate = true;
     }
 
 }
@@ -325,7 +320,7 @@ void processUserInput()
 		}
 	}
 
-	/* if (g_abKeyPressed[K_PAUSE])
+	if (g_abKeyPressed[K_PAUSE])
 	{
 
 		if (g_eGameState != 4)
@@ -338,7 +333,23 @@ void processUserInput()
 
 			g_eGameState = S_GAME;
 		}
-	} */
+	}
+
+	if (g_abKeyPressed[K_JOURNAL])
+	{
+		bSomethingHappened = true;
+
+		if (g_eGameState != 5)
+		{
+			g_eGameState = S_JOURNAL;
+		}
+		else if (g_eGameState == 5)
+		{
+			clearScreen();
+
+			g_eGameState = S_GAME;
+		}
+	}
 
 	if (g_abKeyPressed[K_ENTER])	
 	{
@@ -351,7 +362,6 @@ void processUserInput()
 	{
 		// set the bounce time to some time in the future to prevent accidental triggers
 		g_dBounceTime = g_dElapsedTime + 0.125; // 125ms should be enough
-		g_newupdate = true;
 	}
 
 	if (isKeyPressed(0x4D))
@@ -404,7 +414,7 @@ void renderSplashScreen()  // renders the splash screen
 	c.Y++;
 }
 
-void Journal()
+void renderJournal()
 {
 	COORD c;
 	c.X = 1;
@@ -537,8 +547,6 @@ void renderUI() // inventory
 	c.X = g_Console.getConsoleSize().X / 2 - 5;
 	g_Console.writeToBuffer(c, itemss, 0x09);	
 }
-
-
 
 void pause()
 {
