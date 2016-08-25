@@ -313,7 +313,6 @@ void moveCharacter()
 void processUserInput()
 {
 	bool bSomethingHappened = false;
-	bool MusicStop = false;
 	if (g_dBounceTime > g_dElapsedTime)
 		return;
 
@@ -379,17 +378,12 @@ void processUserInput()
 
 	if (isKeyPressed(0x4D))
 	{
-		bSomethingHappened = true;
-		if (MusicStop == false)
-		{
-			PlaySound(NULL, 0, 0);
-			MusicStop = true;
-		}
-		else if (MusicStop == true)
-		{
-			PlaySound(TEXT("HappyMusic.wav"), NULL, SND_SYNC | SND_LOOP | SND_ASYNC);
-			MusicStop = false;
-		}
+		PlaySound(NULL, 0, 0);
+	}
+
+	if (isKeyPressed(0x4E))
+	{
+		PlaySound(TEXT("HappyMusic.wav"), NULL, SND_SYNC | SND_LOOP | SND_ASYNC);
 	}
 }
 
@@ -580,5 +574,7 @@ void pause()
 	c.Y++;
 	c.X = 43;
 	g_Console.writeToBuffer(c, "Press 'M' to mute music", 0x09);
-	
+	c.Y++;
+	c.X = 42;
+	g_Console.writeToBuffer(c, "Press 'N' to unmute music", 0x09);
 }
