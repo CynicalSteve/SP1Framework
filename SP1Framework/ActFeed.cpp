@@ -13,7 +13,6 @@ extern int levelfinish;
 extern int OptionalFragment;
 extern int EssentialFragment;
 extern int reqinteraction;
-extern bool g_newupdate;
 
 void actfeed()
 {

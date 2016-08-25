@@ -19,7 +19,6 @@ bool    g_abKeyPressed[K_COUNT];
 int Areanum = 1;
 int Levelnum = 0;          // Odd numbers = EF, Even numbers = OF. In code later for last 2 "IF OF = 5, then take player to the 2nd ending instead"
 int checkF;                // Checking what the player is interacting with
-bool g_newupdate = true;
 
 extern int EssentialFragment;
 extern int OptionalFragment;
@@ -152,27 +151,21 @@ void update(double dt)
 //--------------------------------------------------------------
 void render()
 {
-	renderFramerate();  // renders debug information, frame rate, elapsed time, etc
-
-	if (g_newupdate == true)
+	clearScreen();      // clears the current screen and draw from scratch 
+	switch (g_eGameState)
 	{
-		clearScreen();      // clears the current screen and draw from scratch 
-		switch (g_eGameState)
-		{
-		case S_SPLASHSCREEN: renderSplashScreen();
-			break;
-		case S_INVENTORY: //renderUI(); 
-			Journal(); // is Inventory open?
-			break;
-		case S_GAME: renderGame();
-			break;
-		case S_PAUSE: pause();
-			break;
-		}
-		renderToScreen();   // dump the contents of the buffer to the screen, one frame worth of game
-
-		g_newupdate = false;
+	case S_SPLASHSCREEN: renderSplashScreen();
+		break;
+	case S_INVENTORY: //renderUI(); 
+		Journal(); // is Inventory open?
+		break;
+	case S_GAME: renderGame();
+		break;
+	case S_PAUSE: pause();
+		break;
 	}
+	renderFramerate();  // renders debug information, frame rate, elapsed time, etc
+	renderToScreen();   // dump the contents of the buffer to the screen, one frame worth of game
 }
 
 void splashScreenWait()    // waits for time to pass in splash screen
@@ -282,7 +275,6 @@ void moveCharacter()
     {
         // set the bounce time to some time in the future to prevent accidental triggers
         g_dBounceTime = g_dElapsedTime + 0.125; // 125ms should be enough
-		g_newupdate = true;
     }
 
 }
@@ -350,7 +342,6 @@ void processUserInput()
 	{
 		// set the bounce time to some time in the future to prevent accidental triggers
 		g_dBounceTime = g_dElapsedTime + 0.125; // 125ms should be enough
-		g_newupdate = true;
 	}
 
 	if (isKeyPressed(0x4D))
