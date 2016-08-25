@@ -7,8 +7,8 @@ extern Console g_Console;
 string PlayerInput()
 {
 	COORD c;
-	c.Y = 20;
-	c.X = 20;
+	c.Y = 13;
+	c.X = 5;
 
 	string Sentence;
 
@@ -44,8 +44,6 @@ string PlayerInput()
 	
 	for (;;)
 	{
-		g_Console.writeToBuffer(c, Sentence, 0x02);
-
 		if (g_abKeyPressed[K_A])
 		{
 			Sentence.push_back('a');
@@ -169,5 +167,6 @@ string PlayerInput()
 		{
 			return Sentence;
 		}
+		else return 0;
 	}
 }

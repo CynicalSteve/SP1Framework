@@ -7,20 +7,22 @@ void renderInput(void)
 	COORD c;
 	c.Y = 1;
 	c.X = 0;
-	string display;
-	display = "Kappa.";
-	/* string temp; // Added this line
 
-	ifstream file;
-	file.open("1_Lake.txt");
+	ifstream read("Text files/3_Display.txt");
+	string str, str1;
 
-	while (!file.eof())
+	int index = 0;
+	if (read.is_open())
 	{
-		getline(file, temp);
-		display.append(temp); // Added this line
-	} */
+		getline(read, str);
+		while (read)
+		{
+			str1 += str;
+			getline(read, str);
+		}
 
-	g_Console.writeToBuffer(c, display, 0x02);
+		read.close();
+	}
 
-	// file.close();
+	g_Console.writeToBuffer(c, str1, 0x08);
 }
