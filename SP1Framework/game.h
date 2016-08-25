@@ -38,6 +38,35 @@ enum EKEYS
 	K_INVZERO,
 	K_COUNT,
 	K_PAUSE,
+
+	K_BACKSPACE,
+	K_A,
+	K_B,
+	K_C,
+	K_D,
+	K_E,
+	K_F,
+	K_G,
+	K_H,
+	K_I,
+	K_J,
+	K_K,
+	K_L,
+	K_M,
+	K_N,
+	K_O,
+	K_P,
+	K_Q,
+	K_R,
+	K_S,
+	K_T,
+	K_U,
+	K_V,
+	K_W,
+	K_X,
+	K_Y,
+	K_Z,
+
 	K_JOURNAL
 };
 
@@ -47,8 +76,11 @@ enum EGAMESTATES
 	S_SPLASHSCREEN,
 	S_GAME,
 	S_INVENTORY,
-	S_COUNT,
+
+    S_COUNT,
 	S_PAUSE,
+	S_INPUT,
+
 	S_JOURNAL
 };
 

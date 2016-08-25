@@ -140,9 +140,12 @@ void update(double dt)
 			break;
 		case S_PAUSE: gameplay();
 			break;
+		case S_INPUT:PlayerInput();
+			break;
 		case S_JOURNAL: gameplay();
 			break;
     }
+
 }
 //--------------------------------------------------------------
 // Purpose  : Render function is to update the console screen
