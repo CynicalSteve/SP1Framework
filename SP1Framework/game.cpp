@@ -327,23 +327,7 @@ void processUserInput()
 		}
 	}
 
-	if (g_abKeyPressed[K_JOURNAL])
-	{
-		bSomethingHappened = true;
-
-		if (g_eGameState != 2)
-		{
-			g_eGameState = S_JOURNAL;
-		}
-		else if (g_eGameState == 2)
-		{
-			clearScreen();
-
-			g_eGameState = S_GAME;
-		}
-	}
-
-	/* if (g_abKeyPressed[K_PAUSE])
+	if (g_abKeyPressed[K_PAUSE])
 	{
 
 		if (g_eGameState != 4)
@@ -356,7 +340,23 @@ void processUserInput()
 
 			g_eGameState = S_GAME;
 		}
-	} */
+	}
+
+	if (g_abKeyPressed[K_JOURNAL])
+	{
+		bSomethingHappened = true;
+
+		if (g_eGameState != 5)
+		{
+			g_eGameState = S_JOURNAL;
+		}
+		else if (g_eGameState == 5)
+		{
+			clearScreen();
+
+			g_eGameState = S_GAME;
+		}
+	}
 
 	if (g_abKeyPressed[K_ENTER])	
 	{
@@ -555,8 +555,6 @@ void renderUI() // inventory
 	c.X = g_Console.getConsoleSize().X / 2 - 5;
 	g_Console.writeToBuffer(c, itemss, 0x09);	
 }
-
-
 
 void pause()
 {
