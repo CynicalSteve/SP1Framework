@@ -108,6 +108,7 @@ void getInput( void )
 	g_abKeyPressed[K_INVNINE]   = isKeyPressed(0x39);
 	g_abKeyPressed[K_INVZERO]   = isKeyPressed(0x30);
 	g_abKeyPressed[K_PAUSE]		= isKeyPressed(0x50);
+	g_abKeyPressed[K_JOURNAL]   = isKeyPressed(0x4A);
 }
 
 //--------------------------------------------------------------
@@ -140,6 +141,8 @@ void update(double dt)
 			break;
 		case S_PAUSE: gameplay();
 			break;
+		case S_JOURNAL: gameplay();
+			break;
     }
 }
 //--------------------------------------------------------------
@@ -161,12 +164,13 @@ void render()
 		{
 		case S_SPLASHSCREEN: renderSplashScreen();
 			break;
-		case S_INVENTORY: //renderUI(); 
-			Journal(); // is Inventory open?
+		case S_INVENTORY: renderUI(); // is Inventory open?
 			break;
 		case S_GAME: renderGame();
 			break;
 		case S_PAUSE: pause();
+			break;
+		case S_JOURNAL: renderJournal();
 			break;
 		}
 		renderToScreen();   // dump the contents of the buffer to the screen, one frame worth of game
@@ -323,6 +327,22 @@ void processUserInput()
 		}
 	}
 
+	if (g_abKeyPressed[K_JOURNAL])
+	{
+		bSomethingHappened = true;
+
+		if (g_eGameState != 2)
+		{
+			g_eGameState = S_JOURNAL;
+		}
+		else if (g_eGameState == 2)
+		{
+			clearScreen();
+
+			g_eGameState = S_GAME;
+		}
+	}
+
 	/* if (g_abKeyPressed[K_PAUSE])
 	{
 
@@ -402,7 +422,7 @@ void renderSplashScreen()  // renders the splash screen
 	c.Y++;
 }
 
-void Journal()
+void renderJournal()
 {
 	COORD c;
 	c.X = 1;

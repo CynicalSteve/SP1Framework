@@ -1,6 +1,6 @@
 //#include "RenderJournal.h"
 //
-//void Journal()
+//void renJournal()
 //{
 //	string str;
 //	ifstream file;
