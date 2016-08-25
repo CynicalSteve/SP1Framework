@@ -140,10 +140,11 @@ void update(double dt)
 			break;
 		case S_PAUSE: gameplay();
 			break;
-		case S_INPUT:PlayerInput();
+	/*	case S_INPUT: PlayerInput();
 			break;
 		case S_JOURNAL: gameplay();
 			break;
+			*/
     }
 
 }
@@ -162,7 +163,7 @@ void render()
 	{
 	case S_SPLASHSCREEN: renderSplashScreen();
 		break;
-	case S_INVENTORY: //renderUI(); 
+	case S_INVENTORY: renderUI(); 
 		break;
 	case S_GAME: renderGame();
 		break;
