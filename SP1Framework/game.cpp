@@ -364,17 +364,11 @@ void processUserInput()
 		}
 	}
 
-	if (g_abKeyPressed[K_ENTER])
+	if (g_abKeyPressed[K_ENTER])	
 	{
 		bSomethingHappened = true;
 
 		FstandsforFrustrating(9);
-	}
-
-	if (g_abKeyPressed[K_INVONE])
-	{
-		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 75;
-		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 44;
 	}
 
 	if (bSomethingHappened)
@@ -445,7 +439,7 @@ void Journal()
 	c.Y = 1;
 	string str;
 	ifstream file;
-	file.open("\Text files//EssFrag1.txt");
+	file.open("Text files/EssFrag1.txt");
 	//for (int i = 0; i < 18; i++)
 	while (!file.eof())
 	{

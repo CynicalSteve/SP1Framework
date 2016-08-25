@@ -848,12 +848,45 @@ void actfeed()
 		if (g_dElapsedTime >= g_dElapsedTimeTemp && levelfinish == 7)
 		{
 		InPortal = 0;
-		Areanum = 3;
+		Areanum = 4;
 		levelfinish = 0;
 		g_dElapsedTimeTemp = 999.0;
 
-		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 48;
+		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 76;
+		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 44;
+		}
+
+		if (g_dElapsedTime >= g_dElapsedTimeTemp && levelfinish == 8)
+		{
+		InPortal = 0;
+		Areanum = 4;
+		levelfinish = 0;
+		g_dElapsedTimeTemp = 999.0;
+
+		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 84;
+		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 36;
+		}
+
+		if (g_dElapsedTime >= g_dElapsedTimeTemp && levelfinish == 9)
+		{
+		InPortal = 0;
+		Areanum = 5;
+		levelfinish = 0;
+		g_dElapsedTimeTemp = 999.0;
+
+		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 87;
 		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 41;
+		}
+
+		if (g_dElapsedTime >= g_dElapsedTimeTemp && levelfinish == 10)
+		{
+		InPortal = 0;
+		Areanum = 5;
+		levelfinish = 0;
+		g_dElapsedTimeTemp = 999.0;
+
+		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 96;
+		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 48;
 		}
 		*/
 	}
