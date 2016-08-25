@@ -140,11 +140,10 @@ void update(double dt)
 			break;
 		case S_PAUSE: gameplay();
 			break;
-	/*	case S_INPUT: PlayerInput();
-			break;
 		case S_JOURNAL: gameplay();
 			break;
-			*/
+		case S_INPUT: PlayerInput();
+			break;
     }
 
 }
@@ -168,6 +167,10 @@ void render()
 	case S_GAME: renderGame();
 		break;
 	case S_PAUSE: pause();
+		break;
+	case S_JOURNAL: renderJournal();
+		break;
+	case S_INPUT: renderInput();
 		break;
 	}
 	renderFramerate();  // renders debug information, frame rate, elapsed time, etc
@@ -323,6 +326,7 @@ void processUserInput()
 
 	if (g_abKeyPressed[K_PAUSE])
 	{
+		bSomethingHappened = true;
 
 		if (g_eGameState != 4)
 		{
@@ -340,11 +344,11 @@ void processUserInput()
 	{
 		bSomethingHappened = true;
 
-		if (g_eGameState != 5)
+		if (g_eGameState != 3)
 		{
 			g_eGameState = S_JOURNAL;
 		}
-		else if (g_eGameState == 5)
+		else if (g_eGameState == 3)
 		{
 			clearScreen();
 
@@ -413,11 +417,6 @@ void renderSplashScreen()  // renders the splash screen
 	g_Console.writeToBuffer(c, "Press 'Esc' to quit", 0x03);
 	c.X = 50;
 	c.Y++;
-}
-
-void renderJournal()
-{
-	void renJournal();
 }
 
 void renderGame()
@@ -510,9 +509,9 @@ void renderToScreen()
     g_Console.flushBufferToConsole();
 }
 
-char item[] = "";
-char items[] = "";
-char itemss[] = "";
+//char item[] = "";
+//char items[] = "";
+//char itemss[] = "";
 
 void renderUI() // inventory
 {
@@ -521,7 +520,7 @@ void renderUI() // inventory
 	c.X = c.X / 2 - 9;
 	g_Console.writeToBuffer(c, "-Inventory Opened-", 0x03); // at the moment this does jack shit aside from show a new screen saying inventory is open
 	
-	//void storeInventory();
+	/* void storeInventory();
 
 	c.Y += 2;
 	c.X = g_Console.getConsoleSize().X / 2 - 5;
@@ -534,9 +533,15 @@ void renderUI() // inventory
 	c.Y += 2;
 	c.X = g_Console.getConsoleSize().X / 2 - 5;
 	g_Console.writeToBuffer(c, itemss, 0x09);	
+	*/
 }
 
 void pause()
 {
 	void audioPause();
+}
+
+void renderJournal()
+{
+	void renJournal();
 }

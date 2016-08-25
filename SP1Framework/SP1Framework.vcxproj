@@ -91,6 +91,7 @@
     <ClCompile Include="MegaInteract.cpp" />
     <ClCompile Include="PlayerInput.cpp" />
     <ClCompile Include="PuzzleLevels.cpp" />
+    <ClCompile Include="renderInput.cpp" />
     <ClCompile Include="RenderJournal.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -105,6 +106,7 @@
     <ClInclude Include="MegaInteract.h" />
     <ClInclude Include="PlayerInput.h" />
     <ClInclude Include="PuzzleLevels.h" />
+    <ClInclude Include="renderInput.h" />
     <ClInclude Include="RenderJournal.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

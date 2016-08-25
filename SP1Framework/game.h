@@ -11,6 +11,7 @@
 #include "Inventory.h"
 #include "RenderJournal.h"
 #include "PlayerInput.h"
+#include "renderInput.h"
 
 extern CStopWatch g_swTimer;
 extern bool g_bQuitGame;
@@ -78,12 +79,10 @@ enum EGAMESTATES
 	S_SPLASHSCREEN,
 	S_GAME,
 	S_INVENTORY,
-
-    S_COUNT,
+	S_JOURNAL,
 	S_PAUSE,
 	S_INPUT,
-
-	S_JOURNAL
+	S_COUNT
 };
 
 // struct for the game character
@@ -114,6 +113,5 @@ void renderUI();            // renders the HUD and other menu items that might b
 void renderFeed();			// renders the activity feed
 void pause();
 void renderJournal();
-string PlayerInput();
 
 #endif // _GAME_H
