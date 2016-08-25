@@ -168,6 +168,8 @@ void render()
 		break;
 	case S_PAUSE: pause();
 		break;
+	case S_JOURNAL: renderJournal();
+		break;
 	}
 	renderFramerate();  // renders debug information, frame rate, elapsed time, etc
 	renderToScreen();   // dump the contents of the buffer to the screen, one frame worth of game
