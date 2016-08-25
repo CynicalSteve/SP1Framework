@@ -9,6 +9,7 @@
 #include "CheckColiPuzzle.h"
 #include "ActFeed.h"
 #include "Inventory.h"
+#include "RenderJournal.h"
 
 extern CStopWatch g_swTimer;
 extern bool g_bQuitGame;
@@ -76,5 +77,6 @@ void renderToScreen();      // dump the contents of the buffer to the screen, on
 void renderUI();            // renders the HUD and other menu items that might be added
 void renderFeed();			// renders the activity feed
 void pause();
+void Journal();
 
 #endif // _GAME_H

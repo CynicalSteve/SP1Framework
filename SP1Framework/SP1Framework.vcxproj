@@ -105,6 +105,9 @@
     <ClInclude Include="PuzzleLevels.h" />
     <ClInclude Include="RenderJournal.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Text files\EssFrag1.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

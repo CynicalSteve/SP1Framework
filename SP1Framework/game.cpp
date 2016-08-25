@@ -156,7 +156,8 @@ void render()
     {
         case S_SPLASHSCREEN: renderSplashScreen();
             break;
-		case S_INVENTORY: renderUI(); // is Inventory open?
+		case S_INVENTORY: //renderUI(); 
+			Journal(); // is Inventory open?
 			break;
         case S_GAME: renderGame();
             break;
@@ -435,6 +436,24 @@ void renderSplashScreen()  // renders the splash screen
 	g_Console.writeToBuffer(c, "Press 'Esc' to quit", 0x03);
 	c.X = 50;
 	c.Y++;
+}
+
+void Journal()
+{
+	COORD c;
+	c.X = 1;
+	c.Y = 1;
+	string str;
+	ifstream file;
+	file.open("\Text files//EssFrag1.txt");
+	//for (int i = 0; i < 18; i++)
+	while (!file.eof())
+	{
+		getline(file, str);
+		g_Console.writeToBuffer(c, str);
+		c.Y++;
+	}
+	file.close();
 }
 
 void renderGame()

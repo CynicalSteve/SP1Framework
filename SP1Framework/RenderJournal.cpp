@@ -1,6 +1,13 @@
-#include "RenderJournal.h"
-
-void Journal()
-{
-
-}
+//#include "RenderJournal.h"
+//
+//void Journal()
+//{
+//	string str;
+//	ifstream file;
+//	file.open("EssFrag1.txt");
+//	for (int i = 0; i < 18; i++)
+//	{
+//		getline(file, str);
+//		g_Console.writeToBuffer
+//	}
+//}
