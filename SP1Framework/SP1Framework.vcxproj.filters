@@ -57,11 +57,7 @@
     <ClCompile Include="RenderJournal.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-<<<<<<< HEAD
-    <ClCompile Include="AudioPause.cpp">
-=======
     <ClCompile Include="PlayerInput.cpp">
->>>>>>> 99c416383cc0b4135fbb02c593d9022c0bfa4bcb
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -99,7 +95,7 @@
     <ClInclude Include="RenderJournal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AudioPause.h">
+    <ClInclude Include="PlayerInput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
