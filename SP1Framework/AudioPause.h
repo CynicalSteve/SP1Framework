@@ -1,5 +1,5 @@
-#ifndef _RENDERJOURNAL_H
-#define _RENDERJOURNAL_H
+#ifndef _AUDIOPAUSE_H
+#define _AUDIOPAUSE_H
 
 #include "Framework\console.h"
 #include "game.h"
@@ -9,6 +9,6 @@
 
 using namespace std;
 
-void renJournal();
+void audioPause();
 
-#endif // _RENDERJOURNAL_H
+#endif // _AUDIOPAUSE_H
