@@ -10,6 +10,7 @@
 #include "ActFeed.h"
 #include "Inventory.h"
 #include "RenderJournal.h"
+#include "PlayerInput.h"
 
 extern CStopWatch g_swTimer;
 extern bool g_bQuitGame;
@@ -109,5 +110,6 @@ void renderUI();            // renders the HUD and other menu items that might b
 void renderFeed();			// renders the activity feed
 void pause();
 void renderJournal();
+void PlayerInput();
 
 #endif // _GAME_H
