@@ -581,7 +581,7 @@ void actfeed()
 			}
 			else
 			{
-				g_Console.writeToBuffer(c, "Its a computer that requires authentication to access it.", 0x02);
+				g_Console.writeToBuffer(c, "It's a computer that requires authentication to access it.", 0x02);
 				c.Y++;
 				g_Console.writeToBuffer(c, "Perhaps that book I saw on the bookshelf can help?", 0x05);
 			}
@@ -661,26 +661,28 @@ void actfeed()
 			g_Console.writeToBuffer(c, "LIAR", 0x04);   //Text red in colour
 			break;
 		case 40:   //Funeral Bookshelf (Bad End)
-			g_Console.writeToBuffer(c, "There’s an single empty space in between two books. Should I place the history book I acquired in there?");
+			g_Console.writeToBuffer(c, "There's an single empty space in between two books. Should I place the history book I acquired in there?");
 			c.Y++;
 			g_Console.writeToBuffer(c, "Press E to place History Book.", 0x05);
 			break;
 		case 41:  //Funeral Pews   (Bad End)
 			g_Console.writeToBuffer(c, "The pews are all empty, but soft sobbing sounds can be heard from them.", 0x02);
 			break;
-		case 42:  //Funeral Coffin (Bad ENd)
+		case 42:  //Funeral Coffin (Bad End)
 			g_Console.writeToBuffer(c, "A closed coffin. This looks like a funeral wake.", 0x02);
 			c.Y++;
-			g_Console.writeToBuffer(c, "There’s a piece of paper on top of the coffin that reads:");
+			g_Console.writeToBuffer(c, "There's a piece of paper on top of the coffin that reads:");
 			c.Y++;
-			g_Console.writeToBuffer(c, "...to protect messages of military significance, Julius Caesar devised an encryption technique now widely known as the “Caesar Cipher”. This substitution cipher was employed during…", 0x08);
+			g_Console.writeToBuffer(c, "...to protect messages of military significance, Julius Caesar devised an encryption technique now widely  ", 0x08);
+			c.Y++;
+			g_Console.writeToBuffer(c, "known as the \"Caesar Cipher\". This substitution cipher was employed during...", 0x08);
 			c.Y++;
 			g_Console.writeToBuffer(c, "This must be the page torn from the history book.", 0x02);
 			c.Y++;
-			g_Console.writeToBuffer(c, "Crudely carved into the coffin’s cover is a code “lpshqlwhqfh”", 0x05);
+			g_Console.writeToBuffer(c, "Crudely carved into the coffin’s cover is a code \"lpshqlwhqfh\"", 0x05);
 			break;
 		case 43:  //Funeral Bookshelf (True End)
-			g_Console.writeToBuffer(c, "There’s an single empty space in between two books. Should I place the history book I acquired in there?");
+			g_Console.writeToBuffer(c, "There's an single empty space in between two books. Should I place the history book I acquired in there?", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "Press E to place History Book.", 0x05);
 			break;
@@ -690,11 +692,11 @@ void actfeed()
 		case 45:  //Funeral Coffin (True End)
 			g_Console.writeToBuffer(c, "A closed coffin. This looks like a funeral wake.", 0x02);
 			c.Y++;
-			g_Console.writeToBuffer(c, "There’s a piece of paper on top of the coffin that reads:", 0x02);
+			g_Console.writeToBuffer(c, "There's a piece of paper on top of the coffin that reads:", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "Here lies Ava Laurens, where her body shall ROT FOR eternity.", 0x08);
 			c.Y++;
-			g_Console.writeToBuffer(c, "Crudely carved into the coffin’s cover is a code “vitirxergi”.", 0x05);
+			g_Console.writeToBuffer(c, "Crudely carved into the coffin’s cover is a code \"vitirxergi\".", 0x05);
 			break;
 		case 46:  //Computer Room Bookshelf (OF)
 			g_Console.writeToBuffer(c, "An empty bookshelf caked with dust.", 0x02);
@@ -706,12 +708,16 @@ void actfeed()
 			c.Y++;
 			break;
 		case 48:  //Computer Room Map (OF)
-			g_Console.writeToBuffer(c, "A blank piece  of paper hangs sullenly on the wall.", 0x02);
+			g_Console.writeToBuffer(c, "A blank piece of paper hangs sullenly on the wall.", 0x02);
 			break;
 		case 49:  //Computer Room Picture (OF)
-			g_Console.writeToBuffer(c, "It’s a picture of a kid getting bullied by someone. Behind it is another picture, depicting the bully standing next to the same kid. There’s a speech bubble partially torn off.", 0x02);
+			g_Console.writeToBuffer(c, "It's a picture of a kid getting bullied by someone. Behind it is another picture, depicting the bully", 0x02);
 			c.Y++;
-			g_Console.writeToBuffer(c, "I didn’t mean to do all those things to you in the past. I know that my apologies will not help you heal, but… I feel like there is a need for me to say that I am-", 0x05);
+			g_Console.writeToBuffer(c, "standing next to the same kid. There’s a speech bubble partially torn off.", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "I didn't mean to do all those things to you in the past. I know that my apologies will not help you heal,", 0x05);
+			c.Y++;
+			g_Console.writeToBuffer(c, "but... I feel like there is a need for me to say that I am-", 0x05);
 			break;
 		case 50:  //Computer Room Box (OF)
 			g_Console.writeToBuffer(c, "A flat box bound by leather, resembling an old book.", 0x02);
