@@ -66,8 +66,9 @@ enum EKEYS
 	K_W,
 	K_X,
 	K_Y,
-	K_Z
+	K_Z,
 
+	K_JOURNAL
 };
 
 // Enumeration for the different screen states
@@ -79,7 +80,9 @@ enum EGAMESTATES
 
     S_COUNT,
 	S_PAUSE,
-	S_INPUT
+	S_INPUT,
+
+	S_JOURNAL
 };
 
 // struct for the game character

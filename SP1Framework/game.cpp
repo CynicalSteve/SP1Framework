@@ -416,20 +416,7 @@ void renderSplashScreen()  // renders the splash screen
 
 void renderJournal()
 {
-	COORD c;
-	c.X = 1;
-	c.Y = 1;
-	string str;
-	ifstream file;
-	file.open("Text files/EssFrag1.txt");
-	//for (int i = 0; i < 18; i++)
-	while (!file.eof())
-	{
-		getline(file, str);
-		g_Console.writeToBuffer(c, str);
-		c.Y++;
-	}
-	file.close();
+	void renJournal();
 }
 
 void renderGame()
@@ -550,55 +537,5 @@ void renderUI() // inventory
 
 void pause()
 {
-	COORD c = g_Console.getConsoleSize();
-	c.Y /= 3;
-	c.X = 52;
-	g_Console.writeToBuffer(c, "PAUSE", 0x03);
-	c.Y++;
-	c.X = 40;
-	g_Console.writeToBuffer(c, "Press 'P' again to resume game", 0x09);
-	c.Y++;
-	c.X = 43;
-	g_Console.writeToBuffer(c, "Press 'M' to mute music", 0x09);
-	c.Y++;
-	c.X = 42;
-	g_Console.writeToBuffer(c, "Press 'N' to unmute music", 0x09);
-}
-
-void PlayerInput()
-{
-	string Sentence;
-	g_abKeyPressed[K_BACKSPACE] = isKeyPressed(0x08);
-	g_abKeyPressed[K_A] = isKeyPressed(0x97);
-	g_abKeyPressed[K_B] = isKeyPressed(0x98);
-	g_abKeyPressed[K_C] = isKeyPressed(0x99);
-	g_abKeyPressed[K_D] = isKeyPressed(0X100);
-	g_abKeyPressed[K_E] = isKeyPressed(0x101);
-	g_abKeyPressed[K_F] = isKeyPressed(0x102);
-	g_abKeyPressed[K_G] = isKeyPressed(0x103);
-	g_abKeyPressed[K_H] = isKeyPressed(0x104);
-	g_abKeyPressed[K_I] = isKeyPressed(0x105);
-	g_abKeyPressed[K_J] = isKeyPressed(0x106);
-	g_abKeyPressed[K_K] = isKeyPressed(0x107);
-	g_abKeyPressed[K_L] = isKeyPressed(0x108);
-	g_abKeyPressed[K_M] = isKeyPressed(0x109);
-	g_abKeyPressed[K_N] = isKeyPressed(0x110);
-	g_abKeyPressed[K_O] = isKeyPressed(0x111);
-	g_abKeyPressed[K_P] = isKeyPressed(0x112);
-	g_abKeyPressed[K_Q] = isKeyPressed(0x113);
-	g_abKeyPressed[K_R] = isKeyPressed(0x114);
-	g_abKeyPressed[K_S] = isKeyPressed(0x115);
-	g_abKeyPressed[K_T] = isKeyPressed(0x116);
-	g_abKeyPressed[K_U] = isKeyPressed(0x117);
-	g_abKeyPressed[K_V] = isKeyPressed(0x118);
-	g_abKeyPressed[K_W] = isKeyPressed(0x119);
-	g_abKeyPressed[K_X] = isKeyPressed(0x120);
-	g_abKeyPressed[K_Y] = isKeyPressed(0x121);
-	g_abKeyPressed[K_Z] = isKeyPressed(0x122);
-
-	switch (isKeyPressed())
-	{
-	case K_A:
-		return 0;
-	}
+	void audioPause();
 }
