@@ -114,6 +114,5 @@ void renderUI();            // renders the HUD and other menu items that might b
 void renderFeed();			// renders the activity feed
 void pause();
 void renderJournal();
-string PlayerInput();
 
 #endif // _GAME_H
