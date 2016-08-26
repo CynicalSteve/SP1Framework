@@ -18,8 +18,13 @@ double  g_dElapsedTime;
 double  g_dDeltaTime;
 bool    g_abKeyPressed[K_COUNT];
 
+<<<<<<< HEAD
 int Areanum = 1;
 int Levelnum = 0;          // Odd numbers = EF, Even numbers = OF. In code later for last 2 "IF OF = 5, then take player to the 2nd ending instead"
+=======
+int Areanum = 5;
+int Levelnum = 5;          // Odd numbers = EF, Even numbers = OF. In code later for last 2 "IF OF = 5, then take player to the 2nd ending instead"
+>>>>>>> d4f318def8020a7c5059eef5ca3197a94aa388cc
 int checkF;                // Checking what the player is interacting with
 
 extern int EssentialFragment;

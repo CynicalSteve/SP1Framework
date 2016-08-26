@@ -251,7 +251,7 @@ string PlayerInput(void)
 
 		if (SomethangHappund)
 		{
-			g_dBounceTime = g_dElapsedTime + 0.125;
+			g_dBounceTime = g_dElapsedTime + 0.25;
 		}
 		return Sentence;
 }
