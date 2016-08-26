@@ -832,7 +832,7 @@ void actfeed()
 			c.Y++;
 			g_Console.writeToBuffer(c, "...to protect messages of military significance, Julius Caesar devised an encryption technique now widely  ", 0x08);
 			c.Y++;
-			g_Console.writeToBuffer(c, "known as the \"Caesar Cipher\". This substitution cipher was employed during...", 0x08);
+			g_Console.writeToBuffer(c, "known as the \"Caesar Cipher\". This substitution cipher was employed during...", 0x08); // *** *** *** *** *** FIX THIS LATER *** *** *** *** ***
 			c.Y++;
 			g_Console.writeToBuffer(c, "This must be the page torn from the history book.", 0x02);
 			c.Y++;
@@ -961,6 +961,9 @@ void actfeed()
 		case 994:
 			g_Console.writeToBuffer(c, "After successfully inputting the right number, I put the phone to my ear, and heard the following.", 0x02);
 			break;
+		case 995:
+			g_Console.writeToBuffer(c, "After successfully inputting the right number, I put the phone to my ear, and heard the following.", 0x02);
+			break;
 		case 999: // Testing purposes only, pls take out on release build danke.
 			g_Console.writeToBuffer(c, "Whatever you are doing,", 0x02);
 			c.Y++;
@@ -1067,8 +1070,8 @@ void actfeed()
 		levelfinish = 0;
 		g_dElapsedTimeTemp = 999.0;
 
-		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 87;
-		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 41;
+		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 96;
+		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 48;
 		}
 
 		if (g_dElapsedTime >= g_dElapsedTimeTemp && levelfinish == 10)
@@ -1078,8 +1081,8 @@ void actfeed()
 		levelfinish = 0;
 		g_dElapsedTimeTemp = 999.0;
 
-		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 96;
-		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 48;
+		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 87;
+		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 41;
 		}
 	}
 }

@@ -94,6 +94,14 @@ void renderTyping(string checkI)
 			Sentence = "";
 			g_eGameState = S_GAME;
 		}
+		else if (temp == "76736582" && InPortal == 10)
+		{
+			reqinteraction = 1;
+			Factfeed = 995;
+			FstandsforFrustrating(9);
+			Sentence = "";
+			g_eGameState = S_GAME;
+		}
 		else
 		{
 			checkI = "";
