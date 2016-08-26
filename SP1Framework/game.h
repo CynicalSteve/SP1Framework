@@ -12,6 +12,7 @@
 #include "PlayerInput.h"
 #include "renderInput.h"
 #include "PauseScreen.h"
+#include "InstructScreen.h"
 
 extern CStopWatch g_swTimer;
 extern bool g_bQuitGame;
@@ -40,6 +41,8 @@ enum EKEYS
 	K_INVZERO,
 	K_COUNT,
 	K_PAUSE,
+	A_UP,
+	A_DOWN,
 
 	K_BACKSPACE,
 	K_ESC,
@@ -82,13 +85,19 @@ enum EGAMESTATES
 	S_JOURNAL,
 	S_PAUSE,
 	S_INPUT,
-	S_COUNT
+	S_COUNT,
+	S_INSTRUCTIONS
 };
 
 // struct for the game character
 struct SGameChar
 {
     COORD m_cLocation;
+};
+
+struct Menu
+{
+	COORD Arrow_Location;
 };
 
 void init        ( void );      // initialize your variables, allocate memory, etc
@@ -111,5 +120,6 @@ void renderToScreen();      // dump the contents of the buffer to the screen, on
 void renderFeed();			// renders the activity feed
 void pause();
 void renderJournal();
+void instructions();
 
 #endif // _GAME_H

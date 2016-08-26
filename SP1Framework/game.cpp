@@ -27,6 +27,7 @@ extern double g_dTime;
 
 // Game specific variables here
 SGameChar   g_sChar;
+Menu		MenuArrow;
 EGAMESTATES g_eGameState = S_SPLASHSCREEN;
 double  g_dBounceTime; // this is to prevent key bouncing, so we won't trigger keypresses more than once
 
@@ -55,8 +56,13 @@ void init( void )
 	// sets where the character spawns when game starts
 	g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 87;
 	g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 43;
+
     // sets the width, height and the font name to use in the console
     g_Console.setConsoleFont(0, 16, L"Consolas");
+
+	// sets the arrow in the menu screen
+	MenuArrow.Arrow_Location.X = g_Console.getConsoleSize().X - 72;
+	MenuArrow.Arrow_Location.Y = g_Console.getConsoleSize().Y - 27;
 }
 
 //--------------------------------------------------------------
@@ -108,6 +114,8 @@ void getInput( void )
 	g_abKeyPressed[K_INVZERO]   = isKeyPressed(0x30);
 	g_abKeyPressed[K_PAUSE]		= isKeyPressed(0x50);
 	g_abKeyPressed[K_JOURNAL]   = isKeyPressed(0x4A);
+	g_abKeyPressed[A_UP]		= isKeyPressed(VK_UP);
+	g_abKeyPressed[A_DOWN]		= isKeyPressed(VK_DOWN);
 }
 
 //--------------------------------------------------------------
@@ -142,6 +150,7 @@ void update(double dt)
 			break;
 		case S_INPUT: PlayerInput();
 			break;
+		case S_INSTRUCTIONS: gameplay();
     }
 
 }
@@ -168,6 +177,7 @@ void render()
 		break;
 	case S_INPUT: renderInput();
 		break;
+	case S_INSTRUCTIONS: instructions();
 	}
 	renderFramerate();  // renders debug information, frame rate, elapsed time, etc
 	renderToScreen();   // dump the contents of the buffer to the screen, one frame worth of game
@@ -175,12 +185,51 @@ void render()
 
 void splashScreenWait()    // waits for time to pass in splash screen
 {
-	if (isKeyPressed(0x45))		// wait for player to enter E to switch to game mode, else do nothing
+	// Draw the location of the arrow
+	if (g_abKeyPressed[K_SPACE] && MenuArrow.Arrow_Location.Y == g_Console.getConsoleSize().Y - 27)
 	{
+		//enter game
 		g_eGameState = S_GAME;
 		g_dTime = (g_dElapsedTime + 2.0);
 	}
-		
+	if (g_abKeyPressed[K_SPACE] && MenuArrow.Arrow_Location.Y == g_Console.getConsoleSize().Y - 26)
+	{
+		//enter instructions screen
+		g_eGameState = S_INSTRUCTIONS;
+
+	}
+	if (g_abKeyPressed[A_DOWN] && MenuArrow.Arrow_Location.Y == g_Console.getConsoleSize().Y - 27)
+	{
+		MenuArrow.Arrow_Location.Y++;
+	}
+	if (g_abKeyPressed[A_UP] && MenuArrow.Arrow_Location.Y == g_Console.getConsoleSize().Y - 26)
+	{
+		MenuArrow.Arrow_Location.Y--;
+	}
+
+	/*
+	MenuArrow.Arrow_Location.X = g_Console.getConsoleSize().X - 70;
+	MenuArrow.Arrow_Location.Y = g_Console.getConsoleSize().Y - 27;
+
+	DOWN
+	g_sChar.m_cLocation.Y++;
+
+	if (g_abKeyPressed[K_JOURNAL])
+	{
+	bSomethingHappened = true;
+
+	if (g_eGameState != 3)
+	{
+	g_eGameState = S_JOURNAL;
+	}
+	else if (g_eGameState == 3)
+	{
+	clearScreen();
+
+	g_eGameState = S_GAME;
+	}
+	}
+	*/
 }
 
 void gameplay()            // gameplay logic
@@ -390,12 +439,15 @@ void renderSplashScreen()  // renders the splash screen
 	g_Console.writeToBuffer(c, "Welcome to Fragments!", 0x03);
 	c.Y++;
 	c.X = 43;
-	g_Console.writeToBuffer(c, "Press 'E' to start game", 0x03);
+	g_Console.writeToBuffer(c, "Press <space> to start game", 0x03);
 	c.Y++;
-	c.X = 45;
-	g_Console.writeToBuffer(c, "Press 'Esc' to quit", 0x03);
+	c.X = 40;
+	g_Console.writeToBuffer(c, "Press <space> to view instructions", 0x03);
 	c.X = 50;
 	c.Y++;
+
+	char Arrow = '>';
+	g_Console.writeToBuffer(MenuArrow.Arrow_Location, Arrow);
 }
 
 void renderGame()
@@ -407,11 +459,6 @@ void renderGame()
 
 void renderMap()
 {
-	const WORD colors[] = {
-		0x1A, 0x2B, 0x3C, 0x4D, 0x5E, 0x6F,
-		0xA1, 0xB2, 0xC3, 0xD4, 0xE5, 0xF6
-	};
-
 	if (Areanum > 0)
 	{
 		char** printmap = new char*[150];
@@ -492,4 +539,9 @@ void pause()
 void renderJournal()
 {
 	renJournal();
+}
+
+void instructions()
+{
+	InstructScreen();
 }
