@@ -401,6 +401,59 @@ void actfeed()
 		}
 	}
 
+	if (Factfeed == 991) //EF 3
+	{
+		if (g_dElapsedTime > g_dTime)
+		{
+			g_Console.writeToBuffer(c, "\"Have you ever seen a creature this bizarre? I mean it's pretty much a mermaid lion,\" Terence said as", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "he snapped a picture of the merlion statue.", 0x03);
+			c.Y++;
+		}
+		if (g_dElapsedTime > (g_dTime + 5.0))
+		{
+			g_Console.writeToBuffer(c, "\"Singapore's a pretty superstitious country after all, or at least in the past it used to be,\" I said,", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "glancing at the hoards of tourists around us.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 10.0))
+		{
+			g_Console.writeToBuffer(c, "\"But it's a beautiful country. I wonder what it takes to raise our children in such a place.\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 13.0))
+		{
+			g_Console.writeToBuffer(c, "As I stroked my protruding belly, I could've sworn I felt the little one kick in agreement.", 0x03);
+			c.Y++;
+		}
+		if (g_dElapsedTime > (g_dTime + 14.0))
+		{
+			g_Console.writeToBuffer(c, "Terence chuckled as he took more photos. He always had an interest in photography.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 15.0))
+		{
+			g_Console.writeToBuffer(c, "\"I would like to,\" he responded, \"if only the prices here weren't as high as its skyscrapers.\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 19.0))
+		{
+			g_Console.writeToBuffer(c, "\"How long are you gonna keep taking those photos?\" I said, furiously fanning myself with the pamphlets", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "and maps I was holding.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 23.0))
+		{
+			g_Console.writeToBuffer(c, "\"Hang on, just one more picture...\" he replied, aiming the camera at me.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 26.0))
+		{
+			g_Console.writeToBuffer(c, "\"SNAP!", 0x03);
+		}
+	}
 
 	/* Template for MX
 	if (c.Y == 54)
