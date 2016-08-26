@@ -144,6 +144,21 @@ void actfeed()
 		g_Console.writeToBuffer(c, "Change the negative present, into a positive yesterday.", 0x05);
 	}
 
+	if (InPortal == 6)
+	{
+		c.Y = 31;
+
+		g_Console.writeToBuffer(c, "\"You’ve always resented him for this. Doubting his intentions.", 0x06);
+		c.Y++;
+		g_Console.writeToBuffer(c, "Do you know how it feels to be doubted despite having good intentions? It feels horrible.\"", 0x06);
+		c.Y++;
+
+		if (levelfinish == 6)
+		{
+			g_Console.writeToBuffer(c, "\"Maybe you are. But does it really matter? The scars are still there.\"", 0x06);
+		}
+	}
+
 	if (InPortal == 15) // TBD what we do with this
 	{
 		c.Y = 31;
@@ -761,23 +776,18 @@ void actfeed()
 		case 47:  //Computer Room Computer (OF)
 			g_Console.writeToBuffer(c, "The screen of the computer shows:", 0x02);
 			c.Y++;
-			g_Console.writeToBuffer(c, "DIE DIE DIE DIE DIE DIE DIE", 0x04);
+			g_Console.writeToBuffer(c, "\"What's the missing word?\"", 0x02);
 			c.Y++;
-			break;
-		case 48:  //Computer Room Map (OF)
-			g_Console.writeToBuffer(c, "A blank piece of paper hangs sullenly on the wall.", 0x02);
+			g_Console.writeToBuffer(c, "Press the E key to type in the missing word.", 0x05);
 			break;
 		case 49:  //Computer Room Picture (OF)
 			g_Console.writeToBuffer(c, "It's a picture of a kid getting bullied by someone. Behind it is another picture, depicting the bully", 0x02);
 			c.Y++;
-			g_Console.writeToBuffer(c, "standing next to the same kid. There’s a speech bubble partially torn off.", 0x02);
+			g_Console.writeToBuffer(c, "standing next to the same kid. There's a speech bubble partially torn off.", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "I didn't mean to do all those things to you in the past. I know that my apologies will not help you heal,", 0x05);
 			c.Y++;
 			g_Console.writeToBuffer(c, "but... I feel like there is a need for me to say that I am-", 0x05);
-			break;
-		case 50:  //Computer Room Box (OF)
-			g_Console.writeToBuffer(c, "A flat box bound by leather, resembling an old book.", 0x02);
 			break;
 		case 911:   //Lake EF Complete
 			g_Console.writeToBuffer(c, "The stone hit the metallic object with a pleasant 'ding'.", 0x02);
@@ -856,6 +866,9 @@ void actfeed()
 			break;
 		case 991:
 			g_Console.writeToBuffer(c, "Upon my successful log in, the computer loaded up a video on the screen.", 0x02);
+			break;
+		case 992:
+			g_Console.writeToBuffer(c, "Upon successfully guessing the missing word, the computer loaded up a video on the screen.", 0x02);
 			break;
 		case 999: // Testing purposes only, pls take out on release build danke.
 			g_Console.writeToBuffer(c, "Whatever you are doing,", 0x02);

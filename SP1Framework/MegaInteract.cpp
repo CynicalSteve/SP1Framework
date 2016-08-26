@@ -481,12 +481,8 @@ int checkinteract(void)
 		        return 231;
 			case 'C':
 				return 232;
-			case 'S':
-				return 233;
 			case 'W':
 				return 234;
-			case 'B':
-				return 235;
 			}
 		}
 		else if (InPortal == 7)    //Street EF
@@ -702,7 +698,22 @@ void FstandsforFrustrating(int checkF)
 	if (Factfeed == 991 && reqinteraction == 2)
 	{
 		levelfinish = 5;
+		reqinteraction = 0;
 		EssentialFragment = 3;
+		g_dElapsedTimeTemp = (g_dElapsedTime + 10.0);
+	}
+
+	if (Factfeed == 47 && checkF == 9)
+	{
+		Factfeed = 0;
+		g_eGameState = S_INPUT;
+	}
+
+	if (Factfeed == 992 && reqinteraction == 1)
+	{
+		levelfinish = 6;
+		reqinteraction = 0;
+		OptionalFragment = 3;
 		g_dElapsedTimeTemp = (g_dElapsedTime + 10.0);
 	}
 
@@ -926,7 +937,7 @@ void FstandsforFrustrating(int checkF)
 		Factfeed = 24;
 		break;
 	case 132: // Computer
-		if (reqinteraction != 2)
+		if (EssentialFragment != 3)
 		{
 			Factfeed = 25;
 		}
@@ -995,16 +1006,13 @@ void FstandsforFrustrating(int checkF)
 		Factfeed = 46;
 		break;
 	case 232:
-		Factfeed = 47;
-		break;
-	case 233:
-		Factfeed = 48;
+		if (OptionalFragment != 3)
+		{
+			Factfeed = 47;
+		}
 		break;
 	case 234:
 		Factfeed = 49;
-		break;
-	case 235:
-		Factfeed = 50;
 		break;
 	case 0:
 		Factfeed = 0;
