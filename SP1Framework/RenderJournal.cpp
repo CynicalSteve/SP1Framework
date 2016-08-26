@@ -70,133 +70,97 @@ void renJournal()
 	c.X = g_Console.getConsoleSize().X / 2 - 50;
 	g_Console.writeToBuffer(c, "Press on the number allocated to each fragment to access the memory.", 0x03);
 
-	/*c.Y = 1;
-	c.X = 1;
-	c.Y /= 1;
-	c.X = g_Console.getConsoleSize().X / 2 - 20;
-	g_Console.writeToBuffer(c, "Journal", 0x03);
-
-	c.Y = 1;
-	c.X = 1;
-	c.Y /= 1;
-	c.X = g_Console.getConsoleSize().X / 2 - 20;
-	g_Console.writeToBuffer(c, "Journal", 0x03);*/
-
-	switch (g_abKeyPressed[K_COUNT])
+	if (g_abKeyPressed[K_INVONE] == 1)
 	{
-		case '1':
-			g_abKeyPressed[K_INVONE] ==  1;
+		c.X = 3;
+		c.Y = 3;
 
-			file.open("Text files/EssFrag1.txt");
-				getline(file, frag1);
-				g_Console.writeToBuffer(c, frag1);
-				c.Y++;
-			break;
+		file.open("Text files/EssFrag1.txt");
 
-		case '2':
-			g_abKeyPressed[K_INVTWO] == 1;
-			
-			file.open("Text files/EssFrag2.txt");
-
-			while (!file.eof())
-			{
-				getline(file, frag2);
-				g_Console.writeToBuffer(c, frag2);
-				c.Y++;
-			}
+		while (!file.eof())
+		{
+			getline(file, frag1);
+			g_Console.writeToBuffer(c, frag1);
+			c.Y++;
+		}
+		file.close();
 	}
 
-		/*if (g_abKeyPressed[K_INVONE] == 1)
+	if (g_abKeyPressed[K_INVTWO] == 1)
+	{
+		c.X = 3;
+		c.Y = 3;
+
+		file.open("Text files/EssFrag2.txt");
+
+		while (!file.eof())
 		{
-			c.X = 3;
-			c.Y = 3;
-
-			file.open("Text files/EssFrag1.txt");
-
-			while (!file.eof())
-			{
-				getline(file, fragments);
-				g_Console.writeToBuffer(c, fragments);
-				c.Y++;
-			}
-			file.close();
+			getline(file, frag2);
+			g_Console.writeToBuffer(c, frag2);
+			c.Y++;
 		}
+		file.close();
+	}
 
-		if (g_abKeyPressed[K_INVTWO] == 1)
+	if (g_abKeyPressed[K_INVTHREE] == 1)
+	{
+		c.X = 3;
+		c.Y = 3;
+		file.open("Text files/EssFrag3.txt");
+
+		while (!file.eof())
 		{
-			c.X = 3;
-			c.Y = 3;
-
-			file.open("Text files/EssFrag2.txt");
-
-			while (!file.eof())
-			{
-				getline(file, frag2);
-				g_Console.writeToBuffer(c, frag2);
-				c.Y++;
-			}
-			file.close();
+			getline(file, frag3);
+			g_Console.writeToBuffer(c, frag3);
+			c.Y++;
 		}
+		file.close();
+	}
 
-		if (g_abKeyPressed[K_INVTHREE] == 1)
+	if (g_abKeyPressed[K_INVFOUR] == 1)
+	{
+		c.X = 3;
+		c.Y = 3;
+		file.open("Text files/EssFrag4.txt");
+
+		while (!file.eof())
 		{
-			c.X = 3;
-			c.Y = 3;
-			file.open("Text files/EssFrag3.txt");
-
-			while (!file.eof())
-			{
-				getline(file, frag3);
-				g_Console.writeToBuffer(c, frag3);
-				c.Y++;
-			}
-			file.close();
+			getline(file, frag4);
+			g_Console.writeToBuffer(c, frag4);
+			c.Y++;
 		}
+		file.close();
+	}
 
-		if (g_abKeyPressed[K_INVFOUR] == 1)
+	if (g_abKeyPressed[K_INVFIVE] == 1)
+	{
+		c.X = 3;
+		c.Y = 3;
+		file.open("Text files/EssFrag5.txt");
+
+		while (!file.eof())
 		{
-			c.X = 3;
-			c.Y = 3;
-			file.open("Text files/EssFrag4.txt");
-
-			while (!file.eof())
-			{
-				getline(file, frag4);
-				g_Console.writeToBuffer(c, frag4);
-				c.Y++;
-			}
-			file.close();
+			getline(file, frag5);
+			g_Console.writeToBuffer(c, frag5);
+			c.Y++;
 		}
+		file.close();
+	}
 
-		if (g_abKeyPressed[K_INVFIVE] == 1)
+	if (g_abKeyPressed[K_INVSIX] == 1)
+	{
+		c.X = 3;
+		c.Y = 3;
+		file.open("Text files/EssFrag6.txt");
+
+		while (!file.eof())
 		{
-			c.X = 3;
-			c.Y = 3;
-			file.open("Text files/EssFrag5.txt");
-
-			while (!file.eof())
-			{
-				getline(file, frag5);
-				g_Console.writeToBuffer(c, frag5);
-				c.Y++;
-			}
-			file.close();
+			getline(file, frag6);
+			g_Console.writeToBuffer(c, frag6);
+			c.Y++;
 		}
-
-		if (g_abKeyPressed[K_INVSIX] == 1)
-		{
-			c.X = 3;
-			c.Y = 3;
-			file.open("Text files/EssFrag6.txt");
-
-			while (!file.eof())
-			{
-				getline(file, frag6);
-				g_Console.writeToBuffer(c, frag6);
-				c.Y++;
-			}
-			file.close();
-		}*/
+		file.close();
+	}
 	
 	//if ()
 	/*c.X = 1;
@@ -243,26 +207,4 @@ void renJournal()
 		c.Y++;
 	}
 	file.close();*/
-
-	//Ed's Method
-	/*COORD c;
-	c.Y = 1;
-	c.X = 0;
-
-	ifstream read("Text files/EssFrag1.txt");
-	string frag, frag1;
-
-	int index = 0;
-	if (read.is_open())
-	{
-	getline(read, frag);
-	while (read)
-	{
-	frag1 += frag;
-	getline(read, frag);
-	}
-	read.close();
-	}
-
-	g_Console.writeToBuffer(c, frag1, 0x08);*/
 }

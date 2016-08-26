@@ -473,7 +473,7 @@ void actfeed()
 
 	if (Factfeed == 992) //OF 3
 	{
-		c.Y = 34;
+		c.Y = 31;
 		if (g_dElapsedTime > g_dTime)
 		{
 			g_Console.writeToBuffer(c, "\"Where have you been?\" Ava asked impatiently, her arms crossed and her eyebrows stitched into a frown.", 0x03);
@@ -508,7 +508,7 @@ void actfeed()
 
 	if (Factfeed == 993) // EF 4
 	{
-		c.Y = 34;
+		c.Y = 31;
 		if (g_dElapsedTime > g_dTime)
 		{
 			g_Console.writeToBuffer(c, "\"Ah, Mrs Laurens! Fancy meeting you here!\"", 0x03);
@@ -556,67 +556,118 @@ void actfeed()
 	}
 
 
-	if (Factfeed == 994) // OF 4
+
+	if (Factfeed == 994) // EF 5
 	{
-		c.Y = 34;
+		c.Y = 31;
 		if (g_dElapsedTime > g_dTime)
 		{
-			g_Console.writeToBuffer(c, "\"Why did you not say anything huh?! What have I been teaching you all this time? Do you want to end up", 0x03);
+			g_Console.writeToBuffer(c, "\"So Ava, I heard that the company Terence was working in became bankrupt. Are you two holding up", 0x03);
 			c.Y++;
-			g_Console.writeToBuffer(c, "like your daddy, stupid and useless?!\" Ava shouted, dunking Sasha's head into the basin full of water.", 0x03);
-			c.Y++;
+			g_Console.writeToBuffer(c, "alright?\" Matilda Lindow, the neighbour, asked.", 0x03);
+			c.Y += 2;
 		}
-		if (g_dElapsedTime > (g_dTime + 6.0))
+		if (g_dElapsedTime > (g_dTime + 4.0))
 		{
-			g_Console.writeToBuffer(c, "Her arms flailed wildly about as Ava held her neck down.", 0x03);
-			c.Y++;
+			g_Console.writeToBuffer(c, "\"I-um, well, uh...\" I stuttered. \"We owe a few people some money, that's all. No big deal, Matilda\".", 0x03);
+			c.Y += 2;
 		}
 		if (g_dElapsedTime > (g_dTime + 9.0))
 		{
-			g_Console.writeToBuffer(c, "Jonathan simply looked on in horror and tears.", 0x03);
+			g_Console.writeToBuffer(c, "\"Sweetie.\" Matilda said, cupping my hands in hers. \"I know a liar when I see one. How do you think", 0x03);
 			c.Y++;
-		}
-		if (g_dElapsedTime > (g_dTime + 12.0))
-		{
-			g_Console.writeToBuffer(c, "Ava pulled Sasha back out and pushed her to the ground.", 0x03);
-			c.Y++;
-		}
-		if (g_dElapsedTime > (g_dTime + 14.0))
-		{
-			g_Console.writeToBuffer(c, "Crying and coughing and choking for air, Sasha barely registered anything around her.", 0x03);
+			g_Console.writeToBuffer(c, "I can keep Danny as my husband all these years? Please, tell me what's wrong.\"", 0x03);
 			c.Y += 2;
 		}
-		if (g_dElapsedTime > (g_dTime + 18.0))
+		if (g_dElapsedTime > (g_dTime + 17.0))
 		{
-			g_Console.writeToBuffer(c, "\"Come here, Jonathan,\" Ava said quietly.", 0x03);
+			g_Console.writeToBuffer(c, "My eyes went misty as tears formed in the corner of my eyes. \"It-It's just that recently Terence has", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "been coming home really late drunk, and then he just starts yelling and screaming. One night, I smelt", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "perfume on him and... and...\"", 0x03);
+			c.Y++;
+		}
+		if (g_dElapsedTime > (g_dTime + 27.0))
+		{
+			g_Console.writeToBuffer(c, "The tears had already cascaded down my cheeks, but I wiped them off with my forearm and regained", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "my composure.", 0x03);
 			c.Y += 2;
 		}
-		if (g_dElapsedTime > (g_dTime + 20.0))
+		if (g_dElapsedTime > (g_dTime + 32.0))
 		{
-			g_Console.writeToBuffer(c, "He complied fearfully and shuffled his way to Ava.", 0x03);
-			c.Y++;
-		}
-		if (g_dElapsedTime > (g_dTime + 23.0))
-		{
-			g_Console.writeToBuffer(c, "Whipping out a belt, Ava viciously beat Jonathan repeatedly with it, ignoring his cries and pleas for", 0x03);
-			c.Y++;
-			g_Console.writeToBuffer(c, "her to stop.", 0x03);
-			c.Y++;
-		}
-		if (g_dElapsedTime > (g_dTime + 28.0))
-		{
-			g_Console.writeToBuffer(c, "After a while, Jonathan was reduced to a sobbing mess, his arms and legs fresh with cuts and bruises.", 0x03);
+			g_Console.writeToBuffer(c, "\"It's nothing,\" I said, smiling.", 0x03);
 			c.Y += 2;
 		}
-		if (g_dElapsedTime > (g_dTime + 33.0))
+		if (g_dElapsedTime > (g_dTime + 34.0))
 		{
-			g_Console.writeToBuffer(c, "\"Put some ice on those wounds,\" Ava sternly instructed the both of them. \"You don't want to go to", 0x03);
+			g_Console.writeToBuffer(c, "Matilda had been staring at me intensely. \"Dear, if you need anything... Good Lord, are those..?!\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 37.0))
+		{
+			g_Console.writeToBuffer(c, "I realised that she had spotted the bruises and burn marks on my right thigh, so I swiftly pulled down", 0x03);
 			c.Y++;
-			g_Console.writeToBuffer(c, "school looking like that, do you?\"", 0x03);
+			g_Console.writeToBuffer(c, "the hem of my skirt.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 42.0))
+		{
+			g_Console.writeToBuffer(c, "\"I-um, really have to get going now,\" I said quickly while standing up from the sofa just as fast.", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "\"Thank you for having me he-\"", 0x03);
+			c.Y += 2;
+		}
+		if (c.Y >= 54)
+		{
+			c.Y = 31;
+		}
+		if (g_dElapsedTime > (g_dTime + 48.0))
+		{
+			g_Console.writeToBuffer(c, "\"Ava,\" Matilda interrupted, her eyes burning with anger. \"If that man dares to lay a finger on you", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "or your children, promise that you'll holler. I'll send the cops on his ass so fast that he won't even", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "see it coming\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 55.0))
+		{
+			g_Console.writeToBuffer(c, "I feigned a smile.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 56.0))
+		{
+			g_Console.writeToBuffer(c, "\"I will.\"", 0x03);
 		}
 	}
 
-
+	if (Factfeed == 995) // OF 5
+	{
+		c.Y = 31;
+		if (g_dElapsedTime > g_dTime)
+		{
+			g_Console.writeToBuffer(c, "As Ava sat on the couch in her living room, she grabbed some makeup accessories and went to work with", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "them, drawing what looks like bruises and burn marks on her thighs.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 6.0))
+		{
+			g_Console.writeToBuffer(c, "Perfect, she thought, Now all I need is an idiot for me to become a \"victim\".", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 9.0))
+		{
+			g_Console.writeToBuffer(c, "Ava picked up the telephone and punched in some numbers.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 12.0))
+		{
+			g_Console.writeToBuffer(c, "\"Hi Matilda? Are you free this afternoon?\"", 0x03);
+		}
+	}
 
 	/* Template for MX
 	if (c.Y == 54)
