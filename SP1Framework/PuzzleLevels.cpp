@@ -4,6 +4,7 @@ extern Console g_Console;
 
 extern int Areanum;
 extern int InPortal;
+extern int OptionalFragment;
 
 char** puzzlestore(char** printlevel)
 {
@@ -42,7 +43,14 @@ char** puzzlestore(char** printlevel)
 		puzzle.open("Text files/5_LivingRoomOF.txt");
 		break;
 	case 11:
-		puzzle.open("Text files/6_Funeral.txt");
+		if (OptionalFragment < 5)
+		{
+			puzzle.open("Text files/6_Funeral.txt");
+		}
+		else if (OptionalFragment == 5)
+		{
+			puzzle.open("Text files/6_FuneralTrueEnd.txt");
+		}
 		break;
 	case 12:
 		puzzle.open("Text files/1_LakeXFish.txt");
@@ -56,20 +64,13 @@ char** puzzlestore(char** printlevel)
 	case 15:
 		puzzle.open("Text files/Bedroom.txt");
 		break;
+	case 16:
+		puzzle.open("Text files/6_FuneralNXBook.txt");
+		break;
+	case 17:
+		puzzle.open("Text files/6_FuneralTrueEndNXBook.txt");
+		break;
 	}
-	/*
-
-	else if (InPortal == 11 && OptionalFragment < 5)
-	{
-	    puzzle.open("Text files/6_Funeral.txt");
-	}
-	else if (InPortal == 11 && OptionalFragment == 5)
-	{
-		puzzle.open("Text files/6_FuneralTrueEnd.txt");
-	}
-
-	*/
-
 
 	if (puzzle.is_open())
 	{

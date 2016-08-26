@@ -10,9 +10,9 @@ extern double g_dElapsedTime;
 int Factfeed = 0;
 int InPortal = 0;
 int tempF;
-int EssentialFragment = 4; // Change this to access certain areas.
+int EssentialFragment = 5; // Change this to access certain areas.
 int OptionalFragment = 4;  // Change this to access certain areas.
-std::string inventory = "none";
+std::string inventory = "A History Book";
 int levelfinish = 0;
 int reqinteraction = 0; // This is so we can force the player to actually read certain thingamajigs otherwise other thingamajigs wont work.
 double g_dElapsedTimeTemp = 999.0;
@@ -131,6 +131,12 @@ int checkinteract(void)
 			break;
 		case 15:
 			file.open("Text files/Bedroom.txt");
+			break;
+		case 16:
+			file.open("Text files/6_FuneralNXBook.txt");
+			break;
+		case 17:
+			file.open("Text files/6_FuneralTrueEndNXBook.txt");
 			break;
 		}
 	}
@@ -541,7 +547,7 @@ int checkinteract(void)
 				return 264;
 			}
 		}
-		else if (InPortal == 11)   //Funeral
+		else if (InPortal == 11 || InPortal == 16 || InPortal == 17)   //Funeral
 		{
 			if (OptionalFragment < 5)   //Funeral Ending 1 (Bad Ending)
 			{
@@ -689,6 +695,18 @@ void FstandsforFrustrating(int checkF)
 		reqinteraction = 1;
 	}
 
+	if (tempF == 173 && checkF == 9 && reqinteraction == 1)
+	{
+		Factfeed = 0;
+		g_eGameState = S_INPUT;
+	}
+
+	if (tempF == 273 && checkF == 9 && reqinteraction == 1)
+	{
+		Factfeed = 0;
+		g_eGameState = S_INPUT;
+	}
+
 	if (Factfeed == 25 && checkF == 9 && reqinteraction == 1) // LEVEL 5
 	{
 		Factfeed = 0;
@@ -799,6 +817,20 @@ void FstandsforFrustrating(int checkF)
 	{
 		levelfinish = 3;
 		Factfeed = 922;
+		inventory = "none";
+	}
+
+	if (inventory == "A History Book" && tempF == 171 && checkF == 9)
+	{
+		InPortal = 16;
+		reqinteraction = 1;
+		inventory = "none";
+	}
+
+	if (inventory == "A History Book" && tempF == 271 && checkF == 9)
+	{
+		InPortal = 17;
+		reqinteraction = 1;
 		inventory = "none";
 	}
 

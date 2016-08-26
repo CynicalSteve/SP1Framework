@@ -38,6 +38,12 @@ void renderInputScreen()
 	case 10:
 		read.open("Text files/5_DisplayOptional.txt");
 		break;
+	case 16:
+		read.open("Text files/6_Display.txt");
+		break;
+	case 17:
+		read.open("Text files/6_DisplayTrueEnd.txt");
+		break;
 	default:
 		break;
 	}
@@ -98,6 +104,22 @@ void renderTyping(string checkI)
 		{
 			reqinteraction = 1;
 			Factfeed = 995;
+			FstandsforFrustrating(9);
+			Sentence = "";
+			g_eGameState = S_GAME;
+		}
+		else if (temp == "impenitence" && InPortal == 16)
+		{
+			reqinteraction = 2;
+			Factfeed = 996;
+			FstandsforFrustrating(9);
+			Sentence = "";
+			g_eGameState = S_GAME;
+		}
+		else if (temp == "repentance" && InPortal == 17)
+		{
+			reqinteraction = 2;
+			Factfeed = 997;
 			FstandsforFrustrating(9);
 			Sentence = "";
 			g_eGameState = S_GAME;

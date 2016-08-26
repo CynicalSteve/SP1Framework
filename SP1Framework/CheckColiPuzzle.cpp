@@ -5,7 +5,7 @@ extern Console g_Console;
 extern SGameChar g_sChar;
 
 extern int Areanum;
-extern int EssentialFragment;
+extern int OptionalFragment;
 extern int InPortal;
 
 
@@ -50,7 +50,14 @@ int CollisionPuzzle(int checkPuzzle)
 		file.open("Text files/5_LivingRoomOF.txt");
 		break;
 	case 11:
-		file.open("Text files/6_Funeral.txt");
+		if (OptionalFragment < 5)
+		{
+			file.open("Text files/6_Funeral.txt");
+		}
+		else if (OptionalFragment == 5)
+		{
+			file.open("Text files/6_FuneralTrueEnd.txt");
+		}
 		break;
 	case 12:
 		file.open("Text files/1_LakeXFish.txt");
@@ -63,6 +70,12 @@ int CollisionPuzzle(int checkPuzzle)
 		break;
 	case 15:
 		file.open("Text files/Bedroom.txt");
+		break;
+	case 16:
+		file.open("Text files/6_FuneralNXBook.txt");
+		break;
+	case 17:
+		file.open("Text files/6_FuneralTrueEndNXBook.txt");
 		break;
 	}
 

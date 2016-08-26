@@ -868,7 +868,11 @@ void actfeed()
 			g_Console.writeToBuffer(c, "There is nothing but red fog outside.", 0x02);
 			break;
 		case 37:  //Living Room Phone (OF)
-			g_Console.writeToBuffer(c, "Nothing but a long, monotonous tone comes through the handset speaker", 0x02);
+			g_Console.writeToBuffer(c, "Nothing but a long, monotonous tone comes through the handset speaker.", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "There's something on the baby cot, maybe that can help.", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "Press the E key to Interact.", 0x02);
 			break;
 		case 38:   //Living Room sofa
 			g_Console.writeToBuffer(c, "This sofa is so ugly that I do not know if I should laugh at or pity its owner.", 0x02);
@@ -879,30 +883,46 @@ void actfeed()
 			g_Console.writeToBuffer(c, "LIAR", 0x04);   //Text red in colour
 			break;
 		case 40:   //Funeral Bookshelf (Bad End)
-			g_Console.writeToBuffer(c, "There's an single empty space in between two books. Should I place the history book I acquired in there?");
-			c.Y++;
-			g_Console.writeToBuffer(c, "Press E to place History Book.", 0x05);
+			if (inventory == "A History Book")
+			{
+				g_Console.writeToBuffer(c, "There's an single empty space in between two books. Should I place the history book I acquired in there?", 0x02);
+				c.Y++;
+				g_Console.writeToBuffer(c, "Press the E key to place History Book.", 0x05);
+			}
+			else
+			{
+				g_Console.writeToBuffer(c, "I've placed the History Book in. I have nothing else to do here.", 0x02);
+			}
 			break;
 		case 41:  //Funeral Pews   (Bad End)
 			g_Console.writeToBuffer(c, "The pews are all empty, but soft sobbing sounds can be heard from them.", 0x02);
 			break;
 		case 42:  //Funeral Coffin (Bad End)
-			g_Console.writeToBuffer(c, "A closed coffin. This looks like a funeral wake.", 0x02);
+			g_Console.writeToBuffer(c, "A closed coffin. This looks like a funeral wake. There's a piece of paper on top of the coffin that reads:", 0x02);
 			c.Y++;
-			g_Console.writeToBuffer(c, "There's a piece of paper on top of the coffin that reads:");
+			g_Console.writeToBuffer(c, "\"...to protect messages of military significance, Julius Caesar devised an encryption technique now widely", 0x08);
 			c.Y++;
-			g_Console.writeToBuffer(c, "...to protect messages of military significance, Julius Caesar devised an encryption technique now widely  ", 0x08);
-			c.Y++;
-			g_Console.writeToBuffer(c, "known as the \"Caesar Cipher\". This substitution cipher was employed during...", 0x08); // *** *** *** *** *** FIX THIS LATER *** *** *** *** ***
-			c.Y++;
-			g_Console.writeToBuffer(c, "This must be the page torn from the history book.", 0x02);
-			c.Y++;
-			g_Console.writeToBuffer(c, "Crudely carved into the coffin’s cover is a code \"lpshqlwhqfh\"", 0x05);
+			g_Console.writeToBuffer(c, "known as the \"Caesar Cipher\". This substitution cipher was employed during...\"", 0x08);
+			if (reqinteraction == 1)
+			{
+				c.X = 79;
+				g_Console.writeToBuffer(c, "(Press the E key to interact)", 0x05);
+				c.X = 0;
+				c.Y++;
+				g_Console.writeToBuffer(c, "This must be the page torn from the history book. Crudely carved on the coffin's cover is \"lpshqlwhqfh\"", 0x02);
+			}
 			break;
 		case 43:  //Funeral Bookshelf (True End)
-			g_Console.writeToBuffer(c, "There's an single empty space in between two books. Should I place the history book I acquired in there?", 0x02);
-			c.Y++;
-			g_Console.writeToBuffer(c, "Press E to place History Book.", 0x05);
+			if (inventory == "A History Book")
+			{
+				g_Console.writeToBuffer(c, "There's an single empty space in between two books. Should I place the history book I acquired in there?", 0x02);
+				c.Y++;
+				g_Console.writeToBuffer(c, "Press the E key to place History Book.", 0x05);
+			}
+			else
+			{
+				g_Console.writeToBuffer(c, "I've placed the History Book in. I have nothing else to do here.", 0x02);
+			}
 			break;
 		case 44:  //Funeral Pews (True End)
 			g_Console.writeToBuffer(c, "The pews are all empty. A deafening silence hung amongst the air.", 0x02);
@@ -913,8 +933,14 @@ void actfeed()
 			g_Console.writeToBuffer(c, "There's a piece of paper on top of the coffin that reads:", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "Here lies Ava Laurens, where her body shall ROT FOR eternity.", 0x08);
-			c.Y++;
-			g_Console.writeToBuffer(c, "Crudely carved into the coffin’s cover is a code \"vitirxergi\".", 0x05);
+			if (reqinteraction == 1)
+			{
+				c.X = 62;
+				g_Console.writeToBuffer(c, "(Press the E key to interact)", 0x05);
+				c.X = 0;
+				c.Y++;
+				g_Console.writeToBuffer(c, "Crudely carved into the coffin's cover is a code \"vitirxergi\".", 0x02);
+			}
 			break;
 		case 46:  //Computer Room Bookshelf (OF)
 			g_Console.writeToBuffer(c, "An empty bookshelf caked with dust.", 0x02);
