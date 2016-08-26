@@ -21,7 +21,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -88,6 +88,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="MegaInteract.cpp" />
+    <ClCompile Include="PauseScreen.cpp" />
     <ClCompile Include="PlayerInput.cpp" />
     <ClCompile Include="PuzzleLevels.cpp" />
     <ClCompile Include="renderInput.cpp" />
@@ -102,6 +103,7 @@
     <ClInclude Include="game.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="MegaInteract.h" />
+    <ClInclude Include="PauseScreen.h" />
     <ClInclude Include="PlayerInput.h" />
     <ClInclude Include="PuzzleLevels.h" />
     <ClInclude Include="renderInput.h" />

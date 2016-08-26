@@ -11,6 +11,7 @@
 #include "RenderJournal.h"
 #include "PlayerInput.h"
 #include "renderInput.h"
+#include "PauseScreen.h"
 
 extern CStopWatch g_swTimer;
 extern bool g_bQuitGame;
@@ -88,7 +89,6 @@ enum EGAMESTATES
 struct SGameChar
 {
     COORD m_cLocation;
-    bool  m_bActive;
 };
 
 void init        ( void );      // initialize your variables, allocate memory, etc

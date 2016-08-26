@@ -55,7 +55,6 @@ void init( void )
 	// sets where the character spawns when game starts
 	g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 87;
 	g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 43;
-	g_sChar.m_bActive = true;
     // sets the width, height and the font name to use in the console
     g_Console.setConsoleFont(0, 16, L"Consolas");
 }
@@ -275,11 +274,6 @@ void moveCharacter()
 			}
 		}
     }
-    if (g_abKeyPressed[K_SPACE])
-    {
-        g_sChar.m_bActive = !g_sChar.m_bActive;
-        bSomethingHappened = true;
-    }
 
     if (bSomethingHappened)
     {
@@ -435,11 +429,7 @@ void renderMap()
 void renderCharacter()
 {
     // Draw the location of the character
-    WORD charColor = 0x0C;
-    if (g_sChar.m_bActive)
-    {
-        charColor = 0x0A;
-    }
+    WORD charColor = 0x0A;
     g_Console.writeToBuffer(g_sChar.m_cLocation, (char)1, charColor);
 }
 
@@ -496,7 +486,7 @@ void renderToScreen()
 
 void pause()
 {
-	//audioPause();
+	PauseScreen();
 }
 
 void renderJournal()
