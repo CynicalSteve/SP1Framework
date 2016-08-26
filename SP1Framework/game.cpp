@@ -496,10 +496,10 @@ void renderToScreen()
 
 void pause()
 {
-	void audioPause();
+	//audioPause();
 }
 
 void renderJournal()
 {
-	void renJournal();
+	renJournal();
 }
