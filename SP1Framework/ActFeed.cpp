@@ -870,6 +870,9 @@ void actfeed()
 		case 992:
 			g_Console.writeToBuffer(c, "Upon successfully guessing the missing word, the computer loaded up a video on the screen.", 0x02);
 			break;
+		case 993:
+			g_Console.writeToBuffer(c, "I decoded the numbers and it spells out \"happy\" The box opens, to reveal to me another memory.", 0x02);
+			break;
 		case 999: // Testing purposes only, pls take out on release build danke.
 			g_Console.writeToBuffer(c, "Whatever you are doing,", 0x02);
 			c.Y++;
