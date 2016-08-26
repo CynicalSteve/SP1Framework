@@ -61,7 +61,7 @@ void init( void )
     g_Console.setConsoleFont(0, 16, L"Consolas");
 
 	// sets the arrow in the menu screen
-	MenuArrow.Arrow_Location.X = g_Console.getConsoleSize().X - 72;
+	MenuArrow.Arrow_Location.X = g_Console.getConsoleSize().X - 74;
 	MenuArrow.Arrow_Location.Y = g_Console.getConsoleSize().Y - 27;
 }
 
@@ -206,30 +206,6 @@ void splashScreenWait()    // waits for time to pass in splash screen
 	{
 		MenuArrow.Arrow_Location.Y--;
 	}
-
-	/*
-	MenuArrow.Arrow_Location.X = g_Console.getConsoleSize().X - 70;
-	MenuArrow.Arrow_Location.Y = g_Console.getConsoleSize().Y - 27;
-
-	DOWN
-	g_sChar.m_cLocation.Y++;
-
-	if (g_abKeyPressed[K_JOURNAL])
-	{
-	bSomethingHappened = true;
-
-	if (g_eGameState != 3)
-	{
-	g_eGameState = S_JOURNAL;
-	}
-	else if (g_eGameState == 3)
-	{
-	clearScreen();
-
-	g_eGameState = S_GAME;
-	}
-	}
-	*/
 }
 
 void gameplay()            // gameplay logic
@@ -438,13 +414,11 @@ void renderSplashScreen()  // renders the splash screen
 	c.X = 44;
 	g_Console.writeToBuffer(c, "Welcome to Fragments!", 0x03);
 	c.Y++;
-	c.X = 43;
+	c.X = 41;
 	g_Console.writeToBuffer(c, "Press <space> to start game", 0x03);
 	c.Y++;
-	c.X = 40;
+	c.X = 38;
 	g_Console.writeToBuffer(c, "Press <space> to view instructions", 0x03);
-	c.X = 50;
-	c.Y++;
 
 	char Arrow = '>';
 	g_Console.writeToBuffer(MenuArrow.Arrow_Location, Arrow);
