@@ -144,6 +144,21 @@ void actfeed()
 		g_Console.writeToBuffer(c, "Change the negative present, into a positive yesterday.", 0x05);
 	}
 
+	if (InPortal == 6)
+	{
+		c.Y = 31;
+
+		g_Console.writeToBuffer(c, "\"You’ve always resented him for this. Doubting his intentions.", 0x06);
+		c.Y++;
+		g_Console.writeToBuffer(c, "Do you know how it feels to be doubted despite having good intentions? It feels horrible.\"", 0x06);
+		c.Y++;
+
+		if (levelfinish == 6)
+		{
+			g_Console.writeToBuffer(c, "\"Maybe you are. But does it really matter? The scars are still there.\"", 0x06);
+		}
+	}
+
 	if (InPortal == 15) // TBD what we do with this
 	{
 		c.Y = 31;
@@ -400,6 +415,146 @@ void actfeed()
 			g_Console.writeToBuffer(c, "\"Yeah, yeah whatever. You're such a pansy Terence. Learn to say no, you idiot.\"", 0x03);
 		}
 	}
+
+	if (Factfeed == 991) //EF 3
+	{
+		c.Y = 34;
+		if (g_dElapsedTime > g_dTime)
+		{
+			g_Console.writeToBuffer(c, "\"Have you ever seen a creature this bizarre? I mean it's pretty much a mermaid lion,\" Terence said as", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "he snapped a picture of the merlion statue.", 0x03);
+			c.Y++;
+		}
+		if (g_dElapsedTime > (g_dTime + 5.0))
+		{
+			g_Console.writeToBuffer(c, "\"Singapore's a pretty superstitious country after all, or at least in the past it used to be,\" I said,", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "glancing at the hoards of tourists around us.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 10.0))
+		{
+			g_Console.writeToBuffer(c, "\"But it's a beautiful country. I wonder what it takes to raise our children in such a place.\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 13.0))
+		{
+			g_Console.writeToBuffer(c, "As I stroked my protruding belly, I could've sworn I felt the little one kick in agreement.", 0x03);
+			c.Y++;
+		}
+		if (g_dElapsedTime > (g_dTime + 14.0))
+		{
+			g_Console.writeToBuffer(c, "Terence chuckled as he took more photos. He always had an interest in photography.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 15.0))
+		{
+			g_Console.writeToBuffer(c, "\"I would like to,\" he responded, \"if only the prices here weren't as high as its skyscrapers.\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 19.0))
+		{
+			g_Console.writeToBuffer(c, "\"How long are you gonna keep taking those photos?\" I said, furiously fanning myself with the pamphlets", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "and maps I was holding.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 23.0))
+		{
+			g_Console.writeToBuffer(c, "\"Hang on, just one more picture...\" he replied, aiming the camera at me.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 26.0))
+		{
+			g_Console.writeToBuffer(c, "\"SNAP!", 0x03);
+		}
+	}
+
+	if (Factfeed == 992) //OF 3
+	{
+		c.Y = 34;
+		if (g_dElapsedTime > g_dTime)
+		{
+			g_Console.writeToBuffer(c, "\"Where have you been?\" Ava asked impatiently, her arms crossed and her eyebrows stitched into a frown.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 3.0))
+		{
+			g_Console.writeToBuffer(c, "Overtime down at the company.\" Terence replied while grabbing a beer from the refrigerator.", 0x03);
+			c.Y++;
+		}
+		if (g_dElapsedTime > (g_dTime + 6.0))
+		{
+			g_Console.writeToBuffer(c, "\"You sure? You sure you're not humping some colleague while everyone's gone?\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 9.0))
+		{
+			g_Console.writeToBuffer(c, "Terence froze, startled by her accusation.", 0x03);
+			c.Y++;
+		}
+		if (g_dElapsedTime > (g_dTime + 11.0))
+		{
+			g_Console.writeToBuffer(c, "\"What are you-why would you say something like that, Ava?\" Terence asked, obviously hurt by her words.", 0x03);
+			c.Y++;
+		}
+		if (g_dElapsedTime > (g_dTime + 15.0))
+		{
+			g_Console.writeToBuffer(c, "Ava merely scoffed, before returning back to their bedroom.", 0x03);
+		}
+	}
+
+
+	if (Factfeed == 993) // EF 4
+	{
+		c.Y = 34;
+		if (g_dElapsedTime > g_dTime)
+		{
+			g_Console.writeToBuffer(c, "\"Ah, Mrs Laurens! Fancy meeting you here!\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 2.0))
+		{
+			g_Console.writeToBuffer(c, "It was our neighbour, Mrs Lindow.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 4.0))
+		{
+			g_Console.writeToBuffer(c, "\"Mrs Lindow, so great to see you here! How have you been?\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 7.0))
+		{
+			g_Console.writeToBuffer(c, "\"Good! Are you walking your kids home from the grocery store?\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 10.0))
+		{
+			g_Console.writeToBuffer(c, " \"Yes,\" I said, \"this is Sasha, 11, and her brother Jonathan, 9. Say hi to Mrs Lindow, children.\"", 0x03);
+			c.Y++;
+		}
+		if (g_dElapsedTime > (g_dTime + 15.0))
+		{
+			g_Console.writeToBuffer(c, "They remained silent however, with their eyes glued to the ground.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 18.0))
+		{
+			g_Console.writeToBuffer(c, "\"Ah, pardon their rudeness. They must be shy meeting someone new after moving here.\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 21.0))
+		{
+			g_Console.writeToBuffer(c, "\"Ohohoho, nothing to worry,\" she said. \"I must get going now, see you later!\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 25.0))
+		{
+			g_Console.writeToBuffer(c, "\"Bye,\" I said, waving as she continued down the pavement.", 0x03);
+		}
+	}
+
 
 
 	/* Template for MX
@@ -708,23 +863,18 @@ void actfeed()
 		case 47:  //Computer Room Computer (OF)
 			g_Console.writeToBuffer(c, "The screen of the computer shows:", 0x02);
 			c.Y++;
-			g_Console.writeToBuffer(c, "DIE DIE DIE DIE DIE DIE DIE", 0x04);
+			g_Console.writeToBuffer(c, "\"What's the missing word?\"", 0x02);
 			c.Y++;
-			break;
-		case 48:  //Computer Room Map (OF)
-			g_Console.writeToBuffer(c, "A blank piece of paper hangs sullenly on the wall.", 0x02);
+			g_Console.writeToBuffer(c, "Press the E key to type in the missing word.", 0x05);
 			break;
 		case 49:  //Computer Room Picture (OF)
 			g_Console.writeToBuffer(c, "It's a picture of a kid getting bullied by someone. Behind it is another picture, depicting the bully", 0x02);
 			c.Y++;
-			g_Console.writeToBuffer(c, "standing next to the same kid. There’s a speech bubble partially torn off.", 0x02);
+			g_Console.writeToBuffer(c, "standing next to the same kid. There's a speech bubble partially torn off.", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "I didn't mean to do all those things to you in the past. I know that my apologies will not help you heal,", 0x05);
 			c.Y++;
 			g_Console.writeToBuffer(c, "but... I feel like there is a need for me to say that I am-", 0x05);
-			break;
-		case 50:  //Computer Room Box (OF)
-			g_Console.writeToBuffer(c, "A flat box bound by leather, resembling an old book.", 0x02);
 			break;
 		case 911:   //Lake EF Complete
 			g_Console.writeToBuffer(c, "The stone hit the metallic object with a pleasant 'ding'.", 0x02);
@@ -801,6 +951,15 @@ void actfeed()
 		case 404: // Error 404. Just kidding.
 			g_Console.writeToBuffer(c, "An unknown force prevents me from proceeding.", 0x03);
 			break;
+		case 991:
+			g_Console.writeToBuffer(c, "Upon my successful log in, the computer loaded up a video on the screen.", 0x02);
+			break;
+		case 992:
+			g_Console.writeToBuffer(c, "Upon successfully guessing the missing word, the computer loaded up a video on the screen.", 0x02);
+			break;
+		case 993:
+			g_Console.writeToBuffer(c, "I decoded the numbers and it spells out \"happy\" The box opens, to reveal to me another memory.", 0x02);
+			break;
 		case 999: // Testing purposes only, pls take out on release build danke.
 			g_Console.writeToBuffer(c, "Whatever you are doing,", 0x02);
 			c.Y++;
@@ -856,7 +1015,6 @@ void actfeed()
 			g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 51;
 		}
 
-		/*
 		if (g_dElapsedTime >= g_dElapsedTimeTemp && levelfinish == 5)
 		{
 		InPortal = 0;
@@ -922,6 +1080,5 @@ void actfeed()
 		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 96;
 		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 48;
 		}
-		*/
 	}
 }

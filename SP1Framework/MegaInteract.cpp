@@ -1,5 +1,5 @@
 #include "MegaInteract.h"
-
+#include "PlayerInput.h"
 extern Console g_Console;
 extern SGameChar g_sChar;
 extern EGAMESTATES g_eGameState;
@@ -10,8 +10,8 @@ extern double g_dElapsedTime;
 int Factfeed = 0;
 int InPortal = 0;
 int tempF;
-int EssentialFragment = 2; // Change this to access certain areas.
-int OptionalFragment = 2;  // Change this to access certain areas.
+int EssentialFragment = 3; // Change this to access certain areas.
+int OptionalFragment = 3;  // Change this to access certain areas.
 std::string inventory = "none";
 int levelfinish = 0;
 int reqinteraction = 0; // This is so we can force the player to actually read certain thingamajigs otherwise other thingamajigs wont work.
@@ -481,12 +481,8 @@ int checkinteract(void)
 		        return 231;
 			case 'C':
 				return 232;
-			case 'S':
-				return 233;
 			case 'W':
 				return 234;
-			case 'B':
-				return 235;
 			}
 		}
 		else if (InPortal == 7)    //Street EF
@@ -693,10 +689,46 @@ void FstandsforFrustrating(int checkF)
 		reqinteraction = 1;
 	}
 
-	if (Factfeed == 25 && checkF == 9 && reqinteraction == 1)
+	if (Factfeed == 25 && checkF == 9 && reqinteraction == 1) // LEVEL 5
 	{
 		Factfeed = 0;
 		g_eGameState = S_INPUT;
+	}
+
+	if (Factfeed == 991 && reqinteraction == 2)
+	{
+		levelfinish = 5;
+		reqinteraction = 0;
+		EssentialFragment = 3;
+		g_dElapsedTimeTemp = (g_dElapsedTime + 10.0);
+	}
+
+	if (Factfeed == 47 && checkF == 9) // LEVEL 6
+	{
+		Factfeed = 0;
+		g_eGameState = S_INPUT;
+	}
+
+	if (Factfeed == 992 && reqinteraction == 1)
+	{
+		levelfinish = 6;
+		reqinteraction = 0;
+		OptionalFragment = 3;
+		g_dElapsedTimeTemp = (g_dElapsedTime + 10.0);
+	}
+
+	if (Factfeed == 29 && checkF == 9) // LEVEL 7
+	{
+		Factfeed = 0;
+		g_eGameState = S_INPUT;
+	}
+
+	if (Factfeed == 993 && reqinteraction == 1)
+	{
+		levelfinish = 7;
+		reqinteraction = 0;
+		EssentialFragment = 4;
+		g_dElapsedTimeTemp = (g_dElapsedTime + 10.0);
 	}
 
 	if (Factfeed == 401 && checkF == 9)
@@ -919,7 +951,10 @@ void FstandsforFrustrating(int checkF)
 		Factfeed = 24;
 		break;
 	case 132: // Computer
-		Factfeed = 25;
+		if (EssentialFragment != 3)
+		{
+			Factfeed = 25;
+		}
 		break;
 	case 133: // Map
 		Factfeed = 26;
@@ -931,7 +966,10 @@ void FstandsforFrustrating(int checkF)
 		Factfeed = 28;
 		break;
 	case 143:
-		Factfeed = 29;
+		if (EssentialFragment != 4)
+		{
+			Factfeed = 29;
+		}
 		break;
 	case 151:
 		Factfeed = 31;
@@ -985,22 +1023,19 @@ void FstandsforFrustrating(int checkF)
 		Factfeed = 46;
 		break;
 	case 232:
-		Factfeed = 47;
-		break;
-	case 233:
-		Factfeed = 48;
+		if (OptionalFragment != 3)
+		{
+			Factfeed = 47;
+		}
 		break;
 	case 234:
 		Factfeed = 49;
-		break;
-	case 235:
-		Factfeed = 50;
 		break;
 	case 0:
 		Factfeed = 0;
 		break;
 	}
-	if (Factfeed == 912 || Factfeed == 914 || Factfeed == 923 || Factfeed == 926)
+	if (Factfeed == 912 || Factfeed == 914 || Factfeed == 923 || Factfeed == 926 || Factfeed == 991 || Factfeed == 992 || Factfeed == 993)
 	{
 		g_dTime = (g_dElapsedTime + 2.0);
 	}

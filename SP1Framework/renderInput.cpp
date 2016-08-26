@@ -1,8 +1,15 @@
 #include "renderInput.h"
 
-extern Console g_Console;
-
 using namespace std;
+
+extern Console g_Console;
+extern EGAMESTATES g_eGameState;
+extern int Factfeed;
+extern int reqinteraction;
+extern int InPortal;
+extern string Sentence;
+
+string temp;
 
 void renderInputScreen()
 {
@@ -10,8 +17,24 @@ void renderInputScreen()
 	c.Y = 1;
 	c.X = 0;
 
-	ifstream read("Text files/3_Display.txt");
 	string str, str1;
+
+	ifstream read;
+	
+	switch (InPortal)
+	{
+	case 14:
+		read.open("Text files/3_Display.txt");
+		break;
+	case 6:
+		read.open("Text files/3_DisplayOptional.txt");
+		break;
+	case 7:
+		read.open("Text files/4_Display.txt");
+		break;
+	default:
+		break;
+	}
 
 	int index = 0;
 	if (read.is_open())
@@ -31,9 +54,43 @@ void renderInputScreen()
 
 void renderTyping(string checkI)
 {
+	if (checkI == " ")
+	{
+		if (temp == "merlion" && InPortal == 14)
+		{
+			reqinteraction = 2;
+			Factfeed = 991;
+			FstandsforFrustrating(9);
+			Sentence = "";
+			g_eGameState = S_GAME;
+		}
+		else if (temp == "sorry" && InPortal == 6)
+		{
+			reqinteraction = 1;
+			Factfeed = 992;
+			FstandsforFrustrating(9);
+			Sentence = "";
+			g_eGameState = S_GAME;
+		}
+		else if (temp == "happy" && InPortal == 7)
+		{
+			reqinteraction = 1;
+			Factfeed = 993;
+			FstandsforFrustrating(9);
+			Sentence = "";
+			g_eGameState = S_GAME;
+		}
+		else
+		{
+			checkI = "";
+		}
+	}
+
+	temp = checkI;
+
 	COORD c;
 	c.Y = 5;
 	c.X = 13;
 
-	g_Console.writeToBuffer(c, checkI, 0x02);
+	g_Console.writeToBuffer(c, temp, 0x02);
 }

@@ -186,13 +186,12 @@ string PlayerInput(void)
 
 		if (g_abKeyPressed[K_ENTER])
 		{
-			return Sentence;
+			return " ";
 		}
 
 		if (SomethangHappund)
 		{
 			g_dBounceTime = g_dElapsedTime + 0.125;
 		}
-
 		return Sentence;
 }

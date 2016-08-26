@@ -18,7 +18,7 @@ double  g_dElapsedTime;
 double  g_dDeltaTime;
 bool    g_abKeyPressed[K_COUNT];
 
-int Areanum = 1;
+int Areanum = 4;
 int Levelnum = 0;          // Odd numbers = EF, Even numbers = OF. In code later for last 2 "IF OF = 5, then take player to the 2nd ending instead"
 int checkF;                // Checking what the player is interacting with
 
@@ -63,8 +63,8 @@ void init( void )
     g_Console.setConsoleFont(0, 16, L"Consolas");
 
 	// sets the arrow in the menu screen
-	MenuArrow.Arrow_Location.X = g_Console.getConsoleSize().X - 74;
-	MenuArrow.Arrow_Location.Y = g_Console.getConsoleSize().Y - 27;
+	MenuArrow.Arrow_Location.X = g_Console.getConsoleSize().X - 68;
+	MenuArrow.Arrow_Location.Y = g_Console.getConsoleSize().Y - 26;
 }
 
 //--------------------------------------------------------------
@@ -224,23 +224,23 @@ void render()
 void splashScreenWait()    // waits for time to pass in splash screen
 {
 	// Draw the location of the arrow
-	if (g_abKeyPressed[K_SPACE] && MenuArrow.Arrow_Location.Y == g_Console.getConsoleSize().Y - 27)
+	if (g_abKeyPressed[K_SPACE] && MenuArrow.Arrow_Location.Y == g_Console.getConsoleSize().Y - 26)
 	{
 		//enter game
 		g_eGameState = S_GAME;
 		g_dTime = (g_dElapsedTime + 2.0);
 	}
-	if (g_abKeyPressed[K_SPACE] && MenuArrow.Arrow_Location.Y == g_Console.getConsoleSize().Y - 26)
+	if (g_abKeyPressed[K_SPACE] && MenuArrow.Arrow_Location.Y == g_Console.getConsoleSize().Y - 25)
 	{
 		//enter instructions screen
 		g_eGameState = S_INSTRUCTIONS;
 
 	}
-	if (g_abKeyPressed[A_DOWN] && MenuArrow.Arrow_Location.Y == g_Console.getConsoleSize().Y - 27)
+	if (g_abKeyPressed[A_DOWN] && MenuArrow.Arrow_Location.Y == g_Console.getConsoleSize().Y - 26)
 	{
 		MenuArrow.Arrow_Location.Y++;
 	}
-	if (g_abKeyPressed[A_UP] && MenuArrow.Arrow_Location.Y == g_Console.getConsoleSize().Y - 26)
+	if (g_abKeyPressed[A_UP] && MenuArrow.Arrow_Location.Y == g_Console.getConsoleSize().Y - 25)
 	{
 		MenuArrow.Arrow_Location.Y--;
 	}
@@ -460,11 +460,14 @@ void renderSplashScreen()  // renders the splash screen
 	c.X = 44;
 	g_Console.writeToBuffer(c, "Welcome to Fragments!", 0x03);
 	c.Y++;
-	c.X = 41;
-	g_Console.writeToBuffer(c, "Press <space> to start game", 0x03);
+	c.X = 20;
+	g_Console.writeToBuffer(c, "Use the arrow keys to navigate the menu, and press <space> to select them", 0x3);
 	c.Y++;
-	c.X = 38;
-	g_Console.writeToBuffer(c, "Press <space> to view instructions", 0x03);
+	c.X = 49;
+	g_Console.writeToBuffer(c, "Start game", 0x09);
+	c.Y++;
+	c.X = 45;
+	g_Console.writeToBuffer(c, "View instructions", 0x09);
 
 	char Arrow = '>';
 	g_Console.writeToBuffer(MenuArrow.Arrow_Location, Arrow);
