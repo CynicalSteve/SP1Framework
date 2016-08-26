@@ -32,6 +32,12 @@ void renderInputScreen()
 	case 7:
 		read.open("Text files/4_Display.txt");
 		break;
+	case 9:
+		read.open("Text files/5_Display.txt");
+		break;
+	case 10:
+		read.open("Text files/5_DisplayOptional.txt");
+		break;
 	default:
 		break;
 	}
@@ -76,6 +82,14 @@ void renderTyping(string checkI)
 		{
 			reqinteraction = 1;
 			Factfeed = 993;
+			FstandsforFrustrating(9);
+			Sentence = "";
+			g_eGameState = S_GAME;
+		}
+		else if (temp == "134" && InPortal == 9)
+		{
+			reqinteraction = 1;
+			Factfeed = 994;
 			FstandsforFrustrating(9);
 			Sentence = "";
 			g_eGameState = S_GAME;

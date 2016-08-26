@@ -189,6 +189,66 @@ string PlayerInput(void)
 			return " ";
 		}
 
+		if (g_abKeyPressed[K_ONE])
+		{
+			Sentence.push_back('1');
+			SomethangHappund = true;
+		}
+
+		if (g_abKeyPressed[K_TWO])
+		{
+			Sentence.push_back('2');
+			SomethangHappund = true;
+		}
+
+		if (g_abKeyPressed[K_THREE])
+		{
+			Sentence.push_back('3');
+			SomethangHappund = true;
+		}
+
+		if (g_abKeyPressed[K_FOUR])
+		{
+			Sentence.push_back('4');
+			SomethangHappund = true;
+		}
+
+		if (g_abKeyPressed[K_FIVE])
+		{
+			Sentence.push_back('5');
+			SomethangHappund = true;
+		}
+
+		if (g_abKeyPressed[K_SIX])
+		{
+			Sentence.push_back('6');
+			SomethangHappund = true;
+		}
+
+		if (g_abKeyPressed[K_SEVEN])
+		{
+			Sentence.push_back('7');
+			SomethangHappund = true;
+		}
+
+		if (g_abKeyPressed[K_EIGHT])
+		{
+			Sentence.push_back('8');
+			SomethangHappund = true;
+		}
+
+		if (g_abKeyPressed[K_NINE])
+		{
+			Sentence.push_back('9');
+			SomethangHappund = true;
+		}
+
+		if (g_abKeyPressed[K_ZERO])
+		{
+			Sentence.push_back('0');
+			SomethangHappund = true;
+		}
+
 		if (SomethangHappund)
 		{
 			g_dBounceTime = g_dElapsedTime + 0.125;

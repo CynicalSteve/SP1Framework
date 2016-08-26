@@ -731,6 +731,20 @@ void FstandsforFrustrating(int checkF)
 		g_dElapsedTimeTemp = (g_dElapsedTime + 10.0);
 	}
 
+	if (Factfeed == 34 && checkF == 9) // LEVEL 9
+	{
+		Factfeed = 0;
+		g_eGameState = S_INPUT;
+	}
+
+	if (Factfeed == 994 && reqinteraction == 1)
+	{
+		levelfinish = 9;
+		reqinteraction = 0;
+		EssentialFragment = 5;
+		g_dElapsedTimeTemp = (g_dElapsedTime + 10.0);
+	}
+
 	if (Factfeed == 401 && checkF == 9)
 	{
 		InPortal = 15;
@@ -969,7 +983,7 @@ void FstandsforFrustrating(int checkF)
 		if (EssentialFragment != 4)
 		{
 			Factfeed = 29;
-		}
+		}	
 		break;
 	case 151:
 		Factfeed = 31;
@@ -984,7 +998,10 @@ void FstandsforFrustrating(int checkF)
 		Factfeed = 33;
 		break;
 	case 162:
-		Factfeed = 34;
+		if (EssentialFragment != 5)
+		{
+			Factfeed = 34;
+		}
 		break;
 	case 163:
 		Factfeed = 35;

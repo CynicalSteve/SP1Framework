@@ -671,6 +671,8 @@ void actfeed()
 			g_Console.writeToBuffer(c, "There's a code scratched above the lock of this red box.", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "01001000  01000001  01010000  01010000  01011001", 0x08);
+			c.Y++;
+			g_Console.writeToBuffer(c, "Press the E key to type in the word it forms.", 0x05);
 			break;
 		case 201: // Chappel Window (OF)
 			g_Console.writeToBuffer(c, "I can't see anything through the window.", 0x02);
@@ -700,23 +702,19 @@ void actfeed()
 			g_Console.writeToBuffer(c, "Press the E key to enter the building.", 0x05);
 			break;
 		case 33:   //Living Room Window
-			g_Console.writeToBuffer(c, "As far as I can see, there's only a void of white outside the window", 0x02);
+			g_Console.writeToBuffer(c, "As far as I can see, there's only a void of white outside the window.", 0x02);
 			break;
 		case 34:  //Living Room Phone
 			g_Console.writeToBuffer(c, "A grey typical push-button telephone. A note beside it reads:", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "This requires a BIT of thinking. Perhaps a clue lies in the word between Caps Lock and LEFT Control.", 0x08);
 			c.Y++;
-			g_Console.writeToBuffer(c, "What's the number that replaces the question mark?", 0x08);
+			g_Console.writeToBuffer(c, "What's the number that replaces the question mark? (Press the E key to input)", 0x08);
 			c.Y++;
-			g_Console.writeToBuffer(c, "13 26 52", 0x08);
-			c.Y++;
-			g_Console.writeToBuffer(c, "104 208 161", 0x08);
-			c.Y++;
-			g_Console.writeToBuffer(c, "67 ? 13", 0x08);
+			g_Console.writeToBuffer(c, "13 26 52 | 104 208 161 | 67 ? 13", 0x08);
 			break;
 		case 35:  //Living Room Sofa
-			g_Console.writeToBuffer(c, "It looks comfortable, but whoever bought it must have horrible taste. The patterns on it look absolutely dreadful.", 0x08);
+			g_Console.writeToBuffer(c, "It looks comfortable, but whoever bought it must have horrible taste. The patterns on it look absolutely dreadful.", 0x02);
 			break;
 		case 36:  //Living Room Window (OF)
 			g_Console.writeToBuffer(c, "There is nothing but red fog outside.", 0x02);
@@ -873,6 +871,9 @@ void actfeed()
 		case 993:
 			g_Console.writeToBuffer(c, "I decoded the numbers and it spells out \"happy\" The box opens, to reveal to me another memory.", 0x02);
 			break;
+		case 994:
+			g_Console.writeToBuffer(c, "After successfully inputting the right number, I put the phone to my ear, and heard the following.", 0x02);
+			break;
 		case 999: // Testing purposes only, pls take out on release build danke.
 			g_Console.writeToBuffer(c, "Whatever you are doing,", 0x02);
 			c.Y++;
@@ -961,7 +962,7 @@ void actfeed()
 		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 44;
 		}
 
-		if (g_dElapsedTime >= g_dElapsedTimeTemp && levelfinish == 8)
+		if (g_dElapsedTime >= g_dElapsedTimeTemp && levelfinish == 8) // *** *** *** *** *** MIGHT NOT BE USED, REMOVE IF THATS THE CASE *** *** *** *** ***
 		{
 		InPortal = 0;
 		Areanum = 4;

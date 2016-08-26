@@ -152,6 +152,17 @@ void getInput( void )
 		g_abKeyPressed[K_Z] = isKeyPressed(0x5A);
 		g_abKeyPressed[K_ESC] = isKeyPressed(0x1B);
 		g_abKeyPressed[K_ENTER] = isKeyPressed(0x0D);
+
+		g_abKeyPressed[K_ONE] = isKeyPressed(0x31);
+		g_abKeyPressed[K_TWO] = isKeyPressed(0x32);
+		g_abKeyPressed[K_THREE] = isKeyPressed(0x33);
+		g_abKeyPressed[K_FOUR] = isKeyPressed(0x34);
+		g_abKeyPressed[K_FIVE] = isKeyPressed(0x35);
+		g_abKeyPressed[K_SIX] = isKeyPressed(0x36);
+		g_abKeyPressed[K_SEVEN] = isKeyPressed(0x37);
+		g_abKeyPressed[K_EIGHT] = isKeyPressed(0x38);
+		g_abKeyPressed[K_NINE] = isKeyPressed(0x39);
+		g_abKeyPressed[K_ZERO] = isKeyPressed(0x30);
 	}
 }
 

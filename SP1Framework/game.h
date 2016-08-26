@@ -74,6 +74,17 @@ enum EKEYS
 	K_Y,
 	K_Z,
 
+	K_ONE,
+	K_TWO,
+	K_THREE,
+	K_FOUR,
+	K_FIVE,
+	K_SIX,
+	K_SEVEN,
+	K_EIGHT,
+	K_NINE,
+	K_ZERO,
+
 	K_JOURNAL,
 	K_COUNT
 };
