@@ -118,6 +118,8 @@ void getInput( void )
 		g_abKeyPressed[K_INVZERO] = isKeyPressed(0x30);
 		g_abKeyPressed[K_PAUSE] = isKeyPressed(0x50);
 		g_abKeyPressed[K_JOURNAL] = isKeyPressed(0x4A);
+		g_abKeyPressed[A_UP] = isKeyPressed(VK_UP);
+		g_abKeyPressed[A_DOWN] = isKeyPressed(VK_DOWN);
 	}
 	else if (g_eGameState == S_INPUT)
 	{
