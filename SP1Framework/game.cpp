@@ -29,6 +29,7 @@ extern double g_dTime;
 
 // Game specific variables here
 SGameChar   g_sChar;
+Menu		MenuArrow;
 EGAMESTATES g_eGameState = S_SPLASHSCREEN;
 double  g_dBounceTime; // this is to prevent key bouncing, so we won't trigger keypresses more than once
 
@@ -57,9 +58,13 @@ void init( void )
 	// sets where the character spawns when game starts
 	g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 87;
 	g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 43;
-	g_sChar.m_bActive = true;
+
     // sets the width, height and the font name to use in the console
     g_Console.setConsoleFont(0, 16, L"Consolas");
+
+	// sets the arrow in the menu screen
+	MenuArrow.Arrow_Location.X = g_Console.getConsoleSize().X - 74;
+	MenuArrow.Arrow_Location.Y = g_Console.getConsoleSize().Y - 27;
 }
 
 //--------------------------------------------------------------
@@ -90,7 +95,6 @@ void shutdown( void )
 //--------------------------------------------------------------
 void getInput( void )
 {    
-
 	if (g_eGameState != S_INPUT)
 	{
 		g_abKeyPressed[K_UP] = isKeyPressed(0x57);
@@ -181,6 +185,7 @@ void update(double dt)
 			break;
 		case S_INPUT: gameplay();
 			break;
+		case S_INSTRUCTIONS: gameplay();
     }
 
 }
@@ -207,6 +212,8 @@ void render()
 		break;
 	case S_INPUT: renderInput();
 		break;
+	case S_INSTRUCTIONS: instructions();
+		break;
 	}
 	renderFramerate();  // renders debug information, frame rate, elapsed time, etc
 	renderToScreen();   // dump the contents of the buffer to the screen, one frame worth of game
@@ -214,12 +221,27 @@ void render()
 
 void splashScreenWait()    // waits for time to pass in splash screen
 {
-	if (isKeyPressed(0x45))		// wait for player to enter E to switch to game mode, else do nothing
+	// Draw the location of the arrow
+	if (g_abKeyPressed[K_SPACE] && MenuArrow.Arrow_Location.Y == g_Console.getConsoleSize().Y - 27)
 	{
+		//enter game
 		g_eGameState = S_GAME;
 		g_dTime = (g_dElapsedTime + 2.0);
 	}
-		
+	if (g_abKeyPressed[K_SPACE] && MenuArrow.Arrow_Location.Y == g_Console.getConsoleSize().Y - 26)
+	{
+		//enter instructions screen
+		g_eGameState = S_INSTRUCTIONS;
+
+	}
+	if (g_abKeyPressed[A_DOWN] && MenuArrow.Arrow_Location.Y == g_Console.getConsoleSize().Y - 27)
+	{
+		MenuArrow.Arrow_Location.Y++;
+	}
+	if (g_abKeyPressed[A_UP] && MenuArrow.Arrow_Location.Y == g_Console.getConsoleSize().Y - 26)
+	{
+		MenuArrow.Arrow_Location.Y--;
+	}
 }
 
 void gameplay()            // gameplay logic
@@ -315,11 +337,6 @@ void moveCharacter()
 				g_sChar.m_cLocation.X++;
 			}
 		}
-    }
-    if (g_abKeyPressed[K_SPACE])
-    {
-        g_sChar.m_bActive = !g_sChar.m_bActive;
-        bSomethingHappened = true;
     }
 
     if (bSomethingHappened)
@@ -441,13 +458,14 @@ void renderSplashScreen()  // renders the splash screen
 	c.X = 44;
 	g_Console.writeToBuffer(c, "Welcome to Fragments!", 0x03);
 	c.Y++;
-	c.X = 43;
-	g_Console.writeToBuffer(c, "Press 'E' to start game", 0x03);
+	c.X = 41;
+	g_Console.writeToBuffer(c, "Press <space> to start game", 0x03);
 	c.Y++;
-	c.X = 45;
-	g_Console.writeToBuffer(c, "Press 'Esc' to quit", 0x03);
-	c.X = 50;
-	c.Y++;
+	c.X = 38;
+	g_Console.writeToBuffer(c, "Press <space> to view instructions", 0x03);
+
+	char Arrow = '>';
+	g_Console.writeToBuffer(MenuArrow.Arrow_Location, Arrow);
 }
 
 void renderGame()
@@ -459,11 +477,6 @@ void renderGame()
 
 void renderMap()
 {
-	const WORD colors[] = {
-		0x1A, 0x2B, 0x3C, 0x4D, 0x5E, 0x6F,
-		0xA1, 0xB2, 0xC3, 0xD4, 0xE5, 0xF6
-	};
-
 	if (Areanum > 0)
 	{
 		char** printmap = new char*[150];
@@ -481,11 +494,7 @@ void renderMap()
 void renderCharacter()
 {
     // Draw the location of the character
-    WORD charColor = 0x0C;
-    if (g_sChar.m_bActive)
-    {
-        charColor = 0x0A;
-    }
+    WORD charColor = 0x0A;
     g_Console.writeToBuffer(g_sChar.m_cLocation, (char)1, charColor);
 }
 
@@ -542,7 +551,7 @@ void renderToScreen()
 
 void pause()
 {
-	//audioPause();
+	PauseScreen();
 }
 
 void renderJournal()
@@ -554,4 +563,9 @@ void renderInput()
 {
 	renderInputScreen();
 	renderTyping(PlayerInput());
+}
+
+void instructions()
+{
+	InstructScreen();
 }

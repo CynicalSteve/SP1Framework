@@ -11,6 +11,8 @@
 #include "RenderJournal.h"
 #include "renderInput.h"
 #include "PlayerInput.h"
+#include "PauseScreen.h"
+#include "InstructScreen.h"
 
 using namespace std;
 
@@ -40,6 +42,8 @@ enum EKEYS
 	K_INVNINE,
 	K_INVZERO,
 	K_PAUSE,
+	A_UP,
+	A_DOWN,
 
 	K_BACKSPACE,
 	K_ESC,
@@ -83,14 +87,19 @@ enum EGAMESTATES
 	S_JOURNAL,
 	S_PAUSE,
 	S_INPUT,
-	S_COUNT
+	S_COUNT,
+	S_INSTRUCTIONS
 };
 
 // struct for the game character
 struct SGameChar
 {
     COORD m_cLocation;
-    bool  m_bActive;
+};
+
+struct Menu
+{
+	COORD Arrow_Location;
 };
 
 void init        ( void );      // initialize your variables, allocate memory, etc
@@ -114,5 +123,6 @@ void renderFeed();			// renders the activity feed
 void pause();
 void renderJournal();
 void renderInput();
+void instructions();
 
 #endif // _GAME_H
