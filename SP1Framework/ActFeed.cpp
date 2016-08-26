@@ -418,6 +418,7 @@ void actfeed()
 
 	if (Factfeed == 991) //EF 3
 	{
+		c.Y = 34;
 		if (g_dElapsedTime > g_dTime)
 		{
 			g_Console.writeToBuffer(c, "\"Have you ever seen a creature this bizarre? I mean it's pretty much a mermaid lion,\" Terence said as", 0x03);
@@ -469,6 +470,92 @@ void actfeed()
 			g_Console.writeToBuffer(c, "\"SNAP!", 0x03);
 		}
 	}
+
+	if (Factfeed == 992) //OF 3
+	{
+		c.Y = 34;
+		if (g_dElapsedTime > g_dTime)
+		{
+			g_Console.writeToBuffer(c, "\"Where have you been?\" Ava asked impatiently, her arms crossed and her eyebrows stitched into a frown.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 3.0))
+		{
+			g_Console.writeToBuffer(c, "Overtime down at the company.\" Terence replied while grabbing a beer from the refrigerator.", 0x03);
+			c.Y++;
+		}
+		if (g_dElapsedTime > (g_dTime + 6.0))
+		{
+			g_Console.writeToBuffer(c, "\"You sure? You sure you're not humping some colleague while everyone's gone?\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 9.0))
+		{
+			g_Console.writeToBuffer(c, "Terence froze, startled by her accusation.", 0x03);
+			c.Y++;
+		}
+		if (g_dElapsedTime > (g_dTime + 11.0))
+		{
+			g_Console.writeToBuffer(c, "\"What are you-why would you say something like that, Ava?\" Terence asked, obviously hurt by her words.", 0x03);
+			c.Y++;
+		}
+		if (g_dElapsedTime > (g_dTime + 15.0))
+		{
+			g_Console.writeToBuffer(c, "Ava merely scoffed, before returning back to their bedroom.", 0x03);
+		}
+	}
+
+
+	if (Factfeed == 993) // EF 4
+	{
+		c.Y = 34;
+		if (g_dElapsedTime > g_dTime)
+		{
+			g_Console.writeToBuffer(c, "\"Ah, Mrs Laurens! Fancy meeting you here!\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 2.0))
+		{
+			g_Console.writeToBuffer(c, "It was our neighbour, Mrs Lindow.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 4.0))
+		{
+			g_Console.writeToBuffer(c, "\"Mrs Lindow, so great to see you here! How have you been?\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 7.0))
+		{
+			g_Console.writeToBuffer(c, "\"Good! Are you walking your kids home from the grocery store?\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 10.0))
+		{
+			g_Console.writeToBuffer(c, " \"Yes,\" I said, \"this is Sasha, 11, and her brother Jonathan, 9. Say hi to Mrs Lindow, children.\"", 0x03);
+			c.Y++;
+		}
+		if (g_dElapsedTime > (g_dTime + 15.0))
+		{
+			g_Console.writeToBuffer(c, "They remained silent however, with their eyes glued to the ground.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 18.0))
+		{
+			g_Console.writeToBuffer(c, "\"Ah, pardon their rudeness. They must be shy meeting someone new after moving here.\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 21.0))
+		{
+			g_Console.writeToBuffer(c, "\"Ohohoho, nothing to worry,\" she said. \"I must get going now, see you later!\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 25.0))
+		{
+			g_Console.writeToBuffer(c, "\"Bye,\" I said, waving as she continued down the pavement.", 0x03);
+		}
+	}
+
+
 
 	/* Template for MX
 	if (c.Y == 54)
