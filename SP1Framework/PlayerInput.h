@@ -5,6 +5,9 @@
 #include <iostream>
 #include <string>
 
-std::string PlayerInput();
+using namespace std;
 
-#endif
+
+string PlayerInput(void);
+
+#endif // _PLAYERINPUT_H

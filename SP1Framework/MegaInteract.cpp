@@ -699,6 +699,13 @@ void FstandsforFrustrating(int checkF)
 		g_eGameState = S_INPUT;
 	}
 
+	if (Factfeed == 991 && reqinteraction == 2)
+	{
+		levelfinish = 5;
+		EssentialFragment = 3;
+		g_dElapsedTimeTemp = (g_dElapsedTime + 10.0);
+	}
+
 	if (Factfeed == 401 && checkF == 9)
 	{
 		InPortal = 15;
@@ -919,7 +926,10 @@ void FstandsforFrustrating(int checkF)
 		Factfeed = 24;
 		break;
 	case 132: // Computer
-		Factfeed = 25;
+		if (reqinteraction != 2)
+		{
+			Factfeed = 25;
+		}
 		break;
 	case 133: // Map
 		Factfeed = 26;

@@ -85,9 +85,11 @@
     <ClCompile Include="Framework\console.cpp" />
     <ClCompile Include="Framework\timer.cpp" />
     <ClCompile Include="game.cpp" />
+    <ClCompile Include="InstructScreen.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="MegaInteract.cpp" />
+    <ClCompile Include="PauseScreen.cpp" />
     <ClCompile Include="PlayerInput.cpp" />
     <ClCompile Include="PuzzleLevels.cpp" />
     <ClCompile Include="renderInput.cpp" />
@@ -100,8 +102,10 @@
     <ClInclude Include="Framework\console.h" />
     <ClInclude Include="Framework\timer.h" />
     <ClInclude Include="game.h" />
+    <ClInclude Include="InstructScreen.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="MegaInteract.h" />
+    <ClInclude Include="PauseScreen.h" />
     <ClInclude Include="PlayerInput.h" />
     <ClInclude Include="PuzzleLevels.h" />
     <ClInclude Include="renderInput.h" />

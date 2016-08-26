@@ -9,8 +9,12 @@
 #include "CheckColiPuzzle.h"
 #include "ActFeed.h"
 #include "RenderJournal.h"
-#include "PlayerInput.h"
 #include "renderInput.h"
+#include "PlayerInput.h"
+#include "PauseScreen.h"
+#include "InstructScreen.h"
+
+using namespace std;
 
 extern CStopWatch g_swTimer;
 extern bool g_bQuitGame;
@@ -37,13 +41,14 @@ enum EKEYS
 	K_INVEIGHT,
 	K_INVNINE,
 	K_INVZERO,
-	K_COUNT,
 	K_PAUSE,
+	A_UP,
+	A_DOWN,
 
 	K_BACKSPACE,
 	K_ESC,
-	K_A,
 	K_B,
+	K_A,
 	K_C,
 	K_D,
 	K_E,
@@ -69,7 +74,8 @@ enum EKEYS
 	K_Y,
 	K_Z,
 
-	K_JOURNAL
+	K_JOURNAL,
+	K_COUNT
 };
 
 // Enumeration for the different screen states
@@ -81,14 +87,19 @@ enum EGAMESTATES
 	S_JOURNAL,
 	S_PAUSE,
 	S_INPUT,
-	S_COUNT
+	S_COUNT,
+	S_INSTRUCTIONS
 };
 
 // struct for the game character
 struct SGameChar
 {
     COORD m_cLocation;
-    bool  m_bActive;
+};
+
+struct Menu
+{
+	COORD Arrow_Location;
 };
 
 void init        ( void );      // initialize your variables, allocate memory, etc
@@ -111,5 +122,7 @@ void renderToScreen();      // dump the contents of the buffer to the screen, on
 void renderFeed();			// renders the activity feed
 void pause();
 void renderJournal();
+void renderInput();
+void instructions();
 
 #endif // _GAME_H

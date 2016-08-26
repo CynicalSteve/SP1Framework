@@ -12,6 +12,8 @@
 #include "Windows.h"
 #include "MMSystem.h"
 
+using namespace std;
+
 double  g_dElapsedTime;
 double  g_dDeltaTime;
 bool    g_abKeyPressed[K_COUNT];
@@ -22,11 +24,12 @@ int checkF;                // Checking what the player is interacting with
 
 extern int EssentialFragment;
 extern int OptionalFragment;
-extern std::string inventory;
+extern string inventory;
 extern double g_dTime;
 
 // Game specific variables here
 SGameChar   g_sChar;
+Menu		MenuArrow;
 EGAMESTATES g_eGameState = S_SPLASHSCREEN;
 double  g_dBounceTime; // this is to prevent key bouncing, so we won't trigger keypresses more than once
 
@@ -55,9 +58,13 @@ void init( void )
 	// sets where the character spawns when game starts
 	g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 87;
 	g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 43;
-	g_sChar.m_bActive = true;
+
     // sets the width, height and the font name to use in the console
     g_Console.setConsoleFont(0, 16, L"Consolas");
+
+	// sets the arrow in the menu screen
+	MenuArrow.Arrow_Location.X = g_Console.getConsoleSize().X - 68;
+	MenuArrow.Arrow_Location.Y = g_Console.getConsoleSize().Y - 26;
 }
 
 //--------------------------------------------------------------
@@ -88,27 +95,64 @@ void shutdown( void )
 //--------------------------------------------------------------
 void getInput( void )
 {    
-    g_abKeyPressed[K_UP]        = isKeyPressed(0x57);
-    g_abKeyPressed[K_DOWN]      = isKeyPressed(0x53);
-    g_abKeyPressed[K_LEFT]      = isKeyPressed(0x41);
-    g_abKeyPressed[K_RIGHT]     = isKeyPressed(0x44);
-	g_abKeyPressed[K_INTERACT]  = isKeyPressed(0x46);
-	g_abKeyPressed[K_INVENTORY] = isKeyPressed(0x49);
-    g_abKeyPressed[K_SPACE]     = isKeyPressed(VK_SPACE);
-    g_abKeyPressed[K_ESCAPE]    = isKeyPressed(VK_ESCAPE);
-	g_abKeyPressed[K_ENTER]     = isKeyPressed(0x45);
-	g_abKeyPressed[K_INVONE]    = isKeyPressed(0x31);
-	g_abKeyPressed[K_INVTWO]    = isKeyPressed(0x32);
-	g_abKeyPressed[K_INVTHREE]  = isKeyPressed(0x33);
-	g_abKeyPressed[K_INVFOUR]   = isKeyPressed(0x34);
-	g_abKeyPressed[K_INVFIVE]   = isKeyPressed(0x35);
-	g_abKeyPressed[K_INVSIX]    = isKeyPressed(0x36);
-	g_abKeyPressed[K_INVSEVEN]  = isKeyPressed(0x37);
-	g_abKeyPressed[K_INVEIGHT]  = isKeyPressed(0x38);
-	g_abKeyPressed[K_INVNINE]   = isKeyPressed(0x39);
-	g_abKeyPressed[K_INVZERO]   = isKeyPressed(0x30);
-	g_abKeyPressed[K_PAUSE]		= isKeyPressed(0x50);
-	g_abKeyPressed[K_JOURNAL]   = isKeyPressed(0x4A);
+	if (g_eGameState != S_INPUT)
+	{
+		g_abKeyPressed[K_UP] = isKeyPressed(0x57);
+		g_abKeyPressed[K_DOWN] = isKeyPressed(0x53);
+		g_abKeyPressed[K_LEFT] = isKeyPressed(0x41);
+		g_abKeyPressed[K_RIGHT] = isKeyPressed(0x44);
+		g_abKeyPressed[K_INTERACT] = isKeyPressed(0x46);
+		g_abKeyPressed[K_INVENTORY] = isKeyPressed(0x49);
+		g_abKeyPressed[K_SPACE] = isKeyPressed(VK_SPACE);
+		g_abKeyPressed[K_ESCAPE] = isKeyPressed(VK_ESCAPE);
+		g_abKeyPressed[K_ENTER] = isKeyPressed(0x45);
+		g_abKeyPressed[K_INVONE] = isKeyPressed(0x31);
+		g_abKeyPressed[K_INVTWO] = isKeyPressed(0x32);
+		g_abKeyPressed[K_INVTHREE] = isKeyPressed(0x33);
+		g_abKeyPressed[K_INVFOUR] = isKeyPressed(0x34);
+		g_abKeyPressed[K_INVFIVE] = isKeyPressed(0x35);
+		g_abKeyPressed[K_INVSIX] = isKeyPressed(0x36);
+		g_abKeyPressed[K_INVSEVEN] = isKeyPressed(0x37);
+		g_abKeyPressed[K_INVEIGHT] = isKeyPressed(0x38);
+		g_abKeyPressed[K_INVNINE] = isKeyPressed(0x39);
+		g_abKeyPressed[K_INVZERO] = isKeyPressed(0x30);
+		g_abKeyPressed[K_PAUSE] = isKeyPressed(0x50);
+		g_abKeyPressed[K_JOURNAL] = isKeyPressed(0x4A);
+		g_abKeyPressed[A_UP] = isKeyPressed(VK_UP);
+		g_abKeyPressed[A_DOWN] = isKeyPressed(VK_DOWN);
+	}
+	else if (g_eGameState == S_INPUT)
+	{
+		g_abKeyPressed[K_BACKSPACE] = isKeyPressed(0x08);
+		g_abKeyPressed[K_A] = isKeyPressed(0x41);
+		g_abKeyPressed[K_B] = isKeyPressed(0x42);
+		g_abKeyPressed[K_C] = isKeyPressed(0x43);
+		g_abKeyPressed[K_D] = isKeyPressed(0X44);
+		g_abKeyPressed[K_E] = isKeyPressed(0x45);
+		g_abKeyPressed[K_F] = isKeyPressed(0x46);
+		g_abKeyPressed[K_G] = isKeyPressed(0x47);
+		g_abKeyPressed[K_H] = isKeyPressed(0x48);
+		g_abKeyPressed[K_I] = isKeyPressed(0x49);
+		g_abKeyPressed[K_J] = isKeyPressed(0x4A);
+		g_abKeyPressed[K_K] = isKeyPressed(0x4B);
+		g_abKeyPressed[K_L] = isKeyPressed(0x4C);
+		g_abKeyPressed[K_M] = isKeyPressed(0x4D);
+		g_abKeyPressed[K_N] = isKeyPressed(0x4E);
+		g_abKeyPressed[K_O] = isKeyPressed(0x4F);
+		g_abKeyPressed[K_P] = isKeyPressed(0x50);
+		g_abKeyPressed[K_Q] = isKeyPressed(0x51);
+		g_abKeyPressed[K_R] = isKeyPressed(0x52);
+		g_abKeyPressed[K_S] = isKeyPressed(0x53);
+		g_abKeyPressed[K_T] = isKeyPressed(0x54);
+		g_abKeyPressed[K_U] = isKeyPressed(0x55);
+		g_abKeyPressed[K_V] = isKeyPressed(0x56);
+		g_abKeyPressed[K_W] = isKeyPressed(0x57);
+		g_abKeyPressed[K_X] = isKeyPressed(0x58);
+		g_abKeyPressed[K_Y] = isKeyPressed(0x59);
+		g_abKeyPressed[K_Z] = isKeyPressed(0x5A);
+		g_abKeyPressed[K_ESC] = isKeyPressed(0x1B);
+		g_abKeyPressed[K_ENTER] = isKeyPressed(0x0D);
+	}
 }
 
 //--------------------------------------------------------------
@@ -141,8 +185,9 @@ void update(double dt)
 			break;
 		case S_JOURNAL: gameplay();
 			break;
-		case S_INPUT: PlayerInput();
+		case S_INPUT: gameplay();
 			break;
+		case S_INSTRUCTIONS: gameplay();
     }
 
 }
@@ -169,6 +214,8 @@ void render()
 		break;
 	case S_INPUT: renderInput();
 		break;
+	case S_INSTRUCTIONS: instructions();
+		break;
 	}
 	renderFramerate();  // renders debug information, frame rate, elapsed time, etc
 	renderToScreen();   // dump the contents of the buffer to the screen, one frame worth of game
@@ -176,19 +223,37 @@ void render()
 
 void splashScreenWait()    // waits for time to pass in splash screen
 {
-	if (isKeyPressed(0x45))		// wait for player to enter E to switch to game mode, else do nothing
+	// Draw the location of the arrow
+	if (g_abKeyPressed[K_SPACE] && MenuArrow.Arrow_Location.Y == g_Console.getConsoleSize().Y - 26)
 	{
+		//enter game
 		g_eGameState = S_GAME;
 		g_dTime = (g_dElapsedTime + 2.0);
 	}
-		
+	if (g_abKeyPressed[K_SPACE] && MenuArrow.Arrow_Location.Y == g_Console.getConsoleSize().Y - 25)
+	{
+		//enter instructions screen
+		g_eGameState = S_INSTRUCTIONS;
+
+	}
+	if (g_abKeyPressed[A_DOWN] && MenuArrow.Arrow_Location.Y == g_Console.getConsoleSize().Y - 26)
+	{
+		MenuArrow.Arrow_Location.Y++;
+	}
+	if (g_abKeyPressed[A_UP] && MenuArrow.Arrow_Location.Y == g_Console.getConsoleSize().Y - 25)
+	{
+		MenuArrow.Arrow_Location.Y--;
+	}
 }
 
 void gameplay()            // gameplay logic
 {
     processUserInput(); // checks if you should change states or do something else with the game, e.g. pause, exit
-    moveCharacter();    // moves the character, collision detection, physics, etc
-                        // sound can be played here too.
+	if (g_eGameState == S_GAME)
+	{
+		moveCharacter();    // moves the character, collision detection, physics, etc
+							// sound can be played here too.
+	}
 }
 
 void moveCharacter()
@@ -275,11 +340,6 @@ void moveCharacter()
 			}
 		}
     }
-    if (g_abKeyPressed[K_SPACE])
-    {
-        g_sChar.m_bActive = !g_sChar.m_bActive;
-        bSomethingHappened = true;
-    }
 
     if (bSomethingHappened)
     {
@@ -294,74 +354,79 @@ void processUserInput()
 	if (g_dBounceTime > g_dElapsedTime)
 		return;
 
-    // quits the game if player hits the escape key
-	if (g_abKeyPressed[K_ESCAPE])
+	if (g_eGameState != S_INPUT)
 	{
-		g_bQuitGame = true;
-	}
-
-	if (g_abKeyPressed[K_INTERACT])
-	{
-		bSomethingHappened = true;
-
-		checkF = checkinteract();
-
-		FstandsforFrustrating(checkF);
-	}
-
-	if (g_abKeyPressed[K_PAUSE])
-	{
-		bSomethingHappened = true;
-
-		if (g_eGameState != 4)
+		// quits the game if player hits the escape key
+		if (g_abKeyPressed[K_ESCAPE])
 		{
-			g_eGameState = S_PAUSE;
+			g_bQuitGame = true;
 		}
-		else if (g_eGameState == 4)
-		{
-			clearScreen();
 
-			g_eGameState = S_GAME;
+		if (g_abKeyPressed[K_INTERACT])
+		{
+			bSomethingHappened = true;
+
+			checkF = checkinteract();
+
+			FstandsforFrustrating(checkF);
+		}
+
+		if (g_abKeyPressed[K_PAUSE])
+		{
+			bSomethingHappened = true;
+
+			if (g_eGameState != 4)
+			{
+				g_eGameState = S_PAUSE;
+			}
+			else if (g_eGameState == 4)
+			{
+				clearScreen();
+
+				g_eGameState = S_GAME;
+			}
+		}
+
+		if (g_abKeyPressed[K_JOURNAL])
+		{
+			bSomethingHappened = true;
+
+			if (g_eGameState != 3)
+			{
+				g_eGameState = S_JOURNAL;
+			}
+			else if (g_eGameState == 3)
+			{
+				clearScreen();
+
+				g_eGameState = S_GAME;
+			}
+		}
+
+		if (g_abKeyPressed[K_ENTER])
+		{
+			bSomethingHappened = true;
+
+			FstandsforFrustrating(9);
+		}
+
+		if (isKeyPressed(0x4D))
+		{
+			PlaySound(NULL, 0, 0);
+		}
+
+		if (isKeyPressed(0x4E))
+		{
+			PlaySound(TEXT("HappyMusic.wav"), NULL, SND_SYNC | SND_LOOP | SND_ASYNC);
 		}
 	}
 
-	if (g_abKeyPressed[K_JOURNAL])
-	{
-		bSomethingHappened = true;
 
-		if (g_eGameState != 3)
-		{
-			g_eGameState = S_JOURNAL;
-		}
-		else if (g_eGameState == 3)
-		{
-			clearScreen();
-
-			g_eGameState = S_GAME;
-		}
-	}
-
-	if (g_abKeyPressed[K_ENTER])	
-	{
-		bSomethingHappened = true;
-
-		FstandsforFrustrating(9);
-	}
 
 	if (bSomethingHappened)
 	{
 		// set the bounce time to some time in the future to prevent accidental triggers
 		g_dBounceTime = g_dElapsedTime + 0.125; // 125ms should be enough
-	}
-
-	if (isKeyPressed(0x4D))
-	{
-		PlaySound(NULL, 0, 0);
-	}
-
-	if (isKeyPressed(0x4E))
-	{
-		PlaySound(TEXT("HappyMusic.wav"), NULL, SND_SYNC | SND_LOOP | SND_ASYNC);
 	}
 }
 
@@ -395,13 +460,17 @@ void renderSplashScreen()  // renders the splash screen
 	c.X = 44;
 	g_Console.writeToBuffer(c, "Welcome to Fragments!", 0x03);
 	c.Y++;
-	c.X = 43;
-	g_Console.writeToBuffer(c, "Press 'E' to start game", 0x03);
+	c.X = 20;
+	g_Console.writeToBuffer(c, "Use the arrow keys to navigate the menu, and press <space> to select them", 0x3);
+	c.Y++;
+	c.X = 49;
+	g_Console.writeToBuffer(c, "Start game", 0x09);
 	c.Y++;
 	c.X = 45;
-	g_Console.writeToBuffer(c, "Press 'Esc' to quit", 0x03);
-	c.X = 50;
-	c.Y++;
+	g_Console.writeToBuffer(c, "View instructions", 0x09);
+
+	char Arrow = '>';
+	g_Console.writeToBuffer(MenuArrow.Arrow_Location, Arrow);
 }
 
 void renderGame()
@@ -413,11 +482,6 @@ void renderGame()
 
 void renderMap()
 {
-	const WORD colors[] = {
-		0x1A, 0x2B, 0x3C, 0x4D, 0x5E, 0x6F,
-		0xA1, 0xB2, 0xC3, 0xD4, 0xE5, 0xF6
-	};
-
 	if (Areanum > 0)
 	{
 		char** printmap = new char*[150];
@@ -435,11 +499,7 @@ void renderMap()
 void renderCharacter()
 {
     // Draw the location of the character
-    WORD charColor = 0x0C;
-    if (g_sChar.m_bActive)
-    {
-        charColor = 0x0A;
-    }
+    WORD charColor = 0x0A;
     g_Console.writeToBuffer(g_sChar.m_cLocation, (char)1, charColor);
 }
 
@@ -496,10 +556,21 @@ void renderToScreen()
 
 void pause()
 {
-	void audioPause();
+	PauseScreen();
 }
 
 void renderJournal()
 {
-	void renJournal();
+	renJournal();
+}
+
+void renderInput()
+{
+	renderInputScreen();
+	renderTyping(PlayerInput());
+}
+
+void instructions()
+{
+	InstructScreen();
 }
