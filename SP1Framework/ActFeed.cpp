@@ -418,6 +418,7 @@ void actfeed()
 
 	if (Factfeed == 991) //EF 3
 	{
+		c.Y = 34;
 		if (g_dElapsedTime > g_dTime)
 		{
 			g_Console.writeToBuffer(c, "\"Have you ever seen a creature this bizarre? I mean it's pretty much a mermaid lion,\" Terence said as", 0x03);
@@ -472,6 +473,7 @@ void actfeed()
 
 	if (Factfeed == 992) //OF 3
 	{
+		c.Y = 34;
 		if (g_dElapsedTime > g_dTime)
 		{
 			g_Console.writeToBuffer(c, "\"Where have you been?\" Ava asked impatiently, her arms crossed and her eyebrows stitched into a frown.", 0x03);
@@ -506,6 +508,7 @@ void actfeed()
 
 	if (Factfeed == 993) // EF 4
 	{
+		c.Y = 34;
 		if (g_dElapsedTime > g_dTime)
 		{
 			g_Console.writeToBuffer(c, "\"Ah, Mrs Laurens! Fancy meeting you here!\"", 0x03);
