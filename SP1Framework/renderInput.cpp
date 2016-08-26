@@ -1,8 +1,13 @@
 #include "renderInput.h"
 
-extern Console g_Console;
-
 using namespace std;
+
+extern Console g_Console;
+extern EGAMESTATES g_eGameState;
+extern int Factfeed;
+extern int reqinteraction;
+
+string temp;
 
 void renderInputScreen()
 {
@@ -31,9 +36,26 @@ void renderInputScreen()
 
 void renderTyping(string checkI)
 {
+	if (checkI == " ")
+	{
+		if (temp == "merlion")
+		{
+			reqinteraction = 2;
+			Factfeed = 991;
+			FstandsforFrustrating(9);
+			g_eGameState = S_GAME;
+		}
+		else
+		{
+			checkI = "";
+		}
+	}
+
+	temp = checkI;
+
 	COORD c;
 	c.Y = 5;
 	c.X = 13;
 
-	g_Console.writeToBuffer(c, checkI, 0x02);
+	g_Console.writeToBuffer(c, temp, 0x02);
 }

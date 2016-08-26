@@ -186,7 +186,7 @@ string PlayerInput(void)
 
 		if (g_abKeyPressed[K_ENTER])
 		{
-			return Sentence;
+			return " ";
 		}
 
 		if (SomethangHappund)

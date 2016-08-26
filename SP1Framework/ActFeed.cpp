@@ -801,6 +801,9 @@ void actfeed()
 		case 404: // Error 404. Just kidding.
 			g_Console.writeToBuffer(c, "An unknown force prevents me from proceeding.", 0x03);
 			break;
+		case 991:
+			g_Console.writeToBuffer(c, "Upon my successful log in, the computer loaded up a video on the screen.", 0x02);
+			break;
 		case 999: // Testing purposes only, pls take out on release build danke.
 			g_Console.writeToBuffer(c, "Whatever you are doing,", 0x02);
 			c.Y++;
@@ -856,7 +859,6 @@ void actfeed()
 			g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 51;
 		}
 
-		/*
 		if (g_dElapsedTime >= g_dElapsedTimeTemp && levelfinish == 5)
 		{
 		InPortal = 0;
@@ -922,6 +924,5 @@ void actfeed()
 		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 96;
 		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 48;
 		}
-		*/
 	}
 }
