@@ -1,5 +1,5 @@
 #include "MegaInteract.h"
-
+#include "PlayerInput.h"
 extern Console g_Console;
 extern SGameChar g_sChar;
 extern EGAMESTATES g_eGameState;

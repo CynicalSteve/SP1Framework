@@ -1,11 +1,12 @@
 #include "PlayerInput.h"
-
+#include "game.h"
 extern bool g_abKeyPressed[K_COUNT];
 extern EGAMESTATES g_eGameState;
 extern Console g_Console;
 
 string PlayerInput()
 {
+	g_eGameState = S_INPUT;
 	COORD c;
 	c.Y = 13;
 	c.X = 5;
@@ -167,6 +168,5 @@ string PlayerInput()
 		{
 			return Sentence;
 		}
-		else return 0;
 	}
 }
