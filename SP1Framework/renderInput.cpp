@@ -2,7 +2,9 @@
 
 extern Console g_Console;
 
-void renderInput(void)
+using namespace std;
+
+void renderInputScreen()
 {
 	COORD c;
 	c.Y = 1;
@@ -25,4 +27,13 @@ void renderInput(void)
 	}
 
 	g_Console.writeToBuffer(c, str1, 0x08);
+}
+
+void renderTyping(string checkI)
+{
+	COORD c;
+	c.Y = 5;
+	c.X = 13;
+
+	g_Console.writeToBuffer(c, checkI, 0x02);
 }

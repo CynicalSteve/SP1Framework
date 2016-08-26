@@ -94,7 +94,7 @@ void renJournal()
 			c.Y = 3;
 			string fragments;
 			ifstream file;
-			file.open("\Text files//EssFrag1.txt");
+			file.open("Text files/EssFrag1.txt");
 
 			while (!file.eof())
 			{
@@ -111,7 +111,7 @@ void renJournal()
 			c.Y = 3;
 			string frag1;
 			ifstream file;
-			file.open("\Text files//EssFrag1.txt");
+			file.open("Text files/EssFrag1.txt");
 
 			while (!file.eof())
 			{
@@ -128,7 +128,7 @@ void renJournal()
 			c.Y = 3;
 			string frag2;
 			ifstream file;
-			file.open("\Text files//EssFrag2.txt");
+			file.open("Text files/EssFrag2.txt");
 
 			while (!file.eof())
 			{
@@ -145,7 +145,7 @@ void renJournal()
 			c.Y = 3;
 			string frag3;
 			ifstream file;
-			file.open("\Text files//EssFrag3.txt");
+			file.open("Text files/EssFrag3.txt");
 
 			while (!file.eof())
 			{
@@ -162,7 +162,7 @@ void renJournal()
 			c.Y = 3;
 			string frag4;
 			ifstream file;
-			file.open("\Text files//EssFrag4.txt");
+			file.open("Text files/EssFrag4.txt");
 
 			while (!file.eof())
 			{
@@ -179,7 +179,7 @@ void renJournal()
 			c.Y = 3;
 			string frag5;
 			ifstream file;
-			file.open("\Text files//EssFrag5.txt");
+			file.open("Text files/EssFrag5.txt");
 
 			while (!file.eof())
 			{
@@ -196,7 +196,7 @@ void renJournal()
 			c.Y = 3;
 			string frag6;
 			ifstream file;
-			file.open("\Text files//EssFrag6.txt");
+			file.open("Text files/EssFrag6.txt");
 
 			while (!file.eof())
 			{
@@ -213,7 +213,7 @@ void renJournal()
 	
 	string fragments;
 	ifstream file;
-	file.open("\Text files//EssFrag2.txt");
+	file.open("Text files/EssFrag2.txt");
 	
 	while (!file.eof())
 	{
@@ -228,7 +228,7 @@ void renJournal()
 	
 	string fragments;
 	ifstream file;
-	file.open("\Text files//EssFrag3.txt");
+	file.open("Text files/EssFrag3.txt");
 	
 	while (!file.eof())
 	{
@@ -243,7 +243,7 @@ void renJournal()
 	
 	string fragments;
 	ifstream file;
-	file.open("\Text files//EssFrag4.txt");
+	file.open("Text files/EssFrag4.txt");
 	
 	while (!file.eof())
 	{

@@ -1,172 +1,198 @@
 #include "PlayerInput.h"
 
+using namespace std;
+
 extern bool g_abKeyPressed[K_COUNT];
 extern EGAMESTATES g_eGameState;
 extern Console g_Console;
+extern double g_dElapsedTime;
+extern double g_dBounceTime;
 
-string PlayerInput()
+string Sentence;
+
+string PlayerInput(void)
 {
-	COORD c;
-	c.Y = 13;
-	c.X = 5;
+	bool SomethangHappund = false;
+	if (g_dBounceTime > g_dElapsedTime)
+		return Sentence;
 
-	string Sentence;
-
-	g_abKeyPressed[K_BACKSPACE] = isKeyPressed(0x08);
-	g_abKeyPressed[K_A] = isKeyPressed(0x61);
-	g_abKeyPressed[K_B] = isKeyPressed(0x62);
-	g_abKeyPressed[K_C] = isKeyPressed(0x63);
-	g_abKeyPressed[K_D] = isKeyPressed(0X64);
-	g_abKeyPressed[K_E] = isKeyPressed(0x65);
-	g_abKeyPressed[K_F] = isKeyPressed(0x66);
-	g_abKeyPressed[K_G] = isKeyPressed(0x67);
-	g_abKeyPressed[K_H] = isKeyPressed(0x68);
-	g_abKeyPressed[K_I] = isKeyPressed(0x69);
-	g_abKeyPressed[K_J] = isKeyPressed(0x6A);
-	g_abKeyPressed[K_K] = isKeyPressed(0x6B);
-	g_abKeyPressed[K_L] = isKeyPressed(0x6C);
-	g_abKeyPressed[K_M] = isKeyPressed(0x6D);
-	g_abKeyPressed[K_N] = isKeyPressed(0x6E);
-	g_abKeyPressed[K_O] = isKeyPressed(0x6F);
-	g_abKeyPressed[K_P] = isKeyPressed(0x70);
-	g_abKeyPressed[K_Q] = isKeyPressed(0x71);
-	g_abKeyPressed[K_R] = isKeyPressed(0x72);
-	g_abKeyPressed[K_S] = isKeyPressed(0x73);
-	g_abKeyPressed[K_T] = isKeyPressed(0x74);
-	g_abKeyPressed[K_U] = isKeyPressed(0x75);
-	g_abKeyPressed[K_V] = isKeyPressed(0x76);
-	g_abKeyPressed[K_W] = isKeyPressed(0x77);
-	g_abKeyPressed[K_X] = isKeyPressed(0x78);
-	g_abKeyPressed[K_Y] = isKeyPressed(0x79);
-	g_abKeyPressed[K_Z] = isKeyPressed(0x7A);
-	g_abKeyPressed[K_ESC] = isKeyPressed(0x1C);
-	g_abKeyPressed[K_ENTER] = isKeyPressed(0x03);
-	
-	for (;;)
-	{
 		if (g_abKeyPressed[K_A])
 		{
 			Sentence.push_back('a');
+			SomethangHappund = true;
 		}
-		else if (g_abKeyPressed[K_B])
+
+		if (g_abKeyPressed[K_B])
 		{
 			Sentence.push_back('b');
+			SomethangHappund = true;
 		}
-		else if (g_abKeyPressed[K_C])
+
+		if (g_abKeyPressed[K_C])
 		{
 			Sentence.push_back('c');
+			SomethangHappund = true;
 		}
-		else if (g_abKeyPressed[K_D])
+
+		if (g_abKeyPressed[K_D])
 		{
 			Sentence.push_back('d');
+			SomethangHappund = true;
 		}
-		else if (g_abKeyPressed[K_E])
+
+	    if (g_abKeyPressed[K_E])
 		{
 			Sentence.push_back('e');
+			SomethangHappund = true;
 		}
-		else if (g_abKeyPressed[K_F])
+
+		if (g_abKeyPressed[K_F])
 		{
 			Sentence.push_back('f');
+			SomethangHappund = true;
 		}
-		else if (g_abKeyPressed[K_G])
+
+		if (g_abKeyPressed[K_G])
 		{
 			Sentence.push_back('g');
+			SomethangHappund = true;
 		}
-		else if (g_abKeyPressed[K_H])
+
+		if (g_abKeyPressed[K_H])
 		{
 			Sentence.push_back('h');
+			SomethangHappund = true;
 		}
-		else if (g_abKeyPressed[K_I])
+
+		if (g_abKeyPressed[K_I])
 		{
 			Sentence.push_back('i');
+			SomethangHappund = true;
 		}
-		else if (g_abKeyPressed[K_J])
+
+		if (g_abKeyPressed[K_J])
 		{
 			Sentence.push_back('j');
+			SomethangHappund = true;
 		}
-		else if (g_abKeyPressed[K_K])
+
+		if (g_abKeyPressed[K_K])
 		{
 			Sentence.push_back('k');
+			SomethangHappund = true;
 		}
-		else if (g_abKeyPressed[K_L])
+
+		if (g_abKeyPressed[K_L])
 		{
 			Sentence.push_back('l');
+			SomethangHappund = true;
 		}
-		else if (g_abKeyPressed[K_M])
+
+		if (g_abKeyPressed[K_M])
 		{
 			Sentence.push_back('m');
+			SomethangHappund = true;
 		}
-		else if (g_abKeyPressed[K_N])
+
+		if (g_abKeyPressed[K_N])
 		{
 			Sentence.push_back('n');
+			SomethangHappund = true;
 		}
-		else if (g_abKeyPressed[K_O])
+
+		if (g_abKeyPressed[K_O])
 		{
 			Sentence.push_back('o');
+			SomethangHappund = true;
 		}
-		else if (g_abKeyPressed[K_P])
+
+		if (g_abKeyPressed[K_P])
 		{
 			Sentence.push_back('p');
+			SomethangHappund = true;
 		}
-		else if (g_abKeyPressed[K_Q])
+
+		if (g_abKeyPressed[K_Q])
 		{
 			Sentence.push_back('q');
+			SomethangHappund = true;
 		}
-		else if (g_abKeyPressed[K_R])
+
+		if (g_abKeyPressed[K_R])
 		{
 			Sentence.push_back('r');
+			SomethangHappund = true;
 		}
-		else if (g_abKeyPressed[K_S])
+
+		if (g_abKeyPressed[K_S])
 		{
 			Sentence.push_back('s');
+			SomethangHappund = true;
 		}
-		else if (g_abKeyPressed[K_T])
+
+		if (g_abKeyPressed[K_T])
 		{
 			Sentence.push_back('t');
+			SomethangHappund = true;
 		}
-		else if (g_abKeyPressed[K_U])
+
+		if (g_abKeyPressed[K_U])
 		{
 			Sentence.push_back('u');
+			SomethangHappund = true;
 		}
-		else if (g_abKeyPressed[K_V])
+
+		if (g_abKeyPressed[K_V])
 		{
 			Sentence.push_back('v');
+			SomethangHappund = true;
 		}
-		else if (g_abKeyPressed[K_W])
+
+		if (g_abKeyPressed[K_W])
 		{
 			Sentence.push_back('w');
+			SomethangHappund = true;
 		}
-		else if (g_abKeyPressed[K_X])
+
+		if (g_abKeyPressed[K_X])
 		{
 			Sentence.push_back('x');
+			SomethangHappund = true;
 		}
-		else if (g_abKeyPressed[K_Y])
+
+		if (g_abKeyPressed[K_Y])
 		{
 			Sentence.push_back('y');
+			SomethangHappund = true;
 		}
-		else if (g_abKeyPressed[K_Z])
+
+		if (g_abKeyPressed[K_Z])
 		{
 			Sentence.push_back('z');
+			SomethangHappund = true;
 		}
-		else if (g_abKeyPressed[K_BACKSPACE])
+
+		if ((g_abKeyPressed[K_BACKSPACE]) && (Sentence.size() > 0))
 		{
-			if (Sentence.size() > 0)
-			{
-				Sentence.pop_back();
-			}
-			else
-			{
-				continue;
-			}
+			Sentence.pop_back();
+			SomethangHappund = true;
 		}
-		else if (g_abKeyPressed[K_ESC])
+
+		if (g_abKeyPressed[K_ESC])
 		{
 			g_eGameState = S_GAME;
+			SomethangHappund = true;
 		}
-		else if (g_abKeyPressed[K_ENTER])
+
+		if (g_abKeyPressed[K_ENTER])
 		{
 			return Sentence;
 		}
-		else return 0;
-	}
+
+		if (SomethangHappund)
+		{
+			g_dBounceTime = g_dElapsedTime + 0.125;
+		}
+
+		return Sentence;
 }

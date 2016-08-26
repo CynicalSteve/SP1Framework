@@ -9,6 +9,8 @@
 
 using namespace std;
 
-void renderInput(void);
+void renderInputScreen();
+
+void renderTyping(string checkI);
 
 #endif // _RENDERINPUT_H
