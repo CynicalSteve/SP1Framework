@@ -1196,7 +1196,7 @@ void actfeed()
 			g_Console.writeToBuffer(c, "The ring should fit right here...", 0x02);
 			break;
 		case 923: // Solve EF2 Box
-			g_Console.writeToBuffer(c, "It worked. The box is opened. White light begins to fill my vision again.", 0x02);
+			g_Console.writeToBuffer(c, "It worked. The box is open. White light begins to fill my vision again.", 0x02);
 			break;
 		case 924: // Solve/Not OF2 Buttons
 			if (reqinteraction == 1)

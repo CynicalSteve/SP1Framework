@@ -8,7 +8,6 @@
 #include "PuzzleLevels.h"
 #include "CheckColiPuzzle.h"
 #include "ActFeed.h"
-#include "RenderJournal.h"
 #include "renderInput.h"
 #include "PlayerInput.h"
 #include "PauseScreen.h"
