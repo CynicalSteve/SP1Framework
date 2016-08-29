@@ -11,6 +11,7 @@
 #include <windows.h>
 #include "Windows.h"
 #include "MMSystem.h"
+#include "RenderJournal.h"
 
 using namespace std;
 
