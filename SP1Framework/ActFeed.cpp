@@ -418,7 +418,7 @@ void actfeed()
 
 	if (Factfeed == 991) //EF 3
 	{
-		c.Y = 34;
+		c.Y = 31;
 		if (g_dElapsedTime > g_dTime)
 		{
 			g_Console.writeToBuffer(c, "\"Have you ever seen a creature this bizarre? I mean it's pretty much a mermaid lion,\" Terence said as", 0x03);
@@ -531,7 +531,7 @@ void actfeed()
 		}
 		if (g_dElapsedTime > (g_dTime + 10.0))
 		{
-			g_Console.writeToBuffer(c, " \"Yes,\" I said, \"this is Sasha, 11, and her brother Jonathan, 9. Say hi to Mrs Lindow, children.\"", 0x03);
+			g_Console.writeToBuffer(c, "\"Yes,\" I said, \"this is Sasha, 11, and her brother Jonathan, 9. Say hi to Mrs Lindow, children.\"", 0x03);
 			c.Y++;
 		}
 		if (g_dElapsedTime > (g_dTime + 15.0))
@@ -637,13 +637,10 @@ void actfeed()
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
-			c.Y++;
-			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 		}
 		if (g_dElapsedTime > (g_dTime + 55.0))
 		{
 			g_Console.writeToBuffer(c, "I feigned a smile.", 0x03);
-			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 			c.Y++;
@@ -652,6 +649,8 @@ void actfeed()
 		if (g_dElapsedTime > (g_dTime + 56.0))
 		{
 			g_Console.writeToBuffer(c, "\"I will.\"", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 		}
 	}
 
