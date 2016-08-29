@@ -229,6 +229,10 @@ void render()
 		break;
 	case S_INSTRUCTIONS: instructions();
 		break;
+	case S_BADEND: BadEnd();
+		break;
+	case S_TRUEEND: TrueEnd();
+		break;
 	}
 	renderFramerate();  // renders debug information, frame rate, elapsed time, etc
 	renderToScreen();   // dump the contents of the buffer to the screen, one frame worth of game

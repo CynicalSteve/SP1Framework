@@ -99,7 +99,9 @@ enum EGAMESTATES
 	S_PAUSE,
 	S_INPUT,
 	S_COUNT,
-	S_INSTRUCTIONS
+	S_INSTRUCTIONS,
+	S_BADEND,
+	S_TRUEEND
 };
 
 // struct for the game character

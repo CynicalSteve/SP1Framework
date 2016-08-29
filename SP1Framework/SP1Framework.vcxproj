@@ -80,6 +80,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ActFeed.cpp" />
+    <ClCompile Include="BadEnd.cpp" />
     <ClCompile Include="CheckColi.cpp" />
     <ClCompile Include="CheckColiPuzzle.cpp" />
     <ClCompile Include="Framework\console.cpp" />
@@ -94,9 +95,11 @@
     <ClCompile Include="PuzzleLevels.cpp" />
     <ClCompile Include="renderInput.cpp" />
     <ClCompile Include="RenderJournal.cpp" />
+    <ClCompile Include="TrueEnd.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActFeed.h" />
+    <ClInclude Include="BadEnd.h" />
     <ClInclude Include="CheckColi.h" />
     <ClInclude Include="CheckColiPuzzle.h" />
     <ClInclude Include="Framework\console.h" />
@@ -110,6 +113,7 @@
     <ClInclude Include="PuzzleLevels.h" />
     <ClInclude Include="renderInput.h" />
     <ClInclude Include="RenderJournal.h" />
+    <ClInclude Include="TrueEnd.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

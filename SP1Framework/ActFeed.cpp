@@ -815,6 +815,7 @@ void actfeed()
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 		}
+		BadEnd();
 	}
 
 

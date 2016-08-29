@@ -3,6 +3,8 @@
 
 #include "Framework\console.h"
 #include "game.h"
+#include "BadEnd.h"
+#include "TrueEnd.h"
 #include <iostream>
 #include <fstream>
 #include <string>

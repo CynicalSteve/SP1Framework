@@ -1,6 +1,7 @@
 #ifndef _BADEND_H
 #define _BADEND_H
 #include "game.h"
+#include "MegaInteract.h"
 #include <iostream>
 
 using namespace std;
