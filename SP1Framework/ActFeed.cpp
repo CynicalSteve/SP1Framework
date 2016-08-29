@@ -148,7 +148,7 @@ void actfeed()
 	{
 		c.Y = 31;
 
-		g_Console.writeToBuffer(c, "\"You’ve always resented him for this. Doubting his intentions.", 0x06);
+		g_Console.writeToBuffer(c, "\"You've always resented him for this. Doubting his intentions.", 0x06);
 		c.Y++;
 		g_Console.writeToBuffer(c, "Do you know how it feels to be doubted despite having good intentions? It feels horrible.\"", 0x06);
 		c.Y++;
@@ -1104,10 +1104,11 @@ void actfeed()
 			break;
 		case 996:
 			g_Console.writeToBuffer(c, "I am already at the end of the island, so this must be the last puzzle.", 0x02);     // *** *** *** TO BE EDITED *** *** ***
+			c.Y++;
 			g_Console.writeToBuffer(c, "This has to give me an answer for the questions I have.", 0x02);
 			break;
 		case 997:
-			g_Console.writeToBuffer(c, "THERE SHOULD BE SMOETHING HERE", 0x02);                                              // *** *** *** TO BE EDITED *** *** ***
+			g_Console.writeToBuffer(c, "THERE SHOULD BE SOMETHING HERE", 0x02);                                              // *** *** *** TO BE EDITED *** *** ***
 			break;
 		case 999: // Testing purposes only, pls take out on release build danke.
 			g_Console.writeToBuffer(c, "Whatever you are doing,", 0x02);
