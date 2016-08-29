@@ -96,15 +96,18 @@ void getInput( void )
 {    
 	if (g_eGameState != S_INPUT)
 	{
-		g_abKeyPressed[K_UP] = isKeyPressed(0x57);
-		g_abKeyPressed[K_DOWN] = isKeyPressed(0x53);
-		g_abKeyPressed[K_LEFT] = isKeyPressed(0x41);
-		g_abKeyPressed[K_RIGHT] = isKeyPressed(0x44);
-		g_abKeyPressed[K_INTERACT] = isKeyPressed(0x46);
-		g_abKeyPressed[K_INVENTORY] = isKeyPressed(0x49);
-		g_abKeyPressed[K_SPACE] = isKeyPressed(VK_SPACE);
-		g_abKeyPressed[K_ESCAPE] = isKeyPressed(VK_ESCAPE);
-		g_abKeyPressed[K_ENTER] = isKeyPressed(0x45);
+		if (g_eGameState != S_JOURNAL || g_eGameState != S_PAUSE)
+		{
+			g_abKeyPressed[K_UP] = isKeyPressed(0x57);
+			g_abKeyPressed[K_DOWN] = isKeyPressed(0x53);
+			g_abKeyPressed[K_LEFT] = isKeyPressed(0x41);
+			g_abKeyPressed[K_RIGHT] = isKeyPressed(0x44);
+			g_abKeyPressed[K_INTERACT] = isKeyPressed(0x46);
+			g_abKeyPressed[K_INVENTORY] = isKeyPressed(0x49);
+			g_abKeyPressed[K_SPACE] = isKeyPressed(VK_SPACE);
+			g_abKeyPressed[K_ESCAPE] = isKeyPressed(VK_ESCAPE);
+			g_abKeyPressed[K_ENTER] = isKeyPressed(0x45);
+		}
 		g_abKeyPressed[K_INVONE] = isKeyPressed(0x31);
 		g_abKeyPressed[K_INVTWO] = isKeyPressed(0x32);
 		g_abKeyPressed[K_INVTHREE] = isKeyPressed(0x33);
