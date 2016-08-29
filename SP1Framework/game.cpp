@@ -59,7 +59,7 @@ void init( void )
 	g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 43;
 
     // sets the width, height and the font name to use in the console
-    g_Console.setConsoleFont(0, 16, L"Consolas");
+    g_Console.setConsoleFont(0, 16, L"Arial");
 
 	// sets the arrow in the menu screen
 	MenuArrow.Arrow_Location.X = g_Console.getConsoleSize().X - 68;
