@@ -680,6 +680,145 @@ void actfeed()
 		}
 	}
 
+
+	if (Factfeed == 996) // EF 6.1
+	{
+		c.Y = 31;
+		if (g_dElapsedTime > g_dTime)
+		{
+			g_Console.writeToBuffer(c, "\"Sasha! Jonathan! We're leaving!\" I called out.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 2.0))
+		{
+			g_Console.writeToBuffer(c, "After herding the sleepy children into the car, I sped away into the night without a care for", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "speeding laws.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 6.0))
+		{
+			g_Console.writeToBuffer(c, "\"Mommy, where are we going?\" Sasha timidly asked.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 8.0))
+		{
+			g_Console.writeToBuffer(c, "\"And where's Daddy?\" Jonathan asked after.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 10.0))
+		{
+			g_Console.writeToBuffer(c, "I looked past the headrest and at their worried faces.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 13.0))
+		{
+			g_Console.writeToBuffer(c, "\"Don't worry, Daddy wants to take you away from Mommy, but it's alright now, Mommy's taking you to a", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "happy place.\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 18.0))
+		{
+			g_Console.writeToBuffer(c, "They didn't answer, instead their eyes largened into wide saucers and fixated their blank gaze onto", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "the windscreen.", 0x03);
+			c.Y++;
+		}
+		if (g_dElapsedTime > (g_dTime + 23.0))
+		{
+			g_Console.writeToBuffer(c, "I swung my head back forward, just in time to see the blinding oncoming lights of a truck blaring", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "its horns.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 29.0))
+		{
+			g_Console.writeToBuffer(c, "\"SHIT!\" I screamed, swerving the car to the right.", 0x03);
+			c.Y++;
+		}
+		if (g_dElapsedTime > (g_dTime + 32.0))
+		{
+			g_Console.writeToBuffer(c, "...", 0x03);
+			c.Y++;
+		}
+		if (g_dElapsedTime > (g_dTime + 33.0))
+		{
+			g_Console.writeToBuffer(c, "...", 0x03);
+			c.Y++;
+		}
+		if (g_dElapsedTime > (g_dTime + 34.0))
+		{
+			g_Console.writeToBuffer(c, "Everything was a blurry mess.", 0x03);
+			c.Y += 2;
+		}
+		if (c.Y >= 54)
+		{
+			c.Y = 31;
+		}
+		if (g_dElapsedTime > (g_dTime + 36.0))
+		{
+			g_Console.writeToBuffer(c, "I could distinctly hear the kids screaming and crying in the back and desperately thumping against", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "the windows.", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y++;
+		}
+		if (g_dElapsedTime > (g_dTime + 40.0))
+		{
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			g_Console.writeToBuffer(c, "What felt like frigid cold water scraped along my skins and soon reached my knees.", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y++;
+		}
+		if (g_dElapsedTime > (g_dTime + 43.0))
+		{
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			g_Console.writeToBuffer(c, "A warm liquid oozed from my forehead and down to the tip of my nose, before dripping off into", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			g_Console.writeToBuffer(c, "whatever's below.", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y++;
+		}
+		if (g_dElapsedTime > (g_dTime + 49.0))
+		{
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			g_Console.writeToBuffer(c, "I blinked once, then twice, as I felt the warmth abandon my body.", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y++;
+		}
+		if (g_dElapsedTime > (g_dTime + 52.0))
+		{
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			g_Console.writeToBuffer(c, "The darkness which came stole my body, its freezing embrace wrapping around me like a lover.", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+		}
+		if (g_dElapsedTime > (g_dTime + 56.0))
+		{
+			g_Console.writeToBuffer(c, "And there was nothing.", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+		}
+	}
+
+
+
 	/* Template for MX
 	if (c.Y == 54)
 	{
