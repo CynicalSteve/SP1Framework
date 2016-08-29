@@ -473,7 +473,7 @@ void actfeed()
 
 	if (Factfeed == 992) //OF 3
 	{
-		c.Y = 31;
+		c.Y = 35;
 		if (g_dElapsedTime > g_dTime)
 		{
 			g_Console.writeToBuffer(c, "\"Where have you been?\" Ava asked impatiently, her arms crossed and her eyebrows stitched into a frown.", 0x03);
@@ -625,17 +625,29 @@ void actfeed()
 		}
 		if (g_dElapsedTime > (g_dTime + 48.0))
 		{
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 			g_Console.writeToBuffer(c, "\"Ava,\" Matilda interrupted, her eyes burning with anger. \"If that man dares to lay a finger on you", 0x03);
 			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 			g_Console.writeToBuffer(c, "or your children, promise that you'll holler. I'll send the cops on his ass so fast that he won't even", 0x03);
 			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 			g_Console.writeToBuffer(c, "see it coming\"", 0x03);
-			c.Y += 2;
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 		}
 		if (g_dElapsedTime > (g_dTime + 55.0))
 		{
 			g_Console.writeToBuffer(c, "I feigned a smile.", 0x03);
-			c.Y += 2;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 		}
 		if (g_dElapsedTime > (g_dTime + 56.0))
 		{
