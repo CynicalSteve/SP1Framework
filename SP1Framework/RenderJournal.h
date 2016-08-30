@@ -9,10 +9,12 @@
 
 using namespace std;
 
-void renJournal();
+
+void readJpage(int input);
+void renderJpage();
 void ess();
+void renJournal();
 void opt();
-void fragments(char input);
 
 void Main();
 

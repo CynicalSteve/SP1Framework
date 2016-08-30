@@ -2,6 +2,9 @@
 
 extern Console g_Console;
 extern bool g_abKeyPressed[K_COUNT];
+extern double g_dElapsedTime;
+extern double g_dBounceTime;
+
 COORD c = g_Console.getConsoleSize();
 string EFrag = "Essential Fragments";
 string OFrag = "Optional Fragments";
@@ -9,15 +12,13 @@ string efrag1, efrag2, efrag3, efrag4, efrag5, efrag6 ;
 string ofrag1, ofrag2, ofrag3, ofrag4, ofrag5, ofrag6;
 //string j1, j2, j3;
 ifstream file;
-bool toview = false;
+
+bool JournalMenu = true;
+bool FragSelect = false;
+int JournalFeed;
+char Jpagez[150][150];
 //--------------------------------------------------
 // To select fragments in journal
-
-void buttons()
-{
-	getInput();
-}
-
 //--------------------------------------------------
 // Notes for buttons
 /*
@@ -35,252 +36,167 @@ g_abKeyPressed[A_LEFT] = isKeyPressed(VK_LEFT);
 g_abKeyPressed[A_RIGHT] = isKeyPressed(VK_RIGHT);
 */
 
-void thingy(char input)
+void readJpage(int input)
 {
+	std::ifstream Jpage;
+	int height = 0;
+	int width = 0;
+
 	switch (input)
 	{
-	case '1':
-			c.X = 3;
-			c.Y = 3;
+	case 1:
+		Jpage.open("Text files/EssFrag1.txt");
+		break;
+	}
 
-			file.open("Text files/EssFrag1.txt");
-
-			while (!file.eof())
+	if (Jpage.is_open())
+	{
+		while (height < 23)
+		{
+			while (width < 109)
 			{
-				getline(file, efrag1);
-				g_Console.writeToBuffer(c, efrag1);
-				c.Y++;
+				Jpage >> Jpagez[height][width];
+				width++;
 			}
-			file.close();
-			break;
-	case '2':
-		c.X = 3;
-		c.Y = 3;
-
-		file.open("Text files/EssFrag2.txt");
-
-		while (!file.eof())
-		{
-			getline(file, efrag2);
-			g_Console.writeToBuffer(c, efrag2);
-			c.Y++;
+			width = 0;
+			height++;
 		}
-		file.close();
-		break;
-	case '3':
-		c.X = 3;
-		c.Y = 3;
 
-		file.open("Text files/EssFrag3.txt");
+		Jpage.close();
+	}
+}
 
-		while (!file.eof())
+void renderJpage()
+{
+	COORD c;
+
+	for (int AreaY = 0; AreaY < 23; ++AreaY)
+	{
+		c.Y = AreaY + 1;
+
+		for (int AreaX = 0; AreaX < 109; ++AreaX)
 		{
-			getline(file, efrag3);
-			g_Console.writeToBuffer(c, efrag3);
-			c.Y++;
-		}
-		file.close();
-		break;
-	case '4':
-		c.X = 3;
-		c.Y = 3;
-
-		file.open("Text files/EssFrag4.txt");
-
-		while (!file.eof())
-		{
-			getline(file, efrag4);
-			g_Console.writeToBuffer(c, efrag4);
-			c.Y++;
-		}
-		file.close();
-		break;
-	case '5':
-		c.X = 3;
-		c.Y = 3;
-
-		file.open("Text files/EssFrag5_1.txt");
-
-		while (!file.eof())
-		{
-			getline(file, efrag5);
-			g_Console.writeToBuffer(c, efrag5);
-			c.Y++;
-		}
-		file.close();
-
-		if (g_abKeyPressed[K_ENTER])
-		{
-			file.open("Text files/EssFrag5_2.txt");
-
-			while (!file.eof())
+			if (Jpagez[AreaY][AreaX] == '+')
 			{
-				getline(file, efrag5);
-				g_Console.writeToBuffer(c, efrag5);
-				c.Y++;
+				Jpagez[AreaY][AreaX] = ' ';
 			}
-			file.close();
+
+			c.X = (AreaX - 3);
+
+			g_Console.writeToBuffer(c, Jpagez[AreaY][AreaX], 0x07);
 		}
-		break;
-	case '6':
-		c.X = 3;
-		c.Y = 3;
-
-		file.open("Text files/EssFrag6_1_1.txt");
-
-		while (!file.eof())
-		{
-			getline(file, efrag6);
-			g_Console.writeToBuffer(c, efrag6);
-			c.Y++;
-		}
-		file.close();
-
-		if (g_abKeyPressed[K_ENTER])
-		{
-			file.open("Text files/EssFrag6_1_2.txt");
-
-			while (!file.eof())
-			{
-				getline(file, efrag6);
-				g_Console.writeToBuffer(c, efrag6);
-				c.Y++;
-			}
-			file.close();
-		}
-		break;
 	}
 }
 
 void ess()
 {
-	
-	
-	c.Y = 3;
-	c.X = g_Console.getConsoleSize().X / 2 - 20;
-	g_Console.writeToBuffer(c, EFrag, 0x03);
+	bool SmthHappened = false;
 
-	c.Y = 5;
-	c.X = g_Console.getConsoleSize().X / 2 - 20;
-	g_Console.writeToBuffer(c, "Fragment 1", 0x03);
+	if (g_abKeyPressed[K_B])
+	{
+		SmthHappened = true;
+		JournalMenu = true;
+		FragSelect = false;
+	}
 
-	c.Y = 7;
-	c.X = g_Console.getConsoleSize().X / 2 - 20;
-	g_Console.writeToBuffer(c, "Fragment 2", 0x03);
+	if (g_abKeyPressed[K_INVONE])
+	{
+		SmthHappened = true;
 
-	c.Y = 9;
-	c.X = g_Console.getConsoleSize().X / 2 - 20;
-	g_Console.writeToBuffer(c, "Fragment 3", 0x03);
+		if (JournalFeed == 1)
+		{
+			JournalFeed = 0;
+		}
+		else
+		{
+			JournalFeed = 1;
+		}
+	}
 
-	c.Y = 11;
-	c.X = g_Console.getConsoleSize().X / 2 - 20;
-	g_Console.writeToBuffer(c, "Fragment 4", 0x03);
+	if (SmthHappened)
+	{
+		g_dBounceTime = g_dElapsedTime + 0.25;
+	}
 
-	c.Y = 13;
-	c.X = g_Console.getConsoleSize().X / 2 - 20;
-	g_Console.writeToBuffer(c, "Fragment 5", 0x03);
+	if (g_dBounceTime > g_dElapsedTime)
+		return;
 
-	c.Y = 15;
-	c.X = g_Console.getConsoleSize().X / 2 - 20;
-	g_Console.writeToBuffer(c, "Fragment 6", 0x03);
+	readJpage(JournalFeed);
+
+	if (JournalFeed != 0)
+	{
+		renderJpage();
+	}
+	else
+	{
+		c.Y = 3;
+		c.X = g_Console.getConsoleSize().X / 2 - 20;
+		g_Console.writeToBuffer(c, EFrag, 0x03);
+
+		c.Y = 5;
+		c.X = g_Console.getConsoleSize().X / 2 - 20;
+		g_Console.writeToBuffer(c, "Fragment 1", 0x03);
+
+		c.Y = 7;
+		c.X = g_Console.getConsoleSize().X / 2 - 20;
+		g_Console.writeToBuffer(c, "Fragment 2", 0x03);
+
+		c.Y = 9;
+		c.X = g_Console.getConsoleSize().X / 2 - 20;
+		g_Console.writeToBuffer(c, "Fragment 3", 0x03);
+
+		c.Y = 11;
+		c.X = g_Console.getConsoleSize().X / 2 - 20;
+		g_Console.writeToBuffer(c, "Fragment 4", 0x03);
+
+		c.Y = 13;
+		c.X = g_Console.getConsoleSize().X / 2 - 20;
+		g_Console.writeToBuffer(c, "Fragment 5", 0x03);
+
+		c.Y = 15;
+		c.X = g_Console.getConsoleSize().X / 2 - 20;
+		g_Console.writeToBuffer(c, "Fragment 6", 0x03);
+	}
 }
 
 void renJournal()
 {
-	bool pressed = false;
-
-	c.Y = 1;
-	c.X = g_Console.getConsoleSize().X / 2 - 20;
-	g_Console.writeToBuffer(c, "Journal", 0x03);
-
-	c.Y = 4;
-	c.X = g_Console.getConsoleSize().X / 2 - 20;
-	g_Console.writeToBuffer(c, EFrag, 0x03);
-
-	c.Y = 6;
-	c.X = g_Console.getConsoleSize().X / 2 - 20;
-	g_Console.writeToBuffer(c, OFrag, 0x03);
-
-	c.Y = 8;
-	c.X = g_Console.getConsoleSize().X / 2 - 50;
-	g_Console.writeToBuffer(c, "Press on the number allocated to each fragment to access the memory.", 0x03);
-
-	if (isKeyPressed(0x45))
+	if (!JournalMenu)
+	{
+		JournalMenu = false;
+		FragSelect = true;
 		ess();
-	if (g_abKeyPressed[K_INVTWO] == 1)
-	{
-		c.X = 3;
-		c.Y = 3;
-
-		file.open("Text files/EssFrag2.txt");
-
-		while (!file.eof())
-		{
-			getline(file, efrag2);
-			g_Console.writeToBuffer(c, efrag2);
-			c.Y++;
-		}
-		file.close();
 	}
-
-	if (g_abKeyPressed[K_INVTHREE] == 1)
+	else
 	{
-		c.X = 3;
-		c.Y = 3;
-		file.open("Text files/EssFrag3.txt");
 
-		while (!file.eof())
+		c.Y = 1;
+		c.X = g_Console.getConsoleSize().X / 2 - 20;
+		g_Console.writeToBuffer(c, "Journal", 0x03);
+
+		c.Y = 4;
+		c.X = g_Console.getConsoleSize().X / 2 - 20;
+		g_Console.writeToBuffer(c, EFrag, 0x03);
+
+		c.Y = 6;
+		c.X = g_Console.getConsoleSize().X / 2 - 20;
+		g_Console.writeToBuffer(c, OFrag, 0x03);
+
+		c.Y = 8;
+		c.X = g_Console.getConsoleSize().X / 2 - 50;
+		g_Console.writeToBuffer(c, "Press on the number allocated to each fragment to access the memory.", 0x03);
+
+		if (g_abKeyPressed[K_INVONE])
 		{
-			getline(file, efrag3);
-			g_Console.writeToBuffer(c, efrag3);
-			c.Y++;
+			FragSelect = true;
+			JournalMenu = false;
+			ess();
 		}
-		file.close();
-	}
-
-	if (g_abKeyPressed[K_INVFOUR] == 1)
-	{
-		c.X = 3;
-		c.Y = 3;
-		file.open("Text files/EssFrag4.txt");
-
-		while (!file.eof())
+		if (g_abKeyPressed[K_INVTWO] == 1)
 		{
-			getline(file, efrag4);
-			g_Console.writeToBuffer(c, efrag4);
-			c.Y++;
+			FragSelect = true;
+			//opp();
 		}
-		file.close();
-	}
-
-	if (g_abKeyPressed[K_INVFIVE] == 1)
-	{
-		c.X = 3;
-		c.Y = 3;
-		file.open("Text files/EssFrag5.txt");
-
-		while (!file.eof())
-		{
-			getline(file, efrag5);
-			g_Console.writeToBuffer(c, efrag5);
-			c.Y++;
-		}
-		file.close();
-	}
-
-	if (g_abKeyPressed[K_INVSIX] == 1)
-	{
-		c.X = 3;
-		c.Y = 3;
-		file.open("Text files/EssFrag6.txt");
-
-		while (!file.eof())
-		{
-			getline(file, efrag6);
-			g_Console.writeToBuffer(c, efrag6);
-			c.Y++;
-		}
-		file.close();
 	}
 }
 
