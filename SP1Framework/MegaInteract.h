@@ -16,6 +16,7 @@ int checkinteract(void);
 
 void FstandsforFrustrating(int checkF);
 
+extern double g_dElapsedTime;
 extern double g_dTime;
 
 #endif // _MEGAINTERACT_H
