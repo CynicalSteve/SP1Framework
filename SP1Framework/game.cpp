@@ -26,6 +26,9 @@ extern int EssentialFragment;
 extern int OptionalFragment;
 extern string inventory;
 extern double g_dTime;
+extern bool JournalMenu;
+extern bool FragSelect;
+extern int JournalFeed;
 
 // Game specific variables here
 SGameChar   g_sChar;
@@ -125,6 +128,7 @@ void getInput( void )
 		g_abKeyPressed[A_DOWN] = isKeyPressed(VK_DOWN);
 		g_abKeyPressed[A_LEFT] = isKeyPressed(VK_LEFT);
 		g_abKeyPressed[A_RIGHT] = isKeyPressed(VK_RIGHT);
+		g_abKeyPressed[K_B] = isKeyPressed(0x42);
 	}
 	else if (g_eGameState == S_INPUT)
 	{
@@ -197,13 +201,15 @@ void update(double dt)
             break;
         case S_GAME: gameplay(); // gameplay logic when we are in the game
 			break;
-		case S_PAUSE: gameplay();
+		case S_PAUSE: processUserInput();
 			break;
-		case S_JOURNAL: gameplay();
+		case S_JOURNAL: processUserInput();
+			readJpage(JournalFeed);
 			break;
-		case S_INPUT: gameplay();
+		case S_INPUT: processUserInput();
 			break;
 		case S_INSTRUCTIONS: gameplay();
+			break;
     }
 
 }
@@ -413,6 +419,10 @@ void processUserInput()
 
 			if (g_eGameState != 3)
 			{
+				JournalMenu = true;
+				FragSelect = false;
+				JournalFeed = 0;
+
 				g_eGameState = S_JOURNAL;
 			}
 			else if (g_eGameState == 3)
