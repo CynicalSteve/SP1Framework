@@ -594,7 +594,7 @@ void pause()
 	renJournal();
 }*/
 
-void NewJournal()
+void renderJournal()
 {
 	forJournal();
 }

@@ -17,5 +17,8 @@ void renJournal();
 void opt();
 
 void Main();
+void EssF();
+void OptF();
+void forJournal();
 
 #endif // _RENDERJOURNAL_H

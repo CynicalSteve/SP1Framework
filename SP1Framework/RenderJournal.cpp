@@ -6,11 +6,8 @@ extern double g_dElapsedTime;
 extern double g_dBounceTime;
 
 COORD c = g_Console.getConsoleSize();
-string EFrag = "Essential Fragments";
-string OFrag = "Optional Fragments";
-string efrag1, efrag2, efrag3, efrag4, efrag5, efrag6 ;
-string ofrag1, ofrag2, ofrag3, ofrag4, ofrag5, ofrag6;
-//string j1, j2, j3;
+string journal, efrag, ofrag;
+int toview = 0;
 ifstream file;
 
 bool JournalMenu = true;
@@ -36,7 +33,10 @@ g_abKeyPressed[A_LEFT] = isKeyPressed(VK_LEFT);
 g_abKeyPressed[A_RIGHT] = isKeyPressed(VK_RIGHT);
 */
 
-void readJpage(int input)
+//-------------------------------------------------
+// Edward's Code
+
+/*void readJpage(int input)
 {
 	std::ifstream Jpage;
 	int height = 0;
@@ -198,23 +198,56 @@ void renJournal()
 			//opp();
 		}
 	}
+}*/
+
+void Main()
+{
+	c.Y = 1;
+	c.X = g_Console.getConsoleSize().X / 2 - 20;
+	g_Console.writeToBuffer(c, "Journal");
+
+	c.Y = 4;
+	c.X = g_Console.getConsoleSize().X / 2 - 20;
+	g_Console.writeToBuffer(c, "Essential Fragments");
+
+	c.Y = 6;
+	c.X = g_Console.getConsoleSize().X / 2 - 20;
+	g_Console.writeToBuffer(c, "Optional Fragments");
+
+	c.Y = 8;
+	c.X = g_Console.getConsoleSize().X / 2 - 50;
+	g_Console.writeToBuffer(c, "Press '1' to activate 'Essential Fragments'.");
+
+	c.Y = 10;
+	c.X = g_Console.getConsoleSize().X / 2 - 50;
+	g_Console.writeToBuffer(c, "Press '2' to activate 'Optional Fragments'.");
 }
 
-/*void Main()
+void EssF()
 {
 	c.X = 3;
 	c.Y = 3;
 
-	file.open("Text files/Journal_1.txt");
+	file.open("Text files/EssFrag1.txt");
 
 	while (!file.eof())
 	{
-		getline(file, j1);
-		g_Console.writeToBuffer(c, j1);
+		getline(file, efrag);
+		g_Console.writeToBuffer(c, efrag);
 		c.Y++;
 	}
 	file.close();
-}*/
+}
+
+void OptF()
+{
+
+}
+
+void forJournal()
+{
+	Main();
+}
 
 //-----------------------------------------------------
 // For notes
