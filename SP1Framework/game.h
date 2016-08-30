@@ -43,6 +43,8 @@ enum EKEYS
 	K_PAUSE,
 	A_UP,
 	A_DOWN,
+	A_LEFT,
+	A_RIGHT,
 
 	K_BACKSPACE,
 	K_ESC,

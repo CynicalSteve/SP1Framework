@@ -12,6 +12,8 @@ using namespace std;
 void renJournal();
 void ess();
 void opt();
-void thingy(char input);
+void fragments(char input);
+
+void Main();
 
 #endif // _RENDERJOURNAL_H
