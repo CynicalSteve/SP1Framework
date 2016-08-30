@@ -8,7 +8,9 @@ extern double g_dTime;
 
 void BadEnd()
 {
-	PlaySound(TEXT("BadEndMusic.wav"), NULL, SND_SYNC | SND_LOOP | SND_ASYNC);
+	PlaySound(NULL, 0, 0);
+	PlaySound(TEXT("BadEndMusic.wav"), NULL, SND_LOOP | SND_ASYNC);
+	
 	COORD c = g_Console.getConsoleSize();
 
 	c.Y = 25;

@@ -56,7 +56,7 @@ void init( void )
     g_eGameState = S_SPLASHSCREEN;
 
 	// sets the music for the game
-	PlaySound(TEXT("HappyMusic.wav"), NULL, SND_SYNC | SND_LOOP | SND_ASYNC);
+	PlaySound(TEXT("HappyMusic.wav"), NULL, SND_LOOP | SND_ASYNC);
 
 	// sets where the character spawns when game starts
 	g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 87;
@@ -238,7 +238,8 @@ void render()
 		break;
 	case S_INSTRUCTIONS: instructions();
 		break;
-	case S_BADEND: BadEnd();
+	case S_BADEND:
+		BadEnd();
 		break;
 	case S_TRUEEND: TrueEnd();
 		break;
