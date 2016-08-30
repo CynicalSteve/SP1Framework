@@ -1,4 +1,6 @@
 #include "BadEnd.h"
+#include "Windows.h"
+#include "MMSystem.h"
 extern Console g_Console;
 extern EGAMESTATES g_eGameState;
 extern double g_dElapsedTime;

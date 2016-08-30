@@ -589,9 +589,14 @@ void pause()
 	PauseScreen();
 }
 
-void renderJournal()
+/*void renderJournal()
 {
 	renJournal();
+}*/
+
+void renderJournal()
+{
+	forJournal();
 }
 
 void renderInput()
