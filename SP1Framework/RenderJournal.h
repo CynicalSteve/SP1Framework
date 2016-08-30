@@ -10,12 +10,17 @@
 using namespace std;
 
 
-void readJpage(int input);
+/* void readJpage(int input);
 void renderJpage();
 void ess();
-void renJournal();
 void opt();
+void renJournal(); */
+
 
 void Main();
+void EssF();
+void OptF();
+void forJournal();
+
 
 #endif // _RENDERJOURNAL_H

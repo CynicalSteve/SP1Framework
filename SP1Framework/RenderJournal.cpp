@@ -6,17 +6,15 @@ extern double g_dElapsedTime;
 extern double g_dBounceTime;
 
 COORD c = g_Console.getConsoleSize();
-string EFrag = "Essential Fragments";
-string OFrag = "Optional Fragments";
-string efrag1, efrag2, efrag3, efrag4, efrag5, efrag6 ;
-string ofrag1, ofrag2, ofrag3, ofrag4, ofrag5, ofrag6;
-//string j1, j2, j3;
+string journal, efrag, ofrag;
+int toview = 0;
 ifstream file;
 
 bool JournalMenu = true;
 bool FragSelect = false;
 int JournalFeed;
 char Jpagez[150][150];
+bool smthhappened = false;
 //--------------------------------------------------
 // To select fragments in journal
 //--------------------------------------------------
@@ -36,7 +34,10 @@ g_abKeyPressed[A_LEFT] = isKeyPressed(VK_LEFT);
 g_abKeyPressed[A_RIGHT] = isKeyPressed(VK_RIGHT);
 */
 
-void readJpage(int input)
+//-------------------------------------------------
+// Edward's Code
+
+/*void readJpage(int input)
 {
 	std::ifstream Jpage;
 	int height = 0;
@@ -44,8 +45,20 @@ void readJpage(int input)
 
 	switch (input)
 	{
+	case 0:
+		Jpage.open("Text files/EssFragNone.txt");
+		break;
 	case 1:
 		Jpage.open("Text files/EssFrag1.txt");
+		break;
+	case 2:
+		Jpage.open("Text files/EssFrag2.txt");
+		break;
+	case 3:
+		Jpage.open("Text files/EssFrag3.txt");
+		break;
+	case 4:
+		Jpage.open("Text files/EssFrag4.txt");
 		break;
 	}
 
@@ -90,38 +103,44 @@ void renderJpage()
 
 void ess()
 {
-	bool SmthHappened = false;
-
 	if (g_abKeyPressed[K_B])
 	{
-		SmthHappened = true;
-		JournalMenu = true;
-		FragSelect = false;
+		smthhappened = true;
+
+		if (JournalFeed == 0)
+		{
+			JournalMenu = true;
+			FragSelect = false;
+		}
+		else
+		{
+			JournalFeed = 0;
+		}
 	}
 
 	if (g_abKeyPressed[K_INVONE])
 	{
-		SmthHappened = true;
-
-		if (JournalFeed == 1)
-		{
-			JournalFeed = 0;
-		}
-		else
-		{
-			JournalFeed = 1;
-		}
+		smthhappened = true;
+		JournalFeed = 1;
 	}
 
-	if (SmthHappened)
+	if (g_abKeyPressed[K_INVTWO])
 	{
-		g_dBounceTime = g_dElapsedTime + 0.25;
+		smthhappened = true;
+		JournalFeed = 2;
 	}
 
-	if (g_dBounceTime > g_dElapsedTime)
-		return;
+	if (g_abKeyPressed[K_INVTHREE])
+	{
+		smthhappened = true;
+		JournalFeed = 3;
+	}
 
-	readJpage(JournalFeed);
+	if (g_abKeyPressed[K_INVFOUR])
+	{
+		smthhappened = true;
+		JournalFeed = 4;
+	}
 
 	if (JournalFeed != 0)
 	{
@@ -157,10 +176,24 @@ void ess()
 		c.X = g_Console.getConsoleSize().X / 2 - 20;
 		g_Console.writeToBuffer(c, "Fragment 6", 0x03);
 	}
+
+	if (g_dElapsedTime > g_dBounceTime)
+	{
+		readJpage(JournalFeed);
+	}
 }
 
 void renJournal()
 {
+	if (smthhappened)
+	{
+		g_dBounceTime = g_dElapsedTime + 0.25;
+		smthhappened = false;
+	}
+
+	if (g_dBounceTime > g_dElapsedTime)
+		return;
+
 	if (!JournalMenu)
 	{
 		JournalMenu = false;
@@ -188,33 +221,67 @@ void renJournal()
 
 		if (g_abKeyPressed[K_INVONE])
 		{
+			smthhappened = true;
 			FragSelect = true;
 			JournalMenu = false;
-			ess();
 		}
 		if (g_abKeyPressed[K_INVTWO] == 1)
 		{
+			smthhappened = true;
 			FragSelect = true;
 			//opp();
 		}
 	}
+}*/
+
+void Main()
+{
+	c.Y = 1;
+	c.X = g_Console.getConsoleSize().X / 2 - 20;
+	g_Console.writeToBuffer(c, "Journal");
+
+	c.Y = 4;
+	c.X = g_Console.getConsoleSize().X / 2 - 20;
+	g_Console.writeToBuffer(c, "Essential Fragments");
+
+	c.Y = 6;
+	c.X = g_Console.getConsoleSize().X / 2 - 20;
+	g_Console.writeToBuffer(c, "Optional Fragments");
+
+	c.Y = 8;
+	c.X = g_Console.getConsoleSize().X / 2 - 50;
+	g_Console.writeToBuffer(c, "Press '1' to activate 'Essential Fragments'.");
+
+	c.Y = 10;
+	c.X = g_Console.getConsoleSize().X / 2 - 50;
+	g_Console.writeToBuffer(c, "Press '2' to activate 'Optional Fragments'.");
 }
 
-/*void Main()
+void EssF()
 {
 	c.X = 3;
 	c.Y = 3;
 
-	file.open("Text files/Journal_1.txt");
+	file.open("Text files/EssFrag1.txt");
 
 	while (!file.eof())
 	{
-		getline(file, j1);
-		g_Console.writeToBuffer(c, j1);
+		getline(file, efrag);
+		g_Console.writeToBuffer(c, efrag);
 		c.Y++;
 	}
 	file.close();
-}*/
+}
+
+void OptF()
+{
+
+}
+
+void forJournal()
+{
+	Main();
+}
 
 //-----------------------------------------------------
 // For notes

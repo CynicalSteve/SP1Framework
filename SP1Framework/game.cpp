@@ -19,7 +19,7 @@ double  g_dElapsedTime;
 double  g_dDeltaTime;
 bool    g_abKeyPressed[K_COUNT];
 
-int Areanum = 6;
+int Areanum = 1;
 int checkF;                // Checking what the player is interacting with
 
 extern int EssentialFragment;
@@ -594,7 +594,7 @@ void pause()
 	renJournal();
 }*/
 
-void NewJournal()
+void renderJournal()
 {
 	forJournal();
 }
