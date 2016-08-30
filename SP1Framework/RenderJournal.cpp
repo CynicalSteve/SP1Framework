@@ -237,7 +237,7 @@ void renJournal()
 void Main()
 {
 	c.Y = 1;
-	c.X = g_Console.getConsoleSize().X / 2 - 20;
+	c.X = g_Console.getConsoleSize().X / 2 - 15;
 	g_Console.writeToBuffer(c, "Journal");
 
 	c.Y = 4;
@@ -248,39 +248,100 @@ void Main()
 	c.X = g_Console.getConsoleSize().X / 2 - 20;
 	g_Console.writeToBuffer(c, "Optional Fragments");
 
-	c.Y = 8;
-	c.X = g_Console.getConsoleSize().X / 2 - 50;
+	c.Y = 9;
+	c.X = g_Console.getConsoleSize().X / 2 - 30;
 	g_Console.writeToBuffer(c, "Press '1' to activate 'Essential Fragments'.");
 
 	c.Y = 10;
-	c.X = g_Console.getConsoleSize().X / 2 - 50;
+	c.X = g_Console.getConsoleSize().X / 2 - 30;
 	g_Console.writeToBuffer(c, "Press '2' to activate 'Optional Fragments'.");
 }
 
 void EssF()
 {
-	c.X = 3;
-	c.Y = 3;
+	c.Y = 1;
+	c.X = g_Console.getConsoleSize().X / 2 - 24;
+	g_Console.writeToBuffer(c, "Essential Fragments");
 
-	file.open("Text files/EssFrag1.txt");
+	c.Y = 4;
+	c.X = g_Console.getConsoleSize().X / 2 - 20;
+	g_Console.writeToBuffer(c, "Fragment 1");
 
-	while (!file.eof())
-	{
-		getline(file, efrag);
-		g_Console.writeToBuffer(c, efrag);
-		c.Y++;
-	}
-	file.close();
+	c.Y = 6;
+	c.X = g_Console.getConsoleSize().X / 2 - 20;
+	g_Console.writeToBuffer(c, "Fragment 2");
+
+	c.Y = 8;
+	c.X = g_Console.getConsoleSize().X / 2 - 20;
+	g_Console.writeToBuffer(c, "Fragment 3");
+
+	c.Y = 10;
+	c.X = g_Console.getConsoleSize().X / 2 - 20;
+	g_Console.writeToBuffer(c, "Fragment 4");
+
+	c.Y = 12;
+	c.X = g_Console.getConsoleSize().X / 2 - 20;
+	g_Console.writeToBuffer(c, "Fragment 5");
+
+	c.Y = 14;
+	c.X = g_Console.getConsoleSize().X / 2 - 20;
+	g_Console.writeToBuffer(c, "Fragment 6");
+
+	c.Y = 17;
+	c.X = g_Console.getConsoleSize().X / 2 - 45;
+	g_Console.writeToBuffer(c, "Press the number indicated to a fragment to activate a memory.");
 }
 
 void OptF()
 {
+	c.Y = 1;
+	c.X = g_Console.getConsoleSize().X / 2 - 24;
+	g_Console.writeToBuffer(c, "Optional Fragments");
 
+	c.Y = 4;
+	c.X = g_Console.getConsoleSize().X / 2 - 20;
+	g_Console.writeToBuffer(c, "Fragment 1");
+
+	c.Y = 6;
+	c.X = g_Console.getConsoleSize().X / 2 - 20;
+	g_Console.writeToBuffer(c, "Fragment 2");
+
+	c.Y = 8;
+	c.X = g_Console.getConsoleSize().X / 2 - 20;
+	g_Console.writeToBuffer(c, "Fragment 3");
+
+	c.Y = 10;
+	c.X = g_Console.getConsoleSize().X / 2 - 20;
+	g_Console.writeToBuffer(c, "Fragment 4");
+
+	c.Y = 12;
+	c.X = g_Console.getConsoleSize().X / 2 - 20;
+	g_Console.writeToBuffer(c, "Fragment 5");
+
+	c.Y = 14;
+	c.X = g_Console.getConsoleSize().X / 2 - 20;
+	g_Console.writeToBuffer(c, "Fragment 6");
+
+	c.Y = 17;
+	c.X = g_Console.getConsoleSize().X / 2 - 45;
+	g_Console.writeToBuffer(c, "Press the number indicated to a fragment to activate a memory.");
 }
 
 void forJournal()
 {
-	Main();
+	if (g_abKeyPressed[K_INVONE])
+	{
+		toview = 1;
+
+		if (toview == 1)
+		{
+			EssF();
+		}
+	}
+	else
+	{
+		Main();
+	}
 }
 
 //-----------------------------------------------------

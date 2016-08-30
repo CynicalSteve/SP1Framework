@@ -9,13 +9,11 @@
 
 using namespace std;
 
-
 /* void readJpage(int input);
 void renderJpage();
 void ess();
 void opt();
 void renJournal(); */
-
 
 void Main();
 void EssF();
