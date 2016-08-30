@@ -5,14 +5,12 @@ extern SGameChar g_sChar;
 extern EGAMESTATES g_eGameState;
 
 extern int Areanum;
-
-
 int Factfeed = 0;
 int InPortal = 0;
 int tempF;
 int EssentialFragment = 5; // Change this to access certain areas.
 int OptionalFragment = 0;  // Change this to access certain areas.
-std::string inventory = "none";
+std::string inventory = "A History Book";
 int levelfinish = 0;
 int reqinteraction = 0; // This is so we can force the player to actually read certain thingamajigs otherwise other thingamajigs wont work.
 double g_dElapsedTimeTemp = 999.0;
