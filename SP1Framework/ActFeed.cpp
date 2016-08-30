@@ -818,6 +818,7 @@ void actfeed()
 		}
 		if (g_dElapsedTime > (g_dTime + 61.0))
 		{
+			g_dTime = (g_dElapsedTime + 2.0);
 			g_eGameState = S_BADEND;
 		}
 	}

@@ -5,6 +5,7 @@ extern SGameChar g_sChar;
 extern EGAMESTATES g_eGameState;
 
 extern int Areanum;
+extern double g_dElapsedTime;
 int Factfeed = 0;
 int InPortal = 0;
 int tempF;
