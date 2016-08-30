@@ -1,7 +1,8 @@
-Journal
+                      Journal
 
-Essential Fragments
+                Essential Fragments
 
-Optional Fragments
+                Optional Fragments
 
-Press on the number allocated to each fragment to access the memory.
+		Press 1 to Select Essential Fragments
+		Press 2 to Select Optional Fragments

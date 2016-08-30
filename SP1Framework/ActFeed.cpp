@@ -2,6 +2,7 @@
 
 extern Console g_Console;
 extern SGameChar g_sChar;
+extern EGAMESTATES g_eGameState;
 extern std::string inventory;
 extern int Factfeed;
 extern double g_dElapsedTime;
@@ -815,7 +816,10 @@ void actfeed()
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 		}
-		
+		if (g_dElapsedTime > (g_dTime + 61.0))
+		{
+			g_eGameState = S_BADEND;
+		}
 	}
 
 
