@@ -12,6 +12,7 @@
 #include "PlayerInput.h"
 #include "PauseScreen.h"
 #include "InstructScreen.h"
+#include "NewJournal.h"
 
 using namespace std;
 
