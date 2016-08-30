@@ -13,9 +13,7 @@ using namespace std;
 void readJpage(int input);
 void renderJpage();
 void ess();
-void renJournal();
 void opt();
-
-void Main();
+void renJournal();
 
 #endif // _RENDERJOURNAL_H
