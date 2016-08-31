@@ -2,8 +2,10 @@
 #include "ChaseMap.h"
 
 extern Console g_Console;
+extern EGAMESTATES g_eGameState;
 extern SGameChar g_sChar;
 extern SGameChar AIAva;
+extern int levelfinish;
 
 int CollisionChase(int checkChase)
 {
@@ -37,6 +39,12 @@ int CollisionChase(int checkChase)
 		{
 		case 'F':
 			return 1;
+		case '|':
+			g_eGameState = S_GAME;
+			levelfinish = 8;
+			g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 107;
+			g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 42;
+			break;
 		default:
 			return 0;
 		}
@@ -47,6 +55,12 @@ int CollisionChase(int checkChase)
 		{
 		case 'F':
 			return 1;
+		case '|':
+			g_eGameState = S_GAME;
+			levelfinish = 8;
+			g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 107;
+			g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 42;
+			break;
 		default:
 			return 0;
 		}
@@ -57,6 +71,12 @@ int CollisionChase(int checkChase)
 		{
 		case 'F':
 			return 1;
+		case '|':
+			g_eGameState = S_GAME;
+			levelfinish = 8;
+			g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 107;
+			g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 42;
+			break;
 		default:
 			return 0;
 		}
@@ -67,6 +87,12 @@ int CollisionChase(int checkChase)
 		{
 		case 'F':
 			return 1;
+		case '|':
+			g_eGameState = S_GAME;
+			levelfinish = 8;
+			g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 107;
+			g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 42;
+			break;
 		default:
 			return 0;
 		}

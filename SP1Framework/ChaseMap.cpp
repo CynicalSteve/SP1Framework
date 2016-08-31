@@ -1,6 +1,11 @@
 #include "ChaseMap.h"
+#include "game.h"
 
 extern Console g_Console;
+extern SGameChar AIAva;
+extern bool restart;
+
+char destroy[150][150];
 
 char** chasestore(char** printchase)
 {
@@ -48,5 +53,50 @@ void chasemap(char** printchase)
 
 			g_Console.writeToBuffer(c, printchase[AreaY][AreaX], 0x07);
 		}
+	}
+
+	for (int AreaY = 0; AreaY < 48; ++AreaY)
+	{
+		c.Y = AreaY;
+
+		for (int AreaX = 0; AreaX < 109; ++AreaX)
+		{
+			c.X = AreaX;
+
+			if (destroy[AreaY][AreaX] == ' ')
+			{
+				g_Console.writeToBuffer(c, destroy[AreaY][AreaX], 0x07);
+			}
+		}
+	}
+
+	if (restart)
+	{
+		for (int AreaY = 0; AreaY < 48; ++AreaY)
+		{
+			c.Y = AreaY;
+
+			for (int AreaX = 0; AreaX < 109; ++AreaX)
+			{
+				c.X = AreaX;
+
+				if (destroy[AreaY][AreaX] == ' ')
+				{
+					destroy[AreaY][AreaX] = 'A';
+				}
+			}
+		}
+
+		restart = false;
+	}
+}
+
+void erase(bool replace)
+{
+	COORD c;
+
+	if (replace)
+	{
+		destroy[AIAva.m_cLocation.Y][AIAva.m_cLocation.X] = ' ';
 	}
 }
