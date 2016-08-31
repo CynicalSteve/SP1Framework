@@ -204,7 +204,7 @@ void update(double dt)
 		case S_PAUSE: processUserInput();
 			break;
 		case S_JOURNAL: processUserInput();
-			readJpage(JournalFeed);
+			// readJpage(JournalFeed);
 			break;
 		case S_INPUT: processUserInput();
 			break;
