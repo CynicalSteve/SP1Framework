@@ -24,7 +24,6 @@ using namespace std;
 
 extern CStopWatch g_swTimer;
 extern bool g_bQuitGame;
-void systempause();
 
 // Enumeration to store the control keys that your game will have
 enum EKEYS

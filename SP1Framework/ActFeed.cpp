@@ -206,6 +206,7 @@ void actfeed()
 		}
 	}
 
+
 	if (Factfeed == 912) // EF 1
 	{
 		c.Y = 31;
@@ -213,90 +214,91 @@ void actfeed()
 		c.Y++;
 		g_Console.writeToBuffer(c, "picked up from the ground.", 0x03);
 		c.Y++;
-		if (g_dElapsedTime > g_dTime)
+		if (g_dElapsedTime > (g_dTime + 5.0))
 		{
 			g_Console.writeToBuffer(c, "\"Next, you aim it at an angle like so...\", he continued, \"while adding a little spin to it, you throw", 0x03);
 			c.Y++;
 			g_Console.writeToBuffer(c, "as hard as you can.\"", 0x03);
 			c.Y++;
 		}
-		if (g_dElapsedTime > (g_dTime + 3.0))
+		if (g_dElapsedTime > (g_dTime + 9.0))
 		{
 			g_Console.writeToBuffer(c, "At the last word of his sentence, he hurled the stone towards the lake.", 0x03);
 			c.Y++;
 		}
-		if (g_dElapsedTime > (g_dTime + 5.0))
+		if (g_dElapsedTime > (g_dTime + 11.0))
 		{
 			g_Console.writeToBuffer(c, "It skipped five times across the surface of the water before plopping into the depths below.", 0x03);
 			c.Y += 2;
 		}
-		if (g_dElapsedTime > (g_dTime + 8.0))
+		if (g_dElapsedTime > (g_dTime + 14.0))
 		{
 			g_Console.writeToBuffer(c, "\"Now you try it,\" he said with a proud look on his face.", 0x03);
 			c.Y++;
 		}
-		if (g_dElapsedTime > (g_dTime + 10.0))
+		if (g_dElapsedTime > (g_dTime + 16.0))
 		{
 			g_Console.writeToBuffer(c, "I wrinkled my nose at him, before grabbing a stone from the ground and tossed it at the lake.", 0x03);
 			c.Y++;
 		}
-		if (g_dElapsedTime > (g_dTime + 14.0))
+		if (g_dElapsedTime > (g_dTime + 20.0))
 		{
 			g_Console.writeToBuffer(c, "It skipped eight times on the surface before sinking.", 0x03);
 			c.Y += 2;
 		}
-		if (g_dElapsedTime > (g_dTime + 16.0))
+		if (g_dElapsedTime > (g_dTime + 22.0))
 		{
 			g_Console.writeToBuffer(c, "He stared at me in disbelief, \"Damn Ava, nice throw!\"", 0x03);
 			c.Y++;
 		}
-		if (g_dElapsedTime > (g_dTime + 18.0))
+		if (g_dElapsedTime > (g_dTime + 24.0))
 		{
 			g_Console.writeToBuffer(c, "\"Or maybe you're just bad at it,\" I snorted.", 0x03);
 			c.Y++;
 		}
-		if (g_dElapsedTime > (g_dTime + 20.0))
+		if (g_dElapsedTime > (g_dTime + 27.0))
 		{
 			g_Console.writeToBuffer(c, "His eyes twinkled mischievously.", 0x03);
 			c.Y++;
 		}
-		if (g_dElapsedTime > (g_dTime + 21.0))
+		if (g_dElapsedTime > (g_dTime + 28.0))
 		{
 			g_Console.writeToBuffer(c, "\"Oh yeah? I'll show you something I'm not bad at!\"", 0x03);
 			c.Y++;
 		}
-		if (g_dElapsedTime > (g_dTime + 23.0))
+		if (g_dElapsedTime > (g_dTime + 30.0))
 		{
 			g_Console.writeToBuffer(c, "He raced towards me and slung me over his shoulder. He then ran towards the treeline with us both,", 0x03);
 			c.Y++;
 			g_Console.writeToBuffer(c, "laughing the whole time.", 0x03);
 			c.Y += 2;
 		}
-		if (g_dElapsedTime > (g_dTime + 27.0))
+		if (g_dElapsedTime > (g_dTime + 35.0))
 		{
 			g_Console.writeToBuffer(c, "Startled, I jumped backwards.", 0x02);
 			c.Y++;
 		}
-		if (g_dElapsedTime > (g_dTime + 28.0))
+		if (g_dElapsedTime > (g_dTime + 36.0))
 		{
 			g_Console.writeToBuffer(c, "\"What in the world was that?\"", 0x02);
 			c.Y++;
 		}
-		if (g_dElapsedTime > (g_dTime + 29.0))
+		if (g_dElapsedTime > (g_dTime + 37.0))
 		{
 			g_Console.writeToBuffer(c, "That man seemed so familiar, as if I've known him for all my life.", 0x02);
 			c.Y++;
 		}
-		if (g_dElapsedTime > (g_dTime + 31.0))
+		if (g_dElapsedTime > (g_dTime + 39.0))
 		{
 			g_Console.writeToBuffer(c, "Perhaps that was some kind of memory? If I enter more of those portals, will I get my memory back?", 0x02);
 			c.Y++;
 		}
-		if (g_dElapsedTime > (g_dTime + 34.0))
+		if (g_dElapsedTime > (g_dTime + 42.0))
 		{
 			g_Console.writeToBuffer(c, "I guess I better find out.", 0x02);
 		}
 	}
+
 
 	if (Factfeed == 914) // OF 1
 	{
@@ -791,21 +793,19 @@ void actfeed()
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
-			c.Y++;
 		}
 		if (g_dElapsedTime > (g_dTime + 40.0))
 		{
-			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y = 34;
 			g_Console.writeToBuffer(c, "What felt like frigid cold water scraped along my skins and soon reached my knees.", 0x03);
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
-			c.Y++;
 		}
 		if (g_dElapsedTime > (g_dTime + 43.0))
 		{
-			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y = 36;
 			g_Console.writeToBuffer(c, "A warm liquid oozed from my forehead and down to the tip of my nose, before dripping off into", 0x03);
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
@@ -814,27 +814,26 @@ void actfeed()
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
-			c.Y++;
 		}
 		if (g_dElapsedTime > (g_dTime + 49.0))
 		{
-			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y = 39;
 			g_Console.writeToBuffer(c, "I blinked once, then twice, as I felt the warmth abandon my body.", 0x03);
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
-			c.Y++;
 		}
 		if (g_dElapsedTime > (g_dTime + 52.0))
 		{
-			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y = 41;
 			g_Console.writeToBuffer(c, "The darkness which came stole my body, its freezing embrace wrapping around me like a lover.", 0x03);
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 		}
 		if (g_dElapsedTime > (g_dTime + 56.0))
 		{
+			c.Y = 43;
 			g_Console.writeToBuffer(c, "And then there was nothing.", 0x03);
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
@@ -849,7 +848,111 @@ void actfeed()
 		}
 	}
 
-
+	if (Factfeed == 997) // EF 6.2
+	{
+		c.Y = 31;
+		if (g_dElapsedTime > g_dTime)
+		{
+			g_Console.writeToBuffer(c, "\"What did you just say, Terence?\" Ava asked in a dangerous voice.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 3.0))
+		{
+			g_Console.writeToBuffer(c, "\"I said I'm leaving you Ava, and I'm taking the kids with me.\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 6.0))
+		{
+			g_Console.writeToBuffer(c, "Ava's face twisted into the most sinister sneer Terence had ever seen.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 10.0))
+		{
+			g_Console.writeToBuffer(c, "\"Oh really? Which harlot are you running off with?\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 12.0))
+		{
+			g_Console.writeToBuffer(c, "\"It's not because of some woman you've made up Ava, it's because... you're an evil woman. The kids are", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "terrified of you. I'm terrified of you too, of what you can do. That's why I'm leaving.\" Terence said.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 22.0))
+		{
+			g_Console.writeToBuffer(c, "Ava let out a laugh, a laughter so chilling that it sent a shiver down his spine.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 26.0))
+		{
+			g_Console.writeToBuffer(c, "\"What makes you think that you can win the custody of the kids? Once I cook up some sob story, the jury", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "will throw your ass in prison for domestic violence.\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 32.0))
+		{
+			g_Console.writeToBuffer(c, "Terence gulped. \"The court wouldn't listen unless you have proof.\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 35.0))
+		{
+			g_Console.writeToBuffer(c, "\"Are you that dense? I'll just MAKE proof! If you dare to cross me, I can endure a little pain to see", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "you behind bars.\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 40.0))
+		{
+			g_Console.writeToBuffer(c, "Terence let out a shaky breath as he pulled out his phone from his pocket.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 44.0))
+		{
+			c.Y = 31;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			g_Console.writeToBuffer(c, "\"You got all of that didn't you, Attorney? Yes, yes, thank you.\"", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+		}
+		if (g_dElapsedTime > (g_dTime + 48.0))
+		{
+			c.Y = 33;
+			g_Console.writeToBuffer(c, "Ava's face turned from one of arrogance to one of horror. Pure, unadulterated rage streaked through her", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			g_Console.writeToBuffer(c, "mind and body, and the next thing she knew, Terence was slumped on the ground while she held a shattered", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			g_Console.writeToBuffer(c, "beer bottle. Blood oozed from Terence's temple where she hit him.", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+		}
+		if (g_dElapsedTime > (g_dTime + 60.0))
+		{
+			c.Y = 37;
+			g_Console.writeToBuffer(c, "\"Crap!\" Ava hissed, dropping the bottle to the ground.", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+		}
+		if (g_dElapsedTime > (g_dTime + 62.0))
+		{
+			c.Y = 39;
+			g_Console.writeToBuffer(c, "\"Sasha! Jonathan! We're leaving!\" She called out.", 0x03);
+		}
+		if (g_dElapsedTime > (g_dTime + 64.0))
+		{
+			g_dTime = (g_dElapsedTime + 2.0);
+			PlaySound(TEXT("TrueEndMusic.wav"), NULL, SND_SYNC | SND_LOOP | SND_ASYNC);
+			g_eGameState = S_TRUEEND;
+		}
+	}
 
 	/* Template for MX
 	if (c.Y == 54)

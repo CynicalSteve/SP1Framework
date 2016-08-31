@@ -18,7 +18,9 @@ double  g_dElapsedTime;
 double  g_dDeltaTime;
 bool    g_abKeyPressed[K_COUNT];
 
+
 int Areanum = 4;
+
 int checkF;                // Checking what the player is interacting with
 
 extern int EssentialFragment;
@@ -50,9 +52,6 @@ Console g_Console(110, 55, "SP1 Framework");
 //--------------------------------------------------------------
 void init( void )
 {
-	int musiccheck = 1;
-	int *music;
-	music = &musiccheck;
     // Set precision for floating point output
     g_dElapsedTime = 0.0;
     g_dBounceTime = 0.0;

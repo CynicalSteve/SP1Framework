@@ -137,10 +137,10 @@
     <ClInclude Include="AI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ChaseMap.h">
+    <ClInclude Include="CheckColiChase.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CheckColiChase.h">
+    <ClInclude Include="ChaseMap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CheckColiChaseAI.h">
