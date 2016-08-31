@@ -249,8 +249,7 @@ void render()
 		break;
 	case S_CHASE: renderChase();
 		break;
-	case S_BADEND:
-		BadEnd();
+	case S_BADEND: BadEnd();
 		break;
 	case S_TRUEEND: TrueEnd();
 		break;
@@ -696,8 +695,6 @@ void renderChase()
 	{
 		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 100;
 		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 29;
-
-		restart = false;
 	}
 
 	renderChaseMap();

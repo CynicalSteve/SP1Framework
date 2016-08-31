@@ -1,5 +1,6 @@
 #include "AI.h"
 #include "CheckColiChaseAI.h"
+#include "ChaseMap.h"
 
 SGameChar AIAva;
 
@@ -38,29 +39,66 @@ void AImovement(int cordX, int cordY)
 	}
 	else
 	{
-		if ((differenceX > 0) && (CollisionChaseAI(4) == 1))
+		if (differenceX > 0)
 		{
-			AIHappened = true;
-			AIAva.m_cLocation.X++;
+			if (CollisionChaseAI(4) == 1)
+			{
+				AIHappened = true;
+				AIAva.m_cLocation.X++;
+			}
+			else if (CollisionChaseAI(4) == 2)
+			{
+				AIHappened = true;
+				AIAva.m_cLocation.X++;
+				erase(true);
+			}
 		}
-		else if ((differenceX < 0) && (CollisionChaseAI(3) == 1))
+		
+		if (differenceX < 0)
 		{
-			AIHappened = true;
-			AIAva.m_cLocation.X--;
+			if (CollisionChaseAI(3) == 1)
+			{
+				AIHappened = true;
+				AIAva.m_cLocation.X--;
+			}
+			else if (CollisionChaseAI(3) == 2)
+			{
+				AIHappened = true;
+				AIAva.m_cLocation.X--;
+				erase(true);
+			}
 		}
 
-		if ((differenceY > 0) && (CollisionChaseAI(2) == 1))
+		if (differenceY > 0)
 		{
-			AIHappened = true;
-			AIAva.m_cLocation.Y++;
+			if (CollisionChaseAI(2) == 1)
+			{
+				AIHappened = true;
+				AIAva.m_cLocation.Y++;
+			}
+			else if (CollisionChaseAI(2) == 2)
+			{
+				AIHappened = true;
+				AIAva.m_cLocation.Y++;
+				erase(true);
+			}
 		}
-		else if ((differenceY < 0) && (CollisionChaseAI(1) == 1))
+		
+		if (differenceY < 0)
 		{
-			AIHappened = true;
-			AIAva.m_cLocation.Y--;
+			if (CollisionChaseAI(1) == 1)
+			{
+				AIHappened = true;
+				AIAva.m_cLocation.Y--;
+			}
+			else if (CollisionChaseAI(1) == 2)
+			{
+				AIHappened = true;
+				AIAva.m_cLocation.Y--;
+				erase(true);
+			}
 		}
 	}
-
 
 	if (AIHappened)
 	{

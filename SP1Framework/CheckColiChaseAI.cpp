@@ -35,7 +35,9 @@ int CollisionChaseAI(int checkChaseAI)
 		{
 		case 'F':
 			return 1;
-		case 'B':
+		case '_':
+			return 2;
+		case 'I':
 			return 2;
 		default:
 			return 0;
@@ -47,7 +49,9 @@ int CollisionChaseAI(int checkChaseAI)
 		{
 		case 'F':
 			return 1;
-		case 'B':
+		case '_':
+			return 2;
+		case 'I':
 			return 2;
 		default:
 			return 0;
@@ -59,7 +63,9 @@ int CollisionChaseAI(int checkChaseAI)
 		{
 		case 'F':
 			return 1;
-		case 'B':
+		case '_':
+			return 2;
+		case 'I':
 			return 2;
 		default:
 			return 0;
@@ -71,7 +77,9 @@ int CollisionChaseAI(int checkChaseAI)
 		{
 		case 'F':
 			return 1;
-		case 'B':
+		case '_':
+			return 2;
+		case 'I':
 			return 2;
 		default:
 			return 0;

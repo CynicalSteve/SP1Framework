@@ -162,47 +162,62 @@ void actfeed()
 		}
 	}
 
-	if (InPortal == 15) // TBD what we do with this
+	if (InPortal == 15)
 	{
-		c.Y = 31;
-
-		g_Console.writeToBuffer(c, "A familiar place. It has been quite a tiring journey, hasn't it?", 0x06);
-		c.Y++;
-		g_Console.writeToBuffer(c, "Oh, sorry Ava, I'm not talking about you. The box, on your bed, is tired.", 0x06);
-		c.Y++;
-		g_Console.writeToBuffer(c, "Why don't you tuck it in? You could even care for this box more than your actual children.", 0x06);
-		c.Y++;
-		g_Console.writeToBuffer(c, "You can even put hearts over it and name it the companion cube.", 0x06);
-		c.Y++;
-
-		if (((reqinteraction == 1) && (g_dElapsedTime > (g_dElapsedTimeTemp - 20.0))) || reqinteraction == 2)
+		if (levelfinish != 8)
 		{
-			reqinteraction = 2;
+			c.Y = 31;
 
-			g_Console.writeToBuffer(c, "...", 0x06);
+			g_Console.writeToBuffer(c, "A familiar place. It has been quite a tiring journey, hasn't it?", 0x06);
 			c.Y++;
-			g_Console.writeToBuffer(c, "Oh, your first act of defiance. I guess showing you your old bedroom brought your maturity back too.", 0x06);
+			g_Console.writeToBuffer(c, "Oh, sorry Ava, I'm not talking about you. The box, on your bed, is tired.", 0x06);
 			c.Y++;
-			g_Console.writeToBuffer(c, "Alright then, you don't want to tuck a box in, I'll turn it into a replica of you.", 0x06);
+			g_Console.writeToBuffer(c, "Why don't you tuck it in? You could even care for this box more than your actual children.", 0x06);
 			c.Y++;
-			g_Console.writeToBuffer(c, "Its a replica of when you were lashing out at Terrence and broke a bottle to cut him.", 0x06);
+			g_Console.writeToBuffer(c, "You can even put hearts over it and name it the companion cube.", 0x06);
 			c.Y++;
-			g_Console.writeToBuffer(c, "Oh, and she thinks you're Terrence. Have fun!", 0x06);
+
+			if (((reqinteraction == 1) && (g_dElapsedTime > (g_dElapsedTimeTemp - 20.0))) || reqinteraction == 2)
+			{
+				reqinteraction = 2;
+
+				g_Console.writeToBuffer(c, "...", 0x06);
+				c.Y++;
+				g_Console.writeToBuffer(c, "Oh, your first act of defiance. I guess showing you your old bedroom brought your maturity back too.", 0x06);
+				c.Y++;
+				g_Console.writeToBuffer(c, "Alright then, you don't want to tuck a box in, I'll turn it into a replica of you.", 0x06);
+				c.Y++;
+				g_Console.writeToBuffer(c, "Its a replica of when you were lashing out at Terrence and broke a bottle to cut him.", 0x06);
+				c.Y++;
+				g_Console.writeToBuffer(c, "Oh, and she thinks you're Terrence. You should get ready to run. This will be fun to watch.", 0x06);
+				
+				if (g_dElapsedTime > (g_dElapsedTimeTemp - 5.0))
+				{
+					c.Y++;
+					g_Console.writeToBuffer(c, "Anytime now...", 0x06);
+				}
+			}
+
+			if (g_dElapsedTime > g_dElapsedTimeTemp)
+			{
+				Factfeed = 0;
+
+				g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 100;
+				g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 29;
+
+				AIAva.m_cLocation.X = g_Console.getConsoleSize().X - 109;
+				AIAva.m_cLocation.Y = g_Console.getConsoleSize().Y - 29;
+
+				g_eGameState = S_CHASE;
+
+				g_dElapsedTimeTemp = 999.0;
+			}
 		}
-
-		if (g_dElapsedTime > g_dElapsedTimeTemp)
+		else
 		{
-			Factfeed = 0;
+			c.Y = 31;
 
-			g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 100;
-			g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 29;
-
-			AIAva.m_cLocation.X = g_Console.getConsoleSize().X - 109;
-			AIAva.m_cLocation.Y = g_Console.getConsoleSize().Y - 29;
-
-			g_eGameState = S_CHASE;
-			
-			g_dElapsedTimeTemp = 999.0;
+			g_Console.writeToBuffer(c, "While running might have saved you from that fate, you can't run from yourself forever.", 0x06);
 		}
 	}
 
@@ -1174,9 +1189,6 @@ void actfeed()
 		case 30 :   //Chapel Podium (OF)
 			g_Console.writeToBuffer(c, "The podium is empty", 0x02);
 			break;
-		/*case 31:   //Street Box (OF)                                                                         *** DELETE THIS IF MAZE IS DONE ***
-			g_Console.writeToBuffer(c, "A red box is lying on the ground in the middle of the street.", 0x02);
-			break;*/
 		case 32:  //Street Door (OF)
 			g_Console.writeToBuffer(c, "A door to one of the buildings is open. I should get closer if I want to go inside.", 0x02);
 			break;
@@ -1301,13 +1313,22 @@ void actfeed()
 			g_Console.writeToBuffer(c, "An old nightstand I once had. I threw it away when I moved house. It dimly illuminates the room.", 0x02);
 			break;
 		case 51:  // Bed
-			g_Console.writeToBuffer(c, "My old bed. There's a box on it, just like that cowardly heartless entity said. He really gets on my nerves.", 0x02);
-			c.Y++;
-			g_Console.writeToBuffer(c, "\"This is silly. Why would tucking in a box do anything to open it?\"", 0x02);
-			c.Y++;
-			g_Console.writeToBuffer(c, "\"More importantly who are you to think you can judge my life?\"", 0x02);
-			c.Y++;
-			g_Console.writeToBuffer(c, "\"I'm not going to follow your orders like a loyal dog, you coward.\"", 0x02);
+			if (levelfinish != 8)
+			{
+				g_Console.writeToBuffer(c, "My old bed. There's a box on it, just like that cowardly heartless entity said. He really gets on my nerves.", 0x02);
+				c.Y++;
+				g_Console.writeToBuffer(c, "\"This is silly. Why would tucking in a box do anything to open it?\"", 0x02);
+				c.Y++;
+				g_Console.writeToBuffer(c, "\"More importantly who are you to think you can judge my life?\"", 0x02);
+				c.Y++;
+				g_Console.writeToBuffer(c, "\"I'm not going to follow your orders like a loyal dog, you coward.\"", 0x02);
+			}
+			else
+			{
+				g_Console.writeToBuffer(c, "Cautiously, I approached the bed again.", 0x02);
+				c.Y++;
+				g_Console.writeToBuffer(c, "To my relief, it wasn't another surprise. The box was opened, and the fragment flew to me.", 0x02);
+			}
 			break;
 		case 52:
 			g_Console.writeToBuffer(c, "A table, with nothing on it or in its cupboards.", 0x02);
@@ -1498,8 +1519,9 @@ void actfeed()
 		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 44;
 		}
 
-		if (g_dElapsedTime >= g_dElapsedTimeTemp && levelfinish == 8) // *** *** *** *** *** MIGHT NOT BE USED, REMOVE IF THATS THE CASE *** *** *** *** ***
+		if (g_dElapsedTime >= g_dElapsedTimeTemp && levelfinish == 8)
 		{
+	    Factfeed = 0;
 		InPortal = 0;
 		Areanum = 4;
 		levelfinish = 0;

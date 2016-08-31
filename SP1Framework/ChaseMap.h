@@ -9,4 +9,6 @@ char** chasestore(char** printchase);
 
 void chasemap(char** printchase);
 
+void erase(bool replace);
+
 #endif // _CHASEMAP_H
