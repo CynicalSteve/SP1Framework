@@ -19,7 +19,7 @@ double  g_dDeltaTime;
 bool    g_abKeyPressed[K_COUNT];
 
 
-int Areanum = 6;
+int Areanum = 4;
 
 int checkF;                // Checking what the player is interacting with
 
@@ -674,6 +674,7 @@ void moveCharChase()
 
 void chasegameplay()
 {
+	
 	int charX = g_sChar.m_cLocation.X;
 	int charY = g_sChar.m_cLocation.Y;
 

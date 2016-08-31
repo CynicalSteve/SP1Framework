@@ -207,9 +207,9 @@ void actfeed()
 
 				AIAva.m_cLocation.X = g_Console.getConsoleSize().X - 109;
 				AIAva.m_cLocation.Y = g_Console.getConsoleSize().Y - 29;
-
+				PlaySound(TEXT("Chase.wav"), NULL, SND_LOOP | SND_ASYNC);
 				g_eGameState = S_CHASE;
-
+				
 				g_dElapsedTimeTemp = 999.0;
 			}
 		}

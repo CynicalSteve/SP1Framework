@@ -10,7 +10,7 @@ char destroy[150][150];
 char** chasestore(char** printchase)
 {
 	std::ifstream maze;
-
+	
 	maze.open("Text files/Maze.txt");
 
 	if (maze.is_open())
@@ -25,6 +25,7 @@ char** chasestore(char** printchase)
 			}
 		}
 		maze.close();
+
 	}
 
 	return printchase;
