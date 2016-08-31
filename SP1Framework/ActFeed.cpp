@@ -810,7 +810,7 @@ void actfeed()
 		}
 		if (g_dElapsedTime > (g_dTime + 56.0))
 		{
-			g_Console.writeToBuffer(c, "And there was nothing.", 0x03);
+			g_Console.writeToBuffer(c, "And then there was nothing.", 0x03);
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 			c.Y++;
@@ -819,6 +819,7 @@ void actfeed()
 		if (g_dElapsedTime > (g_dTime + 61.0))
 		{
 			g_dTime = (g_dElapsedTime + 2.0);
+			PlaySound(TEXT("BadEndMusic.wav"), NULL, SND_LOOP | SND_ASYNC);
 			g_eGameState = S_BADEND;
 		}
 	}

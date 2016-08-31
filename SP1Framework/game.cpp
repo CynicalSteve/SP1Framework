@@ -48,6 +48,9 @@ Console g_Console(110, 55, "SP1 Framework");
 //--------------------------------------------------------------
 void init( void )
 {
+	int musiccheck = 1;
+	int *music;
+	music = &musiccheck;
     // Set precision for floating point output
     g_dElapsedTime = 0.0;
     g_dBounceTime = 0.0;
@@ -56,8 +59,9 @@ void init( void )
     g_eGameState = S_SPLASHSCREEN;
 
 	// sets the music for the game
-	PlaySound(TEXT("HappyMusic.wav"), NULL, SND_SYNC | SND_LOOP | SND_ASYNC);
-
+	
+	PlaySound(TEXT("HappyMusic.wav"), NULL, SND_LOOP | SND_ASYNC);
+	
 	// sets where the character spawns when game starts
 	g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 87;
 	g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 43;
@@ -204,7 +208,8 @@ void update(double dt)
 		case S_PAUSE: processUserInput();
 			break;
 		case S_JOURNAL: processUserInput();
-			// readJpage(JournalFeed);
+			//readJpage(JournalFeed);
+			renderJournal();
 			break;
 		case S_INPUT: processUserInput();
 			break;
@@ -238,10 +243,14 @@ void render()
 		break;
 	case S_INSTRUCTIONS: instructions();
 		break;
-	case S_BADEND: BadEnd();
+	case S_BADEND:
+		
+		
+		BadEnd();
 		break;
 	case S_TRUEEND: TrueEnd();
 		break;
+
 	}
 	renderFramerate();  // renders debug information, frame rate, elapsed time, etc
 	renderToScreen();   // dump the contents of the buffer to the screen, one frame worth of game
