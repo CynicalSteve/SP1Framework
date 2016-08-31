@@ -6,7 +6,6 @@ extern double g_dTime;
 
 void TrueEnd()
 {
-	PlaySound(TEXT("TrueEndMusic.wav"), NULL, SND_SYNC | SND_LOOP | SND_ASYNC);
 	COORD c = g_Console.getConsoleSize();
 
 	c.Y = 25;
