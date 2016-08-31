@@ -793,21 +793,19 @@ void actfeed()
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
-			c.Y++;
 		}
 		if (g_dElapsedTime > (g_dTime + 40.0))
 		{
-			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y = 34;
 			g_Console.writeToBuffer(c, "What felt like frigid cold water scraped along my skins and soon reached my knees.", 0x03);
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
-			c.Y++;
 		}
 		if (g_dElapsedTime > (g_dTime + 43.0))
 		{
-			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y = 36;
 			g_Console.writeToBuffer(c, "A warm liquid oozed from my forehead and down to the tip of my nose, before dripping off into", 0x03);
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
@@ -816,27 +814,26 @@ void actfeed()
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
-			c.Y++;
 		}
 		if (g_dElapsedTime > (g_dTime + 49.0))
 		{
-			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y = 39;
 			g_Console.writeToBuffer(c, "I blinked once, then twice, as I felt the warmth abandon my body.", 0x03);
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
-			c.Y++;
 		}
 		if (g_dElapsedTime > (g_dTime + 52.0))
 		{
-			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y = 41;
 			g_Console.writeToBuffer(c, "The darkness which came stole my body, its freezing embrace wrapping around me like a lover.", 0x03);
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 		}
 		if (g_dElapsedTime > (g_dTime + 56.0))
 		{
+			c.Y = 43;
 			g_Console.writeToBuffer(c, "And then there was nothing.", 0x03);
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
@@ -912,25 +909,41 @@ void actfeed()
 		}
 		if (g_dElapsedTime > (g_dTime + 44.0))
 		{
+			c.Y = 31;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 			g_Console.writeToBuffer(c, "\"You got all of that didn't you, Attorney? Yes, yes, thank you.\"", 0x03);
-			c.Y += 2;
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 		}
 		if (g_dElapsedTime > (g_dTime + 48.0))
 		{
+			c.Y = 33;
 			g_Console.writeToBuffer(c, "Ava's face turned from one of arrogance to one of horror. Pure, unadulterated rage streaked through her", 0x03);
 			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 			g_Console.writeToBuffer(c, "mind and body, and the next thing she knew, Terence was slumped on the ground while she held a shattered", 0x03);
 			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 			g_Console.writeToBuffer(c, "beer bottle. Blood oozed from Terence's temple where she hit him.", 0x03);
-			c.Y += 2;
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 		}
 		if (g_dElapsedTime > (g_dTime + 60.0))
 		{
+			c.Y = 37;
 			g_Console.writeToBuffer(c, "\"Crap!\" Ava hissed, dropping the bottle to the ground.", 0x03);
-			c.Y += 2;
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 		}
 		if (g_dElapsedTime > (g_dTime + 62.0))
 		{
+			c.Y = 39;
 			g_Console.writeToBuffer(c, "\"Sasha! Jonathan! We're leaving!\" She called out.", 0x03);
 		}
 		if (g_dElapsedTime > (g_dTime + 64.0))

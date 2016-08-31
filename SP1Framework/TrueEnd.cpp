@@ -27,7 +27,7 @@ void TrueEnd()
 	}
 	if (g_dElapsedTime >(g_dTime + 12.0) && g_dElapsedTime < (g_dTime + 16.0))
 	{
-		g_Console.writeToBuffer(c, "\"No…\"", 0xD);
+		g_Console.writeToBuffer(c, "\"No...\"", 0xD);
 	}
 	if (g_dElapsedTime >(g_dTime + 16.0) && g_dElapsedTime < (g_dTime + 20.0))
 	{
@@ -37,7 +37,7 @@ void TrueEnd()
 	}
 	if (g_dElapsedTime >(g_dTime + 20.0) && g_dElapsedTime < (g_dTime + 24.0))
 	{
-		g_Console.writeToBuffer(c, "\"Sasha...Jonathan…\"", 0xD);
+		g_Console.writeToBuffer(c, "\"Sasha...Jonathan...\"", 0xD);
 	}
 	if (g_dElapsedTime >(g_dTime + 24.0) && g_dElapsedTime < (g_dTime + 28.0))
 	{
@@ -71,73 +71,88 @@ void TrueEnd()
 	{
 		g_Console.writeToBuffer(c, "\"Woe to him who betrays the Son of Man, but salvation to him who seeks penitence.\"", 0x04);
 	}
-	if (g_dElapsedTime >(g_dTime + 52.0))
+	if (g_dElapsedTime >(g_dTime + 52.0) && g_dElapsedTime < (g_dTime + 56.0))
 	{
 		g_Console.writeToBuffer(c, "\"AVA LAURENS, DO YOU REPENT?\"", 0x04);
 	}
-	if (g_dElapsedTime >(g_dTime + 56.0))
+	if (g_dElapsedTime >(g_dTime + 56.0) && g_dElapsedTime < (g_dTime + 60.0))
 	{
 		g_Console.writeToBuffer(c, "\"I do.\"", 0xD);
 	}
-	if (g_dElapsedTime >(g_dTime + 60.0))
+	if (g_dElapsedTime >(g_dTime + 60.0) && g_dElapsedTime < (g_dTime + 64.0))
 	{
 		g_Console.writeToBuffer(c, "\"Then thou shalt not be fettered any longer!", 0x04);
 		c.Y++;
 		g_Console.writeToBuffer(c, "Leave this hell, and thrust forward unto the light fades!\"", 0x04);
 	}
-	if (g_dElapsedTime >(g_dTime + 64.0))
+	if (g_dElapsedTime >(g_dTime + 64.0) && g_dElapsedTime < (g_dTime + 68.0))
 	{
-		g_Console.writeToBuffer(c, "A white light started to fill Ava’s vision, but it wasn't blinding or intimidating.", 0xF);
+		g_Console.writeToBuffer(c, "A white light started to fill Ava's vision, but it wasn't blinding or intimidating.", 0xF);
 		c.Y++;
 		g_Console.writeToBuffer(c, "It was warm, in fact, one that Ava has never felt in a long time.", 0x0F);
 	}
-	if (g_dElapsedTime >(g_dTime + 68.0))
+	if (g_dElapsedTime >(g_dTime + 68.0) && g_dElapsedTime < (g_dTime + 72.0))
 	{
 		g_Console.writeToBuffer(c, "\"Sin, and darkness falls onto thee; Repent, and light will welcome thee into its embrace again!\"", 0x04);
 	}
-	if (g_dElapsedTime >(g_dTime + 72.0))
+	if (g_dElapsedTime >(g_dTime + 72.0) && g_dElapsedTime < (g_dTime + 76.0))
 	{
 		g_Console.writeToBuffer(c, "The warmth spread throughout her body, numbing yet pleasant.", 0xF);
 	}
-	if (g_dElapsedTime >(g_dTime + 76.0))
+	if (g_dElapsedTime >(g_dTime + 76.0) && g_dElapsedTime < (g_dTime + 80.0))
 	{
 		g_Console.writeToBuffer(c, "The light was getting brighter and brighter. For once, Ava smiled.", 0xF);
 	}
-	if (g_dElapsedTime >(g_dTime + 80.0))
+	if (g_dElapsedTime >(g_dTime + 80.0) && g_dElapsedTime < (g_dTime + 84.0))
 	{
 		g_Console.writeToBuffer(c, "...", 0xF);
 	}
-	if (g_dElapsedTime >(g_dTime + 84.0))
+	if (g_dElapsedTime >(g_dTime + 84.0) && g_dElapsedTime < (g_dTime + 88.0))
 	{
 		g_Console.writeToBuffer(c, "\"Congratulations, it's a girl.\"", 0x03);
 	}
-	if (g_dElapsedTime >(g_dTime + 88.0))
+	if (g_dElapsedTime >(g_dTime + 88.0) && g_dElapsedTime < (g_dTime + 92.0))
 	{
 		g_Console.writeToBuffer(c, "\"Look, Ethan! Here, hold her.\"", 0xC);
 	}
-	if (g_dElapsedTime >(g_dTime + 92.0))
+	if (g_dElapsedTime >(g_dTime + 92.0) && g_dElapsedTime < (g_dTime + 96.0))
 	{
 		g_Console.writeToBuffer(c, "\"She's beautiful, Diana, just like her mother.\"", 0x09);
 	}
-	if (g_dElapsedTime >(g_dTime + 96.0))
+	if (g_dElapsedTime >(g_dTime + 96.0) && g_dElapsedTime < (g_dTime + 100.0))
 	{
 		g_Console.writeToBuffer(c, "The newcomer ceased wailing as her father cradled her in his arms.", 0xF);
 	}
-	if (g_dElapsedTime >(g_dTime + 100.0))
+	if (g_dElapsedTime >(g_dTime + 100.0) && g_dElapsedTime < (g_dTime + 104.0))
 	{
 		g_Console.writeToBuffer(c, "\"What should we call her, Ethan?\"", 0xC);
 	}
-	if (g_dElapsedTime >(g_dTime + 104.0))
+	if (g_dElapsedTime >(g_dTime + 104.0) && g_dElapsedTime < (g_dTime + 108.0))
 	{
 		g_Console.writeToBuffer(c, "\"...\"", 0x09);
 	}
-	if (g_dElapsedTime >(g_dTime + 108.0))
+	if (g_dElapsedTime >(g_dTime + 108.0) && g_dElapsedTime < (g_dTime + 112.0))
 	{
 		g_Console.writeToBuffer(c, "\"Let's call her...\"", 0x09);
 	}
-	if (g_dElapsedTime >(g_dTime + 112.0))
+	if (g_dElapsedTime >(g_dTime + 112.0) && g_dElapsedTime < (g_dTime + 114.0))
 	{
 		g_Console.writeToBuffer(c, "\"...Ava.\"", 0x09);
 	}
-
+	if (g_dElapsedTime > (g_dTime + 114.0))
+	{
+		g_Console.writeToBuffer(c, " _______                      ______             _  _", 0x0B);
+		c.Y++;
+		g_Console.writeToBuffer(c, "(_______)                    (______)           | |(_)", 0x0B);
+		c.Y++;
+		g_Console.writeToBuffer(c, "    _    ___  _   _  _____    _____   ____    __| | _  ____    ____", 0x0B);
+		c.Y++;
+		g_Console.writeToBuffer(c, "   | |  / __)| | | || ___ |  |  ___) |  _ \\  / _  || ||  _ \\  / _  |", 0x0B);
+		c.Y++;
+		g_Console.writeToBuffer(c, "   | | | |   | |_| || ____|  | |____ | | | |( (_| || || | | |( (_| |", 0x0B);
+		c.Y++;
+		g_Console.writeToBuffer(c, "   |_| |_|   |____/ |_____)  |______)|_| |_| \\____||_||_| |_| \\___ |", 0x0B);
+		c.Y++;
+		g_Console.writeToBuffer(c, "                                                             (_____|", 0x0B);
+	}
 }
