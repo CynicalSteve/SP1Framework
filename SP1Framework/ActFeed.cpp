@@ -1,7 +1,9 @@
 #include "ActFeed.h"
+#include "AI.h"
 
 extern Console g_Console;
 extern SGameChar g_sChar;
+extern SGameChar AIAva;
 extern EGAMESTATES g_eGameState;
 extern std::string inventory;
 extern int Factfeed;
@@ -172,13 +174,36 @@ void actfeed()
 		c.Y++;
 		g_Console.writeToBuffer(c, "You can even put hearts over it and name it the companion cube.", 0x06);
 		c.Y++;
-		g_Console.writeToBuffer(c, "Oh, your first act of defiance. I guess showing you your old bedroom brought your maturity back too.", 0x06);
-		c.Y++;
-		g_Console.writeToBuffer(c, "Alright then, you don't want to tuck a box in, I'll turn it into a replica of you.", 0x06);
-		c.Y++;
-		g_Console.writeToBuffer(c, "Its a replica of when you were lashing out at Terrence and broke a bottle to cut him.", 0x06);
-		c.Y++;
-		g_Console.writeToBuffer(c, "Oh, and she thinks you're Terrence. Have fun!", 0x06);
+
+		if (((reqinteraction == 1) && (g_dElapsedTime > (g_dElapsedTimeTemp - 20.0))) || reqinteraction == 2)
+		{
+			reqinteraction = 2;
+
+			g_Console.writeToBuffer(c, "...", 0x06);
+			c.Y++;
+			g_Console.writeToBuffer(c, "Oh, your first act of defiance. I guess showing you your old bedroom brought your maturity back too.", 0x06);
+			c.Y++;
+			g_Console.writeToBuffer(c, "Alright then, you don't want to tuck a box in, I'll turn it into a replica of you.", 0x06);
+			c.Y++;
+			g_Console.writeToBuffer(c, "Its a replica of when you were lashing out at Terrence and broke a bottle to cut him.", 0x06);
+			c.Y++;
+			g_Console.writeToBuffer(c, "Oh, and she thinks you're Terrence. Have fun!", 0x06);
+		}
+
+		if (g_dElapsedTime > g_dElapsedTimeTemp)
+		{
+			Factfeed = 0;
+
+			g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 100;
+			g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 33;
+
+			AIAva.m_cLocation.X = g_Console.getConsoleSize().X - 109;
+			AIAva.m_cLocation.Y = g_Console.getConsoleSize().Y - 40;
+
+			g_eGameState = S_CHASE;
+			
+			g_dElapsedTimeTemp = 999.0;
+		}
 	}
 
 	if (Factfeed == 912) // EF 1
@@ -1046,9 +1071,9 @@ void actfeed()
 		case 30 :   //Chapel Podium (OF)
 			g_Console.writeToBuffer(c, "The podium is empty", 0x02);
 			break;
-		case 31:   //Street Box (OF)
+		/*case 31:   //Street Box (OF)                                                                         *** DELETE THIS IF MAZE IS DONE ***
 			g_Console.writeToBuffer(c, "A red box is lying on the ground in the middle of the street.", 0x02);
-			break;
+			break;*/
 		case 32:  //Street Door (OF)
 			g_Console.writeToBuffer(c, "A door to one of the buildings is open. I should get closer if I want to go inside.", 0x02);
 			break;
@@ -1168,6 +1193,21 @@ void actfeed()
 			g_Console.writeToBuffer(c, "I didn't mean to do all those things to you in the past. I know that my apologies will not help you heal,", 0x05);
 			c.Y++;
 			g_Console.writeToBuffer(c, "but... I feel like there is a need for me to say that I am-", 0x05);
+			break;
+		case 50:  // Nightstand
+			g_Console.writeToBuffer(c, "An old nightstand I once had. I threw it away when I moved house. It dimly illuminates the room.", 0x02);
+			break;
+		case 51:  // Bed
+			g_Console.writeToBuffer(c, "My old bed. There's a box on it, just like that cowardly heartless entity said. He really gets on my nerves.", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "\"This is silly. Why would tucking in a box do anything to open it?\"", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "\"More importantly who are you to think you can judge my life?\"", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "\"I'm not going to follow your orders like a loyal dog, you coward.\"", 0x02);
+			break;
+		case 52:
+			g_Console.writeToBuffer(c, "A table, with nothing on it or in its cupboards.", 0x02);
 			break;
 		case 911:   //Lake EF Complete
 			g_Console.writeToBuffer(c, "The stone hit the metallic object with a pleasant 'ding'.", 0x02);
