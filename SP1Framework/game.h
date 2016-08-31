@@ -12,6 +12,11 @@
 #include "PlayerInput.h"
 #include "PauseScreen.h"
 #include "InstructScreen.h"
+#include "AI.h"
+#include "AudioPause.h"
+#include "BadEnd.h"
+#include "TrueEnd.h"
+#include "RenderJournal.h"
 
 using namespace std;
 

@@ -80,6 +80,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ActFeed.cpp" />
+    <ClCompile Include="AI.cpp" />
     <ClCompile Include="BadEnd.cpp" />
     <ClCompile Include="CheckColi.cpp" />
     <ClCompile Include="CheckColiPuzzle.cpp" />
@@ -90,7 +91,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="MegaInteract.cpp" />
-    <ClCompile Include="systempause.cpp" />
     <ClCompile Include="PauseScreen.cpp" />
     <ClCompile Include="PlayerInput.cpp" />
     <ClCompile Include="PuzzleLevels.cpp" />
@@ -100,6 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActFeed.h" />
+    <ClInclude Include="AI.h" />
     <ClInclude Include="BadEnd.h" />
     <ClInclude Include="CheckColi.h" />
     <ClInclude Include="CheckColiPuzzle.h" />

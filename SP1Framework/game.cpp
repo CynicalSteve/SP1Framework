@@ -11,7 +11,6 @@
 #include <windows.h>
 #include "Windows.h"
 #include "MMSystem.h"
-#include "RenderJournal.h"
 
 using namespace std;
 
@@ -29,6 +28,7 @@ extern double g_dTime;
 extern bool JournalMenu;
 extern bool FragSelect;
 extern int JournalFeed;
+extern int InPortal;
 
 // Game specific variables here
 SGameChar   g_sChar;
@@ -244,8 +244,6 @@ void render()
 	case S_INSTRUCTIONS: instructions();
 		break;
 	case S_BADEND:
-		
-		
 		BadEnd();
 		break;
 	case S_TRUEEND: TrueEnd();
@@ -517,6 +515,11 @@ void renderGame()
 	renderMap();        // renders the map to the buffer first
 	renderFeed();		// renders the activity feed to the buffer
 	renderCharacter();  // renders the character into the buffer
+
+	if (InPortal == 18)
+	{
+		renderAI();
+	}
 }
 
 void renderMap()
@@ -539,7 +542,7 @@ void renderCharacter()
 {
     // Draw the location of the character
     WORD charColor = 0x0A;
-    g_Console.writeToBuffer(g_sChar.m_cLocation, (char)1, charColor);
+    g_Console.writeToBuffer(g_sChar.m_cLocation, (char)64, charColor);
 }
 
 void renderFeed()

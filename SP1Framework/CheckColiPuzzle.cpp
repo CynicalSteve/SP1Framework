@@ -77,6 +77,9 @@ int CollisionPuzzle(int checkPuzzle)
 	case 17:
 		file.open("Text files/6_FuneralTrueEndNXBook.txt");
 		break;
+	case 18:
+		file.open("Text files/Maze.txt");
+		break;
 	}
 
 	if (file.is_open())

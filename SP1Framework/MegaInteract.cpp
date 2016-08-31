@@ -9,8 +9,8 @@ extern double g_dElapsedTime;
 int Factfeed = 0;
 int InPortal = 0;
 int tempF;
-int EssentialFragment = 5; // Change this to access certain areas.
-int OptionalFragment = 0;  // Change this to access certain areas.
+int EssentialFragment = 3; // Change this to access certain areas.
+int OptionalFragment = 3;  // Change this to access certain areas.
 std::string inventory = "A History Book";
 int levelfinish = 0;
 int reqinteraction = 0; // This is so we can force the player to actually read certain thingamajigs otherwise other thingamajigs wont work.
@@ -136,6 +136,9 @@ int checkinteract(void)
 			break;
 		case 17:
 			file.open("Text files/6_FuneralTrueEndNXBook.txt");
+			break;
+		case 18:
+			file.open("Text files/Maze.txt");
 			break;
 		}
 	}
@@ -512,8 +515,8 @@ int checkinteract(void)
 				return 141;
 			case 'P':
 				return 142;
-			case 'B':
-				return 151;
+			/*case 'B':                                                             *** DELETE THIS IF MAZE IS DONE ***
+				return 151;*/
 			case 'W':
 				return 152;
 			case 'D':
@@ -571,6 +574,18 @@ int checkinteract(void)
 				case 'S':
 					return 273;
 				}
+			}
+		}
+		else if (InPortal == 15)
+		{
+			switch (whatever[g_sChar.m_cLocation.X][g_sChar.m_cLocation.Y])
+			{
+			case 'S':
+				return 241;
+			case 'B':
+				return 242;
+			case 'W':
+				return 243;
 			}
 		}
 	}
@@ -748,6 +763,14 @@ void FstandsforFrustrating(int checkF)
 		g_dElapsedTimeTemp = (g_dElapsedTime + 10.0);
 	}
 
+	if (Factfeed == 401 && checkF == 9) // LEVEL 8
+	{
+		InPortal = 15;
+		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 107;
+		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 42;
+		Factfeed = 402;
+	}
+
 	if (Factfeed == 34 && checkF == 9) // LEVEL 9
 	{
 		Factfeed = 0;
@@ -774,14 +797,6 @@ void FstandsforFrustrating(int checkF)
 		reqinteraction = 0;
 		OptionalFragment = 5;
 		g_dElapsedTimeTemp = (g_dElapsedTime + 10.0);
-	}
-
-	if (Factfeed == 401 && checkF == 9)
-	{
-		InPortal = 15;
-		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 107;
-		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 42;
-		Factfeed = 402;
 	}
 
 	if (inventory == "A flat stone" && tempF == 102 && checkF == 9) // Check if user is pressing "F" and then "E" afterwards to do something.
@@ -1030,9 +1045,9 @@ void FstandsforFrustrating(int checkF)
 			Factfeed = 29;
 		}	
 		break;
-	case 151:
+	/*case 151:                                                           *** DELETE THIS IF MAZE IS DONE ***
 		Factfeed = 31;
-		break;
+		break;*/
 	case 152:
 		Factfeed = 32;
 		break;
@@ -1095,6 +1110,17 @@ void FstandsforFrustrating(int checkF)
 		break;
 	case 234:
 		Factfeed = 49;
+		break;
+	case 241:
+		Factfeed = 50;
+		break;
+	case 242:
+		reqinteraction = 1;
+		Factfeed = 51;
+		g_dElapsedTimeTemp = (g_dElapsedTime + 35.0);
+		break;
+	case 243:
+		Factfeed = 52;
 		break;
 	case 0:
 		Factfeed = 0;
