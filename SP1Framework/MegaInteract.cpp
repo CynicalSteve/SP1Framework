@@ -9,8 +9,8 @@ extern double g_dElapsedTime;
 int Factfeed = 0;
 int InPortal = 0;
 int tempF;
-int EssentialFragment = 5; // Change this to access certain areas.
-int OptionalFragment = 5;  // Change this to access certain areas.
+int EssentialFragment = 3; // Change this to access certain areas.
+int OptionalFragment = 3;  // Change this to access certain areas.
 std::string inventory = "A History Book";
 int levelfinish = 0;
 int reqinteraction = 0; // This is so we can force the player to actually read certain thingamajigs otherwise other thingamajigs wont work.
@@ -512,8 +512,6 @@ int checkinteract(void)
 				return 141;
 			case 'P':
 				return 142;
-			/*case 'B':                                                             *** DELETE THIS IF MAZE IS DONE ***
-				return 151;*/
 			case 'W':
 				return 152;
 			case 'D':
@@ -766,6 +764,13 @@ void FstandsforFrustrating(int checkF)
 		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 107;
 		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 42;
 		Factfeed = 402;
+	}
+
+	if (tempF == 242 && levelfinish == 8)
+	{
+		reqinteraction = 0;
+		OptionalFragment = 4;
+		g_dElapsedTimeTemp = (g_dElapsedTime + 10.0);
 	}
 
 	if (Factfeed == 34 && checkF == 9) // LEVEL 9
@@ -1042,9 +1047,6 @@ void FstandsforFrustrating(int checkF)
 			Factfeed = 29;
 		}	
 		break;
-	/*case 151:                                                           *** DELETE THIS IF MAZE IS DONE ***
-		Factfeed = 31;
-		break;*/
 	case 152:
 		Factfeed = 32;
 		break;
@@ -1112,9 +1114,12 @@ void FstandsforFrustrating(int checkF)
 		Factfeed = 50;
 		break;
 	case 242:
-		reqinteraction = 1;
+		if (levelfinish != 8)
+		{
+			reqinteraction = 1;
+			g_dElapsedTimeTemp = (g_dElapsedTime + 35.0);
+		}
 		Factfeed = 51;
-		g_dElapsedTimeTemp = (g_dElapsedTime + 35.0);
 		break;
 	case 243:
 		Factfeed = 52;
