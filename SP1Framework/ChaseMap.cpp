@@ -10,11 +10,11 @@ char** chasestore(char** printchase)
 
 	if (maze.is_open())
 	{
-		for (int AreaY = 0; AreaY < 47; AreaY++)
+		for (int AreaY = 0; AreaY < 48; AreaY++)
 		{
 			printchase[AreaY] = new char[150];
 
-			for (int AreaX = 0; AreaX < 123; AreaX++)
+			for (int AreaX = 0; AreaX < 109; AreaX++)
 			{
 				maze >> printchase[AreaY][AreaX];
 			}
@@ -29,11 +29,11 @@ void chasemap(char** printchase)
 {
 	COORD c;
 
-	for (int AreaY = 0; AreaY < 47; ++AreaY)
+	for (int AreaY = 0; AreaY < 48; ++AreaY)
 	{
 		c.Y = AreaY + 1;
 
-		for (int AreaX = 0; AreaX < 123; ++AreaX)
+		for (int AreaX = 0; AreaX < 109; ++AreaX)
 		{
 			if (printchase[AreaY][AreaX] == 'F')
 			{

@@ -29,6 +29,8 @@ extern bool JournalMenu;
 extern bool FragSelect;
 extern int JournalFeed;
 extern int InPortal;
+extern bool restart;
+extern double g_chaseElapsedTime;
 
 // Game specific variables here
 SGameChar   g_sChar;
@@ -197,6 +199,7 @@ void update(double dt)
 {
     // get the delta time
     g_dElapsedTime += dt;
+	g_chaseElapsedTime += dt;
     g_dDeltaTime = dt;
 
     switch (g_eGameState)
@@ -673,8 +676,12 @@ void moveCharChase()
 
 void chasegameplay()
 {
+	int charX = g_sChar.m_cLocation.X;
+	int charY = g_sChar.m_cLocation.Y;
+
 	processUserInput();
 	moveCharChase();
+	AImovement(charX, charY);
 }
 
 void renderChaseMap()
@@ -686,13 +693,15 @@ void renderChaseMap()
 
 void renderChase()
 {
+	if (restart)
+	{
+		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 100;
+		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 29;
+
+		restart = false;
+	}
+
 	renderChaseMap();
-
-	int charX = g_sChar.m_cLocation.X;
-	int charY = g_sChar.m_cLocation.Y;
-
-	AImovement(charX, charY);
-
 	renderAI();
 	renderCharacter();
 }

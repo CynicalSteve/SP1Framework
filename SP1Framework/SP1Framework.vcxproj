@@ -85,6 +85,7 @@
     <ClCompile Include="ChaseMap.cpp" />
     <ClCompile Include="CheckColi.cpp" />
     <ClCompile Include="CheckColiChase.cpp" />
+    <ClCompile Include="CheckColiChaseAI.cpp" />
     <ClCompile Include="CheckColiPuzzle.cpp" />
     <ClCompile Include="Framework\console.cpp" />
     <ClCompile Include="Framework\timer.cpp" />
@@ -106,6 +107,7 @@
     <ClInclude Include="BadEnd.h" />
     <ClInclude Include="CheckColi.h" />
     <ClInclude Include="CheckColiChase.h" />
+    <ClInclude Include="CheckColiChaseAI.h" />
     <ClInclude Include="CheckColiPuzzle.h" />
     <ClInclude Include="Framework\console.h" />
     <ClInclude Include="Framework\timer.h" />

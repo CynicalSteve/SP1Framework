@@ -3,6 +3,7 @@
 
 extern Console g_Console;
 extern SGameChar g_sChar;
+extern SGameChar AIAva;
 
 int CollisionChase(int checkChase)
 {
@@ -16,9 +17,9 @@ int CollisionChase(int checkChase)
 
 	if (mazestore.is_open())
 	{
-		while (height < 47)
+		while (height < 48)
 		{
-			while (width < 123)
+			while (width < 109)
 			{
 				mazestore >> chasearr[width][height];
 				width++;

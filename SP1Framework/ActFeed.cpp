@@ -195,10 +195,10 @@ void actfeed()
 			Factfeed = 0;
 
 			g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 100;
-			g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 33;
+			g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 29;
 
 			AIAva.m_cLocation.X = g_Console.getConsoleSize().X - 109;
-			AIAva.m_cLocation.Y = g_Console.getConsoleSize().Y - 40;
+			AIAva.m_cLocation.Y = g_Console.getConsoleSize().Y - 29;
 
 			g_eGameState = S_CHASE;
 			
