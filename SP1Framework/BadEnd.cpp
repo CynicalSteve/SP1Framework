@@ -77,8 +77,28 @@ void BadEnd()
 	{
 		g_Console.writeToBuffer(c, "\"...and repent.\"", 0x04);
 	}
-	if (g_dElapsedTime > (g_dTime + 72.0))
+	if (g_dElapsedTime > (g_dTime + 72.0) && g_dElapsedTime < (g_dTime + 77.0))
 	{
 		g_Console.writeToBuffer(c, "And with that, everything cut to black.", 0xF);
+	}
+	if (g_dElapsedTime > (g_dTime + 77.0))
+	{
+		c.Y /= 3;
+		c.X = g_Console.getConsoleSize().X / 2 - 30;
+
+		g_Console.writeToBuffer(c, " ______              _    ______             _  _", 0x04);
+		c.Y += 1;
+		g_Console.writeToBuffer(c, "(___   \            | |  (______)           | |(_)", 0x04);
+		c.Y += 1;
+		g_Console.writeToBuffer(c, "  ___)   ) _____   __| |   _____   ____    __| | _  ____    ____", 0x04);
+		c.Y += 1;
+		g_Console.writeToBuffer(c, "|  __  ( (____ | / _  |  |  ___) |  _ \  / _  || ||  _ \  / _  |", 0x04);
+		c.Y += 1;
+		g_Console.writeToBuffer(c, "| |__)  )/ ___ |( (_| |  | |____ | | | |( (_| || || | | |( (_| |", 0x04);
+		c.Y += 1;
+		g_Console.writeToBuffer(c, "|______/ \_____| \____|  |______)|_| |_| \____||_||_| |_| \___ |", 0x04);
+		c.Y += 1;
+		g_Console.writeToBuffer(c, "                                                         (_____|", 0x04);
+		c.Y += 1;
 	}
 }

@@ -90,7 +90,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="MegaInteract.cpp" />
-    <ClCompile Include="systempause.cpp" />
     <ClCompile Include="PauseScreen.cpp" />
     <ClCompile Include="PlayerInput.cpp" />
     <ClCompile Include="PuzzleLevels.cpp" />
