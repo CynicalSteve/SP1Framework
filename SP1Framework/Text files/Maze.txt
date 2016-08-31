@@ -1,48 +1,48 @@
 
             *************************
-            *                       *
-            *                       *
-            *      ***********      *
-            *      *         *      *
-            *      *         *      *
-            *      *         *      *
-            *      *         *      *
-            *      *         *      *
-            *      *         *      *
-            *      *         *      *                                                    
-            *      *         *      *                                              |*************************************            
-            *      *         *      *                                              |                                    *
-            *      *         *      *                                              |                                    *
-            *      *         *      *                                              |**********************************  *         
-            *      *         *      *                                                                                *  *
-            *      *         *      *                                                                                *  *
-            *      *         *      *                                                                                *  *
-            *      *         *      *                                                                                *  *                                                    
-            *      *         *      *                                                                                *  *
-            *      *         *      *                                                                                *  *
-            *      *         *      *                                                                                *  *
-*************      *         *      *                                                                                *  *
-*                  *         *      *                             **************                                     *  *
-*                  *         *      *                             *            *                                     *  *
-********************         *      *                             *            *                                     *  *
-                             *      *                             *            *                                     *  *
-		             *      *           *******************     *      *                                     *  *
-                             *      *           *                 *     *      *                                     *  ***                                                   
-                             *      *           *                 *     *      *                                     *    *
-			     *      *           *                 *     *      *                                     *    *
-			     *      *           *                 *     *      *                                     *    *
-			     *      *           *      ******     *     *      *                                     *    *
-			     *      *           *      *    *     *     *      *          ****************************    *    
-                             *      *           *      *    *     *     *      *          *                               *
-			     *      *           *      *    *     *     *      *          *                               *
-			     *      *           *      *    *     *     *      *          *      **************************                                     
-			     *      *************      *    *     *     *      ************      *
-                             *                         *    *           *                        *
-                             *                         *    *           *                        *
-                             ***************************    *******************************      *         
-							                                  *      *         
-											  *      *         
-											  *      *         
+            *FFFFFFFFFFFFFFFFFFFFFFF*
+            *FFFFFFFFFFFFFFFFFFFFFFF*
+            *FFFFFF***********FFFFFF*
+            *FFFFFF*         *FFFFFF*
+            *FFFFFF*         *FFFFFF*
+            *FFFFFF*         *FFFFFF*
+            *FFFFFF*         *FFFFFF*
+            *FFFFFF*         *FFFFFF*
+            *FFFFFF*         *FFFFFF*
+            *FFFFFF*         *FFFFFF*                                                    
+            *FFFFFF*         *FFFFFF*                                              |*************************************            
+            *FFFFFF*         *FFFFFF*                                              |FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF*
+            *FFFFFF*         *FFFFFF*                                              |FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF*
+            *FFFFFF*         *FFFFFF*                                              |**********************************FF*         
+            *FFFFFF*         *FFFFFF*                                                                                *FF*
+            *FFFFFF*         *FFFFFF*                                                                                *FF*
+            *FFFFFF*         *FFFFFF*                                                                                *FF*
+            *FFFFFF*         *FFFFFF*                                                                                *FF*                                                    
+            *FFFFFF*         *FFFFFF*                                                                                *FF*
+            *FFFFFF*         *FFFFFF*                                                                                *FF*
+            *FFFFFF*         *FFFFFF*                                                                                *FF*
+*************FFFFFF*         *FFFFFF*                                                                                *FF*
+*FFFFFFFFFFFFFFFFFF*         *FFFFFF*                             **************                                     *FF*
+*FFFFFFFFFFFFFFFFFFF*        *FFFFFF*                             *FFFFFFFFFFFF*                                     *FF*
+********************         *FFFFFF*                             *FFFFFFFFFFFF*                                     *FF*
+                             *FFFFFF*                             *FFFFFFFFFFFF*                                     *FF*
+		             *FFFFFF*           *******************FFFFF*FFFFFF*                                     *FF*
+                             *FFFFFF*           *FFFFFFFFFFFFFFFFF*FFFFF*FFFFFF*                                     *FF***                                                   
+                             *FFFFFF*           *FFFFFFFFFFFFFFFFF*FFFFF*FFFFFF*                                     *FFFF*
+			     *FFFFFF*           *FFFFFFFFFFFFFFFFF*FFFFF*FFFFFF*                                     *FFFF*
+			     *FFFFFF*           *FFFFFFFFFFFFFFFFF*FFFFF*FFFFFF*                                     *FFFF*
+			     *FFFFFF*           *FFFFFF******FFFFF*FFFFF*FFFFFF*                                     *FFFF*
+			     *FFFFFF*           *FFFFFF*    *FFFFF*FFFFF*FFFFFF*          ****************************FFFF*    
+                             *FFFFFF*           *FFFFFF*    *FFFFF*FFFFF*FFFFFF*          *FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF*
+			     *FFFFFF*           *FFFFFF*    *FFFFF*FFFFF*FFFFFF*          *FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF*
+			     *FFFFFF*           *FFFFFF*    *FFFFF*FFFFF*FFFFFF*          *FFFFFF**************************                                     
+			     *FFFFFF*************FFFFFF*    *FFFFF*FFFFF*FFFFFF************FFFFFF*
+                             *FFFFFFFFFFFFFFFFFFFFFFFFF*    *FFFFFFFFFFF*FFFFFFFFFFFFFFFFFFFFFFFF*
+                             *FFFFFFFFFFFFFFFFFFFFFFFFF*    *FFFFFFFFFFF*FFFFFFFFFFFFFFFFFFFFFFFF*
+                             ***************************    *******************************FFFFFF*         
+							                                  *FFFFFF*         
+											  *FFFFFF*         
+											  *FFFFFF*         
 										          ********
 
 
