@@ -856,10 +856,84 @@ void actfeed()
 		c.Y = 31;
 		if (g_dElapsedTime > g_dTime)
 		{
-			g_Console.writeToBuffer(c, "\"What did you just say, Terence?\" Ava asked in a dangerous voice.", 0x02);
-			c.Y++;
+			g_Console.writeToBuffer(c, "\"What did you just say, Terence?\" Ava asked in a dangerous voice.", 0x03);
+			c.Y += 2;
 		}
-		if (g_dElapsedTime > (g_dTime + 2.0))
+		if (g_dElapsedTime > (g_dTime + 3.0))
+		{
+			g_Console.writeToBuffer(c, "\"I said I'm leaving you Ava, and I'm taking the kids with me.\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 6.0))
+		{
+			g_Console.writeToBuffer(c, "Ava's face twisted into the most sinister sneer Terence had ever seen.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 10.0))
+		{
+			g_Console.writeToBuffer(c, "\"Oh really? Which harlot are you running off with?\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 12.0))
+		{
+			g_Console.writeToBuffer(c, "\"It's not because of some woman you've made up Ava, it's because... you're an evil woman. The kids are", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "terrified of you. I'm terrified of you too, of what you can do. That's why I'm leaving.\" Terence said.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 22.0))
+		{
+			g_Console.writeToBuffer(c, "Ava let out a laugh, a laughter so chilling that it sent a shiver down his spine.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 26.0))
+		{
+			g_Console.writeToBuffer(c, "\"What makes you think that you can win the custody of the kids? Once I cook up some sob story, the jury", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "will throw your ass in prison for domestic violence.\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 32.0))
+		{
+			g_Console.writeToBuffer(c, "Terence gulped. \"The court wouldn't listen unless you have proof.\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 35.0))
+		{
+			g_Console.writeToBuffer(c, "\"Are you that dense? I'll just MAKE proof! If you dare to cross me, I can endure a little pain to see", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "you behind bars.\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 40.0))
+		{
+			g_Console.writeToBuffer(c, "Terence let out a shaky breath as he pulled out his phone from his pocket.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 44.0))
+		{
+			g_Console.writeToBuffer(c, "\"You got all of that didn't you, Attorney? Yes, yes, thank you.\"", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 48.0))
+		{
+			g_Console.writeToBuffer(c, "Ava's face turned from one of arrogance to one of horror. Pure, unadulterated rage streaked through her", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "mind and body, and the next thing she knew, Terence was slumped on the ground while she held a shattered", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "beer bottle. Blood oozed from Terence's temple where she hit him.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 60.0))
+		{
+			g_Console.writeToBuffer(c, "\"Crap!\" Ava hissed, dropping the bottle to the ground.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 62.0))
+		{
+			g_Console.writeToBuffer(c, "\"Sasha! Jonathan! We're leaving!\" She called out.", 0x03);
+		}
+		if (g_dElapsedTime > (g_dTime + 64.0))
 		{
 			g_dTime = (g_dElapsedTime + 2.0);
 			PlaySound(TEXT("TrueEndMusic.wav"), NULL, SND_SYNC | SND_LOOP | SND_ASYNC);
