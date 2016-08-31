@@ -23,7 +23,9 @@ void BadEnd()
 	}
 	if (g_dElapsedTime > (g_dTime + 10.0) && g_dElapsedTime < (g_dTime + 16.0))
 	{
-		g_Console.writeToBuffer(c, "\"But at least I tried to protect them, and they are now in a much happier place away from that monster.\"", 0xD);
+		g_Console.writeToBuffer(c, "\"But at least I tried to protect them, and they are now in a much", 0xD);
+		c.Y++;
+		g_Console.writeToBuffer(c, "happier place away from that monster.\"", 0x0D);
 	}
 	if (g_dElapsedTime > (g_dTime + 16.0) && g_dElapsedTime < (g_dTime + 24.0))
 	{
@@ -39,7 +41,9 @@ void BadEnd()
 	}
 	if (g_dElapsedTime > (g_dTime + 33.0) && g_dElapsedTime < (g_dTime + 39.0))
 	{
-		g_Console.writeToBuffer(c, "\"It seems that you aren’t prepared yet. How many times are you going to lie to yourself and pull wool over your own eyes?\"", 0x04);
+		g_Console.writeToBuffer(c, "\"It seems that you aren't prepared yet. How many times are you going", 0x04);
+		c.Y++;
+		g_Console.writeToBuffer(c, "to lie to yourself and pull wool over your own eyes?\"", 0x04);
 	}
 	if (g_dElapsedTime > (g_dTime + 39.0) && g_dElapsedTime < (g_dTime + 43.0))
 	{
@@ -47,7 +51,9 @@ void BadEnd()
 	}
 	if (g_dElapsedTime > (g_dTime + 43.0) && g_dElapsedTime < (g_dTime + 48.0))
 	{
-		g_Console.writeToBuffer(c, "\"Memories are but a jigsaw, one must have all the pieces in hand to see the full picture.\"", 0x04);
+		g_Console.writeToBuffer(c, "\"Memories are but a jigsaw, one must have all the pieces in hand to see", 0x04);
+		c.Y++;
+		g_Console.writeToBuffer(c, " the full picture.\"", 0x04);
 	}
 	if (g_dElapsedTime > (g_dTime + 48.0) && g_dElapsedTime < (g_dTime + 52.0))
 	{
@@ -55,11 +61,17 @@ void BadEnd()
 	}
 	if (g_dElapsedTime > (g_dTime + 52.0) && g_dElapsedTime < (g_dTime + 58.0))
 	{
-		g_Console.writeToBuffer(c, "An excruciating pain shot through Ava’s body, rocking her to her very core.It felt as though her blood had turned into molten lead and her bones were crushed into sand.", 0xF);
+		g_Console.writeToBuffer(c, "An excruciating pain shot through Ava's body, rocking her to her very core.", 0xF);
+		c.Y++;
+		g_Console.writeToBuffer(c, "It felt as though her blood had turned into molten lead and her bones were", 0x0F);
+		c.Y++;
+		g_Console.writeToBuffer(c, "crushed into sand.", 0x0F);
 	}
 	if (g_dElapsedTime > (g_dTime + 58.0) && g_dElapsedTime < (g_dTime + 63.0))
 	{
-		g_Console.writeToBuffer(c, "As every fibre of her being shrieked and crumbled, a blood-curdling scream escaped from Ava’s lips.", 0xF);
+		g_Console.writeToBuffer(c, "As every fibre of her being shrieked and crumbled, a blood-curdling scream", 0xF);
+		c.Y++;
+		g_Console.writeToBuffer(c, "escaped from Ava's lips.", 0x0F);
 	}
 	if (g_dElapsedTime > (g_dTime + 63.0) && g_dElapsedTime < (g_dTime + 67.0))
 	{
