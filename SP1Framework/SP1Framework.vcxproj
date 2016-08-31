@@ -80,8 +80,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ActFeed.cpp" />
+    <ClCompile Include="AI.cpp" />
     <ClCompile Include="BadEnd.cpp" />
+    <ClCompile Include="ChaseMap.cpp" />
     <ClCompile Include="CheckColi.cpp" />
+    <ClCompile Include="CheckColiChase.cpp" />
     <ClCompile Include="CheckColiPuzzle.cpp" />
     <ClCompile Include="Framework\console.cpp" />
     <ClCompile Include="Framework\timer.cpp" />
@@ -99,12 +102,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActFeed.h" />
+    <ClInclude Include="AI.h" />
     <ClInclude Include="BadEnd.h" />
     <ClInclude Include="CheckColi.h" />
+    <ClInclude Include="CheckColiChase.h" />
     <ClInclude Include="CheckColiPuzzle.h" />
     <ClInclude Include="Framework\console.h" />
     <ClInclude Include="Framework\timer.h" />
     <ClInclude Include="game.h" />
+    <ClInclude Include="ChaseMap.h" />
     <ClInclude Include="InstructScreen.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="MegaInteract.h" />
