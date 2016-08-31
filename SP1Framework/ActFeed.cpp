@@ -524,7 +524,7 @@ void actfeed()
 		}
 		if (g_dElapsedTime > (g_dTime + 3.0))
 		{
-			g_Console.writeToBuffer(c, "Overtime down at the company.\" Terence replied while grabbing a beer from the refrigerator.", 0x03);
+			g_Console.writeToBuffer(c, "\"Overtime down at the company.\" Terence replied while grabbing a beer from the refrigerator.", 0x03);
 			c.Y++;
 		}
 		if (g_dElapsedTime > (g_dTime + 6.0))
@@ -1106,7 +1106,7 @@ void actfeed()
 			c.Y++;
 			if (inventory == "A stone filled fish")
 			{
-				g_Console.writeToBuffer(c, "The fish trashes wildly as I bring it toward the lake. Its unsettling, but I manage not to freak out.", 0x05);
+				g_Console.writeToBuffer(c, "The fish thrashes wildly as I bring it toward the lake. Its unsettling, but I manage not to freak out.", 0x05);
 			}
 			break;
 		case 17: // Lake Fish (OF)
@@ -1222,7 +1222,7 @@ void actfeed()
 			g_Console.writeToBuffer(c, "I believe it's a map of Singapore. A red circle is drawn at the southern tip of the island.", 0x02);
 			break;
 		case 27 :  //Street Buildings
-			g_Console.writeToBuffer(c, "All the buildings look the same.", 0x02);
+			g_Console.writeToBuffer(c, "All the buildings here look the same.", 0x02);
 			break;
 		case 28 : //Street Lamposts
 			g_Console.writeToBuffer(c, "Just your typical lamppost.", 0x02);

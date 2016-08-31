@@ -19,7 +19,7 @@ double  g_dDeltaTime;
 bool    g_abKeyPressed[K_COUNT];
 
 
-int Areanum = 4;
+int Areanum = 1;
 
 int checkF;                // Checking what the player is interacting with
 
@@ -576,19 +576,19 @@ void renderFramerate()
 {
     COORD c;
     // displays the framerate
-    std::ostringstream ss;
-    ss << std::fixed << std::setprecision(3);
-    ss << 1.0 / g_dDeltaTime << "fps";
-    c.X = g_Console.getConsoleSize().X - 9;
-    c.Y = 0;
-    g_Console.writeToBuffer(c, ss.str());
+    //std::ostringstream ss;
+   // ss << std::fixed << std::setprecision(3);
+    //ss << 1.0 / g_dDeltaTime << "fps";
+   // c.X = g_Console.getConsoleSize().X - 9;
+   // c.Y = 0;
+   // g_Console.writeToBuffer(c, ss.str());
 
     // displays the elapsed time
-    ss.str("");
-    ss << g_dElapsedTime << "secs";
-    c.X = 0;
-    c.Y = 0;
-    g_Console.writeToBuffer(c, ss.str(), 0x59);
+    //ss.str("");
+   // ss << g_dElapsedTime << "secs";
+  //  c.X = 0;
+   // c.Y = 0;
+  //  g_Console.writeToBuffer(c, ss.str(), 0x59);
 }
 void renderToScreen()
 {
