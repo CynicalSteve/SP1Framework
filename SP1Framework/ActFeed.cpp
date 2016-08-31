@@ -206,6 +206,7 @@ void actfeed()
 		}
 	}
 
+
 	if (Factfeed == 912) // EF 1
 	{
 		c.Y = 31;
@@ -213,90 +214,91 @@ void actfeed()
 		c.Y++;
 		g_Console.writeToBuffer(c, "picked up from the ground.", 0x03);
 		c.Y++;
-		if (g_dElapsedTime > g_dTime)
+		if (g_dElapsedTime > (g_dTime + 5.0))
 		{
 			g_Console.writeToBuffer(c, "\"Next, you aim it at an angle like so...\", he continued, \"while adding a little spin to it, you throw", 0x03);
 			c.Y++;
 			g_Console.writeToBuffer(c, "as hard as you can.\"", 0x03);
 			c.Y++;
 		}
-		if (g_dElapsedTime > (g_dTime + 3.0))
+		if (g_dElapsedTime > (g_dTime + 9.0))
 		{
 			g_Console.writeToBuffer(c, "At the last word of his sentence, he hurled the stone towards the lake.", 0x03);
 			c.Y++;
 		}
-		if (g_dElapsedTime > (g_dTime + 5.0))
+		if (g_dElapsedTime > (g_dTime + 11.0))
 		{
 			g_Console.writeToBuffer(c, "It skipped five times across the surface of the water before plopping into the depths below.", 0x03);
 			c.Y += 2;
 		}
-		if (g_dElapsedTime > (g_dTime + 8.0))
+		if (g_dElapsedTime > (g_dTime + 14.0))
 		{
 			g_Console.writeToBuffer(c, "\"Now you try it,\" he said with a proud look on his face.", 0x03);
 			c.Y++;
 		}
-		if (g_dElapsedTime > (g_dTime + 10.0))
+		if (g_dElapsedTime > (g_dTime + 16.0))
 		{
 			g_Console.writeToBuffer(c, "I wrinkled my nose at him, before grabbing a stone from the ground and tossed it at the lake.", 0x03);
 			c.Y++;
 		}
-		if (g_dElapsedTime > (g_dTime + 14.0))
+		if (g_dElapsedTime > (g_dTime + 20.0))
 		{
 			g_Console.writeToBuffer(c, "It skipped eight times on the surface before sinking.", 0x03);
 			c.Y += 2;
 		}
-		if (g_dElapsedTime > (g_dTime + 16.0))
+		if (g_dElapsedTime > (g_dTime + 22.0))
 		{
 			g_Console.writeToBuffer(c, "He stared at me in disbelief, \"Damn Ava, nice throw!\"", 0x03);
 			c.Y++;
 		}
-		if (g_dElapsedTime > (g_dTime + 18.0))
+		if (g_dElapsedTime > (g_dTime + 24.0))
 		{
 			g_Console.writeToBuffer(c, "\"Or maybe you're just bad at it,\" I snorted.", 0x03);
 			c.Y++;
 		}
-		if (g_dElapsedTime > (g_dTime + 20.0))
+		if (g_dElapsedTime > (g_dTime + 27.0))
 		{
 			g_Console.writeToBuffer(c, "His eyes twinkled mischievously.", 0x03);
 			c.Y++;
 		}
-		if (g_dElapsedTime > (g_dTime + 21.0))
+		if (g_dElapsedTime > (g_dTime + 28.0))
 		{
 			g_Console.writeToBuffer(c, "\"Oh yeah? I'll show you something I'm not bad at!\"", 0x03);
 			c.Y++;
 		}
-		if (g_dElapsedTime > (g_dTime + 23.0))
+		if (g_dElapsedTime > (g_dTime + 30.0))
 		{
 			g_Console.writeToBuffer(c, "He raced towards me and slung me over his shoulder. He then ran towards the treeline with us both,", 0x03);
 			c.Y++;
 			g_Console.writeToBuffer(c, "laughing the whole time.", 0x03);
 			c.Y += 2;
 		}
-		if (g_dElapsedTime > (g_dTime + 27.0))
+		if (g_dElapsedTime > (g_dTime + 35.0))
 		{
 			g_Console.writeToBuffer(c, "Startled, I jumped backwards.", 0x02);
 			c.Y++;
 		}
-		if (g_dElapsedTime > (g_dTime + 28.0))
+		if (g_dElapsedTime > (g_dTime + 36.0))
 		{
 			g_Console.writeToBuffer(c, "\"What in the world was that?\"", 0x02);
 			c.Y++;
 		}
-		if (g_dElapsedTime > (g_dTime + 29.0))
+		if (g_dElapsedTime > (g_dTime + 37.0))
 		{
 			g_Console.writeToBuffer(c, "That man seemed so familiar, as if I've known him for all my life.", 0x02);
 			c.Y++;
 		}
-		if (g_dElapsedTime > (g_dTime + 31.0))
+		if (g_dElapsedTime > (g_dTime + 39.0))
 		{
 			g_Console.writeToBuffer(c, "Perhaps that was some kind of memory? If I enter more of those portals, will I get my memory back?", 0x02);
 			c.Y++;
 		}
-		if (g_dElapsedTime > (g_dTime + 34.0))
+		if (g_dElapsedTime > (g_dTime + 42.0))
 		{
 			g_Console.writeToBuffer(c, "I guess I better find out.", 0x02);
 		}
 	}
+
 
 	if (Factfeed == 914) // OF 1
 	{
@@ -849,7 +851,21 @@ void actfeed()
 		}
 	}
 
-
+	if (Factfeed == 997) // EF 6.2
+	{
+		c.Y = 31;
+		if (g_dElapsedTime > g_dTime)
+		{
+			g_Console.writeToBuffer(c, "\"What did you just say, Terence?\" Ava asked in a dangerous voice.", 0x02);
+			c.Y++;
+		}
+		if (g_dElapsedTime > (g_dTime + 2.0))
+		{
+			g_dTime = (g_dElapsedTime + 2.0);
+			PlaySound(TEXT("TrueEndMusic.wav"), NULL, SND_SYNC | SND_LOOP | SND_ASYNC);
+			g_eGameState = S_TRUEEND;
+		}
+	}
 
 	/* Template for MX
 	if (c.Y == 54)
