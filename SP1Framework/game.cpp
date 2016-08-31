@@ -19,7 +19,7 @@ double  g_dDeltaTime;
 bool    g_abKeyPressed[K_COUNT];
 
 
-int Areanum = 4;
+int Areanum = 6;
 
 int checkF;                // Checking what the player is interacting with
 

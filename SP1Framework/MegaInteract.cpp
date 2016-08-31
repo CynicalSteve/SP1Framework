@@ -10,7 +10,7 @@ int Factfeed = 0;
 int InPortal = 0;
 int tempF;
 int EssentialFragment = 5; // Change this to access certain areas.
-int OptionalFragment = 4;  // Change this to access certain areas.
+int OptionalFragment = 5;  // Change this to access certain areas.
 std::string inventory = "A History Book";
 int levelfinish = 0;
 int reqinteraction = 0; // This is so we can force the player to actually read certain thingamajigs otherwise other thingamajigs wont work.
