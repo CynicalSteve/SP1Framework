@@ -969,6 +969,67 @@ void actfeed()
 		}
 	}
 
+	if (Factfeed == 51 && levelfinish == 8)
+	{
+		c.Y = 31;
+		if (g_dElapsedTime > g_dTime)
+		{
+			g_Console.writeToBuffer(c, "\"Why did you not say anything huh?! What have I been teaching you all this time? Do you want to end up", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "like your daddy, stupid and useless?!\" Ava shouted, dunking Sasha's head into the basin full of water.", 0x03);
+			c.Y++;
+		}
+		if (g_dElapsedTime > (g_dTime + 6.0))
+		{
+			g_Console.writeToBuffer(c, "Her arms flailed wildly about as Ava held her neck down.", 0x03);
+			c.Y++;
+		}
+		if (g_dElapsedTime > (g_dTime + 9.0))
+		{
+			g_Console.writeToBuffer(c, "Jonathan simply looked on in horror and tears.", 0x03);
+			c.Y++;
+		}
+		if (g_dElapsedTime > (g_dTime + 12.0))
+		{
+			g_Console.writeToBuffer(c, "Ava pulled Sasha back out and pushed her to the ground.", 0x03);
+			c.Y++;
+		}
+		if (g_dElapsedTime > (g_dTime + 14.0))
+		{
+			g_Console.writeToBuffer(c, "Crying and coughing and choking for air, Sasha barely registered anything around her.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 18.0))
+		{
+			g_Console.writeToBuffer(c, "\"Come here, Jonathan,\" Ava said quietly.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 20.0))
+		{
+			g_Console.writeToBuffer(c, "He complied fearfully and shuffled his way to Ava.", 0x03);
+			c.Y++;
+		}
+		if (g_dElapsedTime > (g_dTime + 23.0))
+		{
+			g_Console.writeToBuffer(c, "Whipping out a belt, Ava viciously beat Jonathan repeatedly with it, ignoring his cries and pleas for", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "her to stop.", 0x03);
+			c.Y++;
+		}
+		if (g_dElapsedTime > (g_dTime + 28.0))
+		{
+			g_Console.writeToBuffer(c, "After a while, Jonathan was reduced to a sobbing mess, his arms and legs fresh with cuts and bruises.", 0x03);
+			c.Y += 2;
+		}
+		if (g_dElapsedTime > (g_dTime + 33.0))
+		{
+			g_Console.writeToBuffer(c, "\"Put some ice on those wounds,\" Ava sternly instructed the both of them. \"You don't want to go to", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "school looking like that, do you?\"", 0x03);
+		}
+
+	}
+
 	/* Template for MX
 	if (c.Y == 54)
 	{

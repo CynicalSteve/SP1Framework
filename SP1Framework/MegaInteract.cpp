@@ -1128,7 +1128,7 @@ void FstandsforFrustrating(int checkF)
 		Factfeed = 0;
 		break;
 	}
-	if (Factfeed == 912 || Factfeed == 914 || Factfeed == 923 || Factfeed == 926 || Factfeed == 991 || Factfeed == 992 || Factfeed == 993 || Factfeed == 994  || Factfeed == 995|| Factfeed == 996 || Factfeed == 997)
+	if ((Factfeed == 51 && levelfinish == 8) || Factfeed == 912 || Factfeed == 914 || Factfeed == 923 || Factfeed == 926 || Factfeed == 991 || Factfeed == 992 || Factfeed == 993 || Factfeed == 994  || Factfeed == 995|| Factfeed == 996 || Factfeed == 997)
 	{
 		g_dTime = (g_dElapsedTime + 2.0);
 	}
