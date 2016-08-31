@@ -70,9 +70,6 @@ char** puzzlestore(char** printlevel)
 	case 17:
 		puzzle.open("Text files/6_FuneralTrueEndNXBook.txt");
 		break;
-	case 18:
-		puzzle.open("Text files/Maze.txt");
-		break;
 	}
 
 	if (puzzle.is_open())

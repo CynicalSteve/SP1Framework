@@ -17,6 +17,8 @@
 #include "BadEnd.h"
 #include "TrueEnd.h"
 #include "RenderJournal.h"
+#include "ChaseMap.h"
+#include "CheckColiChase.h"
 
 using namespace std;
 
@@ -108,7 +110,8 @@ enum EGAMESTATES
 	S_COUNT,
 	S_INSTRUCTIONS,
 	S_BADEND,
-	S_TRUEEND
+	S_TRUEEND,
+	S_CHASE
 };
 
 // struct for the game character
@@ -144,5 +147,9 @@ void pause();
 void renderJournal();
 void renderInput();
 void instructions();
+void renderChaseMap();
+void renderChase();
+void chasegameplay();
+void moveCharChase();
 
 #endif // _GAME_H

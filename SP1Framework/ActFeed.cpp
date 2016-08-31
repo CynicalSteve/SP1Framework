@@ -193,30 +193,17 @@ void actfeed()
 		if (g_dElapsedTime > g_dElapsedTimeTemp)
 		{
 			Factfeed = 0;
-			InPortal = 18;
 
-			g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 105;
-			g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 40;
+			g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 100;
+			g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 33;
 
 			AIAva.m_cLocation.X = g_Console.getConsoleSize().X - 109;
 			AIAva.m_cLocation.Y = g_Console.getConsoleSize().Y - 40;
+
+			g_eGameState = S_CHASE;
 			
 			g_dElapsedTimeTemp = 999.0;
 		}
-	}
-
-	if (InPortal == 18)
-	{
-		c.Y = 25;
-		g_Console.writeToBuffer(c, "                                   RUN.", 0x02);
-		
-		c.Y = 31;
-		g_Console.writeToBuffer(c, "Sadly, you can't fight back. Feeling helpless? Good.", 0x06);
-
-		int charX = g_sChar.m_cLocation.X;
-		int charY = g_sChar.m_cLocation.Y;
-
-		AImovement(charX, charY);
 	}
 
 	if (Factfeed == 912) // EF 1

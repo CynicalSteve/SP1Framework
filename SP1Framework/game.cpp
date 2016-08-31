@@ -18,7 +18,7 @@ double  g_dElapsedTime;
 double  g_dDeltaTime;
 bool    g_abKeyPressed[K_COUNT];
 
-int Areanum = 1;
+int Areanum = 4;
 int checkF;                // Checking what the player is interacting with
 
 extern int EssentialFragment;
@@ -215,6 +215,8 @@ void update(double dt)
 			break;
 		case S_INSTRUCTIONS: gameplay();
 			break;
+		case S_CHASE: chasegameplay();
+			break;
     }
 
 }
@@ -242,6 +244,8 @@ void render()
 	case S_INPUT: renderInput();
 		break;
 	case S_INSTRUCTIONS: instructions();
+		break;
+	case S_CHASE: renderChase();
 		break;
 	case S_BADEND:
 		BadEnd();
@@ -515,11 +519,6 @@ void renderGame()
 	renderMap();        // renders the map to the buffer first
 	renderFeed();		// renders the activity feed to the buffer
 	renderCharacter();  // renders the character into the buffer
-
-	if (InPortal == 18)
-	{
-		renderAI();
-	}
 }
 
 void renderMap()
@@ -620,4 +619,80 @@ void renderInput()
 void instructions()
 {
 	InstructScreen();
+}
+
+void moveCharChase()
+{
+	bool bSomethingHappened = false;
+	if (g_dBounceTime > g_dElapsedTime)
+		return;
+
+	if (g_abKeyPressed[K_UP] && g_sChar.m_cLocation.Y > 0)
+	{
+		bSomethingHappened = true;
+
+		if (CollisionChase(1) == 1)
+		{
+			g_sChar.m_cLocation.Y--;
+		}
+	}
+	if (g_abKeyPressed[K_DOWN] && (g_sChar.m_cLocation.Y < (g_Console.getConsoleSize().Y - 1)))
+	{
+		bSomethingHappened = true;
+
+		if (CollisionChase(2) == 1)
+		{
+			g_sChar.m_cLocation.Y++;
+		}
+	}
+	if (g_abKeyPressed[K_LEFT] && g_sChar.m_cLocation.X > 0)
+	{
+		bSomethingHappened = true;
+
+		if (CollisionChase(3) == 1)
+		{
+			g_sChar.m_cLocation.X--;
+		}
+	}
+	if (g_abKeyPressed[K_RIGHT] && (g_sChar.m_cLocation.X < (g_Console.getConsoleSize().X - 1)))
+	{
+		bSomethingHappened = true;
+
+		if (CollisionChase(4) == 1)
+		{
+			g_sChar.m_cLocation.X++;
+		}
+	}
+
+	if (bSomethingHappened)
+	{
+		// set the bounce time to some time in the future to prevent accidental triggers
+		g_dBounceTime = g_dElapsedTime + 0.125; // 125ms should be enough
+	}
+}
+
+void chasegameplay()
+{
+	processUserInput();
+	moveCharChase();
+}
+
+void renderChaseMap()
+{
+	char** printchase = new char*[150];
+	printchase = chasestore(printchase);
+	chasemap(printchase);
+}
+
+void renderChase()
+{
+	renderChaseMap();
+
+	int charX = g_sChar.m_cLocation.X;
+	int charY = g_sChar.m_cLocation.Y;
+
+	AImovement(charX, charY);
+
+	renderAI();
+	renderCharacter();
 }

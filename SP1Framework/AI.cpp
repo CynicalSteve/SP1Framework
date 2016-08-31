@@ -3,6 +3,8 @@
 SGameChar AIAva;
 
 extern Console g_Console;
+extern double g_dElapsedTime;
+extern double g_dBounceTime;
 
 void renderAI()
 {
@@ -13,5 +15,15 @@ void renderAI()
 
 void AImovement(int cordX, int cordY)
 {
+	bool AIHappened = false;
+	if (g_dBounceTime > g_dElapsedTime)
+		return;
 
+	
+
+
+	if (AIHappened)
+	{
+		g_dBounceTime = g_dElapsedTime + 0.25;
+	}
 }
