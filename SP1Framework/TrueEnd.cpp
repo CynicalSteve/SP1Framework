@@ -76,67 +76,67 @@ void TrueEnd()
 	{
 		g_Console.writeToBuffer(c, "\"AVA LAURENS, DO YOU REPENT?\"", 0x04);
 	}
-	if (g_dElapsedTime >(g_dTime + 52.0))
+	if (g_dElapsedTime >(g_dTime + 56.0))
 	{
 		g_Console.writeToBuffer(c, "\"I do.\"", 0xD);
 	}
-	if (g_dElapsedTime >(g_dTime + 52.0))
+	if (g_dElapsedTime >(g_dTime + 60.0))
 	{
 		g_Console.writeToBuffer(c, "\"Then thou shalt not be fettered any longer!", 0x04);
 		c.Y++;
 		g_Console.writeToBuffer(c, "Leave this hell, and thrust forward unto the light fades!\"", 0x04);
 	}
-	if (g_dElapsedTime >(g_dTime + 52.0))
+	if (g_dElapsedTime >(g_dTime + 64.0))
 	{
 		g_Console.writeToBuffer(c, "A white light started to fill Ava’s vision, but it wasn't blinding or intimidating.", 0xF);
 		c.Y++;
 		g_Console.writeToBuffer(c, "It was warm, in fact, one that Ava has never felt in a long time.", 0x0F);
 	}
-	if (g_dElapsedTime >(g_dTime + 52.0))
+	if (g_dElapsedTime >(g_dTime + 68.0))
 	{
 		g_Console.writeToBuffer(c, "\"Sin, and darkness falls onto thee; Repent, and light will welcome thee into its embrace again!\"", 0x04);
 	}
-	if (g_dElapsedTime >(g_dTime + 52.0))
+	if (g_dElapsedTime >(g_dTime + 72.0))
 	{
 		g_Console.writeToBuffer(c, "The warmth spread throughout her body, numbing yet pleasant.", 0xF);
 	}
-	if (g_dElapsedTime >(g_dTime + 52.0))
+	if (g_dElapsedTime >(g_dTime + 76.0))
 	{
 		g_Console.writeToBuffer(c, "The light was getting brighter and brighter. For once, Ava smiled.", 0xF);
 	}
-	if (g_dElapsedTime >(g_dTime + 52.0))
+	if (g_dElapsedTime >(g_dTime + 80.0))
 	{
 		g_Console.writeToBuffer(c, "...", 0xF);
 	}
-	if (g_dElapsedTime >(g_dTime + 52.0))
+	if (g_dElapsedTime >(g_dTime + 84.0))
 	{
 		g_Console.writeToBuffer(c, "\"Congratulations, it's a girl.\"", 0x03);
 	}
-	if (g_dElapsedTime >(g_dTime + 52.0))
+	if (g_dElapsedTime >(g_dTime + 88.0))
 	{
 		g_Console.writeToBuffer(c, "\"Look, Ethan! Here, hold her.\"", 0xC);
 	}
-	if (g_dElapsedTime >(g_dTime + 52.0))
+	if (g_dElapsedTime >(g_dTime + 92.0))
 	{
 		g_Console.writeToBuffer(c, "\"She's beautiful, Diana, just like her mother.\"", 0x09);
 	}
-	if (g_dElapsedTime >(g_dTime + 52.0))
+	if (g_dElapsedTime >(g_dTime + 96.0))
 	{
 		g_Console.writeToBuffer(c, "The newcomer ceased wailing as her father cradled her in his arms.", 0xF);
 	}
-	if (g_dElapsedTime >(g_dTime + 52.0))
+	if (g_dElapsedTime >(g_dTime + 100.0))
 	{
 		g_Console.writeToBuffer(c, "\"What should we call her, Ethan?\"", 0xC);
 	}
-	if (g_dElapsedTime >(g_dTime + 52.0))
+	if (g_dElapsedTime >(g_dTime + 104.0))
 	{
 		g_Console.writeToBuffer(c, "\"...\"", 0x09);
 	}
-	if (g_dElapsedTime >(g_dTime + 52.0))
+	if (g_dElapsedTime >(g_dTime + 108.0))
 	{
 		g_Console.writeToBuffer(c, "\"Let's call her...\"", 0x09);
 	}
-	if (g_dElapsedTime >(g_dTime + 52.0))
+	if (g_dElapsedTime >(g_dTime + 112.0))
 	{
 		g_Console.writeToBuffer(c, "\"...Ava.\"", 0x09);
 	}
