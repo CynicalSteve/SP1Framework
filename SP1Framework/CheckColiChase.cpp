@@ -14,7 +14,7 @@ int CollisionChase(int checkChase)
 	int width = 0;
 
 	std::ifstream mazestore;
-
+	
 	mazestore.open("Text files/Maze.txt");
 
 	if (mazestore.is_open())
@@ -40,6 +40,7 @@ int CollisionChase(int checkChase)
 		case 'F':
 			return 1;
 		case '|':
+			PlaySound(TEXT("HappyMusic.wav"), NULL, SND_LOOP | SND_ASYNC);
 			g_eGameState = S_GAME;
 			levelfinish = 8;
 			g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 107;
@@ -56,6 +57,7 @@ int CollisionChase(int checkChase)
 		case 'F':
 			return 1;
 		case '|':
+			PlaySound(TEXT("HappyMusic.wav"), NULL, SND_LOOP | SND_ASYNC);
 			g_eGameState = S_GAME;
 			levelfinish = 8;
 			g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 107;
@@ -72,6 +74,7 @@ int CollisionChase(int checkChase)
 		case 'F':
 			return 1;
 		case '|':
+			PlaySound(TEXT("HappyMusic.wav"), NULL, SND_LOOP | SND_ASYNC);
 			g_eGameState = S_GAME;
 			levelfinish = 8;
 			g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 107;
