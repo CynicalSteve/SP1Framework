@@ -9,8 +9,8 @@ extern double g_dElapsedTime;
 int Factfeed = 0;
 int InPortal = 0;
 int tempF;
-int EssentialFragment = 0; // Change this to access certain areas.
-int OptionalFragment = 0;  // Change this to access certain areas.
+int EssentialFragment = 3; // Change this to access certain areas.
+int OptionalFragment = 3;  // Change this to access certain areas.
 std::string inventory = "none";
 int levelfinish = 0;
 int reqinteraction = 0; // This is so we can force the player to actually read certain thingamajigs otherwise other thingamajigs wont work.
@@ -1087,7 +1087,14 @@ void FstandsforFrustrating(int checkF)
 		Factfeed = 41;
 		break;
 	case 173:
-		Factfeed = 42;
+		if (reqinteraction != 2)
+		{
+			Factfeed = 42;
+		}
+		else
+		{
+			Factfeed = 996;
+		}
 		break;
 	case 271:
 		Factfeed = 43;
@@ -1096,7 +1103,14 @@ void FstandsforFrustrating(int checkF)
 		Factfeed = 44;
 		break;
 	case 273:
-		Factfeed = 45;
+		if (reqinteraction != 2)
+		{
+			Factfeed = 45;
+		}
+		else
+		{
+			Factfeed = 997;
+		}
 		break;
 	case 231:
 		Factfeed = 46;

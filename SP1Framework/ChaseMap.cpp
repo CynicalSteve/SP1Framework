@@ -94,8 +94,6 @@ void chasemap(char** printchase)
 
 void erase(bool replace)
 {
-	COORD c;
-
 	if (replace)
 	{
 		destroy[AIAva.m_cLocation.Y][AIAva.m_cLocation.X] = ' ';
