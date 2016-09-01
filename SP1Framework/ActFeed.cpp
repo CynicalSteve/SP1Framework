@@ -39,6 +39,7 @@ void actfeed()
 		if (finishedgame == 2)
 		{
 			g_Console.writeToBuffer(c, "Since you've obtained the true ending, you now have access to all fragments in your journal.", 0x06);
+			c.Y++;
 		}
 
 		g_Console.writeToBuffer(c, "Use WASD keys to move around, F key to interact and E to enter/use.", 0x05);
