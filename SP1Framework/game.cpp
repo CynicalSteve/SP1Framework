@@ -51,7 +51,7 @@ Console g_Console(110, 55, "SP1 Framework");
 //--------------------------------------------------------------
 void init( void )
 {
-	Areanum = 4;
+	Areanum = 6;
 	MenusOpen = 0;
 
     // Set precision for floating point output

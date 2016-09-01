@@ -1589,7 +1589,6 @@ void actfeed()
 
 		if (g_dElapsedTime >= g_dElapsedTimeTemp && levelfinish == 8)
 		{
-	    Factfeed = 0;
 		InPortal = 0;
 		Areanum = 4;
 		levelfinish = 0;
