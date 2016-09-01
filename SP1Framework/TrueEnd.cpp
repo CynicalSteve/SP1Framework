@@ -169,7 +169,7 @@ void TrueEnd()
 		if (isKeyPressed(0x52))
 		{
 			clearScreen();
-			finishedgame = 1;
+			finishedgame = 2;
 			reqinteraction = 0;
 			Factfeed = 0;
 			InPortal = 0;

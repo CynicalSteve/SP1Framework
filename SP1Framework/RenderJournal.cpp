@@ -257,7 +257,7 @@ void of()
 		JournalFeed = 11;
 	}
 
-	if (g_abKeyPressed[K_INVSIX] && finishedgame == 1)
+	if (g_abKeyPressed[K_INVSIX] && finishedgame == 2)
 	{
 		smthhappened = true;
 		JournalFeed = 12;
