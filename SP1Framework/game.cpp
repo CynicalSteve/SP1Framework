@@ -62,7 +62,6 @@ void init( void )
     g_eGameState = S_SPLASHSCREEN;
 
 	// sets the music for the game
-	
 	PlaySound(TEXT("HappyMusic.wav"), NULL, SND_LOOP | SND_ASYNC);
 	
 	// sets where the character spawns when game starts
@@ -212,8 +211,8 @@ void update(double dt)
 		case S_PAUSE: processUserInput();
 			break;
 		case S_JOURNAL: processUserInput();
-			//readJpage(JournalFeed);
-			renderJournal();
+			readJpage(JournalFeed);
+			//renderJournal();
 			break;
 		case S_INPUT: processUserInput();
 			break;
@@ -641,15 +640,15 @@ void pause()
 	PauseScreen();
 }
 
-/*void renderJournal()
-{
-	renJournal();
-}*/
-
 void renderJournal()
 {
-	forJournal();
+	renJournal();
 }
+
+/*void renderJournal()
+{
+	forJournal();
+}*/
 
 void renderInput()
 {
