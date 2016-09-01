@@ -9,16 +9,19 @@
 
 using namespace std;
 
-/* void readJpage(int input);
+void readJpage(int input);
+void rendOpage(int input);
 void renderJpage();
-void ess();
-void opt();
-void renJournal(); */
+void ef();
+void of();
+void renJournal();
 
-void Main();
-void EssF();
-void OptF();
-void forJournal();
+/*void Main();
+void EF(); 
+void OF(); 
+void OpenEF(); 
+void OpenOF();
+void forJournal();*/
 
 
 #endif // _RENDERJOURNAL_H
