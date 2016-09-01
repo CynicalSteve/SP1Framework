@@ -11,7 +11,6 @@
 #include <windows.h>
 #include "Windows.h"
 #include "MMSystem.h"
-#include "RenderJournal.h"
 
 using namespace std;
 
@@ -19,7 +18,8 @@ double  g_dElapsedTime;
 double  g_dDeltaTime;
 bool    g_abKeyPressed[K_COUNT];
 
-int Areanum = 1;
+int Areanum;
+int MenusOpen;
 int checkF;                // Checking what the player is interacting with
 
 extern int EssentialFragment;
@@ -29,6 +29,9 @@ extern double g_dTime;
 extern bool JournalMenu;
 extern bool FragSelect;
 extern int JournalFeed;
+extern int InPortal;
+extern bool restart;
+extern double g_chaseElapsedTime;
 
 // Game specific variables here
 SGameChar   g_sChar;
@@ -48,9 +51,9 @@ Console g_Console(110, 55, "SP1 Framework");
 //--------------------------------------------------------------
 void init( void )
 {
-	int musiccheck = 1;
-	int *music;
-	music = &musiccheck;
+	Areanum = 4;
+	MenusOpen = 0;
+
     // Set precision for floating point output
     g_dElapsedTime = 0.0;
     g_dBounceTime = 0.0;
@@ -196,6 +199,7 @@ void update(double dt)
 {
     // get the delta time
     g_dElapsedTime += dt;
+	g_chaseElapsedTime += dt;
     g_dDeltaTime = dt;
 
     switch (g_eGameState)
@@ -213,6 +217,8 @@ void update(double dt)
 		case S_INPUT: processUserInput();
 			break;
 		case S_INSTRUCTIONS: gameplay();
+			break;
+		case S_CHASE: chasegameplay();
 			break;
     }
 
@@ -242,10 +248,9 @@ void render()
 		break;
 	case S_INSTRUCTIONS: instructions();
 		break;
-	case S_BADEND:
-		
-		
-		BadEnd();
+	case S_CHASE: renderChase();
+		break;
+	case S_BADEND: BadEnd();
 		break;
 	case S_TRUEEND: TrueEnd();
 		break;
@@ -409,15 +414,33 @@ void processUserInput()
 		{
 			bSomethingHappened = true;
 
-			if (g_eGameState != 4)
+			if (g_eGameState == S_CHASE || MenusOpen > 0)
 			{
-				g_eGameState = S_PAUSE;
-			}
-			else if (g_eGameState == 4)
-			{
-				clearScreen();
+				if (g_eGameState != 4)
+				{
+					MenusOpen++;
 
-				g_eGameState = S_GAME;
+					g_eGameState = S_PAUSE;
+				}
+				else if (g_eGameState == 4)
+				{
+					clearScreen();
+					MenusOpen--;
+					g_eGameState = S_CHASE;
+				}
+			}
+			else
+			{
+				if (g_eGameState != 4)
+				{
+					g_eGameState = S_PAUSE;
+				}
+				else if (g_eGameState == 4)
+				{
+					clearScreen();
+
+					g_eGameState = S_GAME;
+				}
 			}
 		}
 
@@ -425,19 +448,39 @@ void processUserInput()
 		{
 			bSomethingHappened = true;
 
-			if (g_eGameState != 3)
+			if (g_eGameState == S_CHASE || MenusOpen > 0)
 			{
-				JournalMenu = true;
-				FragSelect = false;
-				JournalFeed = 0;
-
-				g_eGameState = S_JOURNAL;
+				if (g_eGameState != 3)
+				{
+					JournalMenu = true;
+					FragSelect = false;
+					JournalFeed = 0;
+					MenusOpen++;
+					g_eGameState = S_JOURNAL;
+				}
+				else if (g_eGameState == 3)
+				{
+					clearScreen();
+					MenusOpen--;
+					g_eGameState = S_CHASE;
+				}
 			}
-			else if (g_eGameState == 3)
+			else
 			{
-				clearScreen();
+				if (g_eGameState != 3)
+				{
+					JournalMenu = true;
+					FragSelect = false;
+					JournalFeed = 0;
 
-				g_eGameState = S_GAME;
+					g_eGameState = S_JOURNAL;
+				}
+				else if (g_eGameState == 3)
+				{
+					clearScreen();
+
+					g_eGameState = S_GAME;
+				}
 			}
 		}
 
@@ -538,7 +581,7 @@ void renderCharacter()
 {
     // Draw the location of the character
     WORD charColor = 0x0A;
-    g_Console.writeToBuffer(g_sChar.m_cLocation, (char)1, charColor);
+    g_Console.writeToBuffer(g_sChar.m_cLocation, (char)64, charColor);
 }
 
 void renderFeed()
@@ -572,19 +615,19 @@ void renderFramerate()
 {
     COORD c;
     // displays the framerate
-    std::ostringstream ss;
-    ss << std::fixed << std::setprecision(3);
-    ss << 1.0 / g_dDeltaTime << "fps";
-    c.X = g_Console.getConsoleSize().X - 9;
-    c.Y = 0;
-    g_Console.writeToBuffer(c, ss.str());
+    //std::ostringstream ss;
+   // ss << std::fixed << std::setprecision(3);
+    //ss << 1.0 / g_dDeltaTime << "fps";
+   // c.X = g_Console.getConsoleSize().X - 9;
+   // c.Y = 0;
+   // g_Console.writeToBuffer(c, ss.str());
 
     // displays the elapsed time
-    ss.str("");
-    ss << g_dElapsedTime << "secs";
-    c.X = 0;
-    c.Y = 0;
-    g_Console.writeToBuffer(c, ss.str(), 0x59);
+    //ss.str("");
+   // ss << g_dElapsedTime << "secs";
+  //  c.X = 0;
+   // c.Y = 0;
+  //  g_Console.writeToBuffer(c, ss.str(), 0x59);
 }
 void renderToScreen()
 {
@@ -616,4 +659,85 @@ void renderInput()
 void instructions()
 {
 	InstructScreen();
+}
+
+void moveCharChase()
+{
+	bool bSomethingHappened = false;
+	if (g_dBounceTime > g_dElapsedTime)
+		return;
+
+	if (g_abKeyPressed[K_UP] && g_sChar.m_cLocation.Y > 0)
+	{
+		bSomethingHappened = true;
+
+		if (CollisionChase(1) == 1)
+		{
+			g_sChar.m_cLocation.Y--;
+		}
+	}
+	if (g_abKeyPressed[K_DOWN] && (g_sChar.m_cLocation.Y < (g_Console.getConsoleSize().Y - 1)))
+	{
+		bSomethingHappened = true;
+
+		if (CollisionChase(2) == 1)
+		{
+			g_sChar.m_cLocation.Y++;
+		}
+	}
+	if (g_abKeyPressed[K_LEFT] && g_sChar.m_cLocation.X > 0)
+	{
+		bSomethingHappened = true;
+
+		if (CollisionChase(3) == 1)
+		{
+			g_sChar.m_cLocation.X--;
+		}
+	}
+	if (g_abKeyPressed[K_RIGHT] && (g_sChar.m_cLocation.X < (g_Console.getConsoleSize().X - 1)))
+	{
+		bSomethingHappened = true;
+
+		if (CollisionChase(4) == 1)
+		{
+			g_sChar.m_cLocation.X++;
+		}
+	}
+
+	if (bSomethingHappened)
+	{
+		// set the bounce time to some time in the future to prevent accidental triggers
+		g_dBounceTime = g_dElapsedTime + 0.125; // 125ms should be enough
+	}
+}
+
+void chasegameplay()
+{
+	
+	int charX = g_sChar.m_cLocation.X;
+	int charY = g_sChar.m_cLocation.Y;
+
+	processUserInput();
+	moveCharChase();
+	AImovement(charX, charY);
+}
+
+void renderChaseMap()
+{
+	char** printchase = new char*[150];
+	printchase = chasestore(printchase);
+	chasemap(printchase);
+}
+
+void renderChase()
+{
+	if (restart)
+	{
+		g_sChar.m_cLocation.X = g_Console.getConsoleSize().X - 100;
+		g_sChar.m_cLocation.Y = g_Console.getConsoleSize().Y - 29;
+	}
+
+	renderChaseMap();
+	renderAI();
+	renderCharacter();
 }

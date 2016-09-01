@@ -12,12 +12,18 @@
 #include "PlayerInput.h"
 #include "PauseScreen.h"
 #include "InstructScreen.h"
+#include "AI.h"
+#include "AudioPause.h"
+#include "BadEnd.h"
+#include "TrueEnd.h"
+#include "RenderJournal.h"
+#include "ChaseMap.h"
+#include "CheckColiChase.h"
 
 using namespace std;
 
 extern CStopWatch g_swTimer;
 extern bool g_bQuitGame;
-void systempause();
 
 // Enumeration to store the control keys that your game will have
 enum EKEYS
@@ -103,7 +109,8 @@ enum EGAMESTATES
 	S_COUNT,
 	S_INSTRUCTIONS,
 	S_BADEND,
-	S_TRUEEND
+	S_TRUEEND,
+	S_CHASE
 };
 
 // struct for the game character
@@ -139,5 +146,9 @@ void pause();
 void renderJournal();
 void renderInput();
 void instructions();
+void renderChaseMap();
+void renderChase();
+void chasegameplay();
+void moveCharChase();
 
 #endif // _GAME_H

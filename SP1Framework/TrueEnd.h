@@ -1,5 +1,6 @@
 #ifndef _TRUEEND_H
 #define _TRUEEND_H
+
 #include "game.h"
 #include "Framework\console.h"
 #include <iostream>

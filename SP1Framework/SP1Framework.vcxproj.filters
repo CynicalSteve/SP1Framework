@@ -72,6 +72,21 @@
     <ClCompile Include="TrueEnd.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
+=======
+    <ClCompile Include="AI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ChaseMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckColiChase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckColiChaseAI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+>>>>>>> 32817d3844c7b958a435273c6c09c5453ccf2983
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\console.h">
@@ -120,6 +135,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TrueEnd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckColiChase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ChaseMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckColiChaseAI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
