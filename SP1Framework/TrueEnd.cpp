@@ -119,7 +119,7 @@ void TrueEnd()
 	}
 	if (g_dElapsedTime >(g_dTime + 120.0) && g_dElapsedTime < (g_dTime + 126.0))
 	{
-		g_Console.writeToBuffer(c, "\"She's beautiful, Diana, just like her mother.\"", 0x09);
+		g_Console.writeToBuffer(c, "\"Oh, she's beautiful Diana! Just like her mother!\"", 0x09);
 	}
 	if (g_dElapsedTime >(g_dTime + 126.0) && g_dElapsedTime < (g_dTime + 132.0))
 	{
