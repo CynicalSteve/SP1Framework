@@ -662,12 +662,9 @@ void actfeed()
 			g_Console.writeToBuffer(c, "\"Thank you for having me he-\"", 0x03);
 			c.Y += 2;
 		}
-		if (c.Y >= 54)
-		{
-			c.Y = 31;
-		}
 		if (g_dElapsedTime > (g_dTime + 48.0))
 		{
+			c.Y = 31;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 			g_Console.writeToBuffer(c, "\"Ava,\" Matilda interrupted, her eyes burning with anger. \"If that man dares to lay a finger on you", 0x03);
 			c.Y++;
@@ -680,18 +677,28 @@ void actfeed()
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 		}
 		if (g_dElapsedTime > (g_dTime + 55.0))
 		{
+			c.Y = 35;
 			g_Console.writeToBuffer(c, "I feigned a smile.", 0x03);
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 		}
-		if (g_dElapsedTime > (g_dTime + 56.0))
+		if (g_dElapsedTime > (g_dTime + 57.0))
 		{
+			c.Y = 37;
 			g_Console.writeToBuffer(c, "\"I will.\"", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 		}
@@ -722,7 +729,6 @@ void actfeed()
 			g_Console.writeToBuffer(c, "\"Hi Matilda? Are you free this afternoon?\"", 0x03);
 		}
 	}
-
 
 	if (Factfeed == 996) // EF 6.1
 	{
@@ -829,11 +835,15 @@ void actfeed()
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 		}
 		if (g_dElapsedTime > (g_dTime + 49.0))
 		{
 			c.Y = 39;
 			g_Console.writeToBuffer(c, "I blinked once, then twice, as I felt the warmth abandon my body.", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 			c.Y++;
@@ -845,11 +855,17 @@ void actfeed()
 			g_Console.writeToBuffer(c, "The darkness which came stole my body, its freezing embrace wrapping around me like a lover.", 0x03);
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 		}
 		if (g_dElapsedTime > (g_dTime + 56.0))
 		{
 			c.Y = 43;
 			g_Console.writeToBuffer(c, "And then there was nothing.", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 			c.Y++;
@@ -955,13 +971,21 @@ void actfeed()
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 			c.Y++;
 			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 		}
-		if (g_dElapsedTime > (g_dTime + 62.0))
+		if (g_dElapsedTime > (g_dTime + 63.0))
 		{
 			c.Y = 39;
 			g_Console.writeToBuffer(c, "\"Sasha! Jonathan! We're leaving!\" She called out.", 0x03);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
+			c.Y++;
+			g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
 		}
-		if (g_dElapsedTime > (g_dTime + 64.0))
+		if (g_dElapsedTime > (g_dTime + 68.0))
 		{
 			g_dTime = (g_dElapsedTime + 2.0);
 			PlaySound(TEXT("TrueEndMusic.wav"), NULL, SND_SYNC | SND_LOOP | SND_ASYNC);
@@ -1029,20 +1053,6 @@ void actfeed()
 		}
 
 	}
-
-	/* Template for MX
-	if (c.Y == 54)
-	{
-	c.Y = 31;
-	}
-	if (g_dElapsedTime > 9.0)
-	{
-	g_Console.writeToBuffer(c, "                                                                                                             ", 0x02);
-	g_Console.writeToBuffer(c, "Name", 0x04);
-	c.Y += 1;
-	}
-	*/
-
 
 	if (Factfeed > 0)
 	{
