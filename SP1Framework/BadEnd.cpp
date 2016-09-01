@@ -97,6 +97,13 @@ void BadEnd()
 		g_Console.writeToBuffer(c, "|______/ \\_____| \\____|  |______)|_| |_| \\____||_||_| |_| \\___ |", 0x0C);
 		c.Y += 1;
 		g_Console.writeToBuffer(c, "                                                         (_____|", 0x0C);
+		c.Y += 5;
+		g_Console.writeToBuffer(c, "Press 'R' to restart game", 0x06);
+		if (isKeyPressed(0x52))
+		{
+			clearScreen();
+			g_eGameState = S_SPLASHSCREEN;
+		}
 		c.Y = 48;
 		c.X = 1;
 		g_Console.writeToBuffer(c, "<Fragments>", 0x09);
