@@ -18,7 +18,6 @@ double  g_dElapsedTime;
 double  g_dDeltaTime;
 bool    g_abKeyPressed[K_COUNT];
 
-
 int Areanum;
 int MenusOpen;
 int checkF;                // Checking what the player is interacting with
@@ -52,7 +51,7 @@ Console g_Console(110, 55, "SP1 Framework");
 //--------------------------------------------------------------
 void init( void )
 {
-	Areanum = 4;
+	Areanum = 1;
 	MenusOpen = 0;
 
     // Set precision for floating point output
@@ -617,19 +616,19 @@ void renderFramerate()
 {
     COORD c;
     // displays the framerate
-    std::ostringstream ss;
-    ss << std::fixed << std::setprecision(3);
-    ss << 1.0 / g_dDeltaTime << "fps";
-    c.X = g_Console.getConsoleSize().X - 9;
-    c.Y = 0;
-    g_Console.writeToBuffer(c, ss.str());
+    //std::ostringstream ss;
+   // ss << std::fixed << std::setprecision(3);
+    //ss << 1.0 / g_dDeltaTime << "fps";
+   // c.X = g_Console.getConsoleSize().X - 9;
+   // c.Y = 0;
+   // g_Console.writeToBuffer(c, ss.str());
 
     // displays the elapsed time
-    ss.str("");
-    ss << g_dElapsedTime << "secs";
-    c.X = 0;
-    c.Y = 0;
-    g_Console.writeToBuffer(c, ss.str(), 0x59);
+    //ss.str("");
+   // ss << g_dElapsedTime << "secs";
+  //  c.X = 0;
+   // c.Y = 0;
+  //  g_Console.writeToBuffer(c, ss.str(), 0x59);
 }
 void renderToScreen()
 {
@@ -715,6 +714,7 @@ void moveCharChase()
 
 void chasegameplay()
 {
+	
 	int charX = g_sChar.m_cLocation.X;
 	int charY = g_sChar.m_cLocation.Y;
 

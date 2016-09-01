@@ -1087,7 +1087,14 @@ void FstandsforFrustrating(int checkF)
 		Factfeed = 41;
 		break;
 	case 173:
-		Factfeed = 42;
+		if (reqinteraction != 2)
+		{
+			Factfeed = 42;
+		}
+		else
+		{
+			Factfeed = 996;
+		}
 		break;
 	case 271:
 		Factfeed = 43;
@@ -1096,7 +1103,14 @@ void FstandsforFrustrating(int checkF)
 		Factfeed = 44;
 		break;
 	case 273:
-		Factfeed = 45;
+		if (reqinteraction != 2)
+		{
+			Factfeed = 45;
+		}
+		else
+		{
+			Factfeed = 997;
+		}
 		break;
 	case 231:
 		Factfeed = 46;
