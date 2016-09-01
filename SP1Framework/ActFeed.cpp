@@ -1494,11 +1494,6 @@ void actfeed()
 			c.Y++;
 			g_Console.writeToBuffer(c, "Looking at your own casket is really unnerving.", 0x02);
 			break;
-		case 999: // Testing purposes only, pls take out on release build danke.
-			g_Console.writeToBuffer(c, "Whatever you are doing,", 0x02);
-			c.Y++;
-			g_Console.writeToBuffer(c, "it bloody works!", 0x02);
-			break;
 		}
 		c.Y = tempcoords;
 	}
