@@ -21,13 +21,14 @@ bool    g_abKeyPressed[K_COUNT];
 int Areanum;
 int MenusOpen;
 int checkF;                // Checking what the player is interacting with
+int finishedgame = 0;
 
 extern int EssentialFragment;
 extern int OptionalFragment;
 extern string inventory;
 extern double g_dTime;
 extern bool JournalMenu;
-extern bool FragSelect;
+extern int FragSelect;
 extern int JournalFeed;
 extern int InPortal;
 extern bool restart;
@@ -51,7 +52,7 @@ Console g_Console(110, 55, "SP1 Framework");
 //--------------------------------------------------------------
 void init( void )
 {
-	Areanum = 4;
+	Areanum = 1;
 	MenusOpen = 0;
 
     // Set precision for floating point output
@@ -62,7 +63,6 @@ void init( void )
     g_eGameState = S_SPLASHSCREEN;
 
 	// sets the music for the game
-	
 	PlaySound(TEXT("HappyMusic.wav"), NULL, SND_LOOP | SND_ASYNC);
 	
 	// sets where the character spawns when game starts
@@ -212,8 +212,7 @@ void update(double dt)
 		case S_PAUSE: processUserInput();
 			break;
 		case S_JOURNAL: processUserInput();
-			//readJpage(JournalFeed);
-			renderJournal();
+			readJpage(JournalFeed);
 			break;
 		case S_INPUT: processUserInput();
 			break;
@@ -454,7 +453,7 @@ void processUserInput()
 				if (g_eGameState != 3)
 				{
 					JournalMenu = true;
-					FragSelect = false;
+					FragSelect = 0;
 					JournalFeed = 0;
 					MenusOpen++;
 					g_eGameState = S_JOURNAL;
@@ -471,7 +470,7 @@ void processUserInput()
 				if (g_eGameState != 3)
 				{
 					JournalMenu = true;
-					FragSelect = false;
+					FragSelect = 0;
 					JournalFeed = 0;
 
 					g_eGameState = S_JOURNAL;
@@ -641,14 +640,9 @@ void pause()
 	PauseScreen();
 }
 
-/*void renderJournal()
-{
-	renJournal();
-}*/
-
 void renderJournal()
 {
-	forJournal();
+	renJournal();
 }
 
 void renderInput()

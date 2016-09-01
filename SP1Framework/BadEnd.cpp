@@ -6,6 +6,13 @@ extern Console g_Console;
 extern EGAMESTATES g_eGameState;
 extern double g_dElapsedTime;
 extern double g_dTime;
+extern double g_dElapsedTimeTemp;
+extern int InPortal;
+extern int EssentialFragment;
+extern int OptionalFragment;
+extern int Factfeed;
+extern int reqinteraction;
+extern int finishedgame;
 
 void BadEnd()
 {
@@ -102,7 +109,15 @@ void BadEnd()
 		if (isKeyPressed(0x52))
 		{
 			clearScreen();
-			g_eGameState = S_SPLASHSCREEN;
+			finishedgame = 1;
+			reqinteraction = 0;
+			Factfeed = 0;
+			InPortal = 0;
+			g_dTime = 999.0;
+			g_dElapsedTimeTemp = 999.0;
+			EssentialFragment = 0;
+			OptionalFragment = 0;
+			init();
 		}
 		c.Y = 48;
 		c.X = 1;
