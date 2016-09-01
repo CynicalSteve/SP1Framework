@@ -15,7 +15,7 @@ int CollisionChaseAI(int checkChaseAI)
 
 	if (mazestore.is_open())
 	{
-		while (height < 48)
+		while (height < 47)
 		{
 			while (width < 109)
 			{

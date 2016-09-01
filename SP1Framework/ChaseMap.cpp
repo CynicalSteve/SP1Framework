@@ -35,7 +35,7 @@ void chasemap(char** printchase)
 {
 	COORD c;
 
-	for (int AreaY = 0; AreaY < 48; ++AreaY)
+	for (int AreaY = 0; AreaY < 47; ++AreaY)
 	{
 		c.Y = AreaY + 1;
 
@@ -56,7 +56,7 @@ void chasemap(char** printchase)
 		}
 	}
 
-	for (int AreaY = 0; AreaY < 48; ++AreaY)
+	for (int AreaY = 0; AreaY < 47; ++AreaY)
 	{
 		c.Y = AreaY;
 
@@ -73,7 +73,7 @@ void chasemap(char** printchase)
 
 	if (restart)
 	{
-		for (int AreaY = 0; AreaY < 48; ++AreaY)
+		for (int AreaY = 0; AreaY < 47; ++AreaY)
 		{
 			c.Y = AreaY;
 
