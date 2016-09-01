@@ -125,37 +125,37 @@ void ef()
 		}
 	}
 
-	if (g_abKeyPressed[K_INVONE] && (EssentialFragment >= 1 || finishedgame == 1))
+	if (g_abKeyPressed[K_INVONE] && (EssentialFragment >= 1 || finishedgame >= 1))
 	{
 		smthhappened = true;
 		JournalFeed = 1;
 	}
 
-	if (g_abKeyPressed[K_INVTWO] && (EssentialFragment >= 2 || finishedgame == 1))
+	if (g_abKeyPressed[K_INVTWO] && (EssentialFragment >= 2 || finishedgame >= 1))
 	{
 		smthhappened = true;
 		JournalFeed = 2;
 	}
 
-	if (g_abKeyPressed[K_INVTHREE] && (EssentialFragment >= 3 || finishedgame == 1))
+	if (g_abKeyPressed[K_INVTHREE] && (EssentialFragment >= 3 || finishedgame >= 1))
 	{
 		smthhappened = true;
 		JournalFeed = 3;
 	}
 
-	if (g_abKeyPressed[K_INVFOUR] && (EssentialFragment >= 4 || finishedgame == 1))
+	if (g_abKeyPressed[K_INVFOUR] && (EssentialFragment >= 4 || finishedgame >= 1))
 	{
 		smthhappened = true;
 		JournalFeed = 4;
 	}
 
-	if (g_abKeyPressed[K_INVFIVE] && (EssentialFragment >= 5 || finishedgame == 1))
+	if (g_abKeyPressed[K_INVFIVE] && (EssentialFragment >= 5 || finishedgame >= 1))
 	{
 		smthhappened = true;
 		JournalFeed = 5;
 	}
 
-	if (g_abKeyPressed[K_INVSIX] && finishedgame == 1)
+	if (g_abKeyPressed[K_INVSIX] && finishedgame >= 1)
 	{
 		smthhappened = true;
 		JournalFeed = 6;
@@ -227,31 +227,31 @@ void of()
 		}
 	}
 
-	if (g_abKeyPressed[K_INVONE] && (OptionalFragment >= 1 || finishedgame == 1))
+	if (g_abKeyPressed[K_INVONE] && (OptionalFragment >= 1 || finishedgame == 2))
 	{
 		smthhappened = true;
 		JournalFeed = 7;
 	}
 
-	if (g_abKeyPressed[K_INVTWO] && (OptionalFragment >= 2 || finishedgame == 1))
+	if (g_abKeyPressed[K_INVTWO] && (OptionalFragment >= 2 || finishedgame == 2))
 	{
 		smthhappened = true;
 		JournalFeed = 8;
 	}
 
-	if (g_abKeyPressed[K_INVTHREE] && (OptionalFragment >= 3 || finishedgame == 1))
+	if (g_abKeyPressed[K_INVTHREE] && (OptionalFragment >= 3 || finishedgame == 2))
 	{
 		smthhappened = true;
 		JournalFeed = 9;
 	}
 
-	if (g_abKeyPressed[K_INVFOUR] && (OptionalFragment >= 4 || finishedgame == 1))
+	if (g_abKeyPressed[K_INVFOUR] && (OptionalFragment >= 4 || finishedgame == 2))
 	{
 		smthhappened = true;
 		JournalFeed = 10;
 	}
 
-	if (g_abKeyPressed[K_INVFIVE] && (OptionalFragment >= 5 || finishedgame == 1))
+	if (g_abKeyPressed[K_INVFIVE] && (OptionalFragment >= 5 || finishedgame == 2))
 	{
 		smthhappened = true;
 		JournalFeed = 11;
