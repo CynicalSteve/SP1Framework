@@ -10,8 +10,7 @@ extern int EssentialFragment;
 extern int OptionalFragment;
 extern int Factfeed;
 extern int reqinteraction;
-
-int finishedgame = 0;
+extern int finishedgame;
 
 void TrueEnd()
 {

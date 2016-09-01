@@ -21,6 +21,7 @@ bool    g_abKeyPressed[K_COUNT];
 int Areanum;
 int MenusOpen;
 int checkF;                // Checking what the player is interacting with
+int finishedgame;
 
 extern int EssentialFragment;
 extern int OptionalFragment;
@@ -212,7 +213,6 @@ void update(double dt)
 			break;
 		case S_JOURNAL: processUserInput();
 			readJpage(JournalFeed);
-			//renderJournal();
 			break;
 		case S_INPUT: processUserInput();
 			break;
@@ -644,11 +644,6 @@ void renderJournal()
 {
 	renJournal();
 }
-
-/*void renderJournal()
-{
-	forJournal();
-}*/
 
 void renderInput()
 {
