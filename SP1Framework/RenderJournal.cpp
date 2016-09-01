@@ -8,7 +8,7 @@ extern double g_dBounceTime;
 COORD c = g_Console.getConsoleSize();
 
 bool JournalMenu = true;
-bool FragSelect = false;
+bool FragSelect;
 int JournalFeed;
 char Jpagez[150][150];
 bool smthhappened = false;
@@ -354,18 +354,16 @@ void renJournal()
 	if (g_dBounceTime > g_dElapsedTime)
 		return;
 
-	if (!JournalMenu)
+	if (JournalMenu == false)
 	{
-		JournalMenu = false;
-		FragSelect = true;
-		ef();
-	}
-
-	if (!JournalMenu)
-	{
-		JournalMenu = false;
-		FragSelect = true;
-		of();
+		if (FragSelect == true)
+		{
+			ef();
+		}
+		else if (FragSelect == false)
+		{
+			of();
+		}
 	}
 	else
 	{
@@ -396,10 +394,10 @@ void renJournal()
 			FragSelect = true;
 			JournalMenu = false;
 		}
-		if (g_abKeyPressed[K_INVTWO] == 1)
+		if (g_abKeyPressed[K_INVTWO])
 		{
 			smthhappened = true;
-			FragSelect = true;
+			FragSelect = false;
 			JournalMenu = false;
 		}
 	}
