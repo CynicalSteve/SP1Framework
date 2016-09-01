@@ -15,7 +15,7 @@ char** chasestore(char** printchase)
 
 	if (maze.is_open())
 	{
-		for (int AreaY = 0; AreaY < 48; AreaY++)
+		for (int AreaY = 0; AreaY < 47; AreaY++)
 		{
 			printchase[AreaY] = new char[150];
 
