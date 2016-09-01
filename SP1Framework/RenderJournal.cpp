@@ -20,7 +20,7 @@ int toview = 0;*/
 //--------------------------------------------------
 // To select fragments in journal
 
-void readFpage(int input)
+void readJpage(int input)
 {
 	std::ifstream Fpage;
 	int height = 0;
