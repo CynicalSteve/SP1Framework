@@ -19,8 +19,8 @@ double  g_dDeltaTime;
 bool    g_abKeyPressed[K_COUNT];
 
 
-int Areanum = 4;
-
+int Areanum;
+int MenusOpen;
 int checkF;                // Checking what the player is interacting with
 
 extern int EssentialFragment;
@@ -52,6 +52,9 @@ Console g_Console(110, 55, "SP1 Framework");
 //--------------------------------------------------------------
 void init( void )
 {
+	Areanum = 4;
+	MenusOpen = 0;
+
     // Set precision for floating point output
     g_dElapsedTime = 0.0;
     g_dBounceTime = 0.0;
@@ -413,15 +416,33 @@ void processUserInput()
 		{
 			bSomethingHappened = true;
 
-			if (g_eGameState != 4)
+			if (g_eGameState == S_CHASE || MenusOpen > 0)
 			{
-				g_eGameState = S_PAUSE;
-			}
-			else if (g_eGameState == 4)
-			{
-				clearScreen();
+				if (g_eGameState != 4)
+				{
+					MenusOpen++;
 
-				g_eGameState = S_GAME;
+					g_eGameState = S_PAUSE;
+				}
+				else if (g_eGameState == 4)
+				{
+					clearScreen();
+					MenusOpen--;
+					g_eGameState = S_CHASE;
+				}
+			}
+			else
+			{
+				if (g_eGameState != 4)
+				{
+					g_eGameState = S_PAUSE;
+				}
+				else if (g_eGameState == 4)
+				{
+					clearScreen();
+
+					g_eGameState = S_GAME;
+				}
 			}
 		}
 
@@ -429,19 +450,39 @@ void processUserInput()
 		{
 			bSomethingHappened = true;
 
-			if (g_eGameState != 3)
+			if (g_eGameState == S_CHASE || MenusOpen > 0)
 			{
-				JournalMenu = true;
-				FragSelect = false;
-				JournalFeed = 0;
-
-				g_eGameState = S_JOURNAL;
+				if (g_eGameState != 3)
+				{
+					JournalMenu = true;
+					FragSelect = false;
+					JournalFeed = 0;
+					MenusOpen++;
+					g_eGameState = S_JOURNAL;
+				}
+				else if (g_eGameState == 3)
+				{
+					clearScreen();
+					MenusOpen--;
+					g_eGameState = S_CHASE;
+				}
 			}
-			else if (g_eGameState == 3)
+			else
 			{
-				clearScreen();
+				if (g_eGameState != 3)
+				{
+					JournalMenu = true;
+					FragSelect = false;
+					JournalFeed = 0;
 
-				g_eGameState = S_GAME;
+					g_eGameState = S_JOURNAL;
+				}
+				else if (g_eGameState == 3)
+				{
+					clearScreen();
+
+					g_eGameState = S_GAME;
+				}
 			}
 		}
 
