@@ -21,14 +21,14 @@ bool    g_abKeyPressed[K_COUNT];
 int Areanum;
 int MenusOpen;
 int checkF;                // Checking what the player is interacting with
-int finishedgame;
+int finishedgame = 0;
 
 extern int EssentialFragment;
 extern int OptionalFragment;
 extern string inventory;
 extern double g_dTime;
 extern bool JournalMenu;
-extern bool FragSelect;
+extern int FragSelect;
 extern int JournalFeed;
 extern int InPortal;
 extern bool restart;
@@ -52,7 +52,7 @@ Console g_Console(110, 55, "SP1 Framework");
 //--------------------------------------------------------------
 void init( void )
 {
-	Areanum = 6;
+	Areanum = 1;
 	MenusOpen = 0;
 
     // Set precision for floating point output
@@ -453,7 +453,7 @@ void processUserInput()
 				if (g_eGameState != 3)
 				{
 					JournalMenu = true;
-					FragSelect = false;
+					FragSelect = 0;
 					JournalFeed = 0;
 					MenusOpen++;
 					g_eGameState = S_JOURNAL;
@@ -470,7 +470,7 @@ void processUserInput()
 				if (g_eGameState != 3)
 				{
 					JournalMenu = true;
-					FragSelect = false;
+					FragSelect = 0;
 					JournalFeed = 0;
 
 					g_eGameState = S_JOURNAL;

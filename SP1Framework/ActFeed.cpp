@@ -16,6 +16,7 @@ extern int levelfinish;
 extern int OptionalFragment;
 extern int EssentialFragment;
 extern int reqinteraction;
+extern int finishedgame;
 
 void actfeed()
 {
@@ -29,6 +30,12 @@ void actfeed()
 	if (Areanum == 1 && EssentialFragment == 0 && OptionalFragment == 0)
 	{
 		c.Y = 31;
+
+		if (finishedgame == 1)
+		{
+			g_Console.writeToBuffer(c, "Since you've finished the game, you now have access to all fragments.", 0x06);
+			c.Y++;
+		}
 
 		g_Console.writeToBuffer(c, "Use WASD keys to move around, F key to interact and E to enter/use.", 0x05);
 		c.Y++;

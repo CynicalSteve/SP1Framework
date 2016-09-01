@@ -4,18 +4,17 @@ extern Console g_Console;
 extern bool g_abKeyPressed[K_COUNT];
 extern double g_dElapsedTime;
 extern double g_dBounceTime;
+extern int EssentialFragment;
+extern int OptionalFragment;
+extern int finishedgame;
 
 COORD c = g_Console.getConsoleSize();
 
 bool JournalMenu = true;
-bool FragSelect;
+int FragSelect = 0;
 int JournalFeed;
 char Jpagez[150][150];
 bool smthhappened = false;
-
-/*string journal, efrag, ofrag;
-ifstream file;
-int toview = 0;*/
 
 //--------------------------------------------------
 // To select fragments in journal
@@ -49,6 +48,24 @@ void readJpage(int input)
 	case 6:
 		Fpage.open("Text files/EssFrag6_1_1.txt");
 		break;
+	case 7:
+		Fpage.open("Text files/OppFrag1.txt");
+		break;
+	case 8:
+		Fpage.open("Text files/OppFrag2.txt");
+		break;
+	case 9:
+		Fpage.open("Text files/OppFrag3.txt");
+		break;
+	case 10:
+		Fpage.open("Text files/OppFrag4.txt");
+		break;
+	case 11:
+		Fpage.open("Text files/OppFrag5.txt");
+		break;
+	case 12:
+		Fpage.open("Text files/OppFrag6.txt");
+		break;
 	}
 
 	if (Fpage.is_open())
@@ -65,54 +82,6 @@ void readJpage(int input)
 		}
 
 		Fpage.close();
-	}
-}
-
-void readOpage(int input)
-{
-	std::ifstream Opage;
-	int height = 0;
-	int width = 0;
-
-	switch (input)
-	{
-	case 0:
-		Opage.open("Text files/EssFragNone.txt");
-		break;
-	case 1:
-		Opage.open("Text files/OppFrag1.txt");
-		break;
-	case 2:
-		Opage.open("Text files/OppFrag2.txt");
-		break;
-	case 3:
-		Opage.open("Text files/OppFrag3.txt");
-		break;
-	case 4:
-		Opage.open("Text files/OppFrag4.txt");
-		break;
-	case 5:
-		Opage.open("Text files/OppFrag5.txt");
-		break;
-	case 6:
-		Opage.open("Text files/OppFrag6_2_1.txt");
-		break;
-	}
-
-	if (Opage.is_open())
-	{
-		while (height < 40)
-		{
-			while (width < 109)
-			{
-				Opage >> Jpagez[height][width];
-				width++;
-			}
-			width = 0;
-			height++;
-		}
-
-		Opage.close();
 	}
 }
 
@@ -148,7 +117,7 @@ void ef()
 		if (JournalFeed == 0)
 		{
 			JournalMenu = true;
-			FragSelect = false;
+			FragSelect = 0;
 		}
 		else
 		{
@@ -156,37 +125,37 @@ void ef()
 		}
 	}
 
-	if (g_abKeyPressed[K_INVONE])
+	if (g_abKeyPressed[K_INVONE] && (EssentialFragment >= 1 || finishedgame == 1))
 	{
 		smthhappened = true;
 		JournalFeed = 1;
 	}
 
-	if (g_abKeyPressed[K_INVTWO])
+	if (g_abKeyPressed[K_INVTWO] && (EssentialFragment >= 2 || finishedgame == 1))
 	{
 		smthhappened = true;
 		JournalFeed = 2;
 	}
 
-	if (g_abKeyPressed[K_INVTHREE])
+	if (g_abKeyPressed[K_INVTHREE] && (EssentialFragment >= 3 || finishedgame == 1))
 	{
 		smthhappened = true;
 		JournalFeed = 3;
 	}
 
-	if (g_abKeyPressed[K_INVFOUR])
+	if (g_abKeyPressed[K_INVFOUR] && (EssentialFragment >= 4 || finishedgame == 1))
 	{
 		smthhappened = true;
 		JournalFeed = 4;
 	}
 
-	if (g_abKeyPressed[K_INVFIVE])
+	if (g_abKeyPressed[K_INVFIVE] && (EssentialFragment >= 5 || finishedgame == 1))
 	{
 		smthhappened = true;
 		JournalFeed = 5;
 	}
 
-	if (g_abKeyPressed[K_INVSIX])
+	if (g_abKeyPressed[K_INVSIX] && finishedgame == 1)
 	{
 		smthhappened = true;
 		JournalFeed = 6;
@@ -250,7 +219,7 @@ void of()
 		if (JournalFeed == 0)
 		{
 			JournalMenu = true;
-			FragSelect = false;
+			FragSelect = 0;
 		}
 		else
 		{
@@ -258,37 +227,37 @@ void of()
 		}
 	}
 
-	if (g_abKeyPressed[K_INVONE])
+	if (g_abKeyPressed[K_INVONE] && (OptionalFragment >= 1 || finishedgame == 1))
 	{
 		smthhappened = true;
 		JournalFeed = 7;
 	}
 
-	if (g_abKeyPressed[K_INVTWO])
+	if (g_abKeyPressed[K_INVTWO] && (OptionalFragment >= 2 || finishedgame == 1))
 	{
 		smthhappened = true;
 		JournalFeed = 8;
 	}
 
-	if (g_abKeyPressed[K_INVTHREE])
+	if (g_abKeyPressed[K_INVTHREE] && (OptionalFragment >= 3 || finishedgame == 1))
 	{
 		smthhappened = true;
 		JournalFeed = 9;
 	}
 
-	if (g_abKeyPressed[K_INVFOUR])
+	if (g_abKeyPressed[K_INVFOUR] && (OptionalFragment >= 4 || finishedgame == 1))
 	{
 		smthhappened = true;
 		JournalFeed = 10;
 	}
 
-	if (g_abKeyPressed[K_INVFIVE])
+	if (g_abKeyPressed[K_INVFIVE] && (OptionalFragment >= 5 || finishedgame == 1))
 	{
 		smthhappened = true;
 		JournalFeed = 11;
 	}
 
-	if (g_abKeyPressed[K_INVSIX])
+	if (g_abKeyPressed[K_INVSIX] && finishedgame == 1)
 	{
 		smthhappened = true;
 		JournalFeed = 12;
@@ -356,11 +325,11 @@ void renJournal()
 
 	if (JournalMenu == false)
 	{
-		if (FragSelect == true)
+		if (FragSelect == 1)
 		{
 			ef();
 		}
-		else if (FragSelect == false)
+		else if (FragSelect == 2)
 		{
 			of();
 		}
@@ -391,230 +360,14 @@ void renJournal()
 		if (g_abKeyPressed[K_INVONE])
 		{
 			smthhappened = true;
-			FragSelect = true;
+			FragSelect = 1;
 			JournalMenu = false;
 		}
 		if (g_abKeyPressed[K_INVTWO])
 		{
 			smthhappened = true;
-			FragSelect = false;
+			FragSelect = 2;
 			JournalMenu = false;
 		}
 	}
 }
-
-/*void Main()
-{
-	c.Y = 1;
-	c.X = g_Console.getConsoleSize().X / 2 - 15;
-	g_Console.writeToBuffer(c, "Journal");
-
-	c.Y = 4;
-	c.X = g_Console.getConsoleSize().X / 2 - 20;
-	g_Console.writeToBuffer(c, "Essential Fragments");
-
-	c.Y = 6;
-	c.X = g_Console.getConsoleSize().X / 2 - 20;
-	g_Console.writeToBuffer(c, "Optional Fragments");
-
-	c.Y = 9;
-	c.X = g_Console.getConsoleSize().X / 2 - 30;
-	g_Console.writeToBuffer(c, "Press '1' to activate 'Essential Fragments'.");
-
-	c.Y = 10;
-	c.X = g_Console.getConsoleSize().X / 2 - 30;
-	g_Console.writeToBuffer(c, "Press '2' to activate 'Optional Fragments'.");
-}
-
-void EF()
-{
-	c.Y = 1;
-	c.X = g_Console.getConsoleSize().X / 2 - 24;
-	g_Console.writeToBuffer(c, "Essential Fragments");
-
-	c.Y = 4;
-	c.X = g_Console.getConsoleSize().X / 2 - 20;
-	g_Console.writeToBuffer(c, "Fragment 1");
-
-	c.Y = 6;
-	c.X = g_Console.getConsoleSize().X / 2 - 20;
-	g_Console.writeToBuffer(c, "Fragment 2");
-
-	c.Y = 8;
-	c.X = g_Console.getConsoleSize().X / 2 - 20;
-	g_Console.writeToBuffer(c, "Fragment 3");
-
-	c.Y = 10;
-	c.X = g_Console.getConsoleSize().X / 2 - 20;
-	g_Console.writeToBuffer(c, "Fragment 4");
-
-	c.Y = 12;
-	c.X = g_Console.getConsoleSize().X / 2 - 20;
-	g_Console.writeToBuffer(c, "Fragment 5");
-
-	c.Y = 14;
-	c.X = g_Console.getConsoleSize().X / 2 - 20;
-	g_Console.writeToBuffer(c, "Fragment 6");
-
-	c.Y = 17;
-	c.X = g_Console.getConsoleSize().X / 2 - 45;
-	g_Console.writeToBuffer(c, "Press the number indicated to a fragment to activate a memory.");
-
-	c.Y = 18;
-	c.X = g_Console.getConsoleSize().X / 2 - 24;
-	g_Console.writeToBuffer(c, "Press 'b' to go back.");
-}
-
-void OF()
-{
-	c.Y = 1;
-	c.X = g_Console.getConsoleSize().X / 2 - 24;
-	g_Console.writeToBuffer(c, "Optional Fragments");
-
-	c.Y = 4;
-	c.X = g_Console.getConsoleSize().X / 2 - 20;
-	g_Console.writeToBuffer(c, "Fragment 1");
-
-	c.Y = 6;
-	c.X = g_Console.getConsoleSize().X / 2 - 20;
-	g_Console.writeToBuffer(c, "Fragment 2");
-
-	c.Y = 8;
-	c.X = g_Console.getConsoleSize().X / 2 - 20;
-	g_Console.writeToBuffer(c, "Fragment 3");
-
-	c.Y = 10;
-	c.X = g_Console.getConsoleSize().X / 2 - 20;
-	g_Console.writeToBuffer(c, "Fragment 4");
-
-	c.Y = 12;
-	c.X = g_Console.getConsoleSize().X / 2 - 20;
-	g_Console.writeToBuffer(c, "Fragment 5");
-
-	c.Y = 14;
-	c.X = g_Console.getConsoleSize().X / 2 - 20;
-	g_Console.writeToBuffer(c, "Fragment 6");
-
-	c.Y = 17;
-	c.X = g_Console.getConsoleSize().X / 2 - 45;
-	g_Console.writeToBuffer(c, "Press the number indicated to a fragment to activate a memory.");
-
-	c.Y = 18;
-	c.X = g_Console.getConsoleSize().X / 2 - 24;
-	g_Console.writeToBuffer(c, "Press 'b' to go back.");
-}
-
-void OpenEF()
-{
-	c.X = 1;
-	c.Y = 2;
-
-	file.open("Text files/EF1.txt");
-	while (getline(file, efrag))
-	{
-		g_Console.writeToBuffer(c, efrag);
-		c.Y++;
-	}
-	file.close();
-}
-
-void forJournal()
-{
-	bool bSomethingHappened = false;
-
-	if (g_dBounceTime > g_dElapsedTime)
-		return;
-
-	if (g_abKeyPressed[K_INVONE] == true && toview == 1)
-	{
-		toview = 3;
-		bSomethingHappened = true;
-	}
-	if (g_abKeyPressed[K_INVONE] == true && toview == 0)
-	{
-		toview = 1;
-		bSomethingHappened = true;
-	}
-	if (g_abKeyPressed[K_INVTWO])
-	{
-		if (toview == 0)
-			toview = 2;
-	}
-	if (g_abKeyPressed[K_B])
-	{
-		if (toview == 1)
-			toview = 0;
-		if (toview == 3)
-			toview = 1;
-		bSomethingHappened = true;
-	}
-
-	if (toview == 1)
-	{
-		EF();
-	}
-	if (toview == 2)
-	{
-		OF();
-	}
-	if (toview == 3)
-	{
-		OpenEF();
-	}
-	if (toview == 0)
-	{
-		Main();
-	}
-	if (bSomethingHappened)
-	{
-		// set the bounce time to some time in the future to prevent accidental triggers
-		g_dBounceTime = g_dElapsedTime + 0.25;
-	}
-}*/
-
-//-----------------------------------------------------
-// For notes
-/*c.X = 1;
-c.Y = 1;
-	
-string fragments;
-ifstream file;
-file.open("Text files/EssFrag2.txt");
-	
-while (!file.eof())
-{
-	getline(file, fragments);
-	g_Console.writeToBuffer(c, fragments);
-	c.Y++;
-}
-file.close();
-
-c.X = 1;
-c.Y = 1;
-	
-string fragments;
-ifstream file;
-file.open("Text files/EssFrag3.txt");
-	
-while (!file.eof())
-{
-	getline(file, fragments);
-	g_Console.writeToBuffer(c, fragments);
-	c.Y++;
-}
-file.close();
-
-c.X = 1;
-c.Y = 1;
-	
-string fragments;
-ifstream file;
-file.open("Text files/EssFrag4.txt");
-	
-while (!file.eof())
-{
-	getline(file, fragments);
-	g_Console.writeToBuffer(c, fragments);
-	c.Y++;
-}
-file.close();*/
