@@ -72,8 +72,6 @@
     <ClCompile Include="TrueEnd.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-<<<<<<< HEAD
-=======
     <ClCompile Include="AI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -86,7 +84,6 @@
     <ClCompile Include="CheckColiChaseAI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
->>>>>>> 32817d3844c7b958a435273c6c09c5453ccf2983
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework\console.h">
